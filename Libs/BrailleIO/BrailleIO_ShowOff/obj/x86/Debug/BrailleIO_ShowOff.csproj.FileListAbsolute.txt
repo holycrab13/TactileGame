@@ -1,0 +1,9 @@
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\bin\Debug\BrailleIO_ShowOff.exe.config
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\bin\Debug\BrailleIO_ShowOff.exe
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\bin\Debug\BrailleIO_ShowOff.pdb
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO_ShowOff.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO_ShowOff.Properties.Resources.resources
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO.ShowOff.resources
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO_ShowOff.csproj.GenerateResource.Cache
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO_ShowOff.exe
+C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_ShowOff\obj\x86\Debug\BrailleIO_ShowOff.pdb

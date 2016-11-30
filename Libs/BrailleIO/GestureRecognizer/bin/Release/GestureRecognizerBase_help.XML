@@ -1,0 +1,1127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestureRecognizerBase</name>
+    </assembly>
+    <members>
+        <member name="T:Gestures.Recognition.Preprocessing.BlobTracker">
+            <summary>
+            Tracks blobs or touch values on the surface through the time 
+            and therefore computes trajectories of a single touch say a 
+            moving finger.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.ITrackBlobs">
+            <summary>
+            Provides methods for initiate and perform blob tracking of sensor data within a frame.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.ITrackBlobs.InitiateTracking">
+            <summary>
+            Initiates the tracking.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.ITrackBlobs.AddFrame(Gestures.Recognition.GestureData.Frame)">
+            <summary>
+            Adds a sensor data frame to the frame set.
+            </summary>
+            <param name="frame">The frame.</param>
+        </member>
+        <member name="E:Gestures.Recognition.Interfaces.ITrackBlobs.OnTrackedFrame">
+            <summary>
+            Occurs when a frame is handled (tracked).
+            </summary>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ITrackBlobs.TrackedBlobs">
+            <summary>
+            Gets the tracked blobs (combined sensory date groups).
+            </summary>
+            <value>
+            The tracked blobs.
+            </value>
+        </member>
+        <member name="M:Gestures.Recognition.Preprocessing.BlobTracker.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.Preprocessing.BlobTracker"/> class.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.Preprocessing.BlobTracker.InitiateTracking">
+            <summary>
+            Initiates the tracking.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.Preprocessing.BlobTracker.AddFrame(Gestures.Recognition.GestureData.Frame)">
+            <summary>
+            Adds a new frame of sensor data.
+            </summary>
+            <param name="frame">The frame.</param>
+        </member>
+        <member name="P:Gestures.Recognition.Preprocessing.BlobTracker.TrackedBlobs">
+            <summary>
+            Gets the tracked blobs.
+            </summary>
+            <value>The tracked blobs.</value>
+        </member>
+        <member name="E:Gestures.Recognition.Preprocessing.BlobTracker.OnTrackedFrame">
+            <summary>
+            Occurs when a frame is tracked.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.TapClassifier">
+            <summary>
+            Gesture classifier for simple Tab gestures
+            </summary>
+            <seealso cref="T:Gestures.Recognition.Interfaces.IClassify"/>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.IClassify">
+            <summary>
+            Provides interface for classification of some input to some result.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.IClassify`2">
+            <summary>
+            Interfaces for classify something.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.IClassify`2.Classify(`0)">
+            <summary>
+            Classifies the specified input data.
+            </summary>
+            <param name="inputData">The input data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gestures.Recognition.TapClassifier.Classify(Gestures.Recognition.GestureData.TrackedGesture)">
+            <summary>
+            Classifies the specified gesture.
+            </summary>
+            <param name="gesture">The gesture.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gestures.Recognition.TapClassifier.CheckForTapGestures(Gestures.Recognition.GestureData.TrackedGesture,Gestures.Geometrie.Vertex.Vertex@)">
+            <summary>
+            Checks for tap gestures.
+            </summary>
+            <param className="clusteredSamples">The clustered samples.</param>
+            <returns>Number of Taps detected, -1 if no tap gesture could be recognized.</returns>
+        </member>
+        <member name="T:Gestures.Recognition.MultitouchClassifier">
+            <summary>
+            A classifier to be used by a GestureRecognizer instance.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.MultitouchClassifier.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.MultitouchClassifier"/> class.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.MultitouchClassifier.Classify(Gestures.Recognition.GestureData.TrackedGesture)">
+            <summary>
+            Classifies the specified input data.
+            </summary>
+            <param name="inputData">The input data.</param>
+            <returns>a classification result containing name and parameter of the recognized gesture if
+            recognition succeeds, null otherwise.</returns>
+        </member>
+        <member name="T:GestureRecognition.Cluster">
+            <summary>
+            Class for a complex cluster.
+            </summary>
+        </member>
+        <member name="M:GestureRecognition.Cluster.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GestureRecognition.Cluster"/> class.
+            </summary>
+            <param name="num">The numeric value.</param>
+        </member>
+        <member name="M:GestureRecognition.Cluster.Add(System.Int32)">
+            <summary>
+            Adds the specified element to the cluster set.
+            </summary>
+            <param name="element">The id of the element to add.</param>
+        </member>
+        <member name="M:GestureRecognition.Cluster.Remove(System.Int32)">
+            <summary>
+            Removes the specified element from the cluster set.
+            </summary>
+            <param name="element">The id of the element to remove.</param>
+        </member>
+        <member name="M:GestureRecognition.Cluster.Merge(GestureRecognition.Cluster)">
+            <summary>
+            Merges the specified target into the cluster set.
+            </summary>
+            <param name="target">The target that should be merged into the cluster set.</param>
+        </member>
+        <member name="M:GestureRecognition.Cluster.Diff(GestureRecognition.Cluster)">
+            <summary>
+            Differences the specified target. Removes all elements of the target from the cluster set.
+            </summary>
+            <param name="target">The target that should be removed from the cluster set.</param>
+        </member>
+        <member name="P:GestureRecognition.Cluster.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GestureRecognition.Cluster.Mean">
+            <summary>
+            Gets or sets the mean value.
+            </summary>
+            <value>
+            The mean.
+            </value>
+        </member>
+        <member name="P:GestureRecognition.Cluster.ClusterSet">
+            <summary>
+            Gets the cluster set.
+            </summary>
+            <value>
+            The cluster set.
+            </value>
+        </member>
+        <member name="T:GestureRecognition.Clusterer">
+            <summary>
+            Clusters sensor data.
+            </summary>
+        </member>
+        <member name="M:GestureRecognition.Clusterer.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GestureRecognition.Clusterer"/> class.
+            </summary>
+        </member>
+        <member name="M:GestureRecognition.Clusterer.Cluster(System.Double[0:,0:],System.Double)">
+            <summary>
+            Clusters the sensor data in the braille display representation regarding to some specified threshold.
+            </summary>
+            <param name="sensorMatrix">The sensor data matrix.</param>
+            <param name="threshold">The threshold.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gestures.Geometrie.KdTree.KdTree">
+            <summary>
+            Implementation for a KD-Tree structure
+            </summary>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.#ctor(System.Collections.Generic.IList{Gestures.Geometrie.Vertex.Vertex},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Geometrie.KdTree.KdTree"/> class.
+            </summary>
+            <param name="elements">The elements of the tree.</param>
+            <param name="dimension">The dimension of the tree.</param>
+            <param name="cutoff">The cutoff.</param>
+            <param name="bndslevel">The bndslevel.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.TopDownNearestNeighbour``1(``0)">
+            <summary>
+            Try to find the nearest neighbor in the tree top down.
+            </summary>
+            <typeparam name="Vertex">The type of the vertex.</typeparam>
+            <param name="target">The target to start search.</param>
+            <returns>The nearest neighbor.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.SetRad(System.Int32,System.Double)">
+            <summary>
+            Sets the radius for bottom up search.
+            </summary>
+            <param name="nntarget">The nntarget.</param>
+            <param name="newRad">The new RAD.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.NearestNeighbour(System.Int32)">
+            <summary>
+            Try to get the Nearest neighbor in bottom up search.
+            </summary>
+            <param name="j">The start position.</param>
+            <returns>the nearest neighbor in bottom up search.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.FixedRadiusNearestNeighbour(System.Int32,System.Double)">
+            <summary>
+            Try to find the nearest neighbor in bottom up search but with a fixes search radius..
+            </summary>
+            <param name="ptnum">The start point.</param>
+            <param name="rad">The maximum radius.</param>
+            <returns>Th nearest neighbor in bottom up search with fixed search radius.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.BallSearch(System.Int32)">
+            <summary>
+            Performs a Ball search
+            </summary>
+            <param name="j">The start point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.Delete(System.Int32)">
+            <summary>
+            Deletes the specified point from the tree.
+            </summary>
+            <param name="pointNum">The point number to delete.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.Undelete(System.Int32)">
+            <summary>
+            Undo a delete operation.
+            </summary>
+            <param name="pointNum">The point number.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdTree.Included(System.Int32)">
+            <summary>
+            Check if the tree contains a specified index.
+            </summary>
+            <param name="index">The index.</param>
+            <returns><c>true</c> if the index is included; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdTree.Count">
+            <summary>
+            Gets the amount of vertexes of this tree.
+            </summary>
+            <value>
+            The count of vertexes.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdTree.Dimension">
+            <summary>
+            Gets the dimension of this tree.
+            </summary>
+            <value>
+            The dimension.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdTree.CutOffValue">
+            <summary>
+            Gets the cut off value of this tree.
+            </summary>
+            <value>
+            The cut off value.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdTree.Level4BoundsCheck">
+            <summary>
+            Gets the level for a bounds check.
+            </summary>
+            <value>
+            The level for a bounds check.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdTree.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Gestures.Geometrie.Vertex.Vertex"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:Gestures.Geometrie.Vertex.Vertex"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gestures.Geometrie.KdTree.KdNode">
+            <summary>
+            Class of a node inside a KD-tree
+            </summary>
+        </member>
+        <member name="M:Gestures.Geometrie.KdTree.KdNode.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Geometrie.KdTree.KdNode"/> class.
+            </summary>
+            <param name="depth">The depth.</param>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.CutDim">
+            <summary>
+            Gets the cut off dimension of this node.
+            </summary>
+            <value>
+            The cut dim.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.Bucket">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Gestures.Geometrie.KdTree.KdNode"/> is bucket.
+            </summary>
+            <value>
+              <c>true</c> if bucket; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.LoPt">
+            <summary>
+            Gets or sets the low point.
+            </summary>
+            <value>
+            The low point.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.HiPt">
+            <summary>
+            Gets or sets the high point.
+            </summary>
+            <value>
+            The high point.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.CutVal">
+            <summary>
+            Gets the cut off value of this node.
+            </summary>
+            <value>
+            The cut off value.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.LoSon">
+            <summary>
+            Gets or sets the lower son.
+            </summary>
+            <value>
+            The lower son.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.HiSon">
+            <summary>
+            Gets or sets the higher son.
+            </summary>
+            <value>
+            The higher son.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.Father">
+            <summary>
+            Gets or sets the father of this node.
+            </summary>
+            <value>
+            The father.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.Empty">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Gestures.Geometrie.KdTree.KdNode"/> is empty.
+            </summary>
+            <value>
+              <c>true</c> if empty; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.Depth">
+            <summary>
+            Gets the depth.
+            </summary>
+            <value>
+            The depth.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.Bound">
+            <summary>
+            Gets or sets the bounds.
+            </summary>
+            <value>
+            The bounds.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.KdTree.KdNode.IntersectingBalls">
+            <summary>
+            Gets the intersecting balls.
+            </summary>
+            <value>
+            The intersecting balls.
+            </value>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.IVertex">
+            <summary>
+            Vertex
+            </summary>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.IVertex.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.Double"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.IVertex.Num">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.Vertexoperators">
+            <summary>
+            Class for vertex operation functions
+            </summary>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.Subtract``2(``0,``1)">
+            <summary>
+            Subtracts two vertexes.
+            </summary>
+            <typeparam name="Vert1">The type of the vert1.</typeparam>
+            <typeparam name="Vert2">The type of the vert2.</typeparam>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>The result of the substraction</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.DotProduct``2(``0,``1)">
+            <summary>
+            Calculates the dot product.
+            </summary>
+            <typeparam name="Vert1">The type of the vert1.</typeparam>
+            <typeparam name="Vert2">The type of the vert2.</typeparam>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>The dot product of two vertexes.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.Add``2(``0,``1)">
+            <summary>
+            Adds the specified vertex2 to the vertex1.
+            </summary>
+            <typeparam name="Vert1">The type of the vert1.</typeparam>
+            <typeparam name="Vert2">The type of the vert2.</typeparam>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>The result of the addition.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.EuclideanNorm``1(``0)">
+            <summary>
+            Calculates the Euclidean norm.
+            </summary>
+            <typeparam name="Vert">The type of the vert.</typeparam>
+            <param name="vertex">The vertex.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.EuclideanDistance``2(``0,``1)">
+            <summary>
+            Calculates the Euclidean distance.
+            </summary>
+            <typeparam name="Vert1">The type of the vert1.</typeparam>
+            <typeparam name="Vert2">The type of the vert2.</typeparam>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertexoperators.Divide``1(``0,System.Double)">
+            <summary>
+            Divides a vertex by a double.
+            </summary>
+            <typeparam name="Vert1">The type of the vert1.</typeparam>
+            <param name="vertex">The vertex.</param>
+            <param name="v">The denominator.</param>
+            <returns>The divided Vertex</returns>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.Vertex">
+            <summary>
+            A Vertex object.
+            </summary>
+            <seealso cref="T:Gestures.Geometrie.Vertex.IVertex"/>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Geometrie.Vertex.Vertex"/> struct.
+            </summary>
+            <param name="coords1">The coords1.</param>
+            <param name="coords2">The coords2.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.op_Division(Gestures.Geometrie.Vertex.Vertex,System.Double)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="vertex">The vertex.</param>
+            <param name="v">The v.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.op_Addition(Gestures.Geometrie.Vertex.Vertex,Gestures.Geometrie.Vertex.Vertex)">
+            <summary>
+            Implements the operator +.
+            </summary>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.op_Subtraction(Gestures.Geometrie.Vertex.Vertex,Gestures.Geometrie.Vertex.Vertex)">
+            <summary>
+            Implements the operator -.
+            </summary>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.op_Multiply(Gestures.Geometrie.Vertex.Vertex,Gestures.Geometrie.Vertex.Vertex)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="vertex1">The vertex1.</param>
+            <param name="vertex2">The vertex2.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Vertex.op_Explicit(Gestures.Geometrie.Vertex.Vertex)~Gestures.Geometrie.Vertex.Sample">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Gestures.Geometrie.Vertex.Vertex"/> to <see cref="T:Gestures.Geometrie.Vertex.Sample"/>.
+            </summary>
+            <param name="v">The v.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Vertex.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.Double"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Vertex.Num">
+            <summary>
+            Gets or sets the numeric value.
+            </summary>
+            <value>
+            The numeric value.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Vertex.IsZero">
+            <summary>
+            Gets a value indicating whether this instance is zero.
+            </summary>
+            <value>
+              <c>true</c> if this instance is zero; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.Sample">
+            <summary>
+            A Touch sample vertex.
+            </summary>
+            <seealso cref="T:Gestures.Geometrie.Vertex.IVertex"/>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Sample.#ctor(System.DateTime,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Geometrie.Vertex.Sample"/> struct.
+            </summary>
+            <param name="timeStamp">The time stamp of the sample.</param>
+            <param name="coord1">The vertical coordinate (y).</param>
+            <param name="coord2">The horizontal coordinate (x).</param>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Sample.#ctor(System.DateTime,Gestures.Geometrie.Vertex.IVertex)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Geometrie.Vertex.Sample"/> struct.
+            </summary>
+            <param name="timeStamp">The time stamp of the sample.</param>
+            <param name="vertex">The vertex.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Sample.Set(System.Int32,System.Double)">
+            <summary>
+            Sets the specified index.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Sample.op_Division(Gestures.Geometrie.Vertex.Sample,System.Double)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="vertex">The vertex.</param>
+            <param name="v">The v.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.Sample.op_Explicit(Gestures.Geometrie.Vertex.Sample)~Gestures.Geometrie.Vertex.Vertex">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Gestures.Geometrie.Vertex.Sample"/> to <see cref="T:Gestures.Geometrie.Vertex.Vertex"/>.
+            </summary>
+            <param name="v">The v.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Sample.Y">
+            <summary>
+            Gets the y coordinate.
+            </summary>
+            <value>
+            The y coordinate.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Sample.X">
+            <summary>
+            Gets the x coordinate.
+            </summary>
+            <value>
+            The x coordinate.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Sample.TimeStamp">
+            <summary>
+            Gets or sets the time stamp.
+            </summary>
+            <value>
+            The time stamp.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Sample.Num">
+            <summary>
+            Gets or sets the numeric value.
+            </summary>
+            <value>
+            The numeric value.
+            </value>
+        </member>
+        <member name="P:Gestures.Geometrie.Vertex.Sample.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.Double"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.DistanceDelegate`2">
+            <summary>
+            Defines a structure for distance calculation
+            </summary>
+            <typeparam name="Vert1">The type of the ert1.</typeparam>
+            <typeparam name="Vert2">The type of the ert2.</typeparam>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gestures.Geometrie.Vertex.MetricDistances">
+            <summary>
+            Class for different distance calculation.
+            </summary>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.MetricDistances.ManhattenDistance(Gestures.Geometrie.Vertex.IVertex,Gestures.Geometrie.Vertex.IVertex)">
+            <summary>
+            Calculates a Manhatten distance.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>The Manhatten distance.</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.MetricDistances.SquaredEuclideanDistance(Gestures.Geometrie.Vertex.IVertex,Gestures.Geometrie.Vertex.IVertex)">
+            <summary>
+            Calculates a squared Euclidean distance.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>the squared Euclidean distance</returns>
+        </member>
+        <member name="M:Gestures.Geometrie.Vertex.MetricDistances.EuclideanDistance(Gestures.Geometrie.Vertex.IVertex,Gestures.Geometrie.Vertex.IVertex)">
+            <summary>
+            Calculates the Euclidean distance.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>The Euclidean distance</returns>
+        </member>
+        <member name="T:Gestures.Recognition.GestureData.Touch">
+            <summary>
+            Touch contact on the surface, i.e. closed area or cluster of sensor values.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Touch.#ctor(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Touch"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="x">The horizontal x position of the touch.</param>
+            <param name="y">The vertical y position of the touch.</param>
+            <param name="cx">The horizontal diameter of the touch.</param>
+            <param name="cy">The vertical diameter of the touch.</param>
+            <param name="intense">The intense of the sensory data.</param>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.id">
+            <summary>
+            The identifier
+            </summary>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.x">
+            <summary>
+            horizontal position
+            </summary>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.y">
+            <summary>
+            vertical position
+            </summary>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.cx">
+            <summary>
+            horizontal diameter
+            </summary>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.cy">
+            <summary>
+            vertical diameter
+            </summary>
+        </member>
+        <member name="F:Gestures.Recognition.GestureData.Touch.intense">
+            <summary>
+            The sensory intense data value
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.GestureData.Frame">
+            <summary>
+            A sample of the sensor data, i.e. all current touches during one sampling step.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.#ctor(System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Frame"/> class.
+            </summary>
+            <param name="timeStamp">The time stamp.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.#ctor(System.DateTime,Gestures.Recognition.GestureData.Touch[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Frame"/> class.
+            </summary>
+            <param name="timeStamp">The time stamp.</param>
+            <param name="touches">The list of touches inside this frame.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.#ctor(System.DateTime,System.Double[0:,0:])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Frame"/> class.
+            </summary>
+            <param name="timeStamp">The time stamp.</param>
+            <param name="touches">The matrix of touch-sensory data values.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.#ctor(System.Double[0:,0:])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Frame"/> class.
+            </summary>
+            <param name="sampleSet">The matrix of touch-sensory data values.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.#ctor(System.Double[0:,0:],System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Frame"/> class.
+            </summary>
+            <param name="sampleSet">The matrix of touch-sensory data values.</param>
+            <param name="timestamp">The time stamp.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.AddTouch(Gestures.Recognition.GestureData.Touch)">
+            <summary>
+            Adds a touch to the frame.
+            </summary>
+            <param name="touch">The touch.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.GetTouch(System.Int32)">
+            <summary>
+            Gets the specific touch.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>the requested touch or null</returns>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Frame.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Frame.Count">
+            <summary>
+            Gets the count of touches inside this frame.
+            </summary>
+            <value>
+            The count of touches.
+            </value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Frame.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Gestures.Recognition.GestureData.Touch"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:Gestures.Recognition.GestureData.Touch"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Frame.TimeStamp">
+            <summary>
+            Gets or sets the time stamp.
+            </summary>
+            <value>
+            The time stamp.
+            </value>
+        </member>
+        <member name="T:Gestures.Recognition.GestureData.Gesture">
+            <summary>
+            Single multitouch gesture, consisting of several <see cref="T:Gestures.Recognition.GestureData.GestureToken"/>.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Gesture.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Gesture"/> class.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.Gesture.#ctor(Gestures.Recognition.GestureData.GestureToken[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.Gesture"/> class.
+            </summary>
+            <param name="token">Array of gestures tokens.</param>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Gesture.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Gestures.Recognition.GestureData.GestureToken"/> at the specified index.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Gesture.Count">
+            <summary>
+            Gets the number of the gestures tokens.
+            </summary>
+            <value>The number of tokens.</value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.Gesture.Tokens">
+            <summary>
+            Gets or sets the tokens the gesture consists of.
+            </summary>
+            <value>The tokens.</value>
+        </member>
+        <member name="T:Gestures.Recognition.GestureData.TrackedGesture">
+            <summary>
+            A gesture composed by the blob tracker and therefore no template but actual input.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.TrackedGesture.#ctor(Gestures.Recognition.GestureData.GestureToken[],Gestures.Recognition.GestureData.Frame[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.TrackedGesture"/> class.
+            </summary>
+            <param name="tokens">The tokens.</param>
+            <param name="frameList">The frame list.</param>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.TrackedGesture.FrameList">
+            <summary>
+            Gets the frame list.
+            </summary>
+            <value>
+            The frame list.
+            </value>
+        </member>
+        <member name="T:Gestures.Recognition.GestureData.GestureToken">
+            <summary>
+            Smallest component of a gesture. Actual consiting of input points with time stamps.
+            </summary>
+            <remarks>
+            Gesture tokens appear as trajectories and are output of the blob tracking procedure.
+            </remarks>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.GestureToken.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.GestureToken"/> class.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.GestureData.GestureToken.#ctor(System.Int32,Gestures.Geometrie.Vertex.Sample[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureData.GestureToken"/> class.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="points">Set of sample points forming a trajectory.</param>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.GestureToken.Count">
+            <summary>
+            Gets or sets the number of sample points.
+            </summary>
+            <value>Number of sample points.</value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.GestureToken.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.GestureToken.Samples">
+            <summary>
+            Gets or sets the samples.
+            </summary>
+            <value>The samples.</value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureData.GestureToken.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Gestures.Geometrie.Vertex.Sample"/> at the specified index.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Gestures.Recognition.GestureRecognizer">
+            <summary>
+            A gesture recognizer that supports multi touch on a touch display.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.IRecognizeGestures">
+            <summary>
+            Provides methods of a gesture recognizer composed of different classifiers.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.ISynchronizable">
+            <summary>
+            Provides Property to lock on for synchronization purposes.
+            </summary>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ISynchronizable.SynchLock">
+            <summary>
+            Gets the synchronization lock.
+            </summary>
+            <value>The synchronization lock.</value>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.IRecognizeGestures.AddClassifier(Gestures.Recognition.Interfaces.IClassify)">
+            <summary>
+            Adds a specific classifier.
+            </summary>
+            <param name="classifier">The classifier.</param>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.IRecognizeGestures.StartEvaluation">
+            <summary>
+            Starts the evaluation of the input data.
+            </summary>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.IRecognizeGestures.AddFrame(Gestures.Recognition.GestureData.Frame)">
+            <summary>
+            Adds a sensory data frame to the frame set.
+            </summary>
+            <param name="frame">The frame.</param>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.IRecognizeGestures.FinishEvaluation">
+            <summary>
+            Finishes the evaluation.
+            </summary>
+            <returns>Classification result or null.</returns>
+        </member>
+        <member name="M:Gestures.Recognition.GestureRecognizer.#ctor(Gestures.Recognition.Interfaces.ITrackBlobs)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.GestureRecognizer"/> class.
+            </summary>
+            <param name="blobTracker">Module used for blob tracking.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureRecognizer.AddClassifier(Gestures.Recognition.Interfaces.IClassify)">
+            <summary>
+            Adds a classifier for a specific gesture.
+            </summary>
+            <param name="classifier">The classifier.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureRecognizer.StartEvaluation">
+            <summary>
+            Starts the evaluation of gesture input.
+            </summary>               
+        </member>
+        <member name="M:Gestures.Recognition.GestureRecognizer.AddFrame(Gestures.Recognition.GestureData.Frame)">
+            <summary>
+            Adds a frame of touch value states.
+            </summary>
+            <param name="frame">The frame.</param>
+        </member>
+        <member name="M:Gestures.Recognition.GestureRecognizer.FinishEvaluation">
+            <summary>
+            Finishes the evaluation of gesture inputs.
+            </summary>
+            <returns>a classification result for gestures or null</returns>
+        </member>
+        <member name="P:Gestures.Recognition.GestureRecognizer.SynchLock">
+            <summary>
+            Gets the synchronization lock object.
+            </summary>
+            <value>The synchronization lock object.</value>
+        </member>
+        <member name="P:Gestures.Recognition.GestureRecognizer.RecognitionMode">
+            <summary>
+            Gets a value indicating whether recognizer actually is classifying.
+            </summary>
+            <value><c>true</c> if [recognition mode]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.ClassificationResult">
+            <summary>
+            Holds data of a classified gesture like the name and its parameters.
+            </summary>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.IClassificationResult">
+            <summary>
+            Holds result of a gestures classification, i.e. name and additional parameters.
+            </summary>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.IClassificationResult.Name">
+            <summary>
+            Gets the name of the result (gesture name).
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.IClassificationResult.Probability">
+            <summary>
+            Gets the probability of the result (confidence). 
+            </summary>
+            <value>
+            The probability.
+            </value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.IClassificationResult.NodeParameters">
+            <summary>
+            Gets the node parameters.
+            </summary>
+            <value>
+            The node parameters.
+            </value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.IClassificationResult.AdditionalParameters">
+            <summary>
+            Gets the additional parameters.
+            </summary>
+            <value>
+            The additional parameters.
+            </value>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.ClassificationResult.#ctor(System.String,System.Double,Gestures.Geometrie.Vertex.Sample[],System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gestures.Recognition.Interfaces.ClassificationResult"/> class.
+            </summary>
+            <param name="name">The name of the classified gesture.</param>
+            <param name="probability">The probability of correct classification.</param>
+            <param name="nodeParameters">The node parameters, i.e. gestures execution position on the display.</param>
+            <param name="additionalParameters">The additional parameters if available, i.e. angle, length of the gesture.</param>
+        </member>
+        <member name="M:Gestures.Recognition.Interfaces.ClassificationResult.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ClassificationResult.Name">
+            <summary>
+            Gets or sets the name of the classified gesture.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ClassificationResult.Probability">
+            <summary>
+            Gets or sets the probability of correct classification.
+            </summary>
+            <value>The probability.</value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ClassificationResult.NodeParameters">
+            <summary>
+            Gets the node parameters.
+            </summary>
+            <value>The node parameters.</value>
+        </member>
+        <member name="P:Gestures.Recognition.Interfaces.ClassificationResult.AdditionalParameters">
+            <summary>
+            Gets the additional parameters.
+            </summary>
+            <value>The additional parameters.</value>
+        </member>
+        <member name="T:Gestures.Recognition.Interfaces.TrackedTouchesDelegate">
+            <summary>
+            Delegate for handling tracking-events provided with both tracked frames.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,13 @@
+# Start position - coordinates, rotation, texture
+s 0 0 1 avatar.bmp
+# Dialogues - id, phrases seperated by #
+d 0 ...
+d 1 Hello there! How are you?#Welcome to the test level!
+# Objects - id, name, texture, blocking, description
+o 0 Bush bush.bmp true A small green bush.
+o 1 Wall wall.bmp true A solid brick wall.
+o 2 Door door.bmp true An old wooden door. It doesn't move.
+# Instances - id, coordinates, rotation
+# NPCs - name, coordinates, rotation, dialogue, texture, 
+# description
+n Hans 1 2 2 0 avatar.bmp A tall man with a red beard.

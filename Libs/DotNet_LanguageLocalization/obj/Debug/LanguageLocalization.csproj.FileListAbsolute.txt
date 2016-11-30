@@ -1,0 +1,8 @@
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\bin\Debug\Resources\Language.xml
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\bin\Debug\LanguageLocalization.dll
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\bin\Debug\LanguageLocalization.pdb
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\obj\Debug\LanguageLocalization.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\obj\Debug\tud.mci.LanguageLocalization.Properties.Resources.resources
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\obj\Debug\LanguageLocalization.csproj.GenerateResource.Cache
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\obj\Debug\LanguageLocalization.dll
+C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_LanguageLocalization\obj\Debug\LanguageLocalization.pdb

@@ -1,0 +1,13 @@
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\Resources\de-chardefs8.cti
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\Resources\digits6DotsPlusDot6.uti
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\Resources\unicode.dis
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\BrailleRenderer_help.XML
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\BrailleRenderer.dll
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\BrailleRenderer.pdb
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\BrailleIO_Interfaces.dll
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Release\BrailleIO_Interfaces.pdb
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Release\BrailleRenderer.csprojResolveAssemblyReference.cache
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Release\BrailleIO.BrailleRenderer.Properties.Resources.resources
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Release\BrailleRenderer.csproj.GenerateResource.Cache
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Release\BrailleRenderer.dll
+E:\Studienarbeiten\KP\Games - Framework\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Release\BrailleRenderer.pdb

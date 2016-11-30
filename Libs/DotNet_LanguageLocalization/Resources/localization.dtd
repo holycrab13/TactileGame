@@ -1,0 +1,9 @@
+<!ELEMENT localization (locale)>
+<!ELEMENT locale (trans)>
+<!ATTLIST locale
+   language     ID       #REQUIRED
+>
+<!ELEMENT trans (#PCDATA)>
+<!ATTLIST trans
+   id     ID       #REQUIRED
+>
