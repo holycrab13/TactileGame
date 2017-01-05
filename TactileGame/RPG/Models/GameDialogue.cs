@@ -31,6 +31,15 @@ namespace TactileGame.RPG.Models
         }
 
         /// <summary>
+        /// Indicates whether there is more after the current phrase
+        /// </summary>
+        /// <returns></returns>
+        internal bool HasPhrase()
+        {
+            return dialogue != null && index < dialogue.phrases.Length;
+        }
+
+        /// <summary>
         /// Increases the phrase index
         /// </summary>
         internal void SetNext()

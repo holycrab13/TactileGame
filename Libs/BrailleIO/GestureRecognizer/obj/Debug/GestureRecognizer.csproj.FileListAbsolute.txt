@@ -3,3 +3,8 @@ C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\GestureRecognizer\bin\Debug\Gest
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizer.csprojResolveAssemblyReference.cache
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizerBase.dll
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizerBase.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\GestureRecognizer\bin\Debug\GestureRecognizerBase.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\GestureRecognizer\bin\Debug\GestureRecognizerBase.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizer.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizerBase.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\GestureRecognizer\obj\Debug\GestureRecognizerBase.pdb

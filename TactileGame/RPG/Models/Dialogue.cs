@@ -19,9 +19,5 @@ namespace TactileGame.RPG.Models
         {
             this.phrases = new string[] { Description };
         }
-
-     
-
-      
     }
 }

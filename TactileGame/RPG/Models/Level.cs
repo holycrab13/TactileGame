@@ -37,7 +37,7 @@ namespace TactileGame.RPG.Models
 		{
 			foreach (WorldObject worldObject in Objects)
 			{
-				if (worldObject.Overlaps(x, y, character.Width, character.Height))
+				if (worldObject.Collides(x, y, character.Width, character.Height))
 				{
 					return false;
 				}

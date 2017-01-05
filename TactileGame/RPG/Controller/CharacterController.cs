@@ -25,10 +25,6 @@ namespace TactileGame.RPG.Controller
         /// </summary>
         private Level level;
 
-        /// <summary>
-        /// The game dialogue model
-        /// </summary>
-        private GameDialogue gameDialogue;
 
         /// <summary>
         /// The current movement of the model
@@ -111,13 +107,6 @@ namespace TactileGame.RPG.Controller
             }
         }
 
-        /// <summary>
-        /// Sets the dialogue model
-        /// </summary>
-        /// <param name="gameDialogue"></param>
-        internal void SetDialogue(GameDialogue gameDialogue)
-        {
-            this.gameDialogue = gameDialogue;
-        }
+      
     }
 }

@@ -18,12 +18,14 @@ namespace TactileGame
 
         internal void Update()
         {
-            
+            if (model.HasPhrase())
+            {
+                Game.gameState = RPG.GameState.Dialogue;
+            }
 
             if (Game.gameState == RPG.GameState.Dialogue)
             {
                 InputState inputState = input.GetState();
-                // Go through current dialogue!
                 
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
@@ -33,6 +35,7 @@ namespace TactileGame
                     }
                     else
                     {
+                        model.SetDialogue(null);
                         Game.gameState = RPG.GameState.Exploration;
                     }
                 }

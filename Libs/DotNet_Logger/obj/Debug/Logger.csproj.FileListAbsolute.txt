@@ -3,3 +3,8 @@ C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_Logger\bin\Debug\Logger.pdb
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.dll
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_Logger\bin\Debug\Logger.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_Logger\bin\Debug\Logger.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_Logger\obj\Debug\Logger.pdb

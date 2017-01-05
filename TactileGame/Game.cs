@@ -106,7 +106,7 @@ namespace TactileGame
             gameInput = new GameInput();
             gameDialogue = new GameDialogue();
 
-            level = LevelLoader.Load("test_level2.txt");
+            level = LevelLoader.Load("test_level.xml", ll);
 
             // Controllers
             gameInputController = new GameInputController();
@@ -116,7 +116,6 @@ namespace TactileGame
             characterController.SetModel(level.avatar);
             characterController.setInput(gameInput);
             characterController.SetLevel(level);
-            characterController.SetDialogue(gameDialogue);
 
             dialogueController = new DialogueController();
             dialogueController.setInput(gameInput);

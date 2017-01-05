@@ -9,8 +9,7 @@ namespace TactileGame.RPG.Models
     class Shopkeeper : NPC
     {
 
-        public Shopkeeper(byte[,] texture)
-            : base(texture)
+        public Shopkeeper()
         {
 
         }

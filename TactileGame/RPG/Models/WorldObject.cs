@@ -19,9 +19,14 @@ namespace TactileGame.RPG.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// The object id
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
         /// The object description
         /// </summary>
-        public Dialogue Description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// The texture of the object
@@ -73,26 +78,22 @@ namespace TactileGame.RPG.Models
             }
         }
 
-        /// <summary>
-        /// The texture in the base rotation
-        /// </summary>
-        protected byte[,] basePattern;
+        public BooleanTexture Texture
+        {
+            get { return texture; }
+            set
+            {
+                texture = value;
+                CreatePattern();
+            }
+        }
 
         /// <summary>
         /// The current object rotation
         /// </summary>
         private Direction rotation;
 
-        /// <summary>
-        /// Creates a world object from texture
-        /// </summary>
-        /// <param name="texture"></param>
-        public WorldObject(byte[,] pattern)
-        {
-            rotation = Direction.DOWN;
-            basePattern = pattern;
-            CreatePattern();
-        }
+        private BooleanTexture texture;
 
         public WorldObject()
         {
@@ -104,47 +105,47 @@ namespace TactileGame.RPG.Models
         /// </summary>
         protected void CreatePattern()
         {
-            if (basePattern != null)
+            if (texture != null)
             {
                 switch (rotation)
                 {
                     case Direction.DOWN:
-                        Pattern = new byte[basePattern.GetLength(0), basePattern.GetLength(1)];
-                        for (int i = 0; i < basePattern.GetLength(0); i++)
+                        Pattern = new byte[texture.Data.GetLength(0), texture.Data.GetLength(1)];
+                        for (int i = 0; i < texture.Data.GetLength(0); i++)
                         {
-                            for (int j = 0; j < basePattern.GetLength(1); j++)
+                            for (int j = 0; j < texture.Data.GetLength(1); j++)
                             {
-                                Pattern[i, j] = basePattern[i, j];
+                                Pattern[i, j] = texture.Data[i, j];
                             }
                         }
                         break;
                     case Direction.UP:
-                        Pattern = new byte[basePattern.GetLength(0), basePattern.GetLength(1)];
-                        for (int i = 0; i < basePattern.GetLength(0); i++)
+                        Pattern = new byte[texture.Data.GetLength(0), texture.Data.GetLength(1)];
+                        for (int i = 0; i < texture.Data.GetLength(0); i++)
                         {
-                            for (int j = 0; j < basePattern.GetLength(1); j++)
+                            for (int j = 0; j < texture.Data.GetLength(1); j++)
                             {
-                                Pattern[i, j] = basePattern[i, basePattern.GetLength(1) - j - 1];
+                                Pattern[i, j] = texture.Data[i, texture.Data.GetLength(1) - j - 1];
                             }
                         }
                         break;
                     case Direction.LEFT:
-                        Pattern = new byte[basePattern.GetLength(1), basePattern.GetLength(0)];
-                        for (int i = 0; i < basePattern.GetLength(1); i++)
+                        Pattern = new byte[texture.Data.GetLength(1), texture.Data.GetLength(0)];
+                        for (int i = 0; i < texture.Data.GetLength(1); i++)
                         {
-                            for (int j = 0; j < basePattern.GetLength(0); j++)
+                            for (int j = 0; j < texture.Data.GetLength(0); j++)
                             {
-                                Pattern[i, j] = basePattern[j, basePattern.GetLength(1) - i - 1];
+                                Pattern[i, j] = texture.Data[j, texture.Data.GetLength(1) - i - 1];
                             }
                         }
                         break;
                     case Direction.RIGHT:
-                        Pattern = new byte[basePattern.GetLength(1), basePattern.GetLength(0)];
-                        for (int i = 0; i < basePattern.GetLength(1); i++)
+                        Pattern = new byte[texture.Data.GetLength(1), texture.Data.GetLength(0)];
+                        for (int i = 0; i < texture.Data.GetLength(1); i++)
                         {
-                            for (int j = 0; j < basePattern.GetLength(0); j++)
+                            for (int j = 0; j < texture.Data.GetLength(0); j++)
                             {
-                                Pattern[i, j] = basePattern[j, i];
+                                Pattern[i, j] = texture.Data[j, i];
                             }
                         }
                         break;
@@ -160,7 +161,7 @@ namespace TactileGame.RPG.Models
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <returns></returns>
-		public bool Overlaps(int x, int y, int width, int height)
+		public bool Collides(int x, int y, int width, int height)
 		{
 			return BlocksPath && (x <= X + Width - 1 && X <= x + width - 1) && (y <= Y + Height - 1 && Y <= y + height - 1);
 		}
@@ -170,9 +171,22 @@ namespace TactileGame.RPG.Models
         /// </summary>
         /// <param name="worldObject"></param>
         /// <returns></returns>
-        public bool Overlaps(WorldObject worldObject)
+        public bool Collides(WorldObject worldObject)
         {
-            return Overlaps(worldObject.X, worldObject.X, worldObject.Width, worldObject.Height);
+            return Collides(worldObject.X, worldObject.X, worldObject.Width, worldObject.Height);
+        }
+
+        /// <summary>
+        /// Checks whether the object overlaps the passed rectangle
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public bool Overlaps(int x, int y, int width, int height)
+        {
+            return (x <= X + Width - 1 && X <= x + width - 1) && (y <= Y + Height - 1 && Y <= y + height - 1);
         }
 
     }

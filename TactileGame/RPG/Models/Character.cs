@@ -11,10 +11,11 @@ namespace TactileGame.RPG.Models
 {
     class Character : WorldObject
     {
-    
-        public Character(byte[,] texture) : base(texture)
+        public List<Item> Inventory { get; private set; }
+
+        public Character() 
         {
-            
+            Inventory = new List<Item>();
         }
 
         internal Rectangle GetLookAt()

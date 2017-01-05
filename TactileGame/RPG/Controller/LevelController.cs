@@ -42,6 +42,7 @@ namespace TactileGame.RPG.Controller
 
             if (Game.gameState == GameState.Exploration)
             {
+  
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
@@ -53,7 +54,15 @@ namespace TactileGame.RPG.Controller
                         if (target is NPC)
                         {
                             UpdateNPC(target as NPC);
-                        } 
+                        }
+                        else if (target is Item)
+                        {
+                            UpdateItem(target as Item);
+                        }
+                        else if (target is Container)
+                        {
+                            UpdateContainer(target as Container);
+                        }
                         else
                         {
                             UpdateWorldObject(target);
@@ -65,14 +74,60 @@ namespace TactileGame.RPG.Controller
             lastState = inputState;
         }
 
+        private void UpdateContainer(Container container)
+        {
+            if (container.IsLocked)
+            {
+                Item key = model.avatar.Inventory.Find(item => container.KeyIds.Contains(item.Id));
+
+                if (key == null)
+                {
+                    gameDialogue.SetDialogue(new Dialogue(container.Description + " Sie ist verschlossen."));
+                }
+                else
+                {
+                    gameDialogue.SetDialogue(new Dialogue("Du hast " + container.Name + " mit " + key.Name + " aufgeschlossen"));
+                    container.IsLocked = false;
+                }
+            }
+            else
+            {
+                if (container.Items.Count == 0)
+                {
+                    gameDialogue.SetDialogue(new Dialogue(container.Description + " Sie ist leer."));
+                }
+                else
+                {
+                    string[] phrases = new string[container.Items.Count + 1];
+                    phrases[0] = container.Description;
+
+                    for (int i = 0; i < container.Items.Count; i++)
+                    {
+                        phrases[i + 1] = "Du hast " + container.Items[i].Name + " gefunden!";
+                    } 
+
+                    gameDialogue.SetDialogue(new Dialogue(phrases));
+                    model.avatar.Inventory.AddRange(container.Items);
+                    container.Items.Clear();
+                }
+            }
+        }
+
+        private void UpdateItem(Item item)
+        {
+            gameDialogue.SetDialogue(new Dialogue("Du hast " + item.Name + " gefunden!"));
+            model.Objects.Remove(item);
+            model.avatar.Inventory.Add(item);
+            
+        }
+
         /// <summary>
         /// Updates world objects (show their description in the dialog)
         /// </summary>
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            gameDialogue.SetDialogue(target.Description);
-            Game.gameState = GameState.Dialogue;
+            gameDialogue.SetDialogue(new Dialogue(target.Description));
         }
 
         /// <summary>
@@ -99,14 +154,12 @@ namespace TactileGame.RPG.Controller
 
             if (target is Talker)
             {
-                gameDialogue.SetDialogue((target as Talker).GetDialogue());
-                Game.gameState = GameState.Dialogue;
+                gameDialogue.SetDialogue((target as Talker).Dialogue);
             }
 
             if (target is Shopkeeper)
             {
                 gameDialogue.SetDialogue(new Dialogue("Hier kann man einkaufen!"));
-                Game.gameState = GameState.Dialogue;
             }
         }
 

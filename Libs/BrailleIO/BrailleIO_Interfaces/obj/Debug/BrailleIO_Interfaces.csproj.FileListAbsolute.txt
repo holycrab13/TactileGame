@@ -2,3 +2,7 @@ C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\bin\Debug\B
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\bin\Debug\BrailleIO_Interfaces.pdb
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\obj\Debug\BrailleIO_Interfaces.dll
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\obj\Debug\BrailleIO_Interfaces.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\bin\Debug\BrailleIO_Interfaces.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\bin\Debug\BrailleIO_Interfaces.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\obj\Debug\BrailleIO_Interfaces.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleIO_Interfaces\obj\Debug\BrailleIO_Interfaces.pdb

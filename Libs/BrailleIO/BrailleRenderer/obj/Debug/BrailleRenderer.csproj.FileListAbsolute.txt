@@ -34,3 +34,15 @@ C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\Braill
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.csproj.GenerateResource.Cache
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.dll
 C:\Users\Jan\Desktop\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\Resources\de-chardefs8.cti
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\Resources\digits6DotsPlusDot6.uti
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\Resources\unicode.dis
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\BrailleRenderer.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\BrailleRenderer.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\BrailleIO_Interfaces.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\bin\Debug\BrailleIO_Interfaces.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleIO.BrailleRenderer.Properties.Resources.resources
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.csproj.GenerateResource.Cache
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\BrailleIO\BrailleRenderer\obj\Debug\BrailleRenderer.csprojResolveAssemblyReference.cache

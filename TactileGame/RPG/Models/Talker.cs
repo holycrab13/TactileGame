@@ -7,17 +7,6 @@ namespace TactileGame.RPG.Models
 {
     class Talker : NPC
     {
-        private Dialogue dialogue;
-
-        public Talker(byte[,] texture, Dialogue dialogue)
-            : base(texture)
-        {
-            this.dialogue = dialogue;
-        }
-
-        public Dialogue GetDialogue()
-        {
-            return dialogue;
-        }
+        public Dialogue Dialogue { get; set; }
     }
 }

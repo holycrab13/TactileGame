@@ -8,13 +8,6 @@ namespace TactileGame.RPG.Models
 {
     class NPC : WorldObject
     {
-     
-        public NPC(byte[,] texture)
-            : base(texture)
-        {
-
-        }
-
         
     }
 }

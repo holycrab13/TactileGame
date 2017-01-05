@@ -3,3 +3,8 @@ C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_AudioRenderer\bin\Debug\AudioRender
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.csprojResolveAssemblyReference.cache
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.dll
 C:\Users\Jan\Desktop\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_AudioRenderer\bin\Debug\AudioRenderer.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_AudioRenderer\bin\Debug\AudioRenderer.pdb
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.csprojResolveAssemblyReference.cache
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.dll
+C:\Users\Jan\Desktop\TactileGaming\TactileGame\Libs\DotNet_AudioRenderer\obj\Debug\AudioRenderer.pdb

@@ -18,6 +18,11 @@ namespace TactileGame.RPG
 
         private byte[,] _data;
 
+        public static BooleanTexture FromFile(string fileName)
+        {
+            return FromBitmap((Bitmap)Image.FromFile(fileName, true));
+        }
+
         public static BooleanTexture FromBitmap(Bitmap bitmap)
         {
             BooleanTexture result = new BooleanTexture();

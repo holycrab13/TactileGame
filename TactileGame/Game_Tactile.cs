@@ -484,15 +484,7 @@ namespace TactileGame
                     adptrName = ((IBrailleIOAdapter)sender).Device.Name;
                 }
 
-                String initMsg = ll.GetTrans("device.event.initialized", adptrName);
-                if (audio != null && !String.IsNullOrWhiteSpace(initMsg))
-                {
-                    // play this string as TTS
-                    // this function will wait until the previous outputs are finished. 
-                    // you can force an direct output by calling the 'PlaySoundImmediately' function.
-                    // This will kill the current output and will clear the whole audio rendering queue.
-                    audio.PlaySound(initMsg);
-                }
+                
             }
         }
 
