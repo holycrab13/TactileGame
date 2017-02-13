@@ -59,6 +59,11 @@ namespace TactileGame.RPG.Models
         public bool BlocksPath { get; set; }
 
         /// <summary>
+        /// The dialogue to display on interaction
+        /// </summary>
+        public List<Dialogue> Dialogues { get; set; }
+
+        /// <summary>
         /// The getter and setter for the current rotation
         /// </summary>
         public Direction Rotation
@@ -86,6 +91,11 @@ namespace TactileGame.RPG.Models
                 texture = value;
                 CreatePattern();
             }
+        }
+
+        internal Dialogue GetDialogue()
+        {
+            return Dialogues.FindLast(d => d.IsAvailable());
         }
 
         /// <summary>

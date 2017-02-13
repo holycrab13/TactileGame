@@ -1,19 +1,11 @@
 
 <level>
   <definition>
-    <dialogues>
-      <dialogue id="default">
-        <phrase>...</phrase>
-      </dialogue>
-      <dialogue id="hans">
-        <phrase>Hi, ich bin Hans! Und jetzt geh weg!</phrase>
-        <phrase>Das ist ein Test-Level!</phrase>
-      </dialogue>
-      <dialogue id="peter">
-        <phrase>Hallo, ich bin der Peter!</phrase>
-        <phrase>Es ist alles gesagt.</phrase>
-      </dialogue>
-    </dialogues>
+    <investigation>
+      <fact id="kenntPeter">false</fact>
+      <fact id="istPimmelberger">false</fact>
+      <fact id="hatBrecheisen">false</fact>
+    </investigation>
     <objects>
       <object id="default" name="Unbekanner Gegenstand" desc="Das sieht komisch aus." img="wall.bmp" block="false" />
       <object id="blaubeere" name="Blaubeere" desc="Eine leckere Blaubeere." img="bush.bmp" block="true" />
@@ -24,48 +16,50 @@
       <object id="hans" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
       <object id="schluessel" name="Schlüssel" desc="Ein rostiger Schlüssel." img="key.bmp" block="true" />
       <object id="brecheisen" name="Brecheisen" desc="Ein stablies Brecheisen." img="crowbar.bmp" block="true" />
-    </objects>
+    </objects>  
   </definition>
   <decos>
     <deco obj="busch" x="2" y="3" r="1" />
-    <deco obj="busch" x="3" y="3" r="1" />
-    <deco obj="mauer" x="0" y="-3" r="1" />
-    <deco obj="mauer" x="1" y="-3" r="1" />
-    <deco obj="mauer" x="2" y="-3" r="1" />
-    <deco obj="mauer" x="3" y="-3" r="1" />
-    <deco obj="mauer" x="4" y="-3" r="1" />
-    <deco obj="mauer" x="5" y="-3" r="1" />
-    <deco obj="mauer" x="6" y="-3" r="1" />
-    <deco obj="mauer" x="0" y="-4" r="1" />
-    <deco obj="mauer" x="1" y="-4" r="1" />
-    <deco obj="mauer" x="2" y="-4" r="1" />
-    <deco obj="mauer" x="3" y="-4" r="1" />
-    <deco obj="mauer" x="4" y="-4" r="1" />
-    <deco obj="mauer" x="5" y="-4" r="1" />
-    <deco obj="mauer" x="6" y="-4" r="1" />
+    
   </decos>
   <items>
-    <item obj="blaubeere" x="1" y="4" r="1" />
-    <item id="boxkey1" obj="schluessel" x="3" y="0" r="1" />
-    <item id="brecheisen" obj="brecheisen" x="4" y="0" r="1" />
+    <item obj="brecheisen" x="4" y="0" r="1" id="brecheisen" />
   </items>
   <containers>
-    <container obj="box" x="0" y="3" r="1" locked="false">
-      <item obj="blaubeere" />
-      <item obj="rotebeete" />
-    </container>
-    <container obj="box" x="-2" y="3" r="1" locked="true" key="boxkey1 brecheisen">
-      <item obj="blaubeere" />
-      <item obj="rotebeete" />
-    </container>
-    <container obj="box" x="-3" y="3" r="1" locked="true" key="brecheisen">
-      <item obj="blaubeere" />
-      <item obj="rotebeete" />
-    </container>
+   
   </containers>
   <npcs>
-    <talkers>
-      <talker obj="hans" x="-1" y="0" r="2" dialogue="hans" />
-    </talkers>
+    <npc obj="hans" x="-1" y="0" r="2">
+      <dialogue>
+        <phrase>Hi, ich bin Hans!</phrase>
+      </dialogue>
+      <dialogue if="kenntPeter">
+        <phrase>Ich bin der Hans, und ich hasse den Peter!</phrase>
+        <phrase>Tu ihm weh.</phrase>
+      </dialogue>
+      <dialogue if="kenntPeter hat_brecheisen">
+        <phrase set="peter_hauen">Hau Peter mit dem Brecheisen!</phrase>
+      </dialogue>
+      <dialogue if="peter_gehauen">
+        <phrase>Peter hat seine gerechte Strafe bekommen!</phrase>
+      </dialogue>
+    </npc>
+    <npc obj="hans" x="-2" y="0" r="3" >
+      <dialogue>
+        <phrase set="kenntPeter">Hallo, ich bin der Peter!</phrase>
+      </dialogue>
+      <dialogue if="peter_hauen hat_brecheisen">
+        <question text="Willst du Peter wirklich verkloppen?">
+          <phrase set="haue_peter" event="interact">Aber klaro!</phrase>
+          <phrase>Lieber nicht.</phrase>          
+        </question>
+      </dialogue>
+      <dialogue if="haue_peter">
+        <phrase set="peter_gehauen">Du haust Peter mit dem Brecheisen.</phrase>
+      </dialogue>
+      <dialogue if="peter_gehauen">
+        <phrase>Aua, Mama.</phrase>
+      </dialogue>
+    </npc>
   </npcs>
 </level>

@@ -58,9 +58,7 @@ C:\Users\Jan\Desktop\TactileGame\TactileGame\obj\Debug\TactileGame.pdb
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\avatar.bmp
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\bush.bmp
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\door.bmp
-C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level.txt
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\wall.bmp
-C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level2.txt
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\TactileGame.exe.config
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\obj\Debug\TactileGame.exe
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\obj\Debug\TactileGame.pdb
@@ -95,3 +93,6 @@ C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\obj\Debug\TactileGame
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\test_level.xml
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\key.bmp
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\crowbar.bmp
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\crowbar.bmp
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level.xml
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\key.bmp

@@ -8,6 +8,7 @@ namespace TactileGame.RPG.Models
 {
     class NPC : WorldObject
     {
+
         
     }
 }

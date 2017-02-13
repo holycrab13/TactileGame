@@ -76,46 +76,46 @@ namespace TactileGame.RPG.Controller
 
         private void UpdateContainer(Container container)
         {
-            if (container.IsLocked)
-            {
-                Item key = model.avatar.Inventory.Find(item => container.KeyIds.Contains(item.Id));
+            //if (container.IsLocked)
+            //{
+            //    Item key = model.avatar.Inventory.Find(item => container.KeyIds.Contains(item.Id));
 
-                if (key == null)
-                {
-                    gameDialogue.SetDialogue(new Dialogue(container.Description + " Sie ist verschlossen."));
-                }
-                else
-                {
-                    gameDialogue.SetDialogue(new Dialogue("Du hast " + container.Name + " mit " + key.Name + " aufgeschlossen"));
-                    container.IsLocked = false;
-                }
-            }
-            else
-            {
-                if (container.Items.Count == 0)
-                {
-                    gameDialogue.SetDialogue(new Dialogue(container.Description + " Sie ist leer."));
-                }
-                else
-                {
-                    string[] phrases = new string[container.Items.Count + 1];
-                    phrases[0] = container.Description;
+            //    if (key == null)
+            //    {
+            //        gameDialogue.SetDialogue(Sentence.Create(container.Description + " Sie ist verschlossen."));
+            //    }
+            //    else
+            //    {
+            //        gameDialogue.SetDialogue(Sentence.Create("Du hast " + container.Name + " mit " + key.Name + " aufgeschlossen"));
+            //        container.IsLocked = false;
+            //    }
+            //}
+            //else
+            //{
+            //    if (container.Items.Count == 0)
+            //    {
+            //        gameDialogue.SetDialogue(Sentence.Create(container.Description + " Sie ist leer."));
+            //    }
+            //    else
+            //    {
+            //        string[] phrases = new string[container.Items.Count + 1];
+            //        phrases[0] = container.Description;
 
-                    for (int i = 0; i < container.Items.Count; i++)
-                    {
-                        phrases[i + 1] = "Du hast " + container.Items[i].Name + " gefunden!";
-                    } 
+            //        for (int i = 0; i < container.Items.Count; i++)
+            //        {
+            //            phrases[i + 1] = "Du hast " + container.Items[i].Name + " gefunden!";
+            //        }
 
-                    gameDialogue.SetDialogue(new Dialogue(phrases));
-                    model.avatar.Inventory.AddRange(container.Items);
-                    container.Items.Clear();
-                }
-            }
+            //        gameDialogue.SetDialogue(Sentence.Create(phrases));
+            //        model.avatar.Inventory.AddRange(container.Items);
+            //        container.Items.Clear();
+            //    }
+            //}
         }
 
         private void UpdateItem(Item item)
         {
-            gameDialogue.SetDialogue(new Dialogue("Du hast " + item.Name + " gefunden!"));
+            gameDialogue.SetDialogue(item.Dialogues[0]);
             model.Objects.Remove(item);
             model.avatar.Inventory.Add(item);
             
@@ -127,7 +127,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            gameDialogue.SetDialogue(new Dialogue(target.Description));
+            gameDialogue.SetDialogue(Sentence.Create(target.Description));
         }
 
         /// <summary>
@@ -152,15 +152,9 @@ namespace TactileGame.RPG.Controller
                     break;
             }
 
-            if (target is Talker)
-            {
-                gameDialogue.SetDialogue((target as Talker).Dialogue);
-            }
 
-            if (target is Shopkeeper)
-            {
-                gameDialogue.SetDialogue(new Dialogue("Hier kann man einkaufen!"));
-            }
+            gameDialogue.SetDialogue(target.GetDialogue());
+            gameDialogue.SetTarget(target);
         }
 
         /// <summary>

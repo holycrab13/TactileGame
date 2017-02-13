@@ -41,6 +41,11 @@ namespace TactileGame
         internal static GameState gameState = GameState.Exploration;
 
         /// <summary>
+        /// The current game progress
+        /// </summary>
+        internal static Dictionary<string, bool> knowledge;
+
+        /// <summary>
         /// A small localization framework for providing translated text templates. 
         /// <see cref="https://github.com/TUD-INF-IAI-MCI/DotNet_LanguageLocalization"/>
         /// </summary>
@@ -105,6 +110,8 @@ namespace TactileGame
             // Models
             gameInput = new GameInput();
             gameDialogue = new GameDialogue();
+
+            knowledge = LevelLoader.LoadKnowledge("test_level.xml", ll);
 
             level = LevelLoader.Load("test_level.xml", ll);
 
@@ -197,5 +204,15 @@ namespace TactileGame
             // ll.GetTrans(String key, params string[] strs)
         }
 
+
+        internal static bool HasKnowledge(string p)
+        {
+            if(knowledge.ContainsKey(p))
+            {
+                return knowledge[p];
+            }
+
+            return false;
+        }
     }
 }

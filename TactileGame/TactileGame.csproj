@@ -63,12 +63,14 @@
     <Compile Include="RPG\Controller\CharacterController.cs" />
     <Compile Include="RPG\Controller\LevelController.cs" />
     <Compile Include="RPG\Models\Container.cs" />
+    <Compile Include="RPG\Models\Dialogue\Dialogue.cs" />
+    <Compile Include="RPG\Models\Dialogue\Phrase.cs" />
+    <Compile Include="RPG\Models\Dialogue\Question.cs" />
+    <Compile Include="RPG\Models\Event.cs" />
     <Compile Include="RPG\Models\Item.cs" />
-    <Compile Include="RPG\Models\Shopkeeper.cs" />
-    <Compile Include="RPG\Models\Talker.cs" />
     <Compile Include="RPG\Files\LevelLoader.cs" />
     <Compile Include="RPG\Util\GameState.cs" />
-    <Compile Include="RPG\Models\Dialogue.cs" />
+    <Compile Include="RPG\Models\Dialogue\Statement.cs" />
     <Compile Include="RPG\Models\GameDialogue.cs" />
     <Compile Include="RPG\Models\NPC.cs" />
     <Compile Include="RPG\Rendering\BooleanCanvas.cs" />

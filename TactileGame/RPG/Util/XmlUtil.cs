@@ -113,5 +113,26 @@ namespace TactileGame.RPG.Util
                 }
             }
         }
+
+        internal static string[] GetArray(XmlNode node, string attr, char separator)
+        {
+            XmlAttribute attribute = node.Attributes[attr];
+
+            if (attribute == null)
+            {
+                return new string[0];
+            }
+            else
+            {
+                if (attribute.Value == null)
+                {
+                    return new string[0];
+                }
+                else
+                {
+                    return attribute.Value.Split(separator);
+                }
+            }
+        }
     }
 }
