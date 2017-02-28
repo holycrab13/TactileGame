@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace TactileGame.RPG.Models
 {
-    abstract class Phrase : Event
+    class Phrase
     {
         public string text;
+
+        public static Phrase Create(string phrase)
+        {
+            return new Phrase()
+            {
+                text = phrase
+            };
+        }
+
+        public static Phrase Create(string phrase, params object[] p)
+        {
+            return new Phrase()
+            {
+                text = string.Format(phrase, p)
+            };
+        }
     }
 }

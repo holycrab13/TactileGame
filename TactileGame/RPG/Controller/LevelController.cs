@@ -16,7 +16,7 @@ namespace TactileGame.RPG.Controller
         /// <summary>
         /// The level model
         /// </summary>
-        private Level model;
+        private LevelModel model;
 
         /// <summary>
         /// The game input model
@@ -26,13 +26,19 @@ namespace TactileGame.RPG.Controller
         /// <summary>
         /// The controller can start dialogues
         /// </summary>
-        private GameDialogue gameDialogue;
+        private DialogueModel gameDialogue;
 
         /// <summary>
         /// The last input state
         /// </summary>
         private InputState lastState;
 
+        private Game game;
+
+        public LevelController(Game game)
+        {
+            this.game = game;
+        }
         /// <summary>
         /// Updates the controller
         /// </summary>
@@ -46,7 +52,7 @@ namespace TactileGame.RPG.Controller
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
-                    WorldObject target = model.GetTarget(model.avatar);
+                    WorldObject target = model.level.GetTarget(model.level.avatar);
 
                     if (target != null)
                     {
@@ -63,6 +69,10 @@ namespace TactileGame.RPG.Controller
                         {
                             UpdateContainer(target as Container);
                         }
+                        else if(target is Door)
+                        {
+                            UpdateDoor(target as Door);
+                        }
                         else
                         {
                             UpdateWorldObject(target);
@@ -72,6 +82,11 @@ namespace TactileGame.RPG.Controller
             }
 
             lastState = inputState;
+        }
+
+        private void UpdateDoor(Door door)
+        {
+            game.GoToLevel(door.Target, door.TargetX, door.TargetY);
         }
 
         private void UpdateContainer(Container container)
@@ -116,8 +131,8 @@ namespace TactileGame.RPG.Controller
         private void UpdateItem(Item item)
         {
             gameDialogue.SetDialogue(item.Dialogues[0]);
-            model.Objects.Remove(item);
-            model.avatar.Inventory.Add(item);
+            model.level.Objects.Remove(item);
+            model.level.avatar.Inventory.Add(item);
             
         }
 
@@ -127,7 +142,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            gameDialogue.SetDialogue(Sentence.Create(target.Description));
+            gameDialogue.SetDialogue(Phrase.Create(target.Description));
         }
 
         /// <summary>
@@ -136,7 +151,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateNPC(NPC target)
         {
-            switch (model.avatar.Rotation)
+            switch (model.level.avatar.Rotation)
             {
                 case Direction.UP:
                     target.Rotation = Direction.DOWN;
@@ -161,7 +176,7 @@ namespace TactileGame.RPG.Controller
         /// Sets the model
         /// </summary>
         /// <param name="model"></param>
-        internal void SetModel(Level model)
+        internal void SetModel(LevelModel model)
         {
             this.model = model;
         }
@@ -184,7 +199,7 @@ namespace TactileGame.RPG.Controller
         /// Sets the dialog model
         /// </summary>
         /// <param name="gameDialogue"></param>
-        internal void SetDialogue(GameDialogue gameDialogue)
+        internal void SetDialogue(DialogueModel gameDialogue)
         {
             this.gameDialogue = gameDialogue;
         }

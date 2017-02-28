@@ -71,10 +71,6 @@ namespace TactileGame
         /// </summary>
         private LevelController levelController;
 
-        /// <summary>
-        /// The current level
-        /// </summary>
-        private Level level;
 
         /// <summary>
         /// the canvas to draw to
@@ -94,7 +90,9 @@ namespace TactileGame
         /// <summary>
         /// The shared game dialogue model
         /// </summary>
-        private GameDialogue gameDialogue;
+        private DialogueModel gameDialogue;
+        private LevelModel levelModel;
+        private CharacterModel characterModel;
 
         public Game()
         {
@@ -109,27 +107,29 @@ namespace TactileGame
 
             // Models
             gameInput = new GameInput();
-            gameDialogue = new GameDialogue();
+            gameDialogue = new DialogueModel();
 
-            knowledge = LevelLoader.LoadKnowledge("test_level.xml", ll);
+            knowledge = LevelLoader.LoadKnowledge("save_game_01.xml", ll);
 
-            level = LevelLoader.Load("test_level.xml", ll);
+            levelModel = new LevelModel(LevelLoader.Load("test_level1.xml", ll));
 
+
+            characterModel = new CharacterModel(levelModel.Avatar);
             // Controllers
             gameInputController = new GameInputController();
             gameInputController.SetModel(gameInput);
 
             characterController = new CharacterController();
-            characterController.SetModel(level.avatar);
+            characterController.SetModel(characterModel);
             characterController.setInput(gameInput);
-            characterController.SetLevel(level);
+            characterController.SetLevel(levelModel);
 
             dialogueController = new DialogueController();
             dialogueController.setInput(gameInput);
             dialogueController.SetModel(gameDialogue);
 
-            levelController = new LevelController();
-            levelController.SetModel(level);
+            levelController = new LevelController(this);
+            levelController.SetModel(levelModel);
             levelController.SetInput(gameInput);
             levelController.SetDialogue(gameDialogue);
 
@@ -163,17 +163,17 @@ namespace TactileGame
             // Do the rendering/sound stuff. TODO: Clean this up with views
             detailregion.SetVisibility(false);
 
-            canvas.X = (level.avatar.X + level.avatar.Width / 2) - canvas.Width / 2;
-            canvas.Y = (level.avatar.Y + level.avatar.Height / 2) - canvas.Height / 2;
+            canvas.X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - canvas.Width / 2;
+            canvas.Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - canvas.Height / 2;
 
             canvas.Clear();
 
-            foreach (WorldObject obj in level.Objects)
+            foreach (WorldObject obj in levelModel.level.Objects)
             {
                 canvas.Draw(obj);
             }
 
-            canvas.Draw(level.avatar);
+            canvas.Draw(levelModel.Avatar);
             mainRegion.SetMatrix(canvas.Data);
            
 
@@ -186,6 +186,10 @@ namespace TactileGame
                     detailregion.SetText(gameDialogue.GetCurrent());
                     audio.PlaySound(gameDialogue.GetCurrent());
                 }
+            }
+            else
+            {
+                detailregion.SetText(string.Empty);
             }
         }
 
@@ -207,12 +211,25 @@ namespace TactileGame
 
         internal static bool HasKnowledge(string p)
         {
-            if(knowledge.ContainsKey(p))
+            if (knowledge.ContainsKey(p)) 
             {
                 return knowledge[p];
             }
 
             return false;
+        }
+
+
+
+        internal void GoToLevel(string p1, int p2, int p3)
+        {
+            Level level = LevelLoader.Load(p1 + ".xml", ll);
+            level.avatar.X = p2;
+            level.avatar.Y = p3;
+
+            levelModel.level = level;
+
+            characterModel.character = level.avatar;
         }
     }
 }

@@ -28,8 +28,6 @@ namespace TactileGame.RPG.Files
         /// </summary>
         private static Dictionary<string, Phrase[]> dialogues;
 
-        private static Dictionary<string, bool> investigation;
-
 
 
         /// <summary>
@@ -40,27 +38,12 @@ namespace TactileGame.RPG.Files
         public static Level Load(string path, LL ll)
         {
 
-            investigation = new Dictionary<string, bool>();
             worldObjects = new Dictionary<string, WorldObject>();
             dialogues = new Dictionary<string, Phrase[]>();
 
             XmlDocument doc = new XmlDocument();
             doc.Load("Resources/" + path);
 
-            XmlNode investigationNode = doc.DocumentElement.SelectSingleNode("definition/investigation");
-
-            foreach (XmlNode node in investigationNode.ChildNodes)
-            {
-
-                string id  = XmlUtil.Get(node, "id", string.Empty);
-
-                if(id != string.Empty)
-                {
-                    investigation[id] = Boolean.Parse(node.InnerText);
-                }
-            }
-
-          
             XmlNode objectNode = doc.DocumentElement.SelectSingleNode("definition/objects");
 
             foreach (XmlNode node in objectNode.ChildNodes)
@@ -93,59 +76,66 @@ namespace TactileGame.RPG.Files
 
             XmlNode decoNode = doc.DocumentElement.SelectSingleNode("decos");
 
-            foreach (XmlNode node in decoNode.ChildNodes)
+            if (decoNode != null)
             {
-                WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
-
-                result.Objects.Add(new WorldObject()
+                foreach (XmlNode node in decoNode.ChildNodes)
                 {
-                    X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
-                    Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
-                    Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
-                    Id = XmlUtil.Get(node, "id", "object"),
-                    BlocksPath = blueprint.BlocksPath,
-                    Texture = blueprint.Texture,
-                    Name = blueprint.Name,
-                    Description = blueprint.Description
-                });
+                    WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
+
+                    result.Objects.Add(new WorldObject()
+                    {
+                        X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
+                        Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                        Id = XmlUtil.Get(node, "id", "object"),
+                        BlocksPath = blueprint.BlocksPath,
+                        Texture = blueprint.Texture,
+                        Name = blueprint.Name,
+                        Description = blueprint.Description
+                    });
+                }
             }
 
             XmlNode itemNode = doc.DocumentElement.SelectSingleNode("items");
 
-            foreach (XmlNode node in itemNode.ChildNodes)
+            if (itemNode != null)
             {
-                WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
-
-                Item item = new Item()
+                foreach (XmlNode node in itemNode.ChildNodes)
                 {
-                    X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
-                    Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
-                    Id = XmlUtil.Get(node, "id", "object"),
-                    Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
-                    BlocksPath = blueprint.BlocksPath,
-                    Texture = blueprint.Texture,
-                    Name = blueprint.Name,
-                    Description = blueprint.Description,
-                    Dialogues = new List<Dialogue>()
-                };
+                    WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
 
-                if (!Game.HasKnowledge(item.Id + "_gefunden")) 
-                {
-                    Dialogue itemDialogue = new Dialogue()
+                    Item item = new Item()
                     {
-                        phrases = new Phrase[] 
-                    { 
-                        new Sentence() 
-                        {  
-                            text = "Du hast " + blueprint.Name + " gefunden.",
-                            sets = new string[] { "hat_" + item.Id, item.Id + "_gefunden" }
-                        }
-                    }
-
+                        X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
+                        Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Id = XmlUtil.Get(node, "id", "object"),
+                        Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                        BlocksPath = blueprint.BlocksPath,
+                        Texture = blueprint.Texture,
+                        Name = blueprint.Name,
+                        Description = blueprint.Description,
+                        Dialogues = new List<Dialogue>()
                     };
 
-                    item.Dialogues.Add(itemDialogue);
-                    result.Objects.Add(item);
+                    if (!Game.HasKnowledge(item.Id + "_gefunden"))
+                    {
+                        Dialogue itemDialogue = new Dialogue()
+                        {
+                            phrases = new Phrase[] 
+                        { 
+                            new Phrase() 
+                            {  
+                                text = "Du hast " + blueprint.Name + " gefunden.",
+                            }
+                        },
+
+                            sets = new string[] { "hat_" + item.Id, item.Id + "_gefunden" }
+
+                        };
+
+                        item.Dialogues.Add(itemDialogue);
+                        result.Objects.Add(item);
+                    }
                 }
             }
 
@@ -189,68 +179,110 @@ namespace TactileGame.RPG.Files
             //    result.Objects.Add(container);
             //}
 
-             XmlNode npcNode = doc.DocumentElement.SelectSingleNode("npcs");
+            XmlNode doorNode = doc.DocumentElement.SelectSingleNode("doors");
 
-             foreach (XmlNode node in npcNode.ChildNodes)
-             {
-                 WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
+            if (doorNode != null)
+            {
+                foreach (XmlNode node in doorNode.ChildNodes)
+                {
+                    WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
 
-                 NPC npc = new NPC()
-                 {
-                     Id = XmlUtil.Get(node, "id", "object"),
-                     X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
-                     Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
-                     Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
-                     Dialogues = new List<Dialogue>(),
-                     BlocksPath = blueprint.BlocksPath,
-                     Texture = blueprint.Texture,
-                     Name = blueprint.Name,
-                     Description = blueprint.Description,
-                 };
+                    Door door = new Door()
+                    {
+                        X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
+                        Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Target = XmlUtil.Get(node, "target", ""),
+                        TargetX = Constants.TILE_SIZE * XmlUtil.Get(node, "targetX", 0),
+                        TargetY = Constants.TILE_SIZE * XmlUtil.Get(node, "targetY", 0),
+                        BlocksPath = blueprint.BlocksPath,
+                        Texture = blueprint.Texture,
+                        Name = blueprint.Name,
+                        Description = blueprint.Description,
+                    };
+
+                    result.Objects.Add(door);
+                }
+            }
 
 
-                 foreach (XmlNode dialogueNode in node.ChildNodes)
-                 {
-                     Dialogue dialogue = new Dialogue();
-                     dialogue.conditions = XmlUtil.GetArray(dialogueNode, "if", ' ');
+            XmlNode npcNode = doc.DocumentElement.SelectSingleNode("npcs");
 
-                     dialogue.phrases = new Phrase[dialogueNode.ChildNodes.Count];
+            if (npcNode != null)
+            {
+                foreach (XmlNode node in npcNode.ChildNodes)
+                {
+                    WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
 
-                     int i = 0;
+                    NPC npc = new NPC()
+                    {
+                        Id = XmlUtil.Get(node, "id", "object"),
+                        X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
+                        Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                        Dialogues = new List<Dialogue>(),
+                        BlocksPath = blueprint.BlocksPath,
+                        Texture = blueprint.Texture,
+                        Name = blueprint.Name,
+                        Description = blueprint.Description,
+                    };
 
-                     foreach (XmlNode text in dialogueNode.ChildNodes)
-                     {
-                         if (text.LocalName.Equals("phrase"))
-                         {
-                             dialogue.phrases[i++] = loadSentence(text);
-                         }
 
-                         if (text.LocalName.Equals("question"))
-                         {
-                             dialogue.phrases[i++] = loadQuestion(text);
-                         }
-                     }
+                    foreach (XmlNode dialogueNode in node.ChildNodes)
+                    {
+                        npc.Dialogues.Add(loadDialogue(dialogueNode));
+                    }
 
-                     npc.Dialogues.Add(dialogue);
-                 }
-
-                 result.Objects.Add(npc);
-             }
+                    result.Objects.Add(npc);
+                }
+            }
 
             return result;
         }
 
-        private static Sentence loadSentence(XmlNode text)
+        private static Dialogue loadDialogue(XmlNode text)
         {
-            Sentence result = new Sentence();
-            result.text = text.InnerText;
+            Dialogue dialogue = new Dialogue();
+            dialogue.conditions = XmlUtil.GetArray(text, "if", ' ');
+            dialogue.sets = XmlUtil.GetArray(text, "set", ' ');
+            dialogue.clears = XmlUtil.GetArray(text, "clear", ' ');
 
-            result.sets = XmlUtil.GetArray(text, "set", ' ');
-            result.clears = XmlUtil.GetArray(text, "clear", ' ');
-            result.nextEvent = XmlUtil.Get(text, "event", string.Empty);
+            dialogue.phrases = new Phrase[text.ChildNodes.Count];
+
+            int i = 0;
+
+            foreach (XmlNode phrase in text.ChildNodes)
+            {
+                if (phrase.LocalName.Equals("phrase"))
+                {
+                    dialogue.phrases[i++] = loadSentence(phrase);
+                }
+
+                if (phrase.LocalName.Equals("question"))
+                {
+                    dialogue.phrases[i++] = loadQuestion(phrase);
+                }
+            }
+
+            return dialogue;
+        }
+
+        /// <summary>
+        /// Loads a sentence event 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private static Phrase loadSentence(XmlNode text)
+        {
+            Phrase result = new Phrase();
+            result.text = text.InnerText;
             return result;
         }
 
+        /// <summary>
+        /// Loads a question event
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private static Question loadQuestion(XmlNode text)
         {
             Question result = new Question();
@@ -258,23 +290,54 @@ namespace TactileGame.RPG.Files
 
             foreach (XmlNode node in text.ChildNodes)
             {
-                result.answers.Add(loadSentence(node));
+                result.answers.Add(loadAnswer(node));
             }
-
-            result.sets = XmlUtil.GetArray(text, "set", ' ');
-            result.clears = XmlUtil.GetArray(text, "clear", ' ');
 
             return result;
         }
 
+        private static Answer loadAnswer(XmlNode node)
+        {
+            Answer answer = new Answer();
+            answer.text = XmlUtil.Get(node, "text", "");
+            answer.conditions = XmlUtil.GetArray(node, "if", ' ');
+            answer.sets = XmlUtil.GetArray(node, "set", ' ');
+            answer.clears = XmlUtil.GetArray(node, "clear", ' ');
+
+            answer.phrases = new Phrase[node.ChildNodes.Count];
+
+            int i = 0;
+
+            foreach (XmlNode phrase in node.ChildNodes)
+            {
+                if (phrase.LocalName.Equals("phrase"))
+                {
+                    answer.phrases[i++] = loadSentence(phrase);
+                }
+
+                if (phrase.LocalName.Equals("question"))
+                {
+                    answer.phrases[i++] = loadQuestion(phrase);
+                }
+            }
+
+            return answer;
+        }
+
+        /// <summary>
+        /// Loads the current knowledge base to a dictionary of string (knowledge-id) and boolean (known or unknown)
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="ll"></param>
+        /// <returns></returns>
         internal static Dictionary<string, bool> LoadKnowledge(string p, LL ll)
         {
-            investigation = new Dictionary<string, bool>();
+            Dictionary<string, bool> investigation = new Dictionary<string, bool>();
 
             XmlDocument doc = new XmlDocument();
             doc.Load("Resources/" + p);
 
-            XmlNode investigationNode = doc.DocumentElement.SelectSingleNode("definition/investigation");
+            XmlNode investigationNode = doc.DocumentElement.SelectSingleNode("investigation");
 
             foreach (XmlNode node in investigationNode.ChildNodes)
             {

@@ -6,23 +6,17 @@ using System.Threading.Tasks;
 
 namespace TactileGame.RPG.Models
 {
-    class Dialogue
+    /// <summary>
+    /// A dialogue
+    /// </summary>
+    class Dialogue : Event
     {
-        public string[] conditions;
 
+        /// <summary>
+        /// An array of phrases belonging to the dialogue
+        /// </summary>
         public Phrase[] phrases;
 
-        internal bool IsAvailable()
-        {
-            foreach(string condition in conditions)
-            {
-                if(!Game.HasKnowledge(condition))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        
     }
 }

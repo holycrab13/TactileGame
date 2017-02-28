@@ -6,13 +6,30 @@ using System.Threading.Tasks;
 
 namespace TactileGame.RPG.Models
 {
+    /// <summary>
+    /// An event that changes knowledge in the game
+    /// </summary>
     class Event
     {
+        /// <summary>
+        /// The list of facts that is going to be set by the event
+        /// </summary>
         public string[] sets;
 
+        /// <summary>
+        /// The list of facts that is going to be cleared by the event
+        /// </summary>
         public string[] clears;
 
+        /// <summary>
+        /// OPTIONAL: The event that will be executed after this event
+        /// </summary>
         public string nextEvent;
+
+        /// <summary>
+        /// An array of preliminaries for this event
+        /// </summary>
+        public string[] conditions;
 
         public void Fire()
         {
@@ -45,6 +62,19 @@ namespace TactileGame.RPG.Models
                     }
                 }
             }
+        }
+
+        internal bool IsAvailable()
+        {
+            foreach (string condition in conditions)
+            {
+                if (!Game.HasKnowledge(condition))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

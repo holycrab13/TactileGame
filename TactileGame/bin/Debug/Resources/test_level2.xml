@@ -1,0 +1,19 @@
+
+<level>
+  <definition>
+    <objects>
+      <object id="default" name="Unbekanner Gegenstand" desc="Das sieht komisch aus." img="wall.bmp" block="false" />
+      <object id="blaubeere" name="Blaubeere" desc="Eine leckere Blaubeere." img="bush.bmp" block="true" />
+      <object id="rotebeete" name="Rote Beete" desc="Rotes matschiges Zeug." img="bush.bmp" block="true" />
+      <object id="busch" name="Busch" desc="Ein buschiger Busch." img="bush.bmp" block="true" />
+      <object id="mauer" name="Mauer" desc="Ein dicke Steinmauer." img="wall.bmp" block="true" />
+      <object id="box" name="Box" desc="Eine Box aus Holz." img="wall.bmp" block="true" />
+      <object id="hans" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
+      <object id="schluessel" name="Schlüssel" desc="Ein rostiger Schlüssel." img="key.bmp" block="true" />
+      <object id="brecheisen" name="Brecheisen" desc="Ein stablies Brecheisen." img="crowbar.bmp" block="true" />
+    </objects>  
+  </definition>
+  <doors>
+    <door obj="busch" x="1" y="0" target="test_level1" targetX="0" targetY="0" />
+  </doors>
+</level>

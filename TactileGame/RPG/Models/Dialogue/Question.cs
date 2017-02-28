@@ -8,9 +8,9 @@ namespace TactileGame.RPG.Models
 {
     class Question : Phrase
     {
-        public List<Sentence> answers = new List<Sentence>();
+        public List<Answer> answers = new List<Answer>();
 
-        internal Sentence GetAnswer(int p)
+        internal Answer GetAnswer(int p)
         {
             if(p >= 0 && p < answers.Count)
             {

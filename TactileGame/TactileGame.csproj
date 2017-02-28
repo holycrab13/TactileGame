@@ -62,16 +62,19 @@
     <Compile Include="RPG\Controller\DialogueController.cs" />
     <Compile Include="RPG\Controller\CharacterController.cs" />
     <Compile Include="RPG\Controller\LevelController.cs" />
+    <Compile Include="RPG\Models\CharacterModel.cs" />
     <Compile Include="RPG\Models\Container.cs" />
+    <Compile Include="RPG\Models\Dialogue\Answer.cs" />
     <Compile Include="RPG\Models\Dialogue\Dialogue.cs" />
     <Compile Include="RPG\Models\Dialogue\Phrase.cs" />
     <Compile Include="RPG\Models\Dialogue\Question.cs" />
     <Compile Include="RPG\Models\Event.cs" />
+    <Compile Include="RPG\Models\Door.cs" />
     <Compile Include="RPG\Models\Item.cs" />
     <Compile Include="RPG\Files\LevelLoader.cs" />
+    <Compile Include="RPG\Models\LevelModel.cs" />
     <Compile Include="RPG\Util\GameState.cs" />
-    <Compile Include="RPG\Models\Dialogue\Statement.cs" />
-    <Compile Include="RPG\Models\GameDialogue.cs" />
+    <Compile Include="RPG\Models\DialogueModel.cs" />
     <Compile Include="RPG\Models\NPC.cs" />
     <Compile Include="RPG\Rendering\BooleanCanvas.cs" />
     <Compile Include="RPG\Controller\GameInputController.cs" />
@@ -164,7 +167,19 @@
     <Content Include="Resources\language.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\test_level.xml">
+    <Content Include="Resources\save_game_01.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\storyboard.txt">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\test_level1.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\test_level2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>

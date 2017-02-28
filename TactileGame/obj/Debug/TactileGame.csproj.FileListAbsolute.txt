@@ -94,5 +94,8 @@ C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\t
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\key.bmp
 C:\Users\Jan\Desktop\TactileGaming\TactileGame\TactileGame\bin\Debug\Resources\crowbar.bmp
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\crowbar.bmp
-C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level.xml
 C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\key.bmp
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\save_game_01.xml
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level1.xml
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\test_level2.xml
+C:\Users\Jan\Desktop\TactileGame\TactileGame\bin\Debug\Resources\storyboard.txt

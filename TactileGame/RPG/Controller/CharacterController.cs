@@ -13,7 +13,7 @@ namespace TactileGame.RPG.Controller
         /// <summary>
         /// The model
         /// </summary>
-        private Character model;
+        private CharacterModel model;
 
         /// <summary>
         /// The game input model
@@ -23,7 +23,7 @@ namespace TactileGame.RPG.Controller
         /// <summary>
         /// The level model
         /// </summary>
-        private Level level;
+        private LevelModel levelModel;
 
 
         /// <summary>
@@ -50,19 +50,19 @@ namespace TactileGame.RPG.Controller
                 {
                     if (inputState.IsKeyDown(InputButton.DOWN))
                     {
-                        currentMovement = new Movement(model, level, Direction.DOWN, 2);
+                        currentMovement = new Movement(model.character, levelModel.level, Direction.DOWN, 2);
                     }
                     if (inputState.IsKeyDown(InputButton.UP))
                     {
-                        currentMovement = new Movement(model, level, Direction.UP, 2);
+                        currentMovement = new Movement(model.character, levelModel.level, Direction.UP, 2);
                     }
                     if (inputState.IsKeyDown(InputButton.LEFT))
                     {
-                        currentMovement = new Movement(model, level, Direction.LEFT, 2);
+                        currentMovement = new Movement(model.character, levelModel.level, Direction.LEFT, 2);
                     }
                     if (inputState.IsKeyDown(InputButton.RIGHT))
                     {
-                        currentMovement = new Movement(model, level, Direction.RIGHT, 2);
+                        currentMovement = new Movement(model.character, levelModel.level, Direction.RIGHT, 2);
                     }
                 }
 
@@ -79,7 +79,7 @@ namespace TactileGame.RPG.Controller
         /// Sets the model
         /// </summary>
         /// <param name="character"></param>
-        internal void SetModel(Character character)
+        internal void SetModel(CharacterModel character)
         {
             this.model = character;
         }
@@ -88,9 +88,9 @@ namespace TactileGame.RPG.Controller
         /// Sets the level
         /// </summary>
         /// <param name="level"></param>
-        internal void SetLevel(Level level)
+        internal void SetLevel(LevelModel level)
         {
-            this.level = level;
+            this.levelModel = level;
         }
 
         /// <summary>

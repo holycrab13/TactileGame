@@ -11,7 +11,7 @@ namespace TactileGame
     {
         private InputState lastState;
         private GameInput input;
-        private GameDialogue model;
+        private DialogueModel model;
 
         internal void Update()
         {
@@ -41,11 +41,11 @@ namespace TactileGame
                         }
                     }
                 }
-                else if (model.HasQuestion())
+                else
                 {
                     if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
                     {
-                        Sentence answer = model.GetQuestion().GetAnswer(0);
+                        Answer answer = model.GetQuestion().GetAnswer(0);
 
                         readAnswer(answer);
                         model.SetAnswer(answer);
@@ -53,7 +53,7 @@ namespace TactileGame
 
                     if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
                     {
-                        Sentence answer = model.GetQuestion().GetAnswer(1);
+                        Answer answer = model.GetQuestion().GetAnswer(1);
 
                         readAnswer(answer);
                         model.SetAnswer(answer);
@@ -61,7 +61,7 @@ namespace TactileGame
 
                     if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
                     {
-                        Sentence answer = model.GetQuestion().GetAnswer(2);
+                        Answer answer = model.GetQuestion().GetAnswer(2);
 
                         readAnswer(answer);
                         model.SetAnswer(answer);
@@ -69,33 +69,24 @@ namespace TactileGame
 
                     if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
                     {
-                        Sentence answer = model.GetQuestion().GetAnswer(3);
+                        Answer answer = model.GetQuestion().GetAnswer(3);
 
                         readAnswer(answer);
                         model.SetAnswer(answer);
                     }
 
-                    if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A) && model.GetAnswer() != null)
+                    if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                     {
-                        model.GetAnswer().Fire();
-
-                        if (model.GetAnswer().nextEvent.Equals("interact"))
+                        if (model.GetAnswer() != null)
                         {
-                            model.SetDialogue(model.GetTarget().GetDialogue());
+                            model.GetAnswer().Fire();
+
+                            model.SetDialogue(model.GetAnswer());
                         }
                         else
                         {
-                            if (model.HasNext())
-                            {
-                                model.SetNext();
-                            }
-                            else
-                            {
-                                model.Clear();
-                                Game.gameState = RPG.GameState.Exploration;
-                            }
+                            Game.audio.PlaySound("Wähle eine Antwort aus.");
                         }
-
                     }
                 }
 
@@ -105,7 +96,7 @@ namespace TactileGame
            
         }
 
-        private void readAnswer(Sentence answer)
+        private void readAnswer(Answer answer)
         {
            if(answer != null)
            {
@@ -124,7 +115,7 @@ namespace TactileGame
             }
         }
 
-        internal void SetModel(GameDialogue model)
+        internal void SetModel(DialogueModel model)
         {
             this.model = model;
         }
