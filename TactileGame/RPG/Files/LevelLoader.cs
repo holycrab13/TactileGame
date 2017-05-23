@@ -41,9 +41,15 @@ namespace TactileGame.RPG.Files
             worldObjects = new Dictionary<string, WorldObject>();
             dialogues = new Dictionary<string, Phrase[]>();
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Resources/" + path);
+            // Create XML reader settings
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;                         // Exclude comments
 
+            // Create reader based on settings
+            XmlReader reader = XmlReader.Create("Resources/" + path, settings);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(reader);
+            
             XmlNode objectNode = doc.DocumentElement.SelectSingleNode("definition/objects");
 
             foreach (XmlNode node in objectNode.ChildNodes)
