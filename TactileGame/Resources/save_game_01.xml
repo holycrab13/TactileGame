@@ -1,6 +1,6 @@
 <save>
   <investigation>
-    <fact id="brecheisen_gefunden">true</fact>
+    <fact id="brecheisen_gefunden">false</fact>
   </investigation>
-  <level name="faskdf" posX="" posY=""/>
+  <level name="lvl_police" posX="1" posY="1"/>
 </save>
