@@ -5,7 +5,7 @@
       <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window.bmp" block="true" />
       <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door.bmp" block="true" />
       <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
-      <object id="schluessel" name="Schlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="key.bmp" block="true" />
+      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="key.bmp" block="false" />
       <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="cell.bmp" block="true" />
     </objects>
   </definition>
@@ -60,66 +60,10 @@
     <deco obj="wand" x="7" y="6" r="1" />
   </decos>
   <items>
-    <item obj="schluessel" x="4" y="1" r="1" id="schluessel" />
+    <item obj="schluessel" x="3" y="0" r="1" id="schluessel" />
   </items>
   <containers>
   </containers>
   <npcs>
-    <npc obj="person" x="1" y="2" r="2">
-      <dialogue>
-        <phrase>Hi, ich bin Hans!</phrase>
-      </dialogue>
-      <dialogue if="kenntPeter">
-        <phrase>Ich bin der Hans, und ich hasse den Peter!</phrase>
-        <move>Up</move>
-        <move>Up</move>
-        <move>Up</move>
-        <move>Left</move>
-        <move>Left</move>
-        <turn>Up</turn>
-        <phrase>Tu ihm weh.</phrase>
-      </dialogue>
-      <dialogue if="kenntPeter hat_brecheisen" set="peter_hauen" >
-        <phrase>Hau Peter mit dem Brecheisen!</phrase>
-      </dialogue>
-      <dialogue if="peter_gehauen">
-        <phrase>Peter hat seine gerechte Strafe bekommen!</phrase>
-      </dialogue>
-    </npc>
-    <npc obj="person" x="5" y="1" r="3" >
-      <dialogue set="kenntPeter">
-        <phrase>Hallo, ich bin der Peter!</phrase>
-      </dialogue>
-      <dialogue if="peter_hauen hat_brecheisen">
-        <question text="Willst du Peter wirklich verkloppen?">
-          <answer text="Aber klaro!" set="peter_gehauen">
-            <phrase>Du haust Peter mit dem Brecheisen.</phrase>
-            <phrase>Das hat ... so richtig Bam gemacht!.</phrase>
-          </answer>
-          <answer text="Lieber nicht." >
-            <phrase>Vielleicht später.</phrase>
-          </answer>
-        </question>
-      </dialogue>
-      <dialogue if="peter_gehauen">
-        <phrase>Aua, Mama.</phrase>
-      </dialogue>
-    </npc>
-    <npc obj="person" x="2" y="1" r="3" >
-      <dialogue set="kenntPaul">
-        <question text="Wer bist du?">
-          <answer text="Ich heiße Paul.">
-            <phrase>Guten Tag, Paul! Alles normal?</phrase>
-            <phrase>Du kleine Maid.</phrase>
-          </answer>
-          <answer text="Nur so eine Maid.">
-            <phrase>Lol.</phrase>
-          </answer>
-          <answer text="Fick dich weg.">
-            <phrase>Gute Idee.</phrase>
-          </answer>
-        </question>
-      </dialogue>
-    </npc>
   </npcs>
 </level>

@@ -176,6 +176,7 @@
     <None Include="Resources\no_playarea.bmp" />
     <Content Include="Resources\lvl_police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\save_game_01.xml">
       <SubType>Designer</SubType>
