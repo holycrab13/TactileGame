@@ -167,9 +167,15 @@
     <Content Include="Resources\crowbar.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\door.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\door_east.bmp" />
+    <None Include="Resources\door_in_east.bmp" />
+    <None Include="Resources\door_in_north.bmp" />
+    <None Include="Resources\door_in_south.bmp" />
+    <None Include="Resources\door_in_west.bmp" />
+    <None Include="Resources\door_north.bmp" />
+    <None Include="Resources\door_south.bmp" />
+    <None Include="Resources\door_west.bmp" />
+    <Content Include="Resources\Image1.bmp" />
     <Content Include="Resources\language.xml">
       <SubType>Designer</SubType>
     </Content>

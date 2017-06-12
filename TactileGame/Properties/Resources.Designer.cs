@@ -103,9 +103,79 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door {
+        internal static System.Drawing.Bitmap door_east {
             get {
-                object obj = ResourceManager.GetObject("door", resourceCulture);
+                object obj = ResourceManager.GetObject("door_east", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_in_east {
+            get {
+                object obj = ResourceManager.GetObject("door_in_east", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_in_north {
+            get {
+                object obj = ResourceManager.GetObject("door_in_north", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_in_south {
+            get {
+                object obj = ResourceManager.GetObject("door_in_south", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_in_west {
+            get {
+                object obj = ResourceManager.GetObject("door_in_west", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_north {
+            get {
+                object obj = ResourceManager.GetObject("door_north", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_south {
+            get {
+                object obj = ResourceManager.GetObject("door_south", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap door_west {
+            get {
+                object obj = ResourceManager.GetObject("door_west", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -149,8 +219,7 @@ namespace TactileGame.Properties {
         ///    &lt;objects&gt;
         ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;wall.bmp&quot; block=&quot;true&quot; /&gt;
         ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;window.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;door&quot; name=&quot;Tür&quot; desc=&quot;Eine Tür aus Holz.&quot; img=&quot;door.bmp&quot; block=&quot;true&quot; /&gt;
-        ///   [rest of string was truncated]&quot;;.
+        ///      &lt;object id=&quot;door&quot; name=&quot;Tür&quot; desc=&quot;Eine Tür aus Holz.&quot; img=&quot;door_in_north.bmp&quot; block=&quot;tru [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string lvl_police {
             get {

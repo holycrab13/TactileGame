@@ -3,7 +3,7 @@
     <objects>
       <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="wall.bmp" block="true" />
       <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door_in_north.bmp" block="true" />
       <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
       <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="key.bmp" block="false" />
       <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="cell.bmp" block="true" />
