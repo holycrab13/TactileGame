@@ -2,4 +2,5 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/TactileGame/bin/Debug/TactileGame.vshost.exe.manifest
+/TactileGame/bin/Debug/
+*Debug*

@@ -1,0 +1,69 @@
+﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door.bmp" block="true" />
+      <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
+      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="key.bmp" block="false" />
+      <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="cell.bmp" block="true" />
+    </objects>
+  </definition>
+  <doors>
+    <door obj="door" x="1" y="6" target="TODO" targetX="0" targetY="0" />
+  </doors>
+  <decos>
+    <!-- noerdliche Wand mit Fenster -->
+    <deco obj="fenster" x="1" y="-1" r="1" />
+    <deco obj="fenster" x="2" y="-1" r="1" />
+    <deco obj="wand" x="-1" y="-1" r="1" />
+    <deco obj="wand" x="0" y="-1" r="1" />
+    <deco obj="wand" x="3" y="-1" r="1" />
+    <deco obj="wand" x="4" y="-1" r="1" />
+    <deco obj="wand" x="5" y="-1" r="1" />
+    <deco obj="wand" x="6" y="-1" r="1" />
+    <deco obj="wand" x="7" y="-1" r="1" />
+    <!-- westliche Wand -->
+    <deco obj="wand" x="-1" y="0" r="1" />
+    <deco obj="wand" x="-1" y="1" r="1" />
+    <deco obj="wand" x="-1" y="2" r="1" />
+    <deco obj="wand" x="-1" y="3" r="1" />
+    <deco obj="wand" x="-1" y="4" r="1" />
+    <deco obj="wand" x="-1" y="5" r="1" />
+    <deco obj="wand" x="-1" y="0" r="1" />
+    <deco obj="wand" x="-1" y="1" r="1" />
+    <deco obj="wand" x="-1" y="2" r="1" />
+    <deco obj="wand" x="-1" y="3" r="1" />
+    <deco obj="wand" x="-1" y="4" r="1" />
+    <deco obj="wand" x="-1" y="5" r="1" />
+    <!-- östliche Wand -->
+    <deco obj="wand" x="7" y="0" r="1" />
+    <deco obj="wand" x="7" y="1" r="1" />
+    <deco obj="wand" x="7" y="2" r="1" />
+    <deco obj="wand" x="7" y="3" r="1" />
+    <deco obj="wand" x="7" y="4" r="1" />
+    <deco obj="wand" x="7" y="5" r="1" />
+    <!-- Zelle -->
+    <deco obj="wand" x="4" y="0" r="1" />
+    <deco obj="wand" x="4" y="1" r="1" />
+    <deco obj="wand" x="4" y="2" r="1" />
+    <deco obj="gitter" x="5" y="2" r="1" />
+    <deco obj="gitter" x="6" y="2" r="1" />
+    <!-- suedliche Wand mit Tür -->
+    <deco obj="wand" x="-1" y="6" r="1" />
+    <deco obj="wand" x="0" y="6" r="1" />
+    <deco obj="wand" x="2" y="6" r="1" />
+    <deco obj="wand" x="3" y="6" r="1" />
+    <deco obj="wand" x="4" y="6" r="1" />
+    <deco obj="wand" x="5" y="6" r="1" />
+    <deco obj="wand" x="6" y="6" r="1" />
+    <deco obj="wand" x="7" y="6" r="1" />
+  </decos>
+  <items>
+    <item obj="schluessel" x="3" y="0" r="1" id="schluessel" />
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+  </npcs>
+</level>

@@ -83,9 +83,39 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cell {
+            get {
+                object obj = ResourceManager.GetObject("cell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap crowbar {
+            get {
+                object obj = ResourceManager.GetObject("crowbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap door {
             get {
                 object obj = ResourceManager.GetObject("door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap key {
+            get {
+                object obj = ResourceManager.GetObject("key", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -114,11 +144,46 @@ namespace TactileGame.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;level width=&quot;9&quot; height=&quot;8&quot; outerImg=&quot;no_playarea.bmp&quot;&gt;
+        ///  &lt;definition&gt;
+        ///    &lt;objects&gt;
+        ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;wall.bmp&quot; block=&quot;true&quot; /&gt;
+        ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;window.bmp&quot; block=&quot;true&quot; /&gt;
+        ///      &lt;object id=&quot;door&quot; name=&quot;Tür&quot; desc=&quot;Eine Tür aus Holz.&quot; img=&quot;door.bmp&quot; block=&quot;true&quot; /&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lvl_police {
+            get {
+                return ResourceManager.GetString("lvl_police", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_playarea {
+            get {
+                object obj = ResourceManager.GetObject("no_playarea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap wall {
             get {
                 object obj = ResourceManager.GetObject("wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap window {
+            get {
+                object obj = ResourceManager.GetObject("window", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
