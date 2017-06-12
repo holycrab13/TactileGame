@@ -22,7 +22,7 @@ namespace TactileGame.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TactileGame.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TactileGame.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace TactileGame.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap avatar {
+        public static System.Drawing.Bitmap avatar {
             get {
                 object obj = ResourceManager.GetObject("avatar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bush {
+        public static System.Drawing.Bitmap bush {
             get {
                 object obj = ResourceManager.GetObject("bush", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cell {
+        public static System.Drawing.Bitmap cell {
             get {
                 object obj = ResourceManager.GetObject("cell", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,27 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap crowbar {
+        public static System.Drawing.Bitmap chair_office {
+            get {
+                object obj = ResourceManager.GetObject("chair_office", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap chair_usual {
+            get {
+                object obj = ResourceManager.GetObject("chair_usual", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap crowbar {
             get {
                 object obj = ResourceManager.GetObject("crowbar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +123,27 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_east {
+        public static System.Drawing.Bitmap desk {
+            get {
+                object obj = ResourceManager.GetObject("desk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap desk_keyboard {
+            get {
+                object obj = ResourceManager.GetObject("desk_keyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap door_east {
             get {
                 object obj = ResourceManager.GetObject("door_east", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +153,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_in_east {
+        public static System.Drawing.Bitmap door_in_east {
             get {
                 object obj = ResourceManager.GetObject("door_in_east", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +163,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_in_north {
+        public static System.Drawing.Bitmap door_in_north {
             get {
                 object obj = ResourceManager.GetObject("door_in_north", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +173,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_in_south {
+        public static System.Drawing.Bitmap door_in_south {
             get {
                 object obj = ResourceManager.GetObject("door_in_south", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +183,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_in_west {
+        public static System.Drawing.Bitmap door_in_west {
             get {
                 object obj = ResourceManager.GetObject("door_in_west", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +193,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_north {
+        public static System.Drawing.Bitmap door_north {
             get {
                 object obj = ResourceManager.GetObject("door_north", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +203,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_south {
+        public static System.Drawing.Bitmap door_south {
             get {
                 object obj = ResourceManager.GetObject("door_south", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +213,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap door_west {
+        public static System.Drawing.Bitmap door_west {
             get {
                 object obj = ResourceManager.GetObject("door_west", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +223,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap key {
+        public static System.Drawing.Bitmap key {
             get {
                 object obj = ResourceManager.GetObject("key", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -207,7 +247,7 @@ namespace TactileGame.Properties {
         ///    &lt;trans id=&quot;some.key.welcome&quot;&gt;Willkommen bei {0}. {1}&lt;/trans&gt;  
         ///	  &lt;trans [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string language {
+        public static string language {
             get {
                 return ResourceManager.GetString("language", resourceCulture);
             }
@@ -219,9 +259,9 @@ namespace TactileGame.Properties {
         ///    &lt;objects&gt;
         ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;wall.bmp&quot; block=&quot;true&quot; /&gt;
         ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;window.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;door&quot; name=&quot;Tür&quot; desc=&quot;Eine Tür aus Holz.&quot; img=&quot;door_in_north.bmp&quot; block=&quot;tru [rest of string was truncated]&quot;;.
+        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string lvl_police {
+        public static string lvl_police {
             get {
                 return ResourceManager.GetString("lvl_police", resourceCulture);
             }
@@ -230,7 +270,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap no_playarea {
+        public static System.Drawing.Bitmap no_playarea {
             get {
                 object obj = ResourceManager.GetObject("no_playarea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -240,7 +280,7 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wall {
+        public static System.Drawing.Bitmap wall {
             get {
                 object obj = ResourceManager.GetObject("wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -250,9 +290,19 @@ namespace TactileGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap window {
+        public static System.Drawing.Bitmap window {
             get {
                 object obj = ResourceManager.GetObject("window", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap window_open {
+            get {
+                object obj = ResourceManager.GetObject("window_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
