@@ -46,7 +46,7 @@ namespace TactileGame.RPG.Files
             settings.IgnoreComments = true;                         // Exclude comments
 
             // Create reader based on settings
-            XmlReader reader = XmlReader.Create("Resources/" + path, settings);
+            XmlReader reader = XmlReader.Create("Resources/levels/" + path, settings);
             XmlDocument doc = new XmlDocument();
             doc.Load(reader);
             
@@ -73,7 +73,7 @@ namespace TactileGame.RPG.Files
                 Id = "avatar",
                 Name = "Avatar",
                 Description = "This is me!",
-                Texture = BooleanTexture.FromFile("Resources/avatar.bmp"),
+                Texture = BooleanTexture.FromFile("Resources/bmps/avatar.bmp"),
             };
 
             result.avatar = character;

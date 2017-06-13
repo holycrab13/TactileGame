@@ -1,0 +1,103 @@
+﻿<level width="20" height="20" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
+      <object id="roof_south" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south.bmp" block="true" />
+      <object id="roof" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof.bmp" block="true" />
+      <object id="roof_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_north" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_north_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_north_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="roof_south_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_east.bmp" block="true" />
+      <object id="roof_south_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_west.bmp" block="true" />
+    </objects>
+  </definition>
+  <doors>
+    <door obj="door" x="0" y="-1" target="lvl_police" targetX="0" targetY="0" />
+  </doors>
+  <decos>
+    <!-- Polizei von außen -->
+    <!-- noerdliche Wand mit Fenster -->
+    <deco obj="roof_north_west" x="-2" y="-7" r="1" />
+    <deco obj="roof_north" x="-1" y="-7" r="1" />
+    <deco obj="roof_north" x="0" y="-7" r="1" />
+    <deco obj="roof_north" x="1" y="-7" r="1" />
+    <deco obj="roof_north" x="2" y="-7" r="1" />
+    <deco obj="roof_north" x="3" y="-7" r="1" />
+    <deco obj="roof_north" x="4" y="-7" r="1" />
+    <deco obj="roof_north" x="5" y="-7" r="1" />
+    <deco obj="roof_north" x="6" y="-7" r="1" />
+    <deco obj="roof_north_east" x="7" y="-7" r="1" />
+    <!-- westliche Wand -->
+    <deco obj="roof_west" x="-2" y="-6" r="1" />
+    <deco obj="roof_west" x="-2" y="-5" r="1" />
+    <deco obj="roof_west" x="-2" y="-4" r="1" />
+    <deco obj="roof_west" x="-2" y="-3" r="1" />
+    <deco obj="roof_west" x="-2" y="-2" r="1" />
+    <!-- östliche Wand -->
+    <deco obj="roof_east" x="7" y="-6" r="1" />
+    <deco obj="roof_east" x="7" y="-5" r="1" />
+    <deco obj="roof_east" x="7" y="-4" r="1" />
+    <deco obj="roof_east" x="7" y="-3" r="1" />
+    <deco obj="roof_east" x="7" y="-2" r="1" />
+    <!-- suedliche Wand mit Tür -->
+    <deco obj="wand" x="-2" y="-1" r="1" />
+    <deco obj="wand" x="-1" y="-1" r="1" />
+    <deco obj="wand" x="1" y="-1" r="1" />
+    <deco obj="wand" x="2" y="-1" r="1" />
+    <deco obj="wand" x="3" y="-1" r="1" />
+    <deco obj="wand" x="4" y="-1" r="1" />
+    <deco obj="wand" x="5" y="-1" r="1" />
+    <deco obj="wand" x="6" y="-1" r="1" />
+    <deco obj="wand" x="7" y="-1" r="1" />
+    <!-- Restliches Polizeidach -->
+    <deco obj="roof" x="-1" y="-6" r="1" />
+    <deco obj="roof" x="0" y="-6" r="1" />
+    <deco obj="roof" x="1" y="-6" r="1" />
+    <deco obj="roof" x="2" y="-6" r="1" />
+    <deco obj="roof" x="3" y="-6" r="1" />
+    <deco obj="roof" x="4" y="-6" r="1" />
+    <deco obj="roof" x="5" y="-6" r="1" />
+    <deco obj="roof" x="6" y="-6" r="1" />
+    <deco obj="roof" x="-1" y="-5" r="1" />
+    <deco obj="roof" x="0" y="-5" r="1" />
+    <deco obj="roof" x="1" y="-5" r="1" />
+    <deco obj="roof" x="2" y="-5" r="1" />
+    <deco obj="roof" x="3" y="-5" r="1" />
+    <deco obj="roof" x="4" y="-5" r="1" />
+    <deco obj="roof" x="5" y="-5" r="1" />
+    <deco obj="roof" x="6" y="-5" r="1" />
+    <deco obj="roof" x="-1" y="-4" r="1" />
+    <deco obj="roof" x="0" y="-4" r="1" />
+    <deco obj="roof" x="1" y="-4" r="1" />
+    <deco obj="roof" x="2" y="-4" r="1" />
+    <deco obj="roof" x="3" y="-4" r="1" />
+    <deco obj="roof" x="4" y="-4" r="1" />
+    <deco obj="roof" x="5" y="-4" r="1" />
+    <deco obj="roof" x="6" y="-4" r="1" />
+    <deco obj="roof" x="-1" y="-3" r="1" />
+    <deco obj="roof" x="0" y="-3" r="1" />
+    <deco obj="roof" x="1" y="-3" r="1" />
+    <deco obj="roof" x="2" y="-3" r="1" />
+    <deco obj="roof" x="3" y="-3" r="1" />
+    <deco obj="roof" x="4" y="-3" r="1" />
+    <deco obj="roof" x="5" y="-3" r="1" />
+    <deco obj="roof" x="6" y="-3" r="1" />
+    <deco obj="roof" x="-1" y="-2" r="1" />
+    <deco obj="roof" x="0" y="-2" r="1" />
+    <deco obj="roof" x="1" y="-2" r="1" />
+    <deco obj="roof" x="2" y="-2" r="1" />
+    <deco obj="roof" x="3" y="-2" r="1" />
+    <deco obj="roof" x="4" y="-2" r="1" />
+    <deco obj="roof" x="5" y="-2" r="1" />
+    <deco obj="roof" x="6" y="-2" r="1" />
+  </decos>
+  <items>
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+  </npcs>
+</level>

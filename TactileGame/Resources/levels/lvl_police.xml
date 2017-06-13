@@ -1,20 +1,20 @@
 ﻿<level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="wall.bmp" block="true" />
-      <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window.bmp" block="true" />
-      <object id="fenster_offen" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window_open.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door_north.bmp" block="true" />
-      <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
-      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="key.bmp" block="false" />
-      <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="cell.bmp" block="true" />
-      <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="desk_keyboard.bmp" block="true" />
-      <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="desk.bmp" block="true" />
-      <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="chair_office.bmp" block="false" />
+      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window.bmp" block="true" />
+      <object id="fenster_offen" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window_open.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+      <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="bmps/avatar.bmp" block="true" />
+      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="bmps/key.bmp" block="false" />
+      <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="bmps/cell.bmp" block="true" />
+      <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk_keyboard.bmp" block="true" />
+      <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk.bmp" block="true" />
+      <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="bmps/chair_office.bmp" block="false" />
     </objects>
   </definition>
   <doors>
-    <door obj="door" x="1" y="5" target="TODO" targetX="0" targetY="0" />
+    <door obj="door" x="1" y="5" target="village1" targetX="0" targetY="0" />
   </doors>
   <decos>
     <!-- noerdliche Wand mit Fenster -->

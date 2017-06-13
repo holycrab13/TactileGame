@@ -257,9 +257,9 @@ namespace TactileGame.Properties {
         ///   Looks up a localized string similar to &lt;level width=&quot;9&quot; height=&quot;8&quot; outerImg=&quot;no_playarea.bmp&quot;&gt;
         ///  &lt;definition&gt;
         ///    &lt;objects&gt;
-        ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;wall.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;window.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt [rest of string was truncated]&quot;;.
+        ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;bmps/wall.bmp&quot; block=&quot;true&quot; /&gt;
+        ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;bmps/window.bmp&quot; block=&quot;true&quot; /&gt;
+        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet [rest of string was truncated]&quot;;.
         /// </summary>
         public static string lvl_police {
             get {
@@ -273,6 +273,96 @@ namespace TactileGame.Properties {
         public static System.Drawing.Bitmap no_playarea {
             get {
                 object obj = ResourceManager.GetObject("no_playarea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof {
+            get {
+                object obj = ResourceManager.GetObject("roof", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_east {
+            get {
+                object obj = ResourceManager.GetObject("roof_east", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_north {
+            get {
+                object obj = ResourceManager.GetObject("roof_north", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_north_east {
+            get {
+                object obj = ResourceManager.GetObject("roof_north_east", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_north_west {
+            get {
+                object obj = ResourceManager.GetObject("roof_north_west", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_south {
+            get {
+                object obj = ResourceManager.GetObject("roof_south", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_south_east {
+            get {
+                object obj = ResourceManager.GetObject("roof_south_east", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_south_west {
+            get {
+                object obj = ResourceManager.GetObject("roof_south_west", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roof_west {
+            get {
+                object obj = ResourceManager.GetObject("roof_west", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
