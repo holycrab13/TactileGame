@@ -187,6 +187,12 @@
   <data name="window_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\window_open.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pavement_WE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\pavement_WE.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pavment_NS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\pavment_NS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="roof" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\roof.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,5 +219,29 @@
   </data>
   <data name="roof_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\roof_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_E" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_E.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_N" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_N.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_NE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_NE.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_NW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_NW.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_S.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_SE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_SE.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_SW.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="street_W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\street_W.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

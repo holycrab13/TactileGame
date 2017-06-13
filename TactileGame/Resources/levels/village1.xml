@@ -2,7 +2,7 @@
   <definition>
     <objects>
       <object id="wand" name="Wand" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz. Sie führt in die Polizeistation." img="bmps/door_south.bmp" block="true" />
       <object id="roof_south" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south.bmp" block="true" />
       <object id="roof" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof.bmp" block="true" />
       <object id="roof_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_west.bmp" block="true" />
@@ -12,6 +12,9 @@
       <object id="roof_north_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_west.bmp" block="true" />
       <object id="roof_south_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_east.bmp" block="true" />
       <object id="roof_south_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_west.bmp" block="true" />
+      <object id="street_N" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_N.bmp" block="false" />
+      <object id="street_S" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_S.bmp" block="false" />
+      <object id="pavement_WE" name="Fussweg" desc="Der schöne breite Fussweg neben der Dorfstraße." img="bmps/pavement_WE.bmp" block="false" />
     </objects>
   </definition>
   <doors>
@@ -93,6 +96,23 @@
     <deco obj="roof" x="4" y="-2" r="1" />
     <deco obj="roof" x="5" y="-2" r="1" />
     <deco obj="roof" x="6" y="-2" r="1" />
+    <!-- Fußweg vor der Polizei -->
+    <deco obj="pavement_WE" x="-2" y="0" r="1" />
+    <deco obj="pavement_WE" x="-1" y="0" r="1" />
+    <deco obj="pavement_WE" x="0" y="0" r="1" />
+    <deco obj="pavement_WE" x="1" y="0" r="1" />
+    <deco obj="pavement_WE" x="2" y="0" r="1" />
+    <!-- Straße vor der Polizei -->
+    <deco obj="street_N" x="0" y="1" r="1" />
+    <deco obj="street_S" x="0" y="2" r="1" />
+    <deco obj="street_N" x="1" y="1" r="1" />
+    <deco obj="street_S" x="1" y="2" r="1" />
+    <deco obj="street_N" x="2" y="1" r="1" />
+    <deco obj="street_S" x="2" y="2" r="1" />
+    <deco obj="street_N" x="-1" y="1" r="1" />
+    <deco obj="street_S" x="-1" y="2" r="1" />
+    <deco obj="street_N" x="-2" y="1" r="1" />
+    <deco obj="street_S" x="-2" y="2" r="1" />
   </decos>
   <items>
   </items>
