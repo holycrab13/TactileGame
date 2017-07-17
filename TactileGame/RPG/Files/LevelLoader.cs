@@ -46,7 +46,7 @@ namespace TactileGame.RPG.Files
             settings.IgnoreComments = true;                         // Exclude comments
 
             // Create reader based on settings
-            XmlReader reader = XmlReader.Create("Resources/" + path, settings);
+            XmlReader reader = XmlReader.Create("Resources/levels/" + path, settings);
             XmlDocument doc = new XmlDocument();
             doc.Load(reader);
             
@@ -73,7 +73,7 @@ namespace TactileGame.RPG.Files
                 Id = "avatar",
                 Name = "Avatar",
                 Description = "This is me!",
-                Texture = BooleanTexture.FromFile("Resources/avatar.bmp"),
+                Texture = BooleanTexture.FromFile("Resources/bmps/avatar.bmp"),
             };
 
             result.avatar = character;
@@ -171,8 +171,8 @@ namespace TactileGame.RPG.Files
                     if (!Game.HasKnowledge(item.Id + "_gefunden"))
                     {
                         Phrase talk = new Phrase()
-                        {
-                            text = "Du hast " + blueprint.Name + " gefunden.",
+                            {  
+                                text = "Du hast " + blueprint.Name + " gefunden.",
                             sets = new string[] { "hat_" + item.Id, item.Id + "_gefunden" }
                         };
 
@@ -308,7 +308,7 @@ namespace TactileGame.RPG.Files
             }
 
             if (actionType == "question")
-            {
+                    {
                 Question question = new Question();
 
                 foreach (XmlNode node in actionNode.ChildNodes)
@@ -327,10 +327,10 @@ namespace TactileGame.RPG.Files
                         answer.trigger = XmlUtil.Get(node, "trigger", string.Empty);
                         question.answers.Add(answer);
                     }
-                }
+                    }
 
                 return question;
-            }
+                }
 
             if (actionType == "move")
             {
@@ -342,13 +342,13 @@ namespace TactileGame.RPG.Files
                 if(move.target.Equals(string.Empty))
                 {
                     move.target = "avatar";
-                }
-
-                return move;
             }
 
+                return move;
+        }
+
             if (actionType == "goto")
-            {
+        {
                 Goto move = new Goto();
                 move.target = XmlUtil.Get(actionNode, "target", string.Empty);
                 move.targetX = XmlUtil.Get(actionNode, "x", 0);
@@ -377,7 +377,7 @@ namespace TactileGame.RPG.Files
                 }
 
                 return move;
-            }
+                }
 
             if (actionType == "turn")
             {
@@ -392,10 +392,10 @@ namespace TactileGame.RPG.Files
                 }
 
                 return turn;
-            }
+                }
 
             return null;
-        }
+            }
 
         private static Direction directionFromString(string p)
         {
