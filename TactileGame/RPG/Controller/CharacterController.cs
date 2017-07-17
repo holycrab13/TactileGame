@@ -29,7 +29,7 @@ namespace TactileGame.RPG.Controller
         /// <summary>
         /// The current movement of the model
         /// </summary>
-        private Movement currentMovement;
+        private Move currentMovement;
         
         /// <summary>
         /// The last input model state
@@ -45,30 +45,56 @@ namespace TactileGame.RPG.Controller
 
             if (Game.gameState == GameState.Exploration)
             {
-                
                 if (currentMovement == null || currentMovement.IsComplete())
                 {
+                    
                     if (inputState.IsKeyDown(InputButton.DOWN))
                     {
-                        currentMovement = new Movement(model.character, levelModel.level, Direction.DOWN, 2);
+                        model.character.Rotation = Direction.DOWN;
+
+                        if (levelModel.level.IsValidPosition(model.character, model.character.GetLookAt()))
+                        {
+                            currentMovement = new Move(model.character, Direction.DOWN, 2);
+                        }
                     }
                     if (inputState.IsKeyDown(InputButton.UP))
                     {
-                        currentMovement = new Movement(model.character, levelModel.level, Direction.UP, 2);
+                        model.character.Rotation = Direction.UP;
+
+                        if (levelModel.level.IsValidPosition(model.character, model.character.GetLookAt()))
+                        {
+                            currentMovement = new Move(model.character, Direction.UP, 2);
+                        }
                     }
                     if (inputState.IsKeyDown(InputButton.LEFT))
                     {
-                        currentMovement = new Movement(model.character, levelModel.level, Direction.LEFT, 2);
+                        model.character.Rotation = Direction.LEFT;
+
+                        if (levelModel.level.IsValidPosition(model.character, model.character.GetLookAt()))
+                        {
+                            currentMovement = new Move(model.character, Direction.LEFT, 2);
+                        }
                     }
                     if (inputState.IsKeyDown(InputButton.RIGHT))
                     {
-                        currentMovement = new Movement(model.character, levelModel.level, Direction.RIGHT, 2);
+                        model.character.Rotation = Direction.RIGHT;
+
+                        if (levelModel.level.IsValidPosition(model.character, model.character.GetLookAt()))
+                        {
+                            currentMovement = new Move(model.character, Direction.RIGHT, 2);
+                        }
                     }
                 }
 
                 if (currentMovement != null && !currentMovement.IsComplete())
                 {
-                    currentMovement.Update();
+                    currentMovement.Update(null);
+                }
+
+                if(currentMovement != null && currentMovement.IsComplete())
+                {
+                    levelModel.TriggerEventAt(model.character.X, model.character.Y);
+                    currentMovement = null;
                 }
             }
 

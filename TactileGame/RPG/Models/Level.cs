@@ -11,11 +11,17 @@ namespace TactileGame.RPG.Models
     {
         public List<WorldObject> Objects { get; private set; }
 
+        public List<EventBase> Events { get; private set; }
+
+        public List<EventTrigger> Triggers { get; private set; }
+
         public Character avatar;
 
         public Level()
         {
             Objects = new List<WorldObject>();
+            Events = new List<EventBase>();
+            Triggers = new List<EventTrigger>();
         }
 
 		internal WorldObject GetTarget(Character character)
@@ -50,5 +56,20 @@ namespace TactileGame.RPG.Models
         {
             return IsValidPosition(character, rec.X, rec.Y);
         }
-	}
+
+        internal EventBase FindEvent(string p)
+        {
+            return Events.Find(e => e.id == p);
+        }
+
+        internal T FindObject<T>(string p) where T : WorldObject
+        {
+            return Objects.Find(e => e.Id == p) as T;
+        }
+
+        internal EventTrigger FindTrigger(int x, int y)
+        {
+            return Triggers.Find(t => x >= t.x && x < t.x + t.width && y >= t.y && y < t.y + t.height);
+        }
+    }
 }

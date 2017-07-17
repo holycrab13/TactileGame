@@ -61,7 +61,7 @@ namespace TactileGame.RPG.Models
         /// <summary>
         /// The dialogue to display on interaction
         /// </summary>
-        public List<Dialogue> Dialogues { get; set; }
+        public EventBase Event { get; set; }
 
         /// <summary>
         /// The getter and setter for the current rotation
@@ -91,11 +91,6 @@ namespace TactileGame.RPG.Models
                 texture = value;
                 CreatePattern();
             }
-        }
-
-        internal Dialogue GetDialogue()
-        {
-            return Dialogues.FindLast(d => d.IsAvailable());
         }
 
         /// <summary>
