@@ -46,9 +46,10 @@ namespace TactileGame.RPG.Controller
         {
             InputState inputState = gameInput.GetState();
 
+            Game.gameState = model.events.Count > 0 ? GameState.Event : GameState.Exploration;
+
             if (Game.gameState == GameState.Exploration)
             {
-  
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
@@ -78,6 +79,22 @@ namespace TactileGame.RPG.Controller
                             UpdateWorldObject(target);
                         }
                     }
+                }
+            }
+
+            if (Game.gameState == GameState.Event)
+            {
+                EventBase levelEvent = model.events[0];
+
+                if (levelEvent.IsComplete())
+                {
+                    levelEvent.Reset();
+                    gameDialogue.Clear();
+                    model.events.RemoveAt(0);
+                }
+                else
+                {
+                    levelEvent.Update(this);
                 }
             }
 
@@ -130,7 +147,7 @@ namespace TactileGame.RPG.Controller
 
         private void UpdateItem(Item item)
         {
-            gameDialogue.SetDialogue(item.Dialogues[0]);
+            model.events.Add(item.Event);
             model.level.Objects.Remove(item);
             model.level.avatar.Inventory.Add(item);
             
@@ -142,7 +159,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            gameDialogue.SetDialogue(Phrase.Create(target.Description));
+            model.events.Add(target.Event);
         }
 
         /// <summary>
@@ -167,9 +184,7 @@ namespace TactileGame.RPG.Controller
                     break;
             }
 
-
-            gameDialogue.SetDialogue(target.GetDialogue());
-            gameDialogue.SetTarget(target);
+            model.TriggerEvent(target.Trigger);
         }
 
         /// <summary>
@@ -202,6 +217,28 @@ namespace TactileGame.RPG.Controller
         internal void SetDialogue(DialogueModel gameDialogue)
         {
             this.gameDialogue = gameDialogue;
+        }
+
+        public DialogueModel GetDialogue()
+        {
+            return gameDialogue;
+        }
+
+        internal Level GetLevel()
+        {
+            return model.level;
+        }
+
+        internal WorldObject GetTarget(string target)
+        {
+            if (target.Equals("avatar") || target.Equals(string.Empty))
+            {
+                return GetLevel().avatar;
+            }
+            else
+            {
+                return GetLevel().FindObject<WorldObject>(target);
+            }
         }
     }
 }

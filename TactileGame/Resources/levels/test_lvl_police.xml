@@ -1,0 +1,135 @@
+﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="window.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="door.bmp" block="true" />
+      <object id="person" name="Hans" desc="Der Hans aus Dormitz." img="avatar.bmp" block="true" />
+      <object id="schluessel" name="Autoschlüssel" desc="Die Schlüssel zu einem Polizeiwagen." img="key.bmp" block="false" />
+      <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="cell.bmp" block="true" />
+    </objects>
+    <events>
+      <!-- Verlassen des Gebäudes -->
+      <eventgroup id="verlassen">
+        <event if="nichtohnemiriam" not="schluessel_gefunden">
+          <phrase>Ich sollte zuerst meinen Autoschlüssel suchen. Wo lag der noch gleich?</phrase>
+          <move>Up</move>
+        </event>
+        <event not="nichtohnemiriam">
+          <phrase>Deine Partnerin Miriam kommt auf dich zu.</phrase>
+          <turn>Up</turn>
+          <relgoto target="miriam" x="0" y="-1" />
+          <turn target="miriam">Down</turn>
+          <phrase>Miriam: Hey Schmidt, du willst wohl einfach ohne mich los, was?</phrase>
+          <phrase>Du: Entschuldigung, ich war in Gedanken.</phrase>
+          <phrase>Miriam: Wohin geht es denn heute?</phrase>
+          <phrase>Du: Ein vermeintlicher Entführungsfall drüben in Bad Wimpfen. Ich wette, das verschwundene Mädchen versteckt sich einfach nur im Wald.</phrase>
+          <phrase set="nichtohnemiriam">Miriam: Dann hol ich mal eben meine Jacke. Geh ruhig schon zum Auto!</phrase>
+          <goto target="miriam" x="11" y="3" />
+          <move>Up</move>
+        </event>
+        
+      </eventgroup>
+      
+      <!-- Betreten des hinteren Büros -->
+      <eventgroup id="schluessel_suchen">
+        <event not="schluessel_gefunden">
+          <phrase>Ich sollte wohl besser aufbrechen.</phrase>
+          <move>Left</move>
+        </event>
+        <event if="schluessel_gefunden">
+          <phrase>Ich gehe besser zum Auto.</phrase>
+          <move>Left</move>
+        </event>
+      </eventgroup>
+      
+      <!--Reden mit Willi-->
+      <event id="willi">
+        <phrase>Polizeioberwachtmeister Willi Küfner blickt von einigen Akten auf.</phrase>
+        <question>
+          <text>Willi: Hallo Schmidt? Alles in Ordnung?</text>
+          <answer>Alles in Butter, Willi</answer>
+          <answer trigger="willis_leben">Gut, und selbst?</answer>
+        </question>
+      </event>
+      <event id="willis_leben">
+        <phrase>Willi: Och, kann mich nicht beschweren. Bis später dann!</phrase>        
+      </event>
+    </events>
+  </definition>
+  <triggers>
+    <trigger x="0" y="5" width="4" height="1" event="verlassen"/>
+    <trigger x="7" y="3" width="1" height="1" event="schluessel_suchen"/>
+  </triggers>
+  <doors>
+    <door obj="door" x="1" y="6" r="0" target="TODO" targetX="0" targetY="0" />
+  </doors>
+  <decos>
+    <!-- noerdliche Wand mit Fenster -->
+    <deco obj="fenster" x="1" y="-1" r="1" />
+    <deco obj="fenster" x="2" y="-1" r="1" />
+    <deco obj="wand" x="-1" y="-1" r="1" />
+    <deco obj="wand" x="0" y="-1" r="1" />
+    <deco obj="wand" x="3" y="-1" r="1" />
+    <deco obj="wand" x="4" y="-1" r="1" />
+    <deco obj="wand" x="5" y="-1" r="1" />
+    <deco obj="wand" x="6" y="-1" r="1" />
+    <deco obj="wand" x="7" y="-1" r="1" />
+    <deco obj="wand" x="8" y="-1" r="1" />
+    <deco obj="wand" x="9" y="-1" r="1" />
+    <deco obj="wand" x="10" y="-1" r="1" />
+    <deco obj="wand" x="11" y="-1" r="1" />
+    <deco obj="wand" x="12" y="-1" r="1" />
+    <!-- westliche Wand -->
+    <deco obj="wand" x="-1" y="0" r="1" />
+    <deco obj="fenster" x="-1" y="1" r="2" />
+    <deco obj="wand" x="-1" y="2" r="1" />
+    <deco obj="wand" x="-1" y="3" r="1" />
+    <deco obj="fenster" x="-1" y="4" r="2" />
+    <deco obj="wand" x="-1" y="5" r="1" />
+   
+    <!-- östliche Wand -->
+    <deco obj="wand" x="7" y="0" r="1" />
+    <deco obj="wand" x="7" y="1" r="1" />
+    <deco obj="wand" x="7" y="2" r="1" />
+    <deco obj="wand" x="7" y="4" r="1" />
+    <deco obj="wand" x="7" y="5" r="1" />
+    <!-- östliche Rückwand-->
+    <deco obj="wand" x="12" y="0" r="1" />
+    <deco obj="wand" x="12" y="1" r="1" />
+    <deco obj="wand" x="12" y="2" r="1" />
+    <deco obj="wand" x="12" y="3" r="1" />
+    <deco obj="wand" x="12" y="4" r="1" />
+    <deco obj="wand" x="12" y="5" r="1" />
+    <!-- Zelle -->
+    <deco obj="wand" x="4" y="0" r="1" />
+    <deco obj="wand" x="4" y="1" r="1" />
+    <deco obj="wand" x="4" y="2" r="1" />
+    <deco obj="gitter" x="5" y="2" r="1" />
+    <deco obj="gitter" x="6" y="2" r="1" />
+    <!-- suedliche Wand mit Tür -->
+    <deco obj="wand" x="-1" y="6" r="1" />
+    <deco obj="wand" x="0" y="6" r="1" />
+    <deco obj="wand" x="2" y="6" r="1" />
+    <deco obj="wand" x="3" y="6" r="1" />
+    <deco obj="wand" x="4" y="5" r="1" />
+    <deco obj="wand" x="4" y="6" r="1" />
+    <deco obj="wand" x="5" y="6" r="1" />
+    <deco obj="wand" x="6" y="6" r="1" />
+    <deco obj="wand" x="7" y="6" r="1" />
+    <deco obj="wand" x="8" y="6" r="1" />
+    <deco obj="wand" x="9" y="6" r="1" />
+    <deco obj="wand" x="10" y="6" r="1" />
+    <deco obj="wand" x="11" y="6" r="1" />
+    <deco obj="wand" x="12" y="6" r="1" />
+  </decos>
+  <items>
+    <item obj="schluessel" x="3" y="0" r="1" id="schluessel" />
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+    <npc id="miriam" obj="person" x="10" y="3" r="3" />
+    <npc id="willi" obj="person" x="2" y="1" r="2" trigger="willi" />
+  </npcs>
+</level>

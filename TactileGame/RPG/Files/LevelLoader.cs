@@ -79,6 +79,51 @@ namespace TactileGame.RPG.Files
             result.avatar = character;
 
 
+            XmlNode eventNode = doc.DocumentElement.SelectSingleNode("definition/events");
+
+            if (eventNode != null)
+            {
+                foreach (XmlNode node in eventNode.ChildNodes)
+                {
+                    string name = node.Name;
+
+                    if(name == "eventgroup")
+                    {
+                        EventGroup group = new EventGroup();
+                        group.id = XmlUtil.Get(node, "id", string.Empty);
+
+                        foreach (XmlNode childNode in node.ChildNodes)
+                        {
+                            group.events.Add(loadEvent(childNode));
+                        }
+
+                        result.Events.Add(group);
+                    }
+
+                    if (name == "event")
+                    {
+                        result.Events.Add(loadEvent(node));
+                    }
+                }
+            }
+
+            XmlNode triggerNode = doc.DocumentElement.SelectSingleNode("triggers");
+
+            if (triggerNode != null)
+            {
+                foreach (XmlNode node in triggerNode.ChildNodes)
+                {
+                    EventTrigger trigger = new EventTrigger();
+
+                    trigger.x = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0);
+                    trigger.y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0);
+                    trigger.width = Constants.TILE_SIZE * XmlUtil.Get(node, "width", 1);
+                    trigger.height = Constants.TILE_SIZE * XmlUtil.Get(node, "height", 1);
+                    trigger.levelEvent = XmlUtil.Get(node, "event", string.Empty);
+
+                    result.Triggers.Add(trigger);
+                }
+            }
 
             XmlNode decoNode = doc.DocumentElement.SelectSingleNode("decos");
 
@@ -97,7 +142,8 @@ namespace TactileGame.RPG.Files
                         BlocksPath = blueprint.BlocksPath,
                         Texture = blueprint.Texture,
                         Name = blueprint.Name,
-                        Description = blueprint.Description
+                        Description = blueprint.Description,
+                        Event = new Event(Phrase.Create(blueprint.Description)),
                     });
                 }
             }
@@ -120,26 +166,17 @@ namespace TactileGame.RPG.Files
                         Texture = blueprint.Texture,
                         Name = blueprint.Name,
                         Description = blueprint.Description,
-                        Dialogues = new List<Dialogue>()
                     };
 
                     if (!Game.HasKnowledge(item.Id + "_gefunden"))
                     {
-                        Dialogue itemDialogue = new Dialogue()
-                        {
-                            phrases = new Phrase[] 
-                        { 
-                            new Phrase() 
+                        Phrase talk = new Phrase()
                             {  
                                 text = "Du hast " + blueprint.Name + " gefunden.",
-                            }
-                        },
-
                             sets = new string[] { "hat_" + item.Id, item.Id + "_gefunden" }
-
                         };
 
-                        item.Dialogues.Add(itemDialogue);
+                        item.Event = new Event(talk);
                         result.Objects.Add(item);
                     }
                 }
@@ -197,6 +234,7 @@ namespace TactileGame.RPG.Files
                     {
                         X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
                         Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                         Target = XmlUtil.Get(node, "target", ""),
                         TargetX = Constants.TILE_SIZE * XmlUtil.Get(node, "targetX", 0),
                         TargetY = Constants.TILE_SIZE * XmlUtil.Get(node, "targetY", 0),
@@ -225,18 +263,12 @@ namespace TactileGame.RPG.Files
                         X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
                         Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
                         Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
-                        Dialogues = new List<Dialogue>(),
                         BlocksPath = blueprint.BlocksPath,
                         Texture = blueprint.Texture,
                         Name = blueprint.Name,
                         Description = blueprint.Description,
+                        Trigger = XmlUtil.Get(node, "trigger", string.Empty)
                     };
-
-
-                    foreach (XmlNode dialogueNode in node.ChildNodes)
-                    {
-                        npc.Dialogues.Add(loadDialogue(dialogueNode));
-                    }
 
                     result.Objects.Add(npc);
                 }
@@ -245,31 +277,169 @@ namespace TactileGame.RPG.Files
             return result;
         }
 
-        private static Dialogue loadDialogue(XmlNode text)
+        private static Event loadEvent(XmlNode node)
         {
-            Dialogue dialogue = new Dialogue();
-            dialogue.conditions = XmlUtil.GetArray(text, "if", ' ');
-            dialogue.sets = XmlUtil.GetArray(text, "set", ' ');
-            dialogue.clears = XmlUtil.GetArray(text, "clear", ' ');
+            Event evnt = new Event();
+            evnt.id = XmlUtil.Get(node, "id", string.Empty);
+            evnt.conditions = XmlUtil.GetArray(node, "if", ' ');
+            evnt.inverseConditions = XmlUtil.GetArray(node, "not", ' ');
 
-            dialogue.phrases = new Phrase[text.ChildNodes.Count];
-
-            int i = 0;
-
-            foreach (XmlNode phrase in text.ChildNodes)
+            foreach (XmlNode actionNode in node.ChildNodes)
             {
-                if (phrase.LocalName.Equals("phrase"))
-                {
-                    dialogue.phrases[i++] = loadSentence(phrase);
-                }
-
-                if (phrase.LocalName.Equals("question"))
-                {
-                    dialogue.phrases[i++] = loadQuestion(phrase);
-                }
+                evnt.actions.Add(loadAction(actionNode));
+              
             }
 
-            return dialogue;
+            return evnt;
+        }
+
+        private static Events.ActionBase loadAction(XmlNode actionNode)
+        {
+            string actionType = actionNode.Name;
+
+            if (actionType == "phrase")
+            {
+                Phrase phrase = new Phrase();
+                phrase.text = actionNode.InnerText;
+                phrase.sets = XmlUtil.GetArray(actionNode, "set", ' ');
+                phrase.clears = XmlUtil.GetArray(actionNode, "clear", ' ');
+
+                return phrase;
+            }
+
+            if (actionType == "question")
+                    {
+                Question question = new Question();
+
+                foreach (XmlNode node in actionNode.ChildNodes)
+                {
+                    if(node.Name == "text")
+                    {
+                        question.text = node.InnerText;
+                    }
+
+                    if(node.Name == "answer")
+                    {
+                        Answer answer = new Answer();
+                        answer.text = node.InnerText;
+                        answer.sets = XmlUtil.GetArray(node, "set", ' ');
+                        answer.clears = XmlUtil.GetArray(node, "clear", ' ');
+                        answer.trigger = XmlUtil.Get(node, "trigger", string.Empty);
+                        question.answers.Add(answer);
+                    }
+                    }
+
+                return question;
+                }
+
+            if (actionType == "move")
+            {
+                Move move = new Move();
+                move.direction = directionFromString(actionNode.InnerText);
+                move.target = XmlUtil.Get(actionNode, "target", string.Empty);
+
+                // Default target is the avatar
+                if(move.target.Equals(string.Empty))
+                {
+                    move.target = "avatar";
+            }
+
+                return move;
+        }
+
+            if (actionType == "goto")
+        {
+                Goto move = new Goto();
+                move.target = XmlUtil.Get(actionNode, "target", string.Empty);
+                move.targetX = XmlUtil.Get(actionNode, "x", 0);
+                move.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                // Default target is the avatar
+                if (move.target.Equals(string.Empty))
+                {
+                    move.target = "avatar";
+                }
+
+                return move;
+            }
+
+            if (actionType == "relgoto")
+            {
+                RelGoto move = new RelGoto();
+                move.target = XmlUtil.Get(actionNode, "target", string.Empty);
+                move.targetX = XmlUtil.Get(actionNode, "x", 0);
+                move.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                // Default target is the avatar
+                if (move.target.Equals(string.Empty))
+                {
+                    move.target = "avatar";
+                }
+
+                return move;
+                }
+
+            if (actionType == "turn")
+            {
+                Turn turn = new Turn();
+                turn.direction = directionFromString(actionNode.InnerText);
+                turn.target = XmlUtil.Get(actionNode, "target", string.Empty);
+
+                // Default target is the avatar
+                if (turn.target.Equals(string.Empty))
+                {
+                    turn.target = "avatar";
+                }
+
+                return turn;
+                }
+
+            return null;
+            }
+
+        private static Direction directionFromString(string p)
+        {
+            if (p.Equals("Up"))
+                return Direction.UP;
+
+            if (p.Equals("Left"))
+                return Direction.LEFT;
+
+            if (p.Equals("Right"))
+                return Direction.RIGHT;
+
+            if (p.Equals("Down"))
+                return Direction.DOWN;
+
+            return Direction.UP;
+        }
+
+        private static DialogueAction loadDialogue(XmlNode text)
+        {
+            return null;
+            //DialogueAction dialogue = new DialogueAction();
+            //dialogue.conditions = XmlUtil.GetArray(text, "if", ' ');
+            //dialogue.sets = XmlUtil.GetArray(text, "set", ' ');
+            //dialogue.clears = XmlUtil.GetArray(text, "clear", ' ');
+
+            //dialogue.phrases = new Talk[text.ChildNodes.Count];
+
+            //int i = 0;
+
+            //foreach (XmlNode phrase in text.ChildNodes)
+            //{
+            //    if (phrase.LocalName.Equals("phrase"))
+            //    {
+            //        dialogue.phrases[i++] = loadSentence(phrase);
+            //    }
+
+            //    if (phrase.LocalName.Equals("question"))
+            //    {
+            //        dialogue.phrases[i++] = loadQuestion(phrase);
+            //    }
+            //}
+
+            //return dialogue;
         }
 
         /// <summary>
@@ -306,26 +476,26 @@ namespace TactileGame.RPG.Files
         {
             Answer answer = new Answer();
             answer.text = XmlUtil.Get(node, "text", "");
-            answer.conditions = XmlUtil.GetArray(node, "if", ' ');
-            answer.sets = XmlUtil.GetArray(node, "set", ' ');
-            answer.clears = XmlUtil.GetArray(node, "clear", ' ');
+            //answer.conditions = XmlUtil.GetArray(node, "if", ' ');
+            //answer.sets = XmlUtil.GetArray(node, "set", ' ');
+            //answer.clears = XmlUtil.GetArray(node, "clear", ' ');
 
-            answer.phrases = new Phrase[node.ChildNodes.Count];
+            //answer.phrases = new Talk[node.ChildNodes.Count];
 
-            int i = 0;
+            //int i = 0;
 
-            foreach (XmlNode phrase in node.ChildNodes)
-            {
-                if (phrase.LocalName.Equals("phrase"))
-                {
-                    answer.phrases[i++] = loadSentence(phrase);
-                }
+            //foreach (XmlNode phrase in node.ChildNodes)
+            //{
+            //    if (phrase.LocalName.Equals("phrase"))
+            //    {
+            //        answer.phrases[i++] = loadSentence(phrase);
+            //    }
 
-                if (phrase.LocalName.Equals("question"))
-                {
-                    answer.phrases[i++] = loadQuestion(phrase);
-                }
-            }
+            //    if (phrase.LocalName.Equals("question"))
+            //    {
+            //        answer.phrases[i++] = loadQuestion(phrase);
+            //    }
+            //}
 
             return answer;
         }

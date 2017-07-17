@@ -14,7 +14,7 @@ namespace TactileGame.RPG.Models
         /// <summary>
         /// The current dialogue
         /// </summary>
-        private Dialogue dialogue;
+        private DialogueAction dialogue;
 
         /// <summary>
         /// the current phrase index
@@ -31,23 +31,6 @@ namespace TactileGame.RPG.Models
         /// </summary>
         private WorldObject target;
 
-        /// <summary>
-        /// Indicates whether there is more after the current phrase
-        /// </summary>
-        /// <returns></returns>
-        internal bool HasNext()
-        {
-            return dialogue != null && index < dialogue.phrases.Length - 1;        
-        }
-
-        /// <summary>
-        /// Indicates whether there is more after the current phrase
-        /// </summary>
-        /// <returns></returns>
-        internal bool HasPhrase()
-        {
-            return dialogue != null && index < dialogue.phrases.Length;        
-        }
 
         /// <summary>
         /// Increases the phrase index
@@ -63,50 +46,26 @@ namespace TactileGame.RPG.Models
         /// <returns></returns>
         internal string GetCurrent()
         {
-            return dialogue.phrases[index].text;
+            return dialogue.GetText();
         }
 
         /// <summary>
         /// Sets the dialog and resets the index
         /// </summary>
         /// <param name="dialogue"></param>
-        internal void SetDialogue(Dialogue dialogue)
+        internal void SetDialogue(DialogueAction dialogue)
         {
             this.dialogue = dialogue;
             this.index = 0;
             this.currentAnswer = null;
+
+
+
         }
 
-        /// <summary>
-        /// Sets the dialog and resets the index
-        /// </summary>
-        /// <param name="dialogue"></param>
-        internal void SetDialogue(Phrase phrase)
-        {
-            this.dialogue = new Dialogue() { phrases = new Phrase[] { phrase } };
-            this.index = 0;
-            this.currentAnswer = null;
-        }
+        
 
-        /// <summary>
-        /// Indicates whether the current phrase is a sentence
-        /// </summary>
-        /// <returns></returns>
-        internal bool HasSentence()
-        {
-            return !(dialogue.phrases[index] is Question);
-        }
-
-
-        /// <summary>
-        /// Get the current phrase as a question
-        /// </summary>
-        /// <returns></returns>
-        internal Question GetQuestion()
-        {
-            return dialogue.phrases[index] as Question;
-        }
-
+      
         /// <summary>
         /// Set the answer of the question
         /// </summary>
@@ -135,13 +94,6 @@ namespace TactileGame.RPG.Models
             this.currentAnswer = null;
         }
 
-        /// <summary>
-        /// Fires the event method of the current dialogue event
-        /// </summary>
-        internal void FireEvent()
-        {
-            dialogue.Fire();
-        }
 
         /// <summary>
         /// Sets the target of the current dialogue
@@ -159,6 +111,26 @@ namespace TactileGame.RPG.Models
         internal WorldObject GetTarget()
         {
             return target;
+        }
+
+        internal bool Boop(LevelModel level)
+        {
+            return dialogue.Boop(level);
+        }
+
+        internal bool HasAction()
+        {
+            return dialogue != null && !dialogue.IsComplete();
+        }
+
+        internal bool HasQuestion()
+        {
+            return dialogue is Question;
+        }
+
+        internal Question GetQuestion()
+        {
+            return dialogue as Question;
         }
     }
 }

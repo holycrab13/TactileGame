@@ -12,80 +12,60 @@ namespace TactileGame
         private InputState lastState;
         private GameInput input;
         private DialogueModel model;
+        private LevelModel level;
 
         internal void Update()
         {
-            if (model.HasPhrase())
-            {
-                Game.gameState = RPG.GameState.Dialogue;
-            }
 
-            if (Game.gameState == RPG.GameState.Dialogue)
+            if (Game.gameState == RPG.GameState.Event)
             {
                 InputState inputState = input.GetState();
 
-                if (model.HasSentence())
+                if (model.HasAction())
                 {
                     if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                     {
-                        model.FireEvent();
-
-                        if (model.HasNext())
+                        if (!model.Boop(level))
                         {
-                            model.SetNext();
-                        }
-                        else
-                        {
-                            model.Clear();
-                            Game.gameState = RPG.GameState.Exploration;
+                            Game.audio.AbortCurrentSound();
+                            Game.audio.PlaySound("Bitte wähle eine Antwort mit den Pfeiltasten aus.");
                         }
                     }
-                }
-                else
-                {
-                    if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
+
+
+                    if (model.HasQuestion())
                     {
-                        Answer answer = model.GetQuestion().GetAnswer(0);
 
-                        readAnswer(answer);
-                        model.SetAnswer(answer);
-                    }
-
-                    if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
-                    {
-                        Answer answer = model.GetQuestion().GetAnswer(1);
-
-                        readAnswer(answer);
-                        model.SetAnswer(answer);
-                    }
-
-                    if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
-                    {
-                        Answer answer = model.GetQuestion().GetAnswer(2);
-
-                        readAnswer(answer);
-                        model.SetAnswer(answer);
-                    }
-
-                    if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
-                    {
-                        Answer answer = model.GetQuestion().GetAnswer(3);
-
-                        readAnswer(answer);
-                        model.SetAnswer(answer);
-                    }
-
-                    if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
-                    {
-                        if (model.GetAnswer() != null)
+                        if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
                         {
-                            model.GetAnswer().Fire();
-
-                            model.SetDialogue(model.GetAnswer());
+                            if (model.GetQuestion().SetAnswer(0))
+                            {
+                                readAnswer(model.GetQuestion().GetAnswerText());
+                            }
                         }
-                        else
+
+                        if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
                         {
-                            Game.audio.PlaySound("Wähle eine Antwort aus.");
+                            if (model.GetQuestion().SetAnswer(1))
+                            {
+                                readAnswer(model.GetQuestion().GetAnswerText());
+                            }
+                        }
+
+                        if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
+                        {
+                            if (model.GetQuestion().SetAnswer(2))
+                            {
+                                readAnswer(model.GetQuestion().GetAnswerText());
+                            }
+                        }
+
+                        if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
+                        {
+                            if (model.GetQuestion().SetAnswer(3))
+                            {
+                                readAnswer(model.GetQuestion().GetAnswerText());
+                            }
                         }
                     }
                 }
@@ -96,11 +76,12 @@ namespace TactileGame
            
         }
 
-        private void readAnswer(Answer answer)
+        private void readAnswer(string answer)
         {
            if(answer != null)
            {
-               Game.audio.PlaySound(answer.text);
+               Game.audio.AbortCurrentSound();
+               Game.audio.PlaySound(answer);
            }
         }
 
@@ -118,6 +99,11 @@ namespace TactileGame
         internal void SetModel(DialogueModel model)
         {
             this.model = model;
+        }
+
+        internal void SetLevel(LevelModel levelModel)
+        {
+            this.level = levelModel;
         }
     }
 }

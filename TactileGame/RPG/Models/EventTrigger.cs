@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace TactileGame.RPG.Models
 {
-    class NPC : Character
+    class EventTrigger
     {
-        public string Trigger;
-
-        
+        public int x;
+        public int y;
+        public int width;
+        public int height;
+        public string levelEvent;
     }
 }
