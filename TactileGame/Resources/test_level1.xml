@@ -1,5 +1,6 @@
 
-<level width="10" height="20" outerImg="bush.bmp">
+<level width="10" height="20" outerImg="bush.bmp" event="event_hans">
+  
   <definition>
     <objects>
       <object id="default" name="Unbekanner Gegenstand" desc="Das sieht komisch aus." img="wall.bmp" block="false" />
@@ -26,8 +27,26 @@
   </items>
   <containers>
   </containers>
+  <triggers>
+    <trigger x="4" y="0" width="3" height="3" event="wache"/>
+  </triggers>
+  <events>
+    <event id="wache" if="in_gedanken">
+      <phrase>Deine Partnerin Miriam kommt auf dich zu.</phrase>
+      <turn target="avatar">Right</turn>
+      <relgoto target="miriam">1 0</relgoto>
+      <turn target="miriam">Left</turn>
+      <phrase>Miriam: Hey Schmidt, du willst wohl einfach ohne mich los, was?</phrase>
+      <phrase>Du: Entschuldigung, ich war in Gedanken.</phrase>
+      <phrase>Miriam: Wohin geht es denn heute?</phrase>
+      <phrase>Du: Ein vermeintlicher Entführungsfall drüben in Bad Wimpfen. Ich wette, das verschwundene Mädchen versteckt sich einfach nur im Wald.</phrase>
+      <phrase clear="in_gedanken">Miriam: Dann hol ich mal eben meine Jacke. Geh ruhig schon zum Auto!</phrase>
+    </event>
+  </events>
   <npcs>
-    <npc obj="hans" x="-1" y="0" r="2">
+    <npc obj="hans" x="-1" y="0" r="2" event="event_hans">
+      
+      
       <dialogue>
         <phrase>Hi, ich bin Hans!</phrase>
       </dialogue>
