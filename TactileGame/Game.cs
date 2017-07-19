@@ -177,7 +177,7 @@ namespace TactileGame
             mainRegion.SetMatrix(canvas.Data);
            
 
-            if (gameState == GameState.Event)
+            if (gameState == GameState.Dialogue)
             {
                 detailregion.SetVisibility(true);
 
