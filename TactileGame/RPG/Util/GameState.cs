@@ -8,6 +8,7 @@ namespace TactileGame.RPG
     enum GameState
     {
         Exploration,
-        Event
+        Event,
+        Dialogue
     }
 }
