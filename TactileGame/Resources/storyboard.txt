@@ -44,3 +44,48 @@ bei Müllers im Müll findet man Kaufangebot von Thomsen
 - Julia Schleife zeigen, Julia will sich vor Haus von Paul am Abend treffen.
 - Julia gesteht Beziehung, Paul macht auf,
 - Gespräch mit Paul schließt ihn als Täter aus
+
+
+
+LEVEL 0: Tutorial
+
+LEVEL 1: POLIZEI
+
+-Schlüssel suchen
+-Beispielinteraktion mit NPC (evtl auch Frage/Antwort)
+-Türtrigger und Gespräch mit Miriam -> Vorstellung des Falls
+-Verlassen durch Tür
+
+
+LEVEL 2: Autofahrt
+
+-Gespräch: Details zum Fall (Name der Familie, Beschreibung der Tochter, Haus, Vorbestrafter)
+=> Bürgermeister hat angefragt
+=> Vorbestrafter im Ort
+=> Familie
+
+
+LEVEL 3: DORF (Zentraler Hub)
+Häuser:
+=> Bürgermeister
+=> Paul (Vorbestrafter)
+=> Haus der Müllers (Opfer)
+=> Haus von Thomas Thomsen
+=> Schule
+
+LEVEL 4: RATHAUS
+
+
+LEVEL 5: PAUL
+
+
+LEVEL 6: MÜLLERS
+
+
+LEVEL 7: THOMSEN
+
+
+LEVEL 8: SCHULE/SCHULHOF
+
+
+LEVEL 9: BÜROS
