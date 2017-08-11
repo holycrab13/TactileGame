@@ -28,6 +28,8 @@ namespace TactileGame.RPG.Files
         /// </summary>
         private static Dictionary<string, Phrase[]> dialogues;
 
+        private static readonly string S_RANGE = "range";
+
 
 
         /// <summary>
@@ -131,20 +133,30 @@ namespace TactileGame.RPG.Files
             {
                 foreach (XmlNode node in decoNode.ChildNodes)
                 {
-                    WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
-
-                    result.Objects.Add(new WorldObject()
+                    if (node.Name.Equals(S_RANGE))
                     {
-                        X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
-                        Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
-                        Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
-                        Id = XmlUtil.Get(node, "id", "object"),
-                        BlocksPath = blueprint.BlocksPath,
-                        Texture = blueprint.Texture,
-                        Name = blueprint.Name,
-                        Description = blueprint.Description,
-                        Event = new Event(Phrase.Create(blueprint.Description)),
-                    });
+                        int x = XmlUtil.Get(node, "x", 0);
+                        int y = XmlUtil.Get(node, "y", 0);
+                        int width = XmlUtil.Get(node, "width", 0);
+                        int height = XmlUtil.Get(node, "height", 0);
+
+                        for (int i = x; i < x + width; i++)
+                        {
+                            for (int j = y; j < y + height; j++)
+                            {
+                                result.Objects.Add(createDeco(node.ChildNodes[0], i, j));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int x = XmlUtil.Get(node, "x", 0);
+                        int y = XmlUtil.Get(node, "y", 0);
+
+                        result.Objects.Add(createDeco(node, x, y));
+
+                       
+                    }
                 }
             }
 
@@ -275,6 +287,24 @@ namespace TactileGame.RPG.Files
             }
 
             return result;
+        }
+
+        private static WorldObject createDeco(XmlNode node, int x, int y)
+        {
+            WorldObject blueprint = worldObjects[XmlUtil.Get(node, "obj", "default")];
+
+            return new WorldObject()
+            {
+                X = Constants.TILE_SIZE * x,
+                Y = Constants.TILE_SIZE * y,
+                Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                Id = XmlUtil.Get(node, "id", "object"),
+                BlocksPath = blueprint.BlocksPath,
+                Texture = blueprint.Texture,
+                Name = blueprint.Name,
+                Description = blueprint.Description,
+                Event = new Event(Phrase.Create(blueprint.Description)),
+            };
         }
 
         private static Event loadEvent(XmlNode node)
