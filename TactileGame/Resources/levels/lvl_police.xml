@@ -18,42 +18,34 @@
   </doors>
   <decos>
     <!-- noerdliche Wand mit Fenster -->
+    <range x="-1" y="-1" width="2" height="1">
+      <deco obj="wand" r="1" />
+    </range>
     <deco obj="fenster_offen" x="1" y="-1" r="1" />
     <deco obj="fenster" x="2" y="-1" r="1" />
-    <deco obj="wand" x="-1" y="-1" r="1" />
-    <deco obj="wand" x="0" y="-1" r="1" />
-    <deco obj="wand" x="3" y="-1" r="1" />
-    <deco obj="wand" x="4" y="-1" r="1" />
-    <deco obj="wand" x="5" y="-1" r="1" />
-    <deco obj="wand" x="6" y="-1" r="1" />
-    <deco obj="wand" x="7" y="-1" r="1" />
+    <range x="3" y="-1" width="5" height="1">
+      <deco obj="wand" r="1" />
+    </range>
     <!-- westliche Wand -->
-    <deco obj="wand" x="-1" y="0" r="1" />
-    <deco obj="wand" x="-1" y="1" r="1" />
-    <deco obj="wand" x="-1" y="2" r="1" />
-    <deco obj="wand" x="-1" y="3" r="1" />
-    <deco obj="wand" x="-1" y="4" r="1" />
+    <range x="-1" y="0" width="1" height="5">
+      <deco obj="wand" r="1" />
+    </range>
     <!-- östliche Wand -->
-    <deco obj="wand" x="7" y="0" r="1" />
-    <deco obj="wand" x="7" y="1" r="1" />
-    <deco obj="wand" x="7" y="2" r="1" />
-    <deco obj="wand" x="7" y="3" r="1" />
-    <deco obj="wand" x="7" y="4" r="1" />
+    <range x="7" y="0" width="1" height="5">
+      <deco obj="wand" r="1" />
+    </range>
     <!-- Zelle -->
-    <deco obj="wand" x="4" y="0" r="1" />
-    <deco obj="wand" x="4" y="1" r="1" />
-    <deco obj="wand" x="4" y="2" r="1" />
+    <range x="4" y="0" width="1" height="3">
+      <deco obj="wand" r="1" />
+    </range>
     <deco obj="gitter" x="5" y="2" r="1" />
     <deco obj="gitter" x="6" y="2" r="1" />
     <!-- suedliche Wand mit Tür -->
+    <range x="2" y="5" width="6" height="1">
+      <deco obj="wand" r="1" />
+    </range>
     <deco obj="wand" x="-1" y="5" r="1" />
     <deco obj="wand" x="0" y="5" r="1" />
-    <deco obj="wand" x="2" y="5" r="1" />
-    <deco obj="wand" x="3" y="5" r="1" />
-    <deco obj="wand" x="4" y="5" r="1" />
-    <deco obj="wand" x="5" y="5" r="1" />
-    <deco obj="wand" x="6" y="5" r="1" />
-    <deco obj="wand" x="7" y="5" r="1" />
     <!-- Objekte um die Umgebung zu gestalten-->
     <deco obj="desk_office" x="3" y="2" r="1" />
     <deco obj="desk" x="2" y="2" r="1" />
