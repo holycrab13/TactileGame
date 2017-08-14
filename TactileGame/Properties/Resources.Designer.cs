@@ -259,7 +259,7 @@ namespace TactileGame.Properties {
         ///    &lt;objects&gt;
         ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;bmps/wall.bmp&quot; block=&quot;true&quot; /&gt;
         ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;bmps/window.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet [rest of string was truncated]&quot;;.
+        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string lvl_police {
             get {
