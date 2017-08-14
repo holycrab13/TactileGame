@@ -16,6 +16,7 @@
       <object id="street_S" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_S.bmp" block="false" />
       <object id="pavement_WE" name="Fussweg" desc="Der schöne breite Fussweg neben der Dorfstraße." img="bmps/pavement_WE.bmp" block="false" />
       <object id="polizeishild" name="Schild" desc="Hier steht: Polizei." img="bmps/door_sign.bmp" block="true" />
+      <object id="polizei_auto" name="Auto" desc="Das ist unser Streifenwagen. Er hat schon ein paar Jahre auf dem Buckel, aber er fährt immernoch schon ruhig." img="bmps/car.bmp" block="true" />
     </objects>
   </definition>
   <doors>
@@ -54,6 +55,8 @@
     <range x="-2" y="2" width="5" height="1">
       <deco obj="street_S" r="1" />
     </range>
+    <deco obj="roof_north_west" x="-1" y="-3" r="1" />
+    <deco obj="polizei_auto" x="1" y="1" r="1" />
   </decos>
   <items>
   </items>
