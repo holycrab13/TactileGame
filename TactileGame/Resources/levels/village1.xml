@@ -45,14 +45,14 @@
       <deco obj="roof" r="1" />
     </range>
     <!-- Fußweg vor der Polizei -->
-    <range x="-2" y="0" width="5" height="1">
+    <range x="-7" y="0" width="15" height="1">
       <deco obj="pavement_WE" r="1" />
     </range>
     <!-- Straße vor der Polizei -->
-    <range x="-2" y="1" width="5" height="1">
+    <range x="-7" y="1" width="15" height="1">
       <deco obj="street_N" r="1" />
     </range>
-    <range x="-2" y="2" width="5" height="1">
+    <range x="-7" y="2" width="15" height="1">
       <deco obj="street_S" r="1" />
     </range>
     <deco obj="roof_north_west" x="-1" y="-3" r="1" />
