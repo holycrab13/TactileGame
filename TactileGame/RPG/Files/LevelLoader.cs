@@ -75,7 +75,7 @@ namespace TactileGame.RPG.Files
                 Id = "avatar",
                 Name = "Avatar",
                 Description = "This is me!",
-                Texture = BooleanTexture.FromFile("Resources/bmps/avatar.bmp"),
+                Texture = BooleanTexture.FromFile("Resources/bmps/avatar_2.bmp"),
             };
 
             result.avatar = character;
