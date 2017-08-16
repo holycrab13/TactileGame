@@ -46,7 +46,7 @@ namespace TactileGame.RPG.Models
         /// <returns></returns>
         internal string GetCurrent()
         {
-            return dialogue.GetText();
+            return dialogue != null ? dialogue.GetText() : string.Empty;
         }
 
         /// <summary>
