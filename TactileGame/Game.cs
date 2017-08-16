@@ -175,20 +175,22 @@ namespace TactileGame
 
             canvas.Draw(levelModel.Avatar);
             mainRegion.SetMatrix(canvas.Data);
-           
 
-            if (gameState == GameState.Dialogue)
+
+            if (gameState == GameState.Event && gameDialogue.HasAction())
             {
                 detailregion.SetVisibility(true);
 
                 if (detailregion.GetText() != gameDialogue.GetCurrent())
                 {
                     detailregion.SetText(gameDialogue.GetCurrent());
+                    audio.AbortCurrentSound();
                     audio.PlaySound(gameDialogue.GetCurrent());
                 }
             }
             else
             {
+                audio.AbortCurrentSound();
                 detailregion.SetText(string.Empty);
             }
         }

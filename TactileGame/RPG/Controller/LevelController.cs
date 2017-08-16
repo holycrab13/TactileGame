@@ -97,7 +97,7 @@ namespace TactileGame.RPG.Controller
                     levelEvent.Update(this);
                 }
             }
-
+           
             lastState = inputState;
         }
 
