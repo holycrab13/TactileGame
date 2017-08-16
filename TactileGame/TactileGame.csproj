@@ -292,6 +292,7 @@
     <Content Include="Resources\levels\test_lvl_police.xml" />
     <Content Include="Resources\levels\village1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\XMLFile1.xml" />
     <Content Include="Resources\save_game_01.xml">
