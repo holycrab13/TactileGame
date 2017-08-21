@@ -10,6 +10,7 @@
       <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk_keyboard.bmp" block="true" />
       <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk.bmp" block="true" />
       <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="bmps/chair_office.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar.bmp" block="true" />
     </objects>
   </definition>
   <doors>
@@ -56,5 +57,26 @@
   <containers>
   </containers>
   <npcs>
+    <npc id="Miriam" obj="miri" x="6" y="3" r="1">
+      <dialogue set="kenntMiriam">
+        <phrase>Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen.</phrase>
+      </dialogue>
+      <dialogue if="kenntMiriam">
+        <question text= "Hey Bernd! hast du schon von den Müllers gehört? Man munkelt das die Anne entführt wurde. Werden wir uns darum kümmern?">
+          <answer text="Wenn es sein muss" >
+            <phrase>HEY! Was ist denn mit deiner Leidenschaft für Gerechtigkeit passiert?</phrase>
+          </answer>
+          <answer text="KLARO!" >
+            <phrase>So will ich das hören!</phrase>
+          </answer>
+          <answer text="Dafür sind wir Polizisten geworden, oder?" >
+            <phrase>Und weil uns die Uniform steht.</phrase>
+          </answer>
+          <answer text="Haben sie sich schon an die Polizei gewendet?" >
+            <phrase>Das ist ja das merkwürdige: Sie packen für einen Umzug obwohl ihre Tochter anscheinend verschwunden ist.</phrase>
+          </answer>
+        </question>
+      </dialogue>
+    </npc>
   </npcs>
 </level>
