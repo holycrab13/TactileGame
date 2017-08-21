@@ -1,7 +1,8 @@
 ﻿<level width="20" height="20" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="Wand" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
+      <object id="wand_polizei" name="Wand Polizeistation" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
+      <object id="wand_mueller" name="Wand Muellers" desc="Das ehemalige Hotel der Müllers. Sie wohnen hier nun schon seit 3 Generationen." img="bmps/wall.bmp" block="true" />
       <object id="door" name="Tür" desc="Eine Tür aus Holz. Sie führt in die Polizeistation." img="bmps/door_south.bmp" block="true" />
       <object id="roof_south" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south.bmp" block="true" />
       <object id="roof" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof.bmp" block="true" />
@@ -10,53 +11,94 @@
       <object id="roof_north" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north.bmp" block="true" />
       <object id="roof_north_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_east.bmp" block="true" />
       <object id="roof_north_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_west.bmp" block="true" />
-      <object id="roof_south_east" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_east.bmp" block="true" />
-      <object id="roof_south_west" name="Tür" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_south_west.bmp" block="true" />
       <object id="street_N" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_N.bmp" block="false" />
       <object id="street_S" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_S.bmp" block="false" />
       <object id="pavement_WE" name="Fussweg" desc="Der schöne breite Fussweg neben der Dorfstraße." img="bmps/pavement_WE.bmp" block="false" />
+      <object id="cobble_pave" name="Kopfsteinpflaster" desc="Die Auffahrt zu den Müllers. Sie besteht aus sehr grobem Kopfsteinpflaster." img="bmps/cobble.bmp" block="false" />
       <object id="polizeishild" name="Schild" desc="Hier steht: Polizei." img="bmps/door_sign.bmp" block="true" />
       <object id="polizei_auto" name="Auto" desc="Das ist unser Streifenwagen. Er hat schon ein paar Jahre auf dem Buckel, aber er fährt immernoch schon ruhig." img="bmps/car.bmp" block="true" />
+      <object id="zaun" name="Zaun" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell.bmp" block="true" />
+      <object id="zaun_ecke" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner.bmp" block="true" />
+      <object id="muellerschild" name="Schild" desc="Hier steht: Müller." img="bmps/door_sign.bmp" block="true" />
+      <object id="window_polizei" name="Fenster Polizei" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen. Durch das Fenster kann man immer hinneinschauen. Wir haben nichts zu verstecken" img="bmps/window_simple.bmp" block="true" />
+      <object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" />
     </objects>
   </definition>
   <doors>
     <door obj="door" x="0" y="-1" target="lvl_police" targetX="1" targetY="4" />
+    <door obj="door" x="-7" y="-6" target="lvl_mueller" targetX="1" targetY="4" />
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
-    <!-- Polizei von außen -->
-    <!-- noerdliche Wand -->
-    <deco obj="roof_north_west" x="-1" y="-3" r="1" />
-    <deco obj="roof_north" x="0" y="-3" r="1" />
-    <deco obj="roof_north_east" x="1" y="-3" r="1" />
-    <!-- westliche Wand -->
-    <range x="-1" y="-2" width="1" height="1">
-      <deco obj="roof_west" r="1" />
-    </range>
-    <!-- östliche Wand -->
-    <range x="1" y="-2" width="1" height="1">
-      <deco obj="roof_east" r="1" />
-    </range>
-    <deco obj="roof_south_east" x="1" y="-1" r="1" />
-    <!-- suedliche Wand mit Tür -->
-    <deco obj="polizeishild" x="1" y="-1" r="1" />
-    <deco obj="wand" x="-1" y="-1" r="1" />
-    <!-- Restliches Polizeidach -->
-    <range x="0" y="-2" width="1" height="1">
-      <deco obj="roof" r="1" />
-    </range>
-    <!-- Fußweg vor der Polizei -->
-    <range x="-7" y="0" width="15" height="1">
+    <!-- Ploizeigebäude -->
+      <!-- noerdliche Wand -->
+      <deco obj="roof_north_west" x="-1" y="-3" r="1" />
+      <deco obj="roof_north" x="0" y="-3" r="1" />
+      <deco obj="roof_north_east" x="1" y="-3" r="1" />
+      <!-- westliche Wand -->
+      <range x="-1" y="-2" width="1" height="1">
+        <deco obj="roof_west" r="1" />
+      </range>
+      <!-- östliche Wand -->
+      <range x="1" y="-2" width="1" height="1">
+        <deco obj="roof_east" r="1" />
+      </range>
+      <!-- suedliche Wand mit Tür -->
+      <deco obj="polizeishild" x="1" y="-1" r="1" />
+      <deco obj="window_polizei" x="-1" y="-1" r="1" />
+      <!-- Restliches Polizeidach -->
+      <range x="0" y="-2" width="1" height="1">
+        <deco obj="roof" r="1" />
+      </range>
+      <deco obj="roof_north_west" x="-1" y="-3" r="1" />
+    <!-- Fußweg an Hauptstraße -->
+    <range x="-6" y="0" width="14" height="1">
       <deco obj="pavement_WE" r="1" />
     </range>
-    <!-- Straße vor der Polizei -->
+    <!-- Hauptstraße -->
     <range x="-7" y="1" width="15" height="1">
       <deco obj="street_N" r="1" />
     </range>
     <range x="-7" y="2" width="15" height="1">
       <deco obj="street_S" r="1" />
     </range>
-    <deco obj="roof_north_west" x="-1" y="-3" r="1" />
+    <!-- Auffahrt Müllers -->
+    <range x="-7" y="-5" width="1" height="6">
+      <deco obj="cobble_pave" r="1" />
+    </range>
+    <!-- Müllers Grundstück -->
+      <!-- Umzäunung -->
+      <range x="-11" y="-4" width="4" height="1">
+        <deco obj="zaun" r="1" />
+      </range>
+      <range x="-6" y="-4" width="2" height="1">
+        <deco obj="zaun" r="1" />
+      </range>
+      <deco obj="zaun_ecke" x="-4" y="-4" r="1" />
+      <deco obj="zaun_ecke" x="-12" y="-4" r="2" />
+      <!-- noerdliche Wand -->
+      <deco obj="roof_north_west" x="-9" y="-9" r="1" />
+      <range x="-8" y="-9" width="2" height="1">
+        <deco obj="roof_north" r="1" />
+      </range>  
+      <deco obj="roof_north_east" x="-6" y="-9" r="1" />
+      <!-- westliche Wand -->
+      <range x="-9" y="-8" width="1" height="2">
+        <deco obj="roof_west" r="1" />
+      </range>
+      <!-- östliche Wand -->
+      <range x="-6" y="-8" width="1" height="2">
+        <deco obj="roof_east" r="1" />
+      </range>
+      <!-- suedliche Wand mit Tür -->
+      <deco obj="muellerschild" x="-6" y="-6" r="1" />
+      <deco obj="wand_mueller" x="-8" y="-6" r="1" />
+      <deco obj="wand_mueller" x="-9" y="-6" r="1" />
+      <deco obj="window_mueller" x="-8" y="-6" r="1" />
+      <!-- Restliches Dach -->
+      <range x="-8" y="-8" width="2" height="2">
+        <deco obj="roof" r="1" />
+    </range>
   </decos>
   <items>
   </items>
