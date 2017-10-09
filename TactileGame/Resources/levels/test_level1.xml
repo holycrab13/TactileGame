@@ -15,7 +15,6 @@
       <object id="brecheisen" name="Brecheisen" desc="Ein stablies Brecheisen." img="crowbar.bmp" block="true" />
     </objects>  
   </definition>
-  
   <doors>
     <door obj="door" x="4" y="3" target="test_level2" targetX="0" targetY="0" />    
   </doors>

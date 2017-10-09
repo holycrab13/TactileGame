@@ -19,6 +19,7 @@
       <object id="polizei_auto" name="Auto" desc="Das ist unser Streifenwagen. Er hat schon ein paar Jahre auf dem Buckel, aber er fährt immernoch schon ruhig." img="bmps/car.bmp" block="true" />
       <object id="zaun" name="Zaun" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell.bmp" block="true" />
       <object id="zaun_ecke" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner.bmp" block="true" />
+      <object id="zaun_ecke_180" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner_180.bmp" block="true" />
       <object id="muellerschild" name="Schild" desc="Hier steht: Müller." img="bmps/door_sign.bmp" block="true" />
       <object id="window_polizei" name="Fenster Polizei" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen. Durch das Fenster kann man immer hinneinschauen. Wir haben nichts zu verstecken" img="bmps/window_simple.bmp" block="true" />
       <object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" />
@@ -78,7 +79,7 @@
       <!-- Ecken Umzäunung -->
       <deco obj="zaun_ecke" x="-4" y="-4" r="1" />
       <deco obj="zaun_ecke" x="-12" y="-4" r="2" />
-      <deco obj="zaun_ecke" x="-12" y="-10" r="3" />
+      <deco obj="zaun_ecke_180" x="-12" y="-10" r="3" />
       <deco obj="zaun_ecke" x="-4" y="-10" r="0" />
       <!-- Westen Umzäunung -->
       <range x="-12" y="-9" width="1" height="5">
