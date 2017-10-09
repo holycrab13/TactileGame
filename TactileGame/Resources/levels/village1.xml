@@ -22,7 +22,13 @@
       <object id="zaun_ecke_180" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner_180.bmp" block="true" />
       <object id="muellerschild" name="Schild" desc="Hier steht: Müller." img="bmps/door_sign.bmp" block="true" />
       <object id="window_polizei" name="Fenster Polizei" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen. Durch das Fenster kann man immer hinneinschauen. Wir haben nichts zu verstecken" img="bmps/window_simple.bmp" block="true" />
-      <object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" /><object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" />
+      <object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" />
+      <object id="water" name="Teichmitte" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water.bmp" block="true" />
+      <object id="water_east" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_east.bmp" block="true" />
+      <object id="water_west" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_west.bmp" block="true" />
+      <object id="water_north" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_north.bmp" block="true" />
+      <object id="water_south" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_south.bmp" block="true" />
+      <object id="water_corner" name="Teichecke" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_northeast.bmp" block="true" />
     </objects>
   </definition>
   <doors>
@@ -116,6 +122,30 @@
       <range x="-8" y="-8" width="2" height="2">
         <deco obj="roof" r="1" />
       </range>
+      <!-- heiße Quelle -->
+      <range x="-14" y="-11" width="2" height ="6">
+        <deco obj="water" r="1" />
+      </range>
+      <!-- heiße Quelle - Westen -->
+      <range x="-15" y="-11" width="1" height ="6">
+       <deco obj="water_west" r="0" />
+      </range>
+      <!-- heiße Quelle - Osten -->
+      <range x="-12" y="-10" width="1" height ="5">
+       <deco obj="water_east" r="0" />
+      </range>
+      <range x="-14" y="-12" width="3" height ="1">
+       <deco obj="water_north" r="1" />
+      </range>
+      <range x="-14" y="-5" width="2" height ="1">
+       <deco obj="water_south" r="1" />
+      </range>
+      <deco obj="water" x="-12" y="-11" r="0" />
+      <deco obj="water_corner" x="-15" y="-12" r="2" />
+      <deco obj="water_corner" x="-11" y="-12" r="1" />
+      <deco obj="water_corner" x="-11" y="-11" r="2" />
+      <deco obj="water_corner" x="-12" y="-5" r="2" />
+      <deco obj="water_corner" x="-15" y="-5" r="3" />
   </decos>
   <items>
   </items>
