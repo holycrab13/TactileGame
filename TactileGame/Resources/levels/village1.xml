@@ -66,6 +66,7 @@
       <object id="schoolschild" name="Schild" desc="Da steht: 233. Grund- und 154. Gesamtschule" img="bmps/door_sign.bmp" block="true" />
       <object id="window_school" name="Fenster Schule" desc="Das Fenster zur Schule. Leider fehlt Geld und Zeit um sie mal wieder in Schuss zu bringen: die Farbe ist an vielen stellen abgeplatz." img="bmps/window_old.bmp" block="true" />
       <object id="wand_school" name="Wand Schule" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/wall.bmp" block="true" />
+      <object id="cobble_pave_major" name="Auffahrt des Bürgermeisters" desc="Die Auffahrt zum Haus des Bürgermeisters. Ordentlich gepflastert und gut gepflegt, es riecht nach frisch gemähtem Gras." img="bmps/cobble.bmp" block="false" />
     </objects>
   </definition>
   <doors>
@@ -75,9 +76,15 @@
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
-    <!-- Haus Bürgermeister -->
     <!-- Haus Paul -->
     <!-- Begrenzungstrigger -->
+    <!-- Haus Bürgermeister -->
+    <!-- Garage Bürgermeister -->
+    
+    <!-- Auffahrt Bürgermeister -->
+    <range x="7" y="-2" width="2" height="3">
+      <deco obj="cobble_pave_major" r="1" />
+    </range>
     <!-- Sportplatz Schule -->
     <deco obj="basketball_ring" x="15" y="8" r="1" />
     <deco obj="basketball_ring_180" x="24" y="8" r="1" />
@@ -174,7 +181,10 @@
     </range>
     <deco obj="roof_police_north_west" x="-2" y="-4" r="1" />
     <!-- Fußweg an Hauptstraße -->
-    <range x="-6" y="0" width="14" height="1">
+    <range x="-6" y="0" width="13" height="1">
+      <deco obj="pavement_WE" r="1" />
+    </range>
+    <range x="9" y="0" width="17" height="1">
       <deco obj="pavement_WE" r="1" />
     </range>
     <range x="-16" y="0" width="9" height="1">
@@ -186,14 +196,14 @@
     <range x="-3" y="3" width="4" height="1">
       <deco obj="pavement_WE" r="1" />
     </range>
-    <range x="3" y="3" width="5" height="1">
+    <range x="3" y="3" width="23" height="1">
       <deco obj="pavement_WE" r="1" />
     </range>
     <!-- Hauptstraße -->
-    <range x="-16" y="1" width="24" height="1">
+    <range x="-16" y="1" width="42" height="1">
       <deco obj="street_N" r="1" />
     </range>
-    <range x="-16" y="2" width="24" height="1">
+    <range x="-16" y="2" width="42" height="1">
       <deco obj="street_S" r="1" />
     </range>
     <!-- Auffahrt Müllers -->
