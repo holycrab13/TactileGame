@@ -87,8 +87,10 @@
       <object id="zaun_major_door" name="Gartentor des Bürgermeisters" desc="Eine frisch geölte Gartentür. Ob der Bürgermeister sie regelmäßig benutzt?" img="bmps/garden_door.bmp" block="true" />
       <object id="sign_major" name="Klingelschild Bürgermeister" desc="Hier steht: Haus des Bürgermeisters" img="bmps/door_sign.bmp" block="true" />
       <object id="cobble_pave_major" name="Auffahrt des Bürgermeisters" desc="Die Auffahrt zum Haus des Bürgermeisters. Ordentlich gepflastert und gut gepflegt, es riecht nach frisch gemähtem Gras." img="bmps/cobble.bmp" block="false" />
-      <object id="cobble_pave_paul" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/cobble.bmp" block="false" />
-
+      <object id="door_paul" name="Tür Paul" desc="Eine alte Tür von der die Farbe an vielen Stellen schon abgeschrammt wurde. An vielen Stellen ist das blanke Holz zu sehen." img="bmps/door_south.bmp" block="true" />
+      <object id="way_paul_NS" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_NS.bmp" block="false" />
+      <object id="way_paul_corner" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_corner.bmp" block="false" />
+      <object id="way_paul_WE" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_WE.bmp" block="false" />
     </objects>
   </definition>
   <doors>
@@ -96,13 +98,22 @@
     <door obj="door_mueller" x="-7" y="-6" target="lvl_mueller" r="1" targetX="0" targetY="0" />
     <door obj="door_school" x="5" y="7" target="lvl_school" r="0" targetX="0" targetY="0" />
     <door obj="door_major" x="10" y="-3" target="lvl_major" r="1" targetX="0" targetY="0" />
+    <door obj="door_paul" x="13" y="-11" target="lvl_major" r="1" targetX="0" targetY="0" />
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
     <!-- Begrenzungstrigger -->
     <!-- Haus Paul -->
-    <!-- Weg Paul -->
     
+    <!-- Weg Paul -->
+    <deco obj="way_paul_corner" x="21" y="-9" r="1" />
+    <range x="21" y="-9" width="1" height="9">
+      <deco obj="way_paul_NS" r="1" />
+    </range>
+    <range x="13" y="-10" width="8" height="1">
+      <deco obj="way_paul_WE" r="1" />
+    </range>
+    <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
     <!-- Zaun Bürgermeister -->
     <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
     <deco obj="zaun_major_ecke_180" x="4" y="-7" r="3" />
