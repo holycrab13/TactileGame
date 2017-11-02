@@ -87,6 +87,8 @@
       <object id="zaun_major_door" name="Gartentor des Bürgermeisters" desc="Eine frisch geölte Gartentür. Ob der Bürgermeister sie regelmäßig benutzt?" img="bmps/garden_door.bmp" block="true" />
       <object id="sign_major" name="Klingelschild Bürgermeister" desc="Hier steht: Haus des Bürgermeisters" img="bmps/door_sign.bmp" block="true" />
       <object id="cobble_pave_major" name="Auffahrt des Bürgermeisters" desc="Die Auffahrt zum Haus des Bürgermeisters. Ordentlich gepflastert und gut gepflegt, es riecht nach frisch gemähtem Gras." img="bmps/cobble.bmp" block="false" />
+      <object id="cobble_pave_paul" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/cobble.bmp" block="false" />
+
     </objects>
   </definition>
   <doors>
@@ -97,8 +99,10 @@
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
-    <!-- Haus Paul -->
     <!-- Begrenzungstrigger -->
+    <!-- Haus Paul -->
+    <!-- Weg Paul -->
+    
     <!-- Zaun Bürgermeister -->
     <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
     <deco obj="zaun_major_ecke_180" x="4" y="-7" r="3" />
