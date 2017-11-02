@@ -15,7 +15,7 @@
       <object id="pubschild" name="Schild" desc="Hier steht: zum torkelnden Bären." img="bmps/door_sign.bmp" block="true" />
       <object id="window_pub" name="Fenster Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert. Durch das Fenster kann man aber kaum noch schauen. Es ist ganz speckig und gelb." img="bmps/window_simple.bmp" block="true" />
       <object id="wand_polizei" name="Wand Polizeistation" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
-      <object id="door" name="Dach" desc="Eine Tür aus Holz. Sie führt in die Polizeistation." img="bmps/door_south.bmp" block="true" />
+      <object id="door_police" name="Dach" desc="Eine Tür aus Holz. Sie führt in die Polizeistation." img="bmps/door_south.bmp" block="true" />
       <object id="roof_police" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof.bmp" block="true" />
       <object id="roof_police_west" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_west.bmp" block="true" />
       <object id="roof_police_east" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_east.bmp" block="true" />
@@ -46,6 +46,7 @@
       <object id="roof_mueller_north_east" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_north_east.bmp" block="true" />
       <object id="roof_mueller_north_west" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_north_west.bmp" block="true" />
       <object id="wand_mueller" name="Wand mueller" desc="Das ehemalige Hotel der Müllers. Sie wohnen hier nun schon seit 3 Generationen." img="bmps/wall.bmp" block="true" />
+      <object id="door_mueller" name="Tür Müller" desc="Eine alte Bauernhaustür. Der Türgriff ist abgegriffen und durch viele tausend Hände spiegelglatt." img="bmps/door_south.bmp" block="true" />
       <object id="cobble_pave_mueller" name="Auffahrt der Müllers" desc="Die Auffahrt zu den Müllers. Sie besteht aus sehr grobem Kopfsteinpflaster." img="bmps/cobble.bmp" block="false" />
       <object id="cobble_pave_school" name="Einfahrt zur schule" desc="Das ist die EInfahrt zur Schule. Sie besteht wie alle Einfahrten aus Kopfsteinpflaster. So hat man früher einfach gebaut." img="bmps/cobble.bmp" block="false" />
       <object id="zaun_schule" name="Zaun der Schule" desc="Ein moderner Metallzaun. Er wurde erst vor kurzem aufgestellt nachdem Vandalen den Schulhof nachts verwüstet haben." img="bmps/cell.bmp" block="true" />
@@ -64,23 +65,90 @@
       <object id="roof_school_north_west" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_north_west.bmp" block="true" />
       <object id="roof_school_south_east" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_south_east.bmp" block="true" />
       <object id="schoolschild" name="Schild" desc="Da steht: 233. Grund- und 154. Gesamtschule" img="bmps/door_sign.bmp" block="true" />
+      <object id="door_school" name="Tür Schule" desc="Eine moderne leichte EIngangtür. Sie führt in die ebenfalls sehr modern und kantig gehaltene Schule des Dorfes." img="bmps/door_south.bmp" block="true" />
       <object id="window_school" name="Fenster Schule" desc="Das Fenster zur Schule. Leider fehlt Geld und Zeit um sie mal wieder in Schuss zu bringen: die Farbe ist an vielen stellen abgeplatz." img="bmps/window_old.bmp" block="true" />
       <object id="wand_school" name="Wand Schule" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/wall.bmp" block="true" />
+      <object id="wand_major" name="Wand Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/wall.bmp" block="true" />
+      <object id="window_major" name="Wand Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/window_2sided.bmp" block="true" />
+      <object id="garage_major_e" name="Garage Bürgermeister" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/garage_east.bmp" block="true" />
+      <object id="garage_major_w" name="Garage Bürgermeister" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/garage_west.bmp" block="true" />
+      <object id="roof_majorgarage_nw" name="Garagen Dach" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="roof_majorgarage_n" name="Garagen Dach" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/roof_north.bmp" block="true" />
+      <object id="door_major" name="Tür Bürgermeister" desc="Eine schwere alte Tür mit einem meisterhaften geschmiedetem Türklopfer." img="bmps/door_south.bmp" block="true" />
+      <object id="roof_major" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof.bmp" block="true" />
+      <object id="roof_major_west" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_major_east" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_major_north" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_major_north_east" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_major_north_west" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="zaun_major" name="Zaun des Bürgermeisters" desc="Ein alter, gepflegter Holzzaun. Ebenso stilsicher wie klassisch." img="bmps/cell.bmp" block="true" />
+      <object id="zaun_major_ecke" name="Zaunecke des Bürgermeisters" desc="Ein alter, gepflegter Holzzaun. Ebenso stilsicher wie klassisch." img="bmps/cell_corner.bmp" block="true" />
+      <object id="zaun_major_ecke_180" name="Zaunecke des Bürgermeisters" desc="Ein alter, gepflegter Holzzaun. Ebenso stilsicher wie klassisch." img="bmps/cell_corner_180.bmp" block="true" />
+      <object id="zaun_major_door" name="Gartentor des Bürgermeisters" desc="Eine frisch geölte Gartentür. Ob der Bürgermeister sie regelmäßig benutzt?" img="bmps/garden_door.bmp" block="true" />
+      <object id="sign_major" name="Klingelschild Bürgermeister" desc="Hier steht: Haus des Bürgermeisters" img="bmps/door_sign.bmp" block="true" />
       <object id="cobble_pave_major" name="Auffahrt des Bürgermeisters" desc="Die Auffahrt zum Haus des Bürgermeisters. Ordentlich gepflastert und gut gepflegt, es riecht nach frisch gemähtem Gras." img="bmps/cobble.bmp" block="false" />
     </objects>
   </definition>
   <doors>
-    <door obj="door" x="0" y="-1" target="lvl_police" r="1" targetX="1" targetY="4" />
-    <door obj="door" x="-7" y="-6" target="lvl_mueller" r="1" targetX="0" targetY="0" />
-    <door obj="door" x="5" y="7" target="lvl_school" r="0" targetX="0" targetY="0" />
+    <door obj="door_police" x="0" y="-1" target="lvl_police" r="1" targetX="1" targetY="4" />
+    <door obj="door_mueller" x="-7" y="-6" target="lvl_mueller" r="1" targetX="0" targetY="0" />
+    <door obj="door_school" x="5" y="7" target="lvl_school" r="0" targetX="0" targetY="0" />
+    <door obj="door_major" x="10" y="-3" target="lvl_major" r="1" targetX="0" targetY="0" />
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
     <!-- Haus Paul -->
     <!-- Begrenzungstrigger -->
+    <!-- Zaun Bürgermeister -->
+    <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
+    <deco obj="zaun_major_ecke_180" x="4" y="-7" r="3" />
+    <deco obj="zaun_major_ecke_180" x="4" y="-1" r="0" />
+    <deco obj="zaun_major_ecke" x="15" y="-7" r="0" />
+    <deco obj="zaun_major_door" x="7" y="-7" r="0" />
+    <deco obj="zaun_major" x="5" y="-1" r="0" />
+    <deco obj="zaun_major" x="6" y="-1" r="0" />
+    <range x="5" y="-7" width="2" height="1">
+      <deco obj="zaun_major" r="1" />
+    </range>
+    <range x="8" y="-7" width="7" height="1">
+      <deco obj="zaun_major" r="1" />
+    </range>
+    <range x="9" y="-1" width="6" height="1">
+      <deco obj="zaun_major" r="1" />
+    </range>
+    <range x="4" y="-6" width="1" height="5">
+      <deco obj="zaun_major" r="2" />
+    </range>
+    <range x="15" y="-6" width="1" height="5">
+      <deco obj="zaun_major" r="2" />
+    </range>
     <!-- Haus Bürgermeister -->
+    <deco obj="wand_major" x="9" y="-3" r="1" />
+    <deco obj="sign_major" x="11" y="-3" r="1" />
+    <deco obj="window_major" x="12" y="-3" r="1" />
+    <deco obj="wand_major" x="13" y="-3" r="1" />
+    <deco obj="window_major" x="9" y="-4" r="1" />
+    <deco obj="wand_major" x="10" y="-4" r="1" />
+    <deco obj="window_major" x="11" y="-4" r="1" />
+    <deco obj="wand_major" x="12" y="-4" r="1" />
+    <deco obj="window_major" x="13" y="-4" r="1" />
+    <deco obj="roof_major_north_west" x="9" y="-6" r="1" />
+    <deco obj="roof_major_west" x="9" y="-5" r="1" />
+    <deco obj="roof_major_north_east" x="13" y="-6" r="1" />
+    <deco obj="roof_major_east" x="13" y="-5" r="1" />
+    <range x="10" y="-6" width="3" height="1">
+      <deco obj="roof_major_north" r="1" />
+    </range>
+    <range x="10" y="-5" width="3" height="1">
+      <deco obj="roof_major" r="1" />
+    </range>
     <!-- Garage Bürgermeister -->
-    
+    <deco obj="wand_major" x="6" y="-3" r="1" />
+    <deco obj="garage_major_e" x="8" y="-3" r="1" />
+    <deco obj="garage_major_w" x="7" y="-3" r="1" />
+    <deco obj="roof_majorgarage_nw" x="6" y="-4" r="1" />
+    <deco obj="roof_majorgarage_n" x="7" y="-4" r="1" />
+    <deco obj="roof_majorgarage_n" x="8" y="-4" r="1" />
     <!-- Auffahrt Bürgermeister -->
     <range x="7" y="-2" width="2" height="3">
       <deco obj="cobble_pave_major" r="1" />
