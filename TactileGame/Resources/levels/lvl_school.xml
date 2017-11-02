@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<level width="9" height="8" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+    </objects>
+  </definition>
+  <doors>
+    <door obj="door" x="1" y="5" target="village1" targetX="-7" targetY="-5" />
+  </doors>
+  <decos>
+    
+  </decos>
+  <items>
+    
+  </items>
+  <containers>
+    
+  </containers>
+  <npcs>
+    
+  </npcs>
+</level>
