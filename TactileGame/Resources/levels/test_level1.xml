@@ -44,9 +44,7 @@
     </event>
   </events>
   <npcs>
-    <npc obj="hans" x="-1" y="0" r="2" event="event_hans">
-      
-      
+    <npc obj="hans" x="-1" y="0" r="2" event="event_hans">    
       <dialogue>
         <phrase>Hi, ich bin Hans!</phrase>
       </dialogue>

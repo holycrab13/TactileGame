@@ -10,6 +10,7 @@
       <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk_keyboard.bmp" block="true" />
       <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk.bmp" block="true" />
       <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="bmps/chair_office.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
   </definition>
   <doors>
