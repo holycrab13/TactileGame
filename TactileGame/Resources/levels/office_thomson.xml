@@ -1,47 +1,36 @@
 ﻿<level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="Wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
+      <object id="wand" name="Wand" desc="Eine glatte Betonwand. Sie fühlt sich kühl bei Berührung an." img="bmps/wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Ein bodentiefes Fenster mit einer aetemberaubenden Aussicht aus dem 16. Stock." img="bmps/big_window.bmp" block="true" />
+      <object id="fenster_ecke" name="Fenster" desc="Ein bodentiefes Fenster mit einer aetemberaubenden Aussicht aus dem 16. Stock." img="bmps/big_window_corner.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine große, schwere und doch leichtgängige Bürotür." img="bmps/door_south.bmp" block="true" />
       </objects>
   </definition>
   <doors>
-    <door obj="door" x="0" y="-1" target="village1" targetX="-4" targetY="5" />
   </doors>
   <decos>
     <!-- noerdliche Wand -->
-    <range x="-4" y="-1" width="4" height="1">
+    <range x="0" y="-6" width="10" height="1">
+      <deco obj="fenster" r="1" />
+    </range>
+    <deco obj="fenster_ecke" x="10" y="-6" r="1" />
+    <!-- westliche Wand mit Tür -->
+    <range x="-1" y="-6" width="1" height="6">
       <deco obj="wand" r="1" />
     </range>
-    <range x="1" y="-1" width="5" height="1">
+    <range x="-1" y="1" width="1" height="4">
       <deco obj="wand" r="1" />
     </range>
-    <!-- westliche Wand -->
-    <range x="-4" y="-1" width="1" height="7">
-      <deco obj="wand" r="1" />
-    </range>
+    <deco obj="door" x="-1" y="0" r="3" />
     <!-- östliche Wand -->
-    <range x="5" y="-1" width="1" height="7">
+    <range x="10" y="-5" width="1" height="9">
+      <deco obj="fenster" r="2" />
+    </range>
+    <!-- suedliche Wand -->
+    <range x="-1" y="4" width="12" height="1">
       <deco obj="wand" r="1" />
     </range>
-    <!-- suedliche Wand mit Tür -->
-    <range x="-4" y="5" width="5" height="1">
-      <deco obj="wand" r="1" />
-    </range>
-    <range x="2" y="5" width="4" height="1">
-      <deco obj="wand" r="1" />
-    </range>
-    <deco obj="door_back" x="1" y="5" r="1" />
-    <!-- Bar mit Stühlen -->
-    <deco obj="stool" x="-1" y="2" r="1" />
-    <deco obj="stool" x="1" y="2" r="1" />
-    <deco obj="stool" x="3" y="3" r="1" />
-    <deco obj="bar_west" x="-2" y="3" r="1" />
-    <deco obj="bar_middle" x="-1" y="3" r="1" />
-    <deco obj="bar_middle" x="0" y="3" r="1" />
-    <deco obj="bar_middle" x="1" y="3" r="1" />
-    <deco obj="bar_blank" x="2" y="3" r="1" />
-    <deco obj="bar_blank" x="2" y="4" r="1" />
   </decos>
   <items>
   </items>
