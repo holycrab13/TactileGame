@@ -3,11 +3,6 @@
     <objects>
       <object id="wand" name="Wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="true" />
       <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
-      <object id="door_back" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
-      <object id="stool" name="Barhocker" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="false" />
-      <object id="bar_blank" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="true" />
-      <object id="bar_middle" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="true" />
-      <object id="bar_west" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="true" />
       </objects>
   </definition>
   <doors>

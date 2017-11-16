@@ -369,18 +369,26 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Resources\bmps\no_playarea.bmp" />
-    <Content Include="Resources\levels\lvl_major.xml">
+    <Content Include="Resources\levels\major_house.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\levels\lvl_paul.xml">
+    <Content Include="Resources\levels\mueller_house.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\levels\lvl_school.xml">
+    <Content Include="Resources\levels\office_thomson.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\levels\lvl_police.xml">
+    <Content Include="Resources\levels\paul_house.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\levels\police.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\levels\pub.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\levels\school.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\levels\test_lvl_police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -390,12 +398,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\XMLFile1.xml" />
-    <Content Include="Resources\levels\lvl_mueller.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\levels\lvl_pub.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\save_game_01.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

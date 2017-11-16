@@ -314,20 +314,6 @@ namespace TactileGame.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;level width=&quot;9&quot; height=&quot;8&quot; outerImg=&quot;no_playarea.bmp&quot;&gt;
-        ///  &lt;definition&gt;
-        ///    &lt;objects&gt;
-        ///      &lt;object id=&quot;wand&quot; name=&quot;Wand&quot; desc=&quot;Das ist nur die Wand der Polizeistation. Ziemlich rau.&quot; img=&quot;bmps/wall.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;fenster&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten.&quot; img=&quot;bmps/window.bmp&quot; block=&quot;true&quot; /&gt;
-        ///      &lt;object id=&quot;fenster_offen&quot; name=&quot;Fenster&quot; desc=&quot;Das Fenster ist leicht geöffnet und  [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string lvl_police {
-            get {
-                return ResourceManager.GetString("lvl_police", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap no_playarea {
