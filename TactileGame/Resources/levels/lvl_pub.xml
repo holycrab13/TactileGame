@@ -1,13 +1,17 @@
 ﻿<level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+      <object id="wand" name="Wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
+      <object id="door_back" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
       <object id="stool" name="Barhocker" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="false" />
+      <object id="bar_blank" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="true" />
+      <object id="bar_middle" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="true" />
+      <object id="bar_west" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="true" />
       </objects>
   </definition>
   <doors>
-    <door obj="door" x="0" y="-1" target="village1" targetX="0" targetY="0" />
+    <door obj="door" x="0" y="-1" target="village1" targetX="-4" targetY="5" />
   </doors>
   <decos>
     <!-- noerdliche Wand -->
@@ -32,9 +36,17 @@
     <range x="2" y="5" width="4" height="1">
       <deco obj="wand" r="1" />
     </range>
-    <deco obj="stool" x="0" y="2" r="1" />
-    <deco obj="stool" x="2" y="2" r="1" />
+    <deco obj="door_back" x="1" y="5" r="1" />
+    <!-- Bar mit Stühlen -->
+    <deco obj="stool" x="-1" y="2" r="1" />
+    <deco obj="stool" x="1" y="2" r="1" />
     <deco obj="stool" x="3" y="3" r="1" />
+    <deco obj="bar_west" x="-2" y="3" r="1" />
+    <deco obj="bar_middle" x="-1" y="3" r="1" />
+    <deco obj="bar_middle" x="0" y="3" r="1" />
+    <deco obj="bar_middle" x="1" y="3" r="1" />
+    <deco obj="bar_blank" x="2" y="3" r="1" />
+    <deco obj="bar_blank" x="2" y="4" r="1" />
   </decos>
   <items>
   </items>
