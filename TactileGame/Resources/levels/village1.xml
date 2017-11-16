@@ -128,11 +128,11 @@
     <trigger x="-17" y="-14" width="43" height="2" event="weitweg_N"/>
   </triggers>
   <doors>
-    <door obj="door_police" x="0" y="-1" target="lvl_police" r="1" targetX="1" targetY="4" />
-    <door obj="door_mueller" x="-7" y="-6" target="lvl_mueller" r="1" targetX="0" targetY="0" />
-    <door obj="door_school" x="5" y="7" target="lvl_school" r="0" targetX="0" targetY="0" />
-    <door obj="door_major" x="10" y="-3" target="lvl_major" r="1" targetX="0" targetY="0" />
-    <door obj="door_paul" x="13" y="-11" target="lvl_paul" r="1" targetX="0" targetY="0" />
+    <door obj="door_police" x="0" y="-1" target="police" r="1" targetX="1" targetY="4" />
+    <door obj="door_mueller" x="-7" y="-6" target="mueller_house" r="1" targetX="0" targetY="0" />
+    <door obj="door_school" x="5" y="7" target="school" r="0" targetX="0" targetY="0" />
+    <door obj="door_major" x="10" y="-3" target="major_house" r="1" targetX="0" targetY="0" />
+    <door obj="door_paul" x="13" y="-11" target="paul_house" r="1" targetX="0" targetY="0" />
   </doors>
   <decos>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
