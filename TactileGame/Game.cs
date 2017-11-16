@@ -162,6 +162,7 @@ namespace TactileGame
          
             // Do the rendering/sound stuff. TODO: Clean this up with views
             detailregion.SetVisibility(false);
+            canvas = new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight());
 
             canvas.X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - canvas.Width / 2;
             canvas.Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - canvas.Height / 2;
