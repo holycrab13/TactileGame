@@ -1,6 +1,7 @@
-﻿<level width="20" height="20" outerImg="no_playarea.bmp">
+﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
+      <object id="wood_tree" name="Wald" desc="Hier geht es zum Wald der ringsum das Dorf steht. Nachts würde ich dort nicht hineingehen." img="bmps/tree_16.bmp" block="true" />
       <object id="door_pub" name="Tür Kneipe" desc="Die Kneipe ist leider gerade geschlossen. Es ist einfach noch zu früh zum Trinken." img="bmps/door_north.bmp" block="true" />
       <object id="wand_pub" name="Wand Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/wall.bmp" block="true" />
       <object id="roof_pub" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof.bmp" block="true" />
@@ -118,6 +119,7 @@
     </events>
   </definition>
   <triggers>
+    <!-- Begrenzungstrigger -->
     <!-- Ostbegrenzung -->
     <trigger x="26" y="-14" width="2" height="27" event="weitweg_E"/>
     <!-- Südbegrenzung -->
@@ -135,8 +137,12 @@
     <door obj="door_paul" x="13" y="-11" target="paul_house" r="1" targetX="0" targetY="0" />
   </doors>
   <decos>
+    <!-- Wald um das Dorf -->
+    <!-- Nord -->
+    <range x="-18" y="-15" width="45" height="1">
+      <deco obj="wood_tree" r="1" />
+    </range>
     <deco obj="polizei_auto" x="1" y="1" r="1" />
-    <!-- Begrenzungstrigger -->
     <!-- Haus Paul -->
     <deco obj="roof_paul_north_west" x="11" y="-12" r="1" />
     <deco obj="roof_paul" x="12" y="-12" r="1" />

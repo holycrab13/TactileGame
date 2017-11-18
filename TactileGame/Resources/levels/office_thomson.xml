@@ -13,6 +13,7 @@
       </objects>
   </definition>
   <doors>
+    <door obj="door" x="-1" y="0" target="village1" r="3" targetX="1" targetY="0" />
   </doors>
   <decos>
     <!-- noerdliche Wand -->
@@ -27,7 +28,6 @@
     <range x="-1" y="1" width="1" height="4">
       <deco obj="wand" r="1" />
     </range>
-    <deco obj="door" x="-1" y="0" r="3" />
     <!-- östliche Wand -->
     <range x="10" y="-5" width="1" height="9">
       <deco obj="fenster" r="2" />
