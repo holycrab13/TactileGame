@@ -111,7 +111,7 @@ namespace TactileGame
 
             knowledge = LevelLoader.LoadKnowledge("save_game_01.xml", ll);
 
-            levelModel = new LevelModel(LevelLoader.Load("office_thomson.xml", ll));
+            levelModel = new LevelModel(LevelLoader.Load("test_lvl_police.xml", ll));
 
 
             characterModel = new CharacterModel(levelModel.Avatar);
@@ -127,6 +127,7 @@ namespace TactileGame
             dialogueController = new DialogueController();
             dialogueController.setInput(gameInput);
             dialogueController.SetModel(gameDialogue);
+            dialogueController.SetLevel(levelModel);
 
             levelController = new LevelController(this);
             levelController.SetModel(levelModel);

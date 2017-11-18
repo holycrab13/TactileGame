@@ -18,6 +18,7 @@
         <event not="nichtohnemiriam">
           <phrase>Deine Partnerin Miriam kommt auf dich zu.</phrase>
           <turn>Up</turn>
+          <relsetpos target="miriam" x="5" y="-2" />
           <relgoto target="miriam" x="0" y="-1" />
           <turn target="miriam">Down</turn>
           <phrase>Miriam: Hey Schmidt, du willst wohl einfach ohne mich los, was?</phrase>
@@ -25,7 +26,9 @@
           <phrase>Miriam: Wohin geht es denn heute?</phrase>
           <phrase>Du: Ein vermeintlicher Entführungsfall drüben in Bad Wimpfen. Ich wette, das verschwundene Mädchen versteckt sich einfach nur im Wald.</phrase>
           <phrase set="nichtohnemiriam">Miriam: Dann hol ich mal eben meine Jacke. Geh ruhig schon zum Auto!</phrase>
-          <goto target="miriam" x="11" y="3" />
+          <move target="miriam">Up</move>
+          <relgoto target="miriam" x="5" y="-2" />
+          <setpos target="miriam" x="11" y="3" />
           <move>Up</move>
         </event>
         
