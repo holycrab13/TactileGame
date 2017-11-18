@@ -111,7 +111,7 @@ namespace TactileGame
 
             knowledge = LevelLoader.LoadKnowledge("save_game_01.xml", ll);
 
-            levelModel = new LevelModel(LevelLoader.Load("lvl_police.xml", ll));
+            levelModel = new LevelModel(LevelLoader.Load("office_thomson.xml", ll));
 
 
             characterModel = new CharacterModel(levelModel.Avatar);
@@ -162,6 +162,7 @@ namespace TactileGame
          
             // Do the rendering/sound stuff. TODO: Clean this up with views
             detailregion.SetVisibility(false);
+            canvas = new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight());
 
             canvas.X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - canvas.Width / 2;
             canvas.Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - canvas.Height / 2;

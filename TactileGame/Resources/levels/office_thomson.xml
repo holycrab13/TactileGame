@@ -1,0 +1,60 @@
+﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Eine glatte Betonwand. Sie fühlt sich kühl bei Berührung an." img="bmps/wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Ein bodentiefes Fenster mit einer atemberaubenden Aussicht aus dem 16. Stock." img="bmps/big_window.bmp" block="true" />
+      <object id="fenster_ecke" name="Fenster" desc="Ein bodentiefes Fenster mit einer aetemberaubenden Aussicht aus dem 16. Stock." img="bmps/big_window_corner.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine große, schwere und doch leichtgängige Bürotür." img="bmps/door_south.bmp" block="true" />
+      <object id="tiger_hide" name="Tigerfell" desc="Ein edles, großes Tigerfell. Es sieht sehr echt aus." img="bmps/tiger_hide_big.bmp" block="false" />
+      <object id="desk" name="Schreibtisch" desc="Ein sehr glatter Bürotisch aus echtem Ebenholz. Er verströmt einen sehr angenehmen Zimtgeruch im ganzen Büro." img="bmps/desk_2.bmp" block="true" />
+      <object id="desk_computer" name="Schreibtisch" desc="Auf dem Tisch steht ein moderner Flachbildschirm und eien flache Tastatur. Sie sehen wenig benutzt aus." img="bmps/desk_keyboard_2.bmp" block="true" />
+      <object id="desk_corner" name="Schreibtisch" desc="Ein sehr glatter Bürotisch aus echtem Ebenholz. Er verströmt einen sehr angenehmen Zimtgeruch im ganzen Büro." img="bmps/desk_2_corner.bmp" block="true" />
+      <object id="plant" name="Tür" desc="Ein kleiner Bonsaibaum. Er scheint kürzlich umgetopft worden zu sein." img="bmps/bush.bmp" block="true" />
+      </objects>
+  </definition>
+  <doors>
+  </doors>
+  <decos>
+    <!-- noerdliche Wand -->
+    <range x="0" y="-6" width="10" height="1">
+      <deco obj="fenster" r="1" />
+    </range>
+    <deco obj="fenster_ecke" x="10" y="-6" r="1" />
+    <!-- westliche Wand mit Tür -->
+    <range x="-1" y="-6" width="1" height="6">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="-1" y="1" width="1" height="4">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="door" x="-1" y="0" r="3" />
+    <!-- östliche Wand -->
+    <range x="10" y="-5" width="1" height="9">
+      <deco obj="fenster" r="2" />
+    </range>
+    <!-- suedliche Wand -->
+    <range x="-1" y="4" width="12" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <!-- Desk -->
+    <range x="6" y="-1" width="3" height="1">
+      <deco obj="desk" r="1" />
+    </range>
+    <deco obj="desk_corner" x="5" y="-1" r="1" />
+    <deco obj="desk" x="5" y="-2" r="2" />
+    <deco obj="desk_computer" x="5" y="-3" r="2" />
+    <deco obj="desk" x="5" y="-4" r="2" />
+    <deco obj="tiger_hide" x="1" y="-2" r="1" />
+    <deco obj="plant" x="0" y="-5" r="1" />
+    <deco obj="plant" x="0" y="3" r="1" />
+    <deco obj="plant" x="3" y="3" r="1" />
+    <deco obj="plant" x="6" y="3" r="1" />
+    <deco obj="plant" x="9" y="3" r="1" />
+  </decos>
+  <items>
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+  </npcs>
+</level>
