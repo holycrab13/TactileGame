@@ -156,8 +156,8 @@
     <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
     <!-- Zaun Bürgermeister -->
     <deco obj="zaun_major_ecke" x="15" y="-1" r="1" />
-    <deco obj="zaun_major_ecke_180" x="4" y="-7" r="3" />
-    <deco obj="zaun_major_ecke_180" x="4" y="-1" r="0" />
+    <deco obj="zaun_major_ecke" x="4" y="-7" r="3" />
+    <deco obj="zaun_major_ecke" x="4" y="-1" r="0" />
     <deco obj="zaun_major_ecke" x="15" y="-7" r="0" />
     <deco obj="zaun_major_door" x="7" y="-7" r="0" />
     <deco obj="zaun_major" x="5" y="-1" r="0" />
@@ -228,12 +228,12 @@
       <deco obj="basketball_court_border" r="0" />
     </range>
     <!-- Zaun Schule -->
-    <deco obj="zaun_schule_ecke_180" x="0" y="4" r="3" />
-    <deco obj="zaun_schule_ecke" x="8" y="4" r="0" />
-    <deco obj="zaun_schule_ecke_180" x="8" y="5" r="0" />
-    <deco obj="zaun_schule_ecke" x="25" y="5" r="0" />
+    <deco obj="zaun_schule_ecke" x="0" y="4" r="0" />
+    <deco obj="zaun_schule_ecke" x="8" y="4" r="3" />
+    <deco obj="zaun_schule_ecke" x="8" y="5" r="2" />
+    <deco obj="zaun_schule_ecke" x="25" y="5" r="3" />
     <deco obj="zaun_schule_ecke" x="25" y="12" r="1" />
-    <deco obj="zaun_schule_ecke_180" x="0" y="12" r="0" />
+    <deco obj="zaun_schule_ecke" x="0" y="12" r="0" />
     <range x="3" y="4" width="5" height="1">
       <deco obj="zaun_schule" r="1" />
     </range>

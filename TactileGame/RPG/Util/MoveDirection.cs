@@ -4,8 +4,10 @@ namespace TactileGame.RPG
 {
 	enum Direction
 	{
-
-		UP, DOWN, LEFT, RIGHT
+        DOWN = 1,
+        LEFT = 2,
+		UP = 0,
+        RIGHT = 3,
 	}
 
 }
