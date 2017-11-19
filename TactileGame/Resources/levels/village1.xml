@@ -132,7 +132,7 @@
   <doors>
     <door obj="door_police" x="0" y="-1" target="police" r="1" targetX="1" targetY="4" />
     <door obj="door_mueller" x="-7" y="-6" target="mueller_house" r="1" targetX="0" targetY="0" />
-    <door obj="door_school" x="5" y="7" target="school" r="0" targetX="0" targetY="0" />
+    <door obj="door_school" x="5" y="7" target="school" r="0" targetX="4" targetY="2" />
     <door obj="door_major" x="10" y="-3" target="major_house" r="1" targetX="0" targetY="0" />
     <door obj="door_paul" x="13" y="-11" target="paul_house" r="1" targetX="0" targetY="0" />
   </doors>
