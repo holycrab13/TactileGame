@@ -407,7 +407,39 @@ namespace TactileGame.RPG.Files
                 }
 
                 return move;
+            }
+
+            if (actionType == "relsetpos")
+            {
+                RelSetPos move = new RelSetPos();
+                move.target = XmlUtil.Get(actionNode, "target", string.Empty);
+                move.targetX = XmlUtil.Get(actionNode, "x", 0);
+                move.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                // Default target is the avatar
+                if (move.target.Equals(string.Empty))
+                {
+                    move.target = "avatar";
                 }
+
+                return move;
+            }
+
+            if (actionType == "setpos")
+            {
+                SetPos move = new SetPos();
+                move.target = XmlUtil.Get(actionNode, "target", string.Empty);
+                move.targetX = XmlUtil.Get(actionNode, "x", 0);
+                move.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                // Default target is the avatar
+                if (move.target.Equals(string.Empty))
+                {
+                    move.target = "avatar";
+                }
+
+                return move;
+            }
 
             if (actionType == "turn")
             {

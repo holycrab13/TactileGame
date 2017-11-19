@@ -71,6 +71,8 @@
     <Compile Include="RPG\Actions\Move.cs" />
     <Compile Include="RPG\Actions\Phrase.cs" />
     <Compile Include="RPG\Actions\Question.cs" />
+    <Compile Include="RPG\Actions\SetPos.cs" />
+    <Compile Include="RPG\Actions\RelSetPos.cs" />
     <Compile Include="RPG\Actions\RelGoto.cs" />
     <Compile Include="RPG\Actions\Turn.cs" />
     <Compile Include="RPG\Controller\DialogueController.cs" />
@@ -414,6 +416,10 @@
     </Content>
     <Content Include="Resources\levels\school.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\levels\test_level3.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\levels\test_lvl_police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -130,7 +130,7 @@ namespace TactileGame.RPG.Models
                         {
                             for (int j = 0; j < texture.Data.GetLength(1); j++)
                             {
-                                Pattern[i, j] = texture.Data[i, texture.Data.GetLength(1) - j - 1];
+                                Pattern[i, j] = texture.Data[texture.Data.GetLength(0) - i - 1, texture.Data.GetLength(1) - j - 1];
                             }
                         }
                         break;
@@ -150,7 +150,7 @@ namespace TactileGame.RPG.Models
                         {
                             for (int j = 0; j < texture.Data.GetLength(0); j++)
                             {
-                                Pattern[i, j] = texture.Data[j, i];
+                                Pattern[i, j] = texture.Data[texture.Data.GetLength(1) - j - 1, i];
                             }
                         }
                         break;
