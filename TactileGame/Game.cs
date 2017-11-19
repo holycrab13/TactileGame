@@ -111,7 +111,7 @@ namespace TactileGame
 
             knowledge = LevelLoader.LoadKnowledge("save_game_01.xml", ll);
 
-            levelModel = new LevelModel(LevelLoader.Load("village1.xml", ll));
+            levelModel = new LevelModel(LevelLoader.Load("office_thomson.xml", ll));
 
 
             characterModel = new CharacterModel(levelModel.Avatar);
