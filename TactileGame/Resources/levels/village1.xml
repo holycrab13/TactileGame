@@ -286,7 +286,7 @@
     <range x="2" y="10" width="10" height="1">
       <deco obj="roof_school_north" r="2" />
     </range>
-    <!-- Ploizeigebäude 4x4 -->
+    <!-- Polizeigebäude 4x4 -->
     <!-- noerdliche Wand -->
     <deco obj="roof_police_north_west" x="-2" y="-4" r="0" />
     <deco obj="roof_police_north" x="0" y="-4" r="0" />
@@ -352,7 +352,7 @@
     <deco obj="zaun_ecke" x="-4" y="-4" r="0" />
     <deco obj="zaun_ecke" x="-16" y="-4" r="1" />
     <deco obj="zaun_ecke_180" x="-16" y="-13" r="2" />
-    <deco obj="zaun_ecke" x="-4" y="-13" r="0" />
+    <deco obj="zaun_ecke" x="-4" y="-13" r="3" />
     <!-- Westen Umzäunung -->
     <range x="-16" y="-12" width="1" height="8">
       <deco obj="zaun" r="1" />
@@ -420,11 +420,11 @@
     <deco obj="roof_pub_north_east" x="-3" y="7" r="0" />
     <!-- Dach Süden -->
     <deco obj="roof_pub_south_west" x="-5" y="8" r="0" />
-    <deco obj="roof_pub_north" x="-4" y="8" r="0" />
+    <deco obj="roof_pub_north" x="-4" y="8" r="2" />
     <deco obj="roof_pub_south_east" x="-3" y="8" r="0" />
     <!-- nördliche Wand mit Tür -->
-    <deco obj="pubschild" x="-5" y="6" r="0" />
-    <deco obj="window_pub" x="-3" y="6" r="0" />
+    <deco obj="pubschild" x="-5" y="6" r="2" />
+    <deco obj="window_pub" x="-3" y="6" r="2" />
     <deco obj="door_pub" x="-4" y="6" r="0" />
     <!-- Restliches Kneipendch -->
     <range x="-4" y="7" width="1" height="1">
