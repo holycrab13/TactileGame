@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<level width="50" height="30">
+  <definition>
+    <objects>
+      <object id="wand" name="wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="True" />
+      <object id="bar_middle" name="bar_middle" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="True" />
+      <object id="bar_blank" name="bar_blank" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="True" />
+      <object id="bar_west" name="bar_west" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="True" />
+      <object id="stool" name="stool" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="False" />
+      <object id="door_back" name="door_back" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="True" />
+      <object id="door" name="door" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="True" />
+    </objects>
+  </definition>
+  <decos>
+    <deco obj="wand" x="5" y="2" dir="0" />
+    <deco obj="wand" x="5" y="3" dir="0" />
+    <deco obj="wand" x="-4" y="5" dir="0" />
+    <deco obj="bar_middle" x="0" y="3" dir="0" />
+    <deco obj="wand" x="-4" y="-1" dir="0" />
+    <deco obj="wand" x="-4" y="-1" dir="0" />
+    <deco obj="wand" x="-4" y="3" dir="0" />
+    <deco obj="wand" x="2" y="-1" dir="0" />
+    <deco obj="wand" x="5" y="5" dir="0" />
+    <deco obj="wand" x="-2" y="-1" dir="0" />
+    <deco obj="bar_middle" x="-1" y="3" dir="0" />
+    <deco obj="wand" x="-3" y="-1" dir="0" />
+    <deco obj="wand" x="5" y="5" dir="0" />
+    <deco obj="wand" x="-4" y="0" dir="0" />
+    <deco obj="wand" x="5" y="4" dir="0" />
+    <deco obj="wand" x="-2" y="5" dir="0" />
+    <deco obj="wand" x="2" y="5" dir="0" />
+    <deco obj="wand" x="4" y="-1" dir="0" />
+    <deco obj="wand" x="-1" y="-1" dir="0" />
+    <deco obj="bar_blank" x="2" y="3" dir="0" />
+    <deco obj="wand" x="5" y="-1" dir="0" />
+    <deco obj="wand" x="-4" y="2" dir="0" />
+    <deco obj="wand" x="-4" y="4" dir="0" />
+    <deco obj="bar_west" x="-2" y="3" dir="0" />
+    <deco obj="wand" x="5" y="-1" dir="0" />
+    <deco obj="wand" x="0" y="5" dir="0" />
+    <deco obj="stool" x="1" y="2" dir="0" />
+    <deco obj="wand" x="-1" y="5" dir="0" />
+    <deco obj="stool" x="3" y="3" dir="0" />
+    <deco obj="wand" x="5" y="0" dir="0" />
+    <deco obj="door_back" x="1" y="5" dir="0" />
+    <deco obj="wand" x="3" y="-1" dir="0" />
+    <deco obj="wand" x="-3" y="5" dir="0" />
+    <deco obj="bar_middle" x="1" y="3" dir="0" />
+    <deco obj="wand" x="3" y="5" dir="0" />
+    <deco obj="bar_blank" x="2" y="4" dir="0" />
+    <deco obj="wand" x="5" y="1" dir="0" />
+    <deco obj="wand" x="1" y="-1" dir="0" />
+    <deco obj="stool" x="-1" y="2" dir="0" />
+    <deco obj="wand" x="4" y="5" dir="0" />
+    <deco obj="wand" x="-4" y="5" dir="0" />
+    <deco obj="wand" x="-4" y="1" dir="0" />
+  </decos>
+  <doors>
+    <deco obj="door" x="0" y="-1" dir="0" target="village1" targetX="-4" targetY="5" />
+  </doors>
+</level>
