@@ -416,6 +416,7 @@
     </Content>
     <Content Include="Resources\levels\school.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\test_level3.xml">
       <SubType>Designer</SubType>

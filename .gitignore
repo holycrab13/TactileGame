@@ -1,9 +1,8 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/TactileGame/bin/Debug/
+﻿/TactileGame/bin/Debug/
 *Debug*
 *.suo*
 */Thumbs.db
-TactileGame/Resources/bmps/Thumbs.db
+*ShaderCache*
+*.log
+*metadata*
+*.dll*
