@@ -80,6 +80,8 @@ namespace TactileGame.RPG.Controller
                         }
                     }
                 }
+
+               
             }
 
             if (Game.gameState == GameState.Event)
