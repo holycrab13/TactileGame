@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<level width="9" height="8" outerImg="no_playarea.bmp">
+  <definition>
+    <objects>
+      <object id="wand" name="Wand" desc="Diese Wand hat schon viele Jahre auf dem Buckel. Überall sind Scharten und Kratzer von übermütigem Rumtollen." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Die Tür des Klassenzimmers. Alte Scharten und Kratzer wurden einfach übermalt." img="bmps/door_south.bmp" block="true" />
+      <object id="desk" name="Schreibtisch" desc="Ein typischer glatter Schultisch. Ich schau lieber nicht ob ein Kagummi drunter klebt." img="bmps/desk.bmp" block="true" />
+      <object id="chair" name="Stuhl" desc="Ein harter glatter Stuhl. Nicht gerade bequem aber besser als stehen." img="bmps/chair_usual.bmp" block="true" />
+      <object id="board" name="Tafel" desc="Eine klassische Tafel aus Schiefer. Sie fühlt sich kühl und sehr glatt an." img="bmps/chalkboard.bmp" block="false" />
+      <object id="window" name="Fenster" desc="Ein sauberes Fenster zum Schulhof. Gerade ist niemand zu sehen." img="bmps/window.bmp" block="true" />
+    </objects>
+  </definition>
+  <doors>
+    <door obj="door" x="6" y="1" target="school" targetX="6" targetY="7" />
+  </doors>
+  <decos>
+    <!-- noerdliche Wand -->
+    <range x="1" y="1" width="5" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <range x="7" y="1" width="7" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <!-- westliche Wand mit Tafel -->
+    <range x="1" y="1" width="1" height="10">
+      <deco obj="wand" r="0" />
+    </range>
+    <range x="2" y="3" width="1" height="5">
+      <deco obj="board" r="0" />
+    </range>
+    <!-- südliche Wand mit Fenster -->
+    <range x="1" y="10" width="4" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <range x="5" y="10" width="3" height="1">
+      <deco obj="window" r="0" />
+    </range>
+    <range x="9" y="10" width="3" height="1">
+      <deco obj="window" r="0" />
+    </range>
+    <deco obj="wand" x="8" y="10" r="1" />
+    <deco obj="wand" x="12" y="10" r="1" />
+    <deco obj="wand" x="13" y="10" r="1" />
+    <!-- östliche Wand -->
+    <range x="13" y="1" width="1" height="10">
+      <deco obj="wand" r="0" />
+    </range>
+    <!-- Stühle & Tische -->
+    <range x="5" y="3" width="1" height="4">
+      <deco obj="chair" r="1" />
+    </range>
+    <range x="4" y="3" width="1" height="4">
+      <deco obj="desk" r="3" />
+    </range>
+    <range x="8" y="3" width="1" height="4">
+      <deco obj="chair" r="1" />
+    </range>
+    <range x="7" y="3" width="1" height="4">
+      <deco obj="desk" r="3" />
+    </range>
+    <range x="11" y="3" width="1" height="4">
+      <deco obj="chair" r="1" />
+    </range>
+    <range x="10" y="3" width="1" height="4">
+      <deco obj="desk" r="3" />
+    </range>
+    <deco obj="desk" x="4" y="8" r="3" />
+    <deco obj="chair" x="5" y="8" r="1" />
+    <deco obj="desk" x="4" y="9" r="3" />
+    <deco obj="chair" x="5" y="9" r="1" />
+    <deco obj="desk" x="7" y="8" r="3" />
+    <deco obj="chair" x="8" y="8" r="1" />
+    <deco obj="desk" x="7" y="9" r="3" />
+    <deco obj="chair" x="8" y="9" r="1" />
+    <deco obj="desk" x="11" y="8" r="3" />
+    <deco obj="chair" x="12" y="8" r="1" />
+    <deco obj="desk" x="11" y="9" r="3" />
+    <deco obj="chair" x="12" y="9" r="1" />
+  </decos>
+  <items>
+    
+  </items>
+  <containers>
+    
+  </containers>
+  <npcs>
+    
+  </npcs>
+</level>

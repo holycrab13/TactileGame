@@ -81,7 +81,6 @@
     <Compile Include="RPG\Events\Event.cs" />
     <Compile Include="RPG\Events\EventBase.cs" />
     <Compile Include="RPG\Events\EventGroup.cs" />
-    <Compile Include="RPG\Menu\MainMenu.cs" />
     <Compile Include="RPG\Models\CharacterDialog.cs" />
     <Compile Include="RPG\Models\CharacterModel.cs" />
     <Compile Include="RPG\Models\Container.cs" />
@@ -90,8 +89,6 @@
     <Compile Include="RPG\Models\Item.cs" />
     <Compile Include="RPG\Files\LevelLoader.cs" />
     <Compile Include="RPG\Models\LevelModel.cs" />
-    <Compile Include="RPG\Models\SaveGame.cs" />
-    <Compile Include="RPG\Util\ApplicationState.cs" />
     <Compile Include="RPG\Util\GameState.cs" />
     <Compile Include="RPG\Models\DialogueModel.cs" />
     <Compile Include="RPG\Models\NPC.cs" />
@@ -221,6 +218,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\bmps\cell_corner_180.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\bmps\chalkboard.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\bmps\cobble.bmp">
@@ -364,6 +364,9 @@
     <Content Include="Resources\bmps\tiger_hide_big.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\bmps\tree_16.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\water.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -403,6 +406,7 @@
     </Content>
     <Content Include="Resources\levels\office_thomson.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\paul_house.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -416,8 +420,13 @@
     <Content Include="Resources\levels\pub.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\levels\classroom.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\levels\school.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\test_level3.xml">
       <SubType>Designer</SubType>
@@ -429,11 +438,6 @@
     <Content Include="Resources\levels\village1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\levels\XMLFile1.xml" />
-    <Content Include="Resources\game_state_new.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\save_game_01.xml">
       <SubType>Designer</SubType>

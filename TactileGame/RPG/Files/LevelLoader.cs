@@ -35,9 +35,9 @@ namespace TactileGame.RPG.Files
         /// <summary>
         /// Loads the level from a txt file at a given path
         /// </summary>
-        /// <param name="levelName"></param>
+        /// <param name="path"></param>
         /// <returns></returns>
-        public static Level Load(string levelName, LL ll)
+        public static Level Load(string path, LL ll)
         {
 
             worldObjects = new Dictionary<string, WorldObject>();
@@ -48,7 +48,7 @@ namespace TactileGame.RPG.Files
             settings.IgnoreComments = true;                         // Exclude comments
 
             // Create reader based on settings
-            XmlReader reader = XmlReader.Create("Resources/levels/" + levelName + ".xml", settings);
+            XmlReader reader = XmlReader.Create("Resources/levels/" + path, settings);
             XmlDocument doc = new XmlDocument();
             doc.Load(reader);
             
@@ -568,11 +568,16 @@ namespace TactileGame.RPG.Files
         /// <param name="p"></param>
         /// <param name="ll"></param>
         /// <returns></returns>
-        internal static Dictionary<string, bool> LoadKnowledge(XmlNode knowledgeNode, LL ll)
+        internal static Dictionary<string, bool> LoadKnowledge(string p, LL ll)
         {
             Dictionary<string, bool> investigation = new Dictionary<string, bool>();
 
-            foreach (XmlNode node in knowledgeNode.ChildNodes)
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Resources/" + p);
+
+            XmlNode investigationNode = doc.DocumentElement.SelectSingleNode("investigation");
+
+            foreach (XmlNode node in investigationNode.ChildNodes)
             {
 
                 string id = XmlUtil.Get(node, "id", string.Empty);
@@ -584,23 +589,6 @@ namespace TactileGame.RPG.Files
             }
 
             return investigation;
-        }
-
-        internal static SaveGame LoadSaveGame(string saveGame, LL ll)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Resources/" + saveGame + ".xml");
-
-            SaveGame save = new SaveGame();
-
-            save.Knowledge = LoadKnowledge(doc.DocumentElement.SelectSingleNode("investigation"), ll);
-
-            XmlNode levelNode = doc.DocumentElement.SelectSingleNode("level");
-            save.LevelName = XmlUtil.Get(levelNode, "name", string.Empty);
-            save.X = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "x", 0);
-            save.Y = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "y", 0);
-
-            return save;
         }
     }
 }
