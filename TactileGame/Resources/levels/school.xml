@@ -14,6 +14,7 @@
   </definition>
   <doors>
     <door obj="door" x="4" y="1" target="village1" targetX="-7" targetY="-5" />
+    <door obj="door_A" x="6" y="8" target="classroom" targetX="6" targetY="2" />
   </doors>
   <decos>
     <range x="1" y="1" width="3" height="1">
@@ -45,7 +46,6 @@
     <range x="21" y="8" width="4" height="1">
       <deco obj="wand" r="1" />
     </range>
-    <deco obj="door_A" x="6" y="8" r="0" />
     <deco obj="sign_A" x="5" y="8" r="2" />
     <deco obj="door_B" x="13" y="8" r="0" />
     <deco obj="sign_B" x="12" y="8" r="2" />
