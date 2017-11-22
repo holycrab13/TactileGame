@@ -114,7 +114,7 @@ namespace TactileGame
 
         private void startTutorial()
         {
-            loadAndStartGame("tutorial");
+            loadAndStartGame("village1");
         }
 
         private void startNewGame()
