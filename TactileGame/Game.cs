@@ -141,7 +141,7 @@ namespace TactileGame
             SaveGame save = LevelLoader.LoadSaveGame(saveGame, ll);
             knowledge = save.Knowledge;
 
-            levelModel = new LevelModel(LevelLoader.Load(save.LevelName, ll));
+            levelModel = new LevelModel(LevelLoader.Load("police", ll));
             characterModel = new CharacterModel(levelModel.Avatar);
             characterModel.character.X = save.X;
             characterModel.character.Y = save.Y;
