@@ -40,6 +40,9 @@ namespace TactileGame
         /// </summary>
         internal static GameState gameState = GameState.Exploration;
 
+
+        internal static ApplicationState appState = ApplicationState.Start;
+
         /// <summary>
         /// The current game progress
         /// </summary>
@@ -72,10 +75,6 @@ namespace TactileGame
         private LevelController levelController;
 
 
-        /// <summary>
-        /// the canvas to draw to
-        /// </summary>
-        private BooleanCanvas canvas;
 
         /// <summary>
         /// The timer running the game loop
@@ -94,6 +93,10 @@ namespace TactileGame
         private LevelModel levelModel;
         private CharacterModel characterModel;
 
+        private RPG.Menu.MainMenu mainMenuModel;
+        private BooleanCanvas[] buffers;
+        private int bufferIndex;
+
         public Game()
         {
 
@@ -105,16 +108,44 @@ namespace TactileGame
             initLL();
             initializeTui();
 
+            mainMenuModel = new RPG.Menu.MainMenu(startTutorial, startNewGame, loadSavedGame, exitApplication);
+
+        }
+
+        private void startTutorial()
+        {
+            loadAndStartGame("tutorial");
+        }
+
+        private void startNewGame()
+        {
+            loadAndStartGame("game_state_new");
+        }
+
+        private void loadSavedGame()
+        {
+
+        }
+
+        private void exitApplication()
+        {
+            
+        }
+
+        private void loadAndStartGame(string saveGame)
+        {
             // Models
             gameInput = new GameInput();
             gameDialogue = new DialogueModel();
 
-            knowledge = LevelLoader.LoadKnowledge("save_game_01.xml", ll);
+            SaveGame save = LevelLoader.LoadSaveGame(saveGame, ll);
+            knowledge = save.Knowledge;
 
-            levelModel = new LevelModel(LevelLoader.Load("village1.xml", ll));
-
-
+            levelModel = new LevelModel(LevelLoader.Load(save.LevelName, ll));
             characterModel = new CharacterModel(levelModel.Avatar);
+            characterModel.character.X = save.X;
+            characterModel.character.Y = save.Y;
+
             // Controllers
             gameInputController = new GameInputController();
             gameInputController.SetModel(gameInput);
@@ -134,8 +165,13 @@ namespace TactileGame
             levelController.SetInput(gameInput);
             levelController.SetDialogue(gameDialogue);
 
-            canvas = new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight());
+            buffers = new BooleanCanvas[]
+            {
+                new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight()),
+                new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight())
+            };
 
+            bufferIndex = 0;
             // Start the game loop!
             timer = new Timer();
             timer.Interval = 50;
@@ -143,6 +179,9 @@ namespace TactileGame
             timer.Start();
 
             detailregion.SetVisibility(false);
+
+            io.HideView(MENU_SCREEN_NAME);
+            io.ShowView(MAIN_SCREEN_NAME);
         }
 
         /// <summary>
@@ -163,21 +202,23 @@ namespace TactileGame
          
             // Do the rendering/sound stuff. TODO: Clean this up with views
             detailregion.SetVisibility(false);
-            canvas = new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight());
 
-            canvas.X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - canvas.Width / 2;
-            canvas.Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - canvas.Height / 2;
+            buffers[bufferIndex].Clear();
 
-            canvas.Clear();
+            buffers[bufferIndex].X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - buffers[bufferIndex].Width / 2;
+            buffers[bufferIndex].Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - buffers[bufferIndex].Height / 2;
+
+
 
             foreach (WorldObject obj in levelModel.level.Objects)
             {
-                canvas.Draw(obj);
+                buffers[bufferIndex].Draw(obj);
             }
 
-            canvas.Draw(levelModel.Avatar);
-            mainRegion.SetMatrix(canvas.Data);
+            buffers[bufferIndex].Draw(levelModel.Avatar);
+            mainRegion.SetMatrix(buffers[bufferIndex].Data);
 
+            bufferIndex = (bufferIndex + 1) % 2;
 
             if (gameState == GameState.Event && gameDialogue.HasAction())
             {
@@ -195,8 +236,8 @@ namespace TactileGame
                 audio.AbortCurrentSound();
                 detailregion.SetText(string.Empty);
             }
-        }
 
+        }
 
 
         /// <summary>
