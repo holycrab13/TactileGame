@@ -50,6 +50,11 @@ namespace TactileGame.RPG.Controller
 
             if (Game.gameState == GameState.Exploration)
             {
+                if (!inputState.IsKeyDown(InputButton.B) && lastState.IsKeyDown(InputButton.B))
+                {
+                    game.pauseGame();
+                }
+
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
@@ -187,6 +192,11 @@ namespace TactileGame.RPG.Controller
             }
 
             model.TriggerEvent(target.Trigger);
+        }
+
+        internal void TriggerEvent(string trigger)
+        {
+            model.TriggerEvent(trigger);
         }
 
         /// <summary>

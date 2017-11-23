@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TactileGame.RPG.Menu
 {
-    class MainMenu
+    class ActionMenu
     {
         public int index;
 
         public Action[] menuAction;
 
-        public MainMenu(params Action[] actions)
+        public ActionMenu(params Action[] actions)
         {
             if(actions == null || actions.Length == 0)
             {

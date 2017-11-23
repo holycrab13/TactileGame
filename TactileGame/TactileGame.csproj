@@ -68,6 +68,7 @@
     <Compile Include="RPG\Actions\Answer.cs" />
     <Compile Include="RPG\Actions\DialogueAction.cs" />
     <Compile Include="RPG\Actions\Goto.cs" />
+    <Compile Include="RPG\Actions\Interact.cs" />
     <Compile Include="RPG\Actions\Move.cs" />
     <Compile Include="RPG\Actions\Phrase.cs" />
     <Compile Include="RPG\Actions\Question.cs" />
@@ -390,6 +391,14 @@
     </Content>
     <Content Include="Resources\bmps\window_simple.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\levels\tutorial.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tutorial.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\language.xml">
       <SubType>Designer</SubType>

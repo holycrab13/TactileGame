@@ -338,17 +338,17 @@ namespace TactileGame.RPG.Files
             }
 
             if (actionType == "question")
-                    {
+            {
                 Question question = new Question();
 
                 foreach (XmlNode node in actionNode.ChildNodes)
                 {
-                    if(node.Name == "text")
+                    if (node.Name == "text")
                     {
                         question.text = node.InnerText;
                     }
 
-                    if(node.Name == "answer")
+                    if (node.Name == "answer")
                     {
                         Answer answer = new Answer();
                         answer.text = node.InnerText;
@@ -357,10 +357,10 @@ namespace TactileGame.RPG.Files
                         answer.trigger = XmlUtil.Get(node, "trigger", string.Empty);
                         question.answers.Add(answer);
                     }
-                    }
+                }
 
                 return question;
-                }
+            }
 
             if (actionType == "move")
             {
@@ -369,16 +369,16 @@ namespace TactileGame.RPG.Files
                 move.target = XmlUtil.Get(actionNode, "target", string.Empty);
 
                 // Default target is the avatar
-                if(move.target.Equals(string.Empty))
+                if (move.target.Equals(string.Empty))
                 {
                     move.target = "avatar";
-            }
+                }
 
                 return move;
-        }
+            }
 
             if (actionType == "goto")
-        {
+            {
                 Goto move = new Goto();
                 move.target = XmlUtil.Get(actionNode, "target", string.Empty);
                 move.targetX = XmlUtil.Get(actionNode, "x", 0);
@@ -454,10 +454,18 @@ namespace TactileGame.RPG.Files
                 }
 
                 return turn;
-                }
+            }
+
+            if (actionType == "interact")
+            {
+                Interact interact = new Interact();
+                interact.target = XmlUtil.Get(actionNode, "target", string.Empty);
+
+                return interact;
+            }
 
             return null;
-            }
+        }
 
         private static Direction directionFromString(string p)
         {

@@ -93,8 +93,12 @@ namespace TactileGame
         private LevelModel levelModel;
         private CharacterModel characterModel;
 
-        private RPG.Menu.MainMenu mainMenuModel;
+        private RPG.Menu.ActionMenu mainMenuModel;
+
+        private RPG.Menu.ActionMenu pauseMenuModel;
+
         private BooleanCanvas[] buffers;
+
         private int bufferIndex;
 
         public Game()
@@ -105,35 +109,30 @@ namespace TactileGame
             // in release compilation the normal 'sensitivity' LogPriority.MIDDLE is used.
             if (logger != null) logger.Priority = LogPriority.DEBUG;
 #endif
+
             initLL();
+
+            // Setup timer
+            timer = new Timer();
+            timer.Interval = 50;
+            timer.Tick += Tick;
+
+            // Setup menu actions
+            mainMenuModel = new RPG.Menu.ActionMenu(startTutorial, startNewGame, loadSavedGame, exitApplication);
+            pauseMenuModel = new RPG.Menu.ActionMenu(resumeGame, saveGame, goToMainMenu);
+
             initializeTui();
 
-            mainMenuModel = new RPG.Menu.MainMenu(startTutorial, startNewGame, loadSavedGame, exitApplication);
 
+            // Remove this to use Menu Structure
+            loadAndStartGame("save_game_01");
         }
 
-        private void startTutorial()
-        {
-            loadAndStartGame("tutorial");
-        }
-
-        private void startNewGame()
-        {
-            loadAndStartGame("game_state_new");
-        }
-
-        private void loadSavedGame()
-        {
-
-        }
-
-        private void exitApplication()
-        {
-            
-        }
+       
 
         private void loadAndStartGame(string saveGame)
         {
+            appState = ApplicationState.Playing;
             // Models
             gameInput = new GameInput();
             gameDialogue = new DialogueModel();
@@ -173,13 +172,10 @@ namespace TactileGame
             };
 
             bufferIndex = 0;
-            // Start the game loop!
-            timer = new Timer();
-            timer.Interval = 50;
-            timer.Tick += Tick;
+           
             timer.Start();
 
-            detailregion.SetVisibility(false);
+            detailRegion.SetVisibility(false);
 
             io.HideView(MENU_SCREEN_NAME);
             io.ShowView(MAIN_SCREEN_NAME);
@@ -202,7 +198,7 @@ namespace TactileGame
 
          
             // Do the rendering/sound stuff. TODO: Clean this up with views
-            detailregion.SetVisibility(false);
+            detailRegion.SetVisibility(false);
 
             buffers[bufferIndex].Clear();
 
@@ -223,11 +219,11 @@ namespace TactileGame
 
             if (gameState == GameState.Event && gameDialogue.HasAction())
             {
-                detailregion.SetVisibility(true);
+                detailRegion.SetVisibility(true);
 
-                if (detailregion.GetText() != gameDialogue.GetCurrent())
+                if (detailRegion.GetText() != gameDialogue.GetCurrent())
                 {
-                    detailregion.SetText(gameDialogue.GetCurrent());
+                    detailRegion.SetText(gameDialogue.GetCurrent());
                     audio.AbortCurrentSound();
                     audio.PlaySound(gameDialogue.GetCurrent());
                 }
@@ -235,7 +231,7 @@ namespace TactileGame
             else
             {
                 audio.AbortCurrentSound();
-                detailregion.SetText(string.Empty);
+                detailRegion.SetText(string.Empty);
             }
 
         }
@@ -277,5 +273,7 @@ namespace TactileGame
 
             characterModel.character = level.avatar;
         }
+
+       
     }
 }

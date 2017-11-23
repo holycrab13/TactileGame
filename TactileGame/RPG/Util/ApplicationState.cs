@@ -9,6 +9,7 @@ namespace TactileGame.RPG
     {
         Start,
         Menu,
-        Game
+        Playing,
+        Paused
     }
 }
