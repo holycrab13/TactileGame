@@ -273,6 +273,8 @@ namespace TactileGame.RPG.Menu
         /// <param name="p3"></param>
         internal void GoToLevel(string p1, int p2, int p3)
         {
+            Direction rotation = levelModel.Avatar.Rotation;
+
             Level level = LevelLoader.Load(p1, ll);
             level.avatar.X = p2;
             level.avatar.Y = p3;
@@ -280,6 +282,7 @@ namespace TactileGame.RPG.Menu
             levelModel.level = level;
 
             characterModel.character = level.avatar;
+            characterModel.character.Rotation = rotation;
         }
 
         /// <summary>
