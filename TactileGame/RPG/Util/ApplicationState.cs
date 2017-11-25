@@ -10,6 +10,7 @@ namespace TactileGame.RPG
         Start,
         Menu,
         Playing,
-        Paused
+        Paused,
+        Saving
     }
 }

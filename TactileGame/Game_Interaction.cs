@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TactileGame.RPG.Menu;
 
 namespace TactileGame
 {
@@ -21,105 +22,34 @@ namespace TactileGame
         /// <param name="e">The <see cref="BrailleIO_KeyStateChanged_EventArgs"/> instance containing the event data.</param>
         void adapter_keyStateChanged(object sender, BrailleIO_KeyStateChanged_EventArgs e)
         {
-            if (e != null)
+            if(currentScreen != null)
             {
-                if(appState == RPG.ApplicationState.Start)
-                {
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.EnterUp)
-                    {
-                        goToMainMenu();
-                    }
-                }
-                else if(appState == RPG.ApplicationState.Menu)
-                {
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.UpUp)
-                    {
-                        mainMenuModel.Previous();
-                        updateMainMenuTui();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.DownUp)
-                    {
-                        mainMenuModel.Next();
-                        updateMainMenuTui();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.EnterUp)
-                    {
-                        mainMenuModel.Select();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.AbortUp)
-                    {
-                        goToStart();
-                    }
-                }
-                else if (appState == RPG.ApplicationState.Paused)
-                {
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.UpUp)
-                    {
-                        pauseMenuModel.Previous();
-                        updatePauseMenuTui();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.DownUp)
-                    {
-                        pauseMenuModel.Next();
-                        updatePauseMenuTui();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.EnterUp)
-                    {
-                        pauseMenuModel.Select();
-                    }
-
-                    if (e.keyCode == BrailleIO_DeviceButtonStates.AbortUp)
-                    {
-                        resumeGame();
-                    }
-                    // Update pause menu
-                }
-                else if (appState == RPG.ApplicationState.Playing)
-                {
-                    // check general buttons
-                    if (e.keyCode != BrailleIO_DeviceButtonStates.None && !e.keyCode.HasFlag(BrailleIO_DeviceButtonStates.Unknown))
-                    {
-                        gameInputController.UpdateButtonState(e.keyCode);
-                    }
-                }
+                currentScreen.HandleInteraction(e.keyCode);
             }
         }
-
-        private void resumeGame()
-        {
-            appState = RPG.ApplicationState.Playing;
-
-            io.HideView(PAUSE_SCREEN_NAME);
-            io.ShowView(MAIN_SCREEN_NAME);
-
-            io.RenderDisplay();
-
-            timer.Start();
-        }
-
+    
         private void startTutorial()
         {
-            loadAndStartGame("tutorial");
+            gameScreen.LoadGame("tutorial");
+            GoToScreen(gameScreen);
         }
 
         private void startNewGame()
         {
-            loadAndStartGame("game_state_new");
+            gameScreen.LoadGame("game_state_new");
+            GoToScreen(gameScreen);
         }
 
-        private void loadSavedGame()
+        private void saveGame(int index)
         {
-
+            gameScreen.SaveGame("game_state_" + index);
+            GoToScreen(pauseMenuScreen);
         }
 
-        private void saveGame()
+        private void loadGame(int index)
         {
-
+            gameScreen.LoadGame("game_state_" + index);
+            GoToScreen(gameScreen);
         }
 
         private void exitApplication()
@@ -127,47 +57,19 @@ namespace TactileGame
             Application.Exit();
         }
 
-        private void goToStart()
+        public static void GoToScreen(InteractionScreen screen)
         {
-            appState = RPG.ApplicationState.Start;
+            if(currentScreen != null)
+            {
+                currentScreen.Hide();
+            }
 
-            audio.PlaySound(ll.GetTrans("game.title"));
+            currentScreen = screen;
 
-            io.HideView(MAIN_SCREEN_NAME);
-            io.HideView(MENU_SCREEN_NAME);
-
-            io.ShowView(START_SCREEN_NAME);
-            io.RenderDisplay();
-
-            mainMenuModel.index = 0;
-        }
-
-        private void goToMainMenu()
-        {
-            appState = RPG.ApplicationState.Menu;
-
-            timer.Stop();
-
-            io.HideView(MAIN_SCREEN_NAME);
-            io.HideView(START_SCREEN_NAME);
-
-            io.ShowView(MENU_SCREEN_NAME);
-
-            mainMenuModel.index = 0;
-            updateMainMenuTui();
-        }
-
-        internal void pauseGame()
-        {
-            appState = RPG.ApplicationState.Paused;
-
-            timer.Stop();
-
-            io.HideView(MAIN_SCREEN_NAME);
-            io.ShowView(PAUSE_SCREEN_NAME);
-
-            pauseMenuModel.index = 0;
-            updatePauseMenuTui();
+            if(currentScreen != null)
+            {
+                currentScreen.Show();
+            }
         }
     }
 }

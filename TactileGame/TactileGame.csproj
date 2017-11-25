@@ -82,8 +82,11 @@
     <Compile Include="RPG\Events\Event.cs" />
     <Compile Include="RPG\Events\EventBase.cs" />
     <Compile Include="RPG\Events\EventGroup.cs" />
-    <Compile Include="RPG\Menu\MainMenu.cs" />
-    <Compile Include="RPG\Models\CharacterDialog.cs" />
+    <Compile Include="RPG\Screens\StartScreen.cs" />
+    <Compile Include="RPG\Screens\GameScreen.cs" />
+    <Compile Include="RPG\Screens\MenuScreen.cs" />
+    <Compile Include="RPG\Screens\InteractionScreen.cs" />
+    <Compile Include="RPG\Screens\UpDownMenu.cs" />
     <Compile Include="RPG\Models\CharacterModel.cs" />
     <Compile Include="RPG\Models\Container.cs" />
     <Compile Include="RPG\Models\Door.cs" />
@@ -392,6 +395,30 @@
     <Content Include="Resources\bmps\window_simple.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\game_state_4.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_5.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_6.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_3.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_2.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_1.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\levels\tutorial.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -444,7 +471,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\save_game_01.xml">
+    <Content Include="Resources\savegames\save_game_01.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TactileGame.RPG.Menu;
 using tud.mci.extensibility;
 
 namespace TactileGame
@@ -43,24 +44,15 @@ namespace TactileGame
         /// A screen can contain multiple regions for content.
         /// Only one Screen can be visible at a time. 
         /// </summary>
-        internal BrailleIOScreen mainScreen = null;
         /// <summary>
         /// The name of the main screen
         /// </summary>
         internal const String MAIN_SCREEN_NAME = "GameScreen";
-        private string START_SCREEN_NAME = "StartScreen";
-        private string MENU_SCREEN_NAME = "MenuScreen";
-        private string PAUSE_SCREEN_NAME = "PauseMenu";
-
-        private string MENU_REGION_TUTORIAL_NAME = "MenuRegionTutorial";
-        private string MENU_REGION_NEW_NAME = "MenuRegionNewGame";
-        private string MENU_REGION_LOAD_NAME = "MenuRegionLoadGame";
-        private string MENU_REGION_EXIT_NAME = "MenuRegionExit";
-
-
-        private string PAUSE_REGION_RESUME_NAME = "PauseRegionResume";
-        private string PAUSE_REGION_SAVE_NAME = "PauseRegionSave";
-        private string PAUSE_REGION_EXIT_NAME = "PauseRegionExit";
+        internal const String START_SCREEN_NAME = "StartScreen";
+        internal const String MENU_SCREEN_NAME = "MenuScreen";
+        internal const String PAUSE_SCREEN_NAME = "PauseScreen";
+        internal const String SAVE_SCREEN_NAME = "SaveScreen";
+        internal const String LOAD_SCREEN_NAME = "LoadScreen";
         /// <summary>
         /// The main region for content.
         /// </summary>
@@ -78,17 +70,25 @@ namespace TactileGame
         /// </summary>
         internal const String DETAIL_REGION_NAME = "DetailRegion";
 
-        
-        private BrailleIOScreen menuScreen;
-        private BrailleIOScreen startScreen;
 
+        private static InteractionScreen currentScreen;
+
+        public static StartScreen startScreen;
+
+        public static MenuScreen mainMenuScreen;
+
+        public static MenuScreen pauseMenuScreen;
+
+        public static MenuScreen saveMenuScreen;
+
+        public static MenuScreen loadMenuScreen;
+
+        public static GameScreen gameScreen;
 
         internal BrailleIOViewRange mainRegion = null;
         internal BrailleIOViewRange startRegion = null;
-        internal BrailleIOViewRange[] mainMenuItemRegions = null;
-        internal BrailleIOViewRange[] pauseMenuItemRegions = null;
-        internal BrailleIOViewRange detailRegion = null;
-        private BrailleIOScreen pauseScreen;
+
+        
 
         #endregion
 
@@ -132,126 +132,24 @@ namespace TactileGame
                 getActiveAdapterDimensions(ref width, ref height);
 
                 // create the main screen - a container for content regions
-                mainScreen = new BrailleIOScreen();
-                startScreen = new BrailleIOScreen();
-                menuScreen = new BrailleIOScreen();
-                pauseScreen = new BrailleIOScreen();
+                gameScreen = new GameScreen(ll, width, height);
 
-                mainMenuItemRegions = new BrailleIOViewRange[4];
-                pauseMenuItemRegions = new BrailleIOViewRange[3];
+                startScreen = new StartScreen(ll, width, height);
 
-                createOrUpdateViewRanges(width, height);
+                mainMenuScreen = new MenuScreen("MainMenu", mainMenuModel, 2, 2, width - 4, 8);
+                pauseMenuScreen = new MenuScreen("PauseMenu", pauseMenuModel, 2, 2, width - 4, 8);
+                saveMenuScreen = new MenuScreen("SaveMenu", saveMenuModel, 2, 2, width - 4, 8);
+                loadMenuScreen = new MenuScreen("LoadMenu", loadMenuModel, 2, 2, width - 4, 8);
 
-                // Setup Main Screen
-                mainScreen.AddViewRange(MAIN_MENU_NAME, mainRegion);
-                mainScreen.AddViewRange(DETAIL_REGION_NAME, detailRegion);
-                
-                // Setup Start Screen
-                startScreen.AddViewRange(START_REGION_NAME, startRegion);
-
-                // Setup Menu Screen
-                menuScreen.AddViewRange(MENU_REGION_TUTORIAL_NAME, mainMenuItemRegions[0]);
-                menuScreen.AddViewRange(MENU_REGION_NEW_NAME, mainMenuItemRegions[1]);
-                menuScreen.AddViewRange(MENU_REGION_LOAD_NAME, mainMenuItemRegions[2]);
-                menuScreen.AddViewRange(MENU_REGION_EXIT_NAME, mainMenuItemRegions[3]);
-
-
-                pauseScreen.AddViewRange(PAUSE_REGION_RESUME_NAME, pauseMenuItemRegions[0]);
-                pauseScreen.AddViewRange(PAUSE_REGION_SAVE_NAME, pauseMenuItemRegions[1]);
-                pauseScreen.AddViewRange(PAUSE_REGION_EXIT_NAME, pauseMenuItemRegions[2]);
-
-                // Add the screens 
-                io.AddView(MAIN_SCREEN_NAME, mainScreen);
-                io.AddView(START_SCREEN_NAME, startScreen);
-                io.AddView(MENU_SCREEN_NAME, menuScreen);
-                io.AddView(PAUSE_SCREEN_NAME, pauseScreen);
-
-                // Show the start screen
-                goToStart();
+                gameScreen.Register();
+                startScreen.Register();
+                mainMenuScreen.Register();
+                saveMenuScreen.Register();
+                loadMenuScreen.Register();
+                pauseMenuScreen.Register();
+            
             }
         }
-
-        private void createOrUpdateViewRanges(int width, int height)
-        {
-            createOrUpdateViewRange(ref mainRegion, 0, 0, width, height, 0, 0);
-            createOrUpdateViewRange(ref detailRegion, height - 16, 0, width, 16, 1, 1);
-            createOrUpdateViewRange(ref startRegion, 0, 0, width, height, 0, 2, ll.GetTrans("game.title"));
-            createOrUpdateViewRange(ref mainMenuItemRegions[0], 8, 8, width - 16, 8, 0, 1, ll.GetTrans("game.menu.tutorial"));
-            createOrUpdateViewRange(ref mainMenuItemRegions[1], 18, 8, width - 16, 8, 0, 1, ll.GetTrans("game.menu.new"));
-            createOrUpdateViewRange(ref mainMenuItemRegions[2], 28, 8, width - 16, 8, 0, 1, ll.GetTrans("game.menu.load"));
-            createOrUpdateViewRange(ref mainMenuItemRegions[3], 38, 8, width - 16, 8, 0, 1, ll.GetTrans("game.menu.exit"));
-            createOrUpdateViewRange(ref pauseMenuItemRegions[0], 8, 8, width - 16, 8, 0, 1, ll.GetTrans("game.pause.resume"));
-            createOrUpdateViewRange(ref pauseMenuItemRegions[1], 18, 8, width - 16, 8, 0, 1, ll.GetTrans("game.pause.save"));
-            createOrUpdateViewRange(ref pauseMenuItemRegions[2], 28, 8, width - 16, 8, 0, 1, ll.GetTrans("game.pause.exit"));
-        }
-
-        private void updateMainMenuTui()
-        {
-            for(int i = 0; i < mainMenuItemRegions.Length; i++)
-            {
-                if(i == mainMenuModel.index)
-                {
-                    mainMenuItemRegions[i].SetBorder(1);
-                    mainMenuItemRegions[i].SetPadding(1);
-
-
-                    audio.AbortCurrentSound();
-                    audio.PlaySound(mainMenuItemRegions[i].GetText());
-                }
-                else
-                {
-                    mainMenuItemRegions[i].SetBorder(0);
-                    mainMenuItemRegions[i].SetPadding(2);
-                }
-            }
-
-            io.RenderDisplay();
-        }
-
-        private void updatePauseMenuTui()
-        {
-            for (int i = 0; i < pauseMenuItemRegions.Length; i++)
-            {
-                if (i == pauseMenuModel.index)
-                {
-                    pauseMenuItemRegions[i].SetBorder(1);
-                    pauseMenuItemRegions[i].SetPadding(1);
-
-                    audio.AbortCurrentSound();
-                    audio.PlaySound(pauseMenuItemRegions[i].GetText());
-                }
-                else
-                {
-                    pauseMenuItemRegions[i].SetBorder(0);
-                    pauseMenuItemRegions[i].SetPadding(2);
-                }
-            }
-
-            io.RenderDisplay();
-        }
-
-        private void createOrUpdateViewRange(ref BrailleIOViewRange viewRange, int top, int left, int width, int height, uint border = 0, 
-            uint padding = 0, string text = null)
-        {
-            if (viewRange == null)
-            {
-                viewRange = new BrailleIOViewRange(top, left, width, height);
-            }
-
-            viewRange.SetTop(top);
-            viewRange.SetWidth(width);
-            viewRange.SetHeight(height);
-            viewRange.SetLeft(left);
-            viewRange.SetBorder(border, border, border);
-            viewRange.SetPadding(padding);
-
-            if(text != null)
-            {
-                viewRange.SetText(text);
-            }
-        }
-
-
 
         /// <summary>
         /// Updates the tactile interface with the new display dimensions.
@@ -266,7 +164,12 @@ namespace TactileGame
             // get the dimensions of the current active devices' display area
             getActiveAdapterDimensions(ref width, ref height);
 
-            createOrUpdateViewRanges(width, height);
+            gameScreen.Resize(width, height);
+            startScreen.Resize(width, height);
+            mainMenuScreen.Resize(width, height);
+            saveMenuScreen.Resize(width, height);
+            loadMenuScreen.Resize(width, height);
+            pauseMenuScreen.Resize(width, height);
         }
 
         #endregion
