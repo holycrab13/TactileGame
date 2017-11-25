@@ -8,8 +8,6 @@ namespace TactileGame.RPG.Models
 {
     class NPC : Character
     {
-        public string Trigger;
-
         
     }
 }

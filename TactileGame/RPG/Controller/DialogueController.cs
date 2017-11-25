@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TactileGame.RPG.Input;
+using TactileGame.RPG.Menu;
 using TactileGame.RPG.Models;
+using tud.mci.tangram.audio;
 
 namespace TactileGame
 {
@@ -17,7 +19,7 @@ namespace TactileGame
         internal void Update()
         {
 
-            if (Game.gameState == RPG.GameState.Event)
+            if (GameScreen.gameState == RPG.GameState.Event)
             {
                 InputState inputState = input.GetState();
 
@@ -27,8 +29,8 @@ namespace TactileGame
                     {
                         if (!model.Boop(level))
                         {
-                            Game.audio.AbortCurrentSound();
-                            Game.audio.PlaySound("Bitte wähle eine Antwort mit den Pfeiltasten aus.");
+                            AudioRenderer.Instance.AbortCurrentSound();
+                            AudioRenderer.Instance.PlaySound("Bitte wähle eine Antwort mit den Pfeiltasten aus.");
                         }
                     }
 
@@ -80,8 +82,8 @@ namespace TactileGame
         {
            if(answer != null)
            {
-               Game.audio.AbortCurrentSound();
-               Game.audio.PlaySound(answer);
+               AudioRenderer.Instance.AbortCurrentSound();
+               AudioRenderer.Instance.PlaySound(answer);
            }
         }
 

@@ -59,6 +59,11 @@ namespace TactileGame.RPG.Models
         public bool BlocksPath { get; set; }
 
         /// <summary>
+        /// The Id of the event being fired on interaction
+        /// </summary>
+        public string Trigger { get; set; }
+
+        /// <summary>
         /// The dialogue to display on interaction
         /// </summary>
         public EventBase Event { get; set; }

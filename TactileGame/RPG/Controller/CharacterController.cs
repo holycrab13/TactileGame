@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TactileGame.RPG.Input;
+using TactileGame.RPG.Menu;
 using TactileGame.RPG.Models;
 
 namespace TactileGame.RPG.Controller
@@ -43,7 +44,7 @@ namespace TactileGame.RPG.Controller
         {
             InputState inputState = input.GetState();
 
-            if (Game.gameState == GameState.Exploration)
+            if (GameScreen.gameState == GameState.Exploration)
             {
                 if (currentMovement == null || currentMovement.IsComplete())
                 {
