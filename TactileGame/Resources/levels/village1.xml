@@ -40,7 +40,7 @@
       <object id="water_north" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_north.bmp" block="true" />
       <object id="water_south" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_south.bmp" block="true" />
       <object id="water_corner" name="Teichecke" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_northeast.bmp" block="true" />
-      <object id="mueller_auto" name="Auto" desc="Das Auto der Müllers ist ein Kombi. Im Kofferraum sind Umzugskisten und er ist offen. Komisch!" img="bmps/car.bmp" block="true" />
+      <object id="mueller_auto" name="Auto" desc="Das Auto der Müllers ist ein Kombi. Im Kofferraum sind Umzugskisten und er ist offen. Komisch!" img="bmps/car_south.bmp" block="true" />
       <object id="roof_mueller" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof.bmp" block="true" />
       <object id="roof_mueller_west" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_west.bmp" block="true" />
       <object id="roof_mueller_east" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_east.bmp" block="true" />
@@ -358,7 +358,7 @@
     <range x="-7" y="-5" width="1" height="6">
       <deco obj="cobble_pave_mueller" r="0" />
     </range>
-    <deco obj="mueller_auto" x="-7" y="-3" r="3" />
+    <deco obj="mueller_auto" x="-7" y="-2" r="0" />
     <!-- Müllers Grundstück 13x10 -->
     <!-- Umzäunung -->
     <!-- Süden Umzäunung-->
