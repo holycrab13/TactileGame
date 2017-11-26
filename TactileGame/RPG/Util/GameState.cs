@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TactileGame.RPG
 {
-    enum GameState
+    public enum GameState
     {
         Exploration,
         Event,

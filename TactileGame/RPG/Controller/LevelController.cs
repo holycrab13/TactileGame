@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TactileGame.RPG.Input;
+using TactileGame.RPG.Menu;
 using TactileGame.RPG.Models;
 
 namespace TactileGame.RPG.Controller
@@ -33,12 +34,7 @@ namespace TactileGame.RPG.Controller
         /// </summary>
         private InputState lastState;
 
-        private Game game;
 
-        public LevelController(Game game)
-        {
-            this.game = game;
-        }
         /// <summary>
         /// Updates the controller
         /// </summary>
@@ -46,10 +42,15 @@ namespace TactileGame.RPG.Controller
         {
             InputState inputState = gameInput.GetState();
 
-            Game.gameState = model.events.Count > 0 ? GameState.Event : GameState.Exploration;
+            GameScreen.gameState = model.events.Count > 0 ? GameState.Event : GameState.Exploration;
 
-            if (Game.gameState == GameState.Exploration)
+            if (GameScreen.gameState == GameState.Exploration)
             {
+                if (!inputState.IsKeyDown(InputButton.B) && lastState.IsKeyDown(InputButton.B))
+                {
+                    Game.GoToScreen(Game.pauseMenuScreen);
+                }
+
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
@@ -84,7 +85,7 @@ namespace TactileGame.RPG.Controller
                
             }
 
-            if (Game.gameState == GameState.Event)
+            if (GameScreen.gameState == GameState.Event)
             {
                 EventBase levelEvent = model.events[0];
 
@@ -105,7 +106,7 @@ namespace TactileGame.RPG.Controller
 
         private void UpdateDoor(Door door)
         {
-            game.GoToLevel(door.Target, door.TargetX, door.TargetY);
+            Game.gameScreen.GoToLevel(door.Target, door.TargetX, door.TargetY);
         }
 
         private void UpdateContainer(Container container)
@@ -187,6 +188,11 @@ namespace TactileGame.RPG.Controller
             }
 
             model.TriggerEvent(target.Trigger);
+        }
+
+        internal void TriggerEvent(string trigger)
+        {
+            model.TriggerEvent(trigger);
         }
 
         /// <summary>

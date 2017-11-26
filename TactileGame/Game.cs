@@ -10,6 +10,7 @@ using TactileGame.RPG;
 using TactileGame.RPG.Controller;
 using TactileGame.RPG.Files;
 using TactileGame.RPG.Input;
+using TactileGame.RPG.Menu;
 using TactileGame.RPG.Models;
 using tud.mci.LanguageLocalization;
 using tud.mci.tangram;
@@ -33,20 +34,12 @@ namespace TactileGame
         /// <see cref="https://github.com/TUD-INF-IAI-MCI/DotNet_AudioRenderer"/>
         /// [Singleton]
         /// </summary>
-        internal static AudioRenderer audio = AudioRenderer.Instance;
-
-        /// <summary>
-        /// The current game state
-        /// </summary>
-        internal static GameState gameState = GameState.Exploration;
-
-
-        internal static ApplicationState appState = ApplicationState.Start;
+        internal  AudioRenderer audio = AudioRenderer.Instance;
 
         /// <summary>
         /// The current game progress
         /// </summary>
-        internal static Dictionary<string, bool> knowledge;
+        public static Dictionary<string, bool> knowledge;
 
         /// <summary>
         /// A small localization framework for providing translated text templates. 
@@ -54,48 +47,13 @@ namespace TactileGame
         /// </summary>
         internal LL ll;
 
-        /// <summary>
-        /// The controller for the game input
-        /// </summary>
-        private GameInputController gameInputController;
+        private UpDownMenu mainMenuModel;
 
-        /// <summary>
-        /// the character controller
-        /// </summary>
-        private CharacterController characterController;
+        private UpDownMenu pauseMenuModel;
 
-        /// <summary>
-        /// the dialogue controller
-        /// </summary>
-        private DialogueController dialogueController;
+        private UpDownMenu saveMenuModel;
 
-        /// <summary>
-        /// The level controller
-        /// </summary>
-        private LevelController levelController;
-
-
-
-        /// <summary>
-        /// The timer running the game loop
-        /// </summary>
-        private Timer timer;
-        
-        /// <summary>
-        /// The shared game input model
-        /// </summary>
-        private GameInput gameInput;
-
-        /// <summary>
-        /// The shared game dialogue model
-        /// </summary>
-        private DialogueModel gameDialogue;
-        private LevelModel levelModel;
-        private CharacterModel characterModel;
-
-        private RPG.Menu.MainMenu mainMenuModel;
-        private BooleanCanvas[] buffers;
-        private int bufferIndex;
+        private UpDownMenu loadMenuModel;
 
         public Game()
         {
@@ -105,141 +63,55 @@ namespace TactileGame
             // in release compilation the normal 'sensitivity' LogPriority.MIDDLE is used.
             if (logger != null) logger.Priority = LogPriority.DEBUG;
 #endif
+
             initLL();
+
+            // Setup menu structure
+            mainMenuModel = new UpDownMenu(() => GoToScreen(startScreen), new UpDownMenuItem[] 
+            {
+                new UpDownMenuItem(startTutorial, ll.GetTrans("game.menu.tutorial")),
+                new UpDownMenuItem(startNewGame, ll.GetTrans("game.menu.new")),
+                new UpDownMenuItem(() => GoToScreen(loadMenuScreen), ll.GetTrans("game.menu.load")),
+                new UpDownMenuItem(exitApplication, ll.GetTrans("game.menu.exit")),
+                
+            });
+       
+            pauseMenuModel = new UpDownMenu(() => GoToScreen(gameScreen), new UpDownMenuItem[] 
+            {
+                new UpDownMenuItem(() => GoToScreen(gameScreen), ll.GetTrans("game.pause.resume")),
+                new UpDownMenuItem(() => GoToScreen(saveMenuScreen), ll.GetTrans("game.pause.save")),
+                new UpDownMenuItem(() => GoToScreen(mainMenuScreen), ll.GetTrans("game.pause.exit")),
+                
+            });
+
+            saveMenuModel = new UpDownMenu(() => GoToScreen(pauseMenuScreen), new UpDownMenuItem[] 
+            {
+                new UpDownMenuItem(() => saveGame(0), ll.GetTrans("game.save.savetoslot") + " 1"),
+                new UpDownMenuItem(() => saveGame(1), ll.GetTrans("game.save.savetoslot") + " 2"),
+                new UpDownMenuItem(() => saveGame(2), ll.GetTrans("game.save.savetoslot") + " 3"),
+                new UpDownMenuItem(() => saveGame(3), ll.GetTrans("game.save.savetoslot") + " 4"),
+                new UpDownMenuItem(() => saveGame(4), ll.GetTrans("game.save.savetoslot") + " 5"),
+                new UpDownMenuItem(() => saveGame(5), ll.GetTrans("game.save.savetoslot") + " 6"),
+                
+            });
+
+            loadMenuModel = new UpDownMenu(() => GoToScreen(mainMenuScreen), new UpDownMenuItem[] 
+            {
+                new UpDownMenuItem(() => loadGame(0), ll.GetTrans("game.load.loadfromslot") + " 1"),
+                new UpDownMenuItem(() => loadGame(1), ll.GetTrans("game.load.loadfromslot") + " 2"),
+                new UpDownMenuItem(() => loadGame(2), ll.GetTrans("game.load.loadfromslot") + " 3"),
+                new UpDownMenuItem(() => loadGame(3), ll.GetTrans("game.load.loadfromslot") + " 4"),
+                new UpDownMenuItem(() => loadGame(4), ll.GetTrans("game.load.loadfromslot") + " 5"),
+                new UpDownMenuItem(() => loadGame(5), ll.GetTrans("game.load.loadfromslot") + " 6"),
+                
+            });
+
             initializeTui();
 
-            mainMenuModel = new RPG.Menu.MainMenu(startTutorial, startNewGame, loadSavedGame, exitApplication);
-
+            // Insert desired screen
+            GoToScreen(startScreen);
         }
-
-        private void startTutorial()
-        {
-            loadAndStartGame("tutorial");
-        }
-
-        private void startNewGame()
-        {
-            loadAndStartGame("game_state_new");
-        }
-
-        private void loadSavedGame()
-        {
-
-        }
-
-        private void exitApplication()
-        {
-            
-        }
-
-        private void loadAndStartGame(string saveGame)
-        {
-            // Models
-            gameInput = new GameInput();
-            gameDialogue = new DialogueModel();
-
-            SaveGame save = LevelLoader.LoadSaveGame(saveGame, ll);
-            knowledge = save.Knowledge;
-
-            levelModel = new LevelModel(LevelLoader.Load("village1", ll));
-            characterModel = new CharacterModel(levelModel.Avatar);
-            characterModel.character.X = save.X;
-            characterModel.character.Y = save.Y;
-
-            // Controllers
-            gameInputController = new GameInputController();
-            gameInputController.SetModel(gameInput);
-
-            characterController = new CharacterController();
-            characterController.SetModel(characterModel);
-            characterController.setInput(gameInput);
-            characterController.SetLevel(levelModel);
-
-            dialogueController = new DialogueController();
-            dialogueController.setInput(gameInput);
-            dialogueController.SetModel(gameDialogue);
-            dialogueController.SetLevel(levelModel);
-
-            levelController = new LevelController(this);
-            levelController.SetModel(levelModel);
-            levelController.SetInput(gameInput);
-            levelController.SetDialogue(gameDialogue);
-
-            buffers = new BooleanCanvas[]
-            {
-                new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight()),
-                new BooleanCanvas(mainRegion.GetWidth(), mainRegion.GetHeight())
-            };
-
-            bufferIndex = 0;
-            // Start the game loop!
-            timer = new Timer();
-            timer.Interval = 50;
-            timer.Tick += Tick;
-            timer.Start();
-
-            detailregion.SetVisibility(false);
-
-            io.HideView(MENU_SCREEN_NAME);
-            io.ShowView(MAIN_SCREEN_NAME);
-        }
-
-        /// <summary>
-        /// This runs the RPG game - it measures the time and fires the update and render method of the RPG
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Tick(object sender, EventArgs e)
-        {
-            // Push the last update to the screen
-            io.RenderDisplay();
-
-            // Update the controllers
-            characterController.Update();
-            levelController.Update();
-            dialogueController.Update();
-
-         
-            // Do the rendering/sound stuff. TODO: Clean this up with views
-            detailregion.SetVisibility(false);
-
-            buffers[bufferIndex].Clear();
-
-            buffers[bufferIndex].X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - buffers[bufferIndex].Width / 2;
-            buffers[bufferIndex].Y = (levelModel.Avatar.Y + levelModel.Avatar.Height / 2) - buffers[bufferIndex].Height / 2;
-
-
-
-            foreach (WorldObject obj in levelModel.level.Objects)
-            {
-                buffers[bufferIndex].Draw(obj);
-            }
-
-            buffers[bufferIndex].Draw(levelModel.Avatar);
-            mainRegion.SetMatrix(buffers[bufferIndex].Data);
-
-            bufferIndex = (bufferIndex + 1) % 2;
-
-            if (gameState == GameState.Event && gameDialogue.HasAction())
-            {
-                detailregion.SetVisibility(true);
-
-                if (detailregion.GetText() != gameDialogue.GetCurrent())
-                {
-                    detailregion.SetText(gameDialogue.GetCurrent());
-                    audio.AbortCurrentSound();
-                    audio.PlaySound(gameDialogue.GetCurrent());
-                }
-            }
-            else
-            {
-                audio.AbortCurrentSound();
-                detailregion.SetText(string.Empty);
-            }
-
-        }
-
-
+      
         /// <summary>
         /// Initializes the localization framework with a translation file.
         /// </summary>
@@ -264,17 +136,5 @@ namespace TactileGame
             return false;
         }
 
-
-
-        internal void GoToLevel(string p1, int p2, int p3)
-        {
-            Level level = LevelLoader.Load(p1 + ".xml", ll);
-            level.avatar.X = p2;
-            level.avatar.Y = p3;
-
-            levelModel.level = level;
-
-            characterModel.character = level.avatar;
-        }
     }
 }
