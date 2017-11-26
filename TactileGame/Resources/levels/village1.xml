@@ -118,6 +118,15 @@
         <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
         <move>Down</move>
       </event>
+      <!-- Dialogues -->
+      <event id ="pauls_tür">
+        <question set="paul_will_nicht">
+          <text>"Du klopfst an der Tür und hörst: Wer ist da?"</text>
+          <answer>Hier ist Bernd. Wir haben ein paar Fragen an dich Paul.</answer>
+          <answer>Hier ist die Polizei. Machen Sie auf!</answer>
+        </question>
+        <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
+      </event>
     </events>
   </definition>
   <triggers>
@@ -462,17 +471,6 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="house_paul" obj="door_paul" x="13" y="-11" r="0" >
-      <dialogue set="kenntPaul">
-        <question text="Du klopfst an der Tür und hörst: Wer ist da?">
-          <answer text="Hier ist Bernd. Wir haben ein paar Fragen an dich Paul.">
-            <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
-          </answer>
-          <answer text="Hier ist die Polizei. Machen Sie auf!">
-            <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
-          </answer>
-        </question>
-      </dialogue>
-    </npc>
+    <npc id="house_paul" obj="door_paul" trigger="pauls_tür" x="13" y="-11" r="0" />
   </npcs>
 </level>

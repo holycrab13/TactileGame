@@ -14,8 +14,8 @@
       <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
     <events>
-        <event id="hintergrund" not="hintergrund" set="hintergrund">
-          <phrase>Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
+        <event id="hintergrund" not="hintergrund">
+          <phrase set="hintergrund">Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
           <turn target="avatar">Right</turn>
           <goto target="avatar" x="2" y="1" />
           <turn target="miriam">Left</turn>
