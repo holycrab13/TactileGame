@@ -28,7 +28,7 @@ namespace TactileGame.RPG.Models
         {
             EventBase e = level.FindEvent(p);
 
-            if(e != null)
+            if(e != null && e.IsAvailable())
             {
                 events.Add(e);
             }
