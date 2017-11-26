@@ -37,6 +37,23 @@
           <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
         </event>
         <event id="idle" if="hintergrund"></event>
+              <answer text="Nein, was gibts denn neues?">
+                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+              <answer text="Mich interessieren keine Gerüchte.">
+                <phrase>Diesmal sollten sie es aber: es könnte ein Fall werden.</phrase>
+                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+              <answer text="Wem ist diesmal der Fingernagel abgebrochen?">
+                <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+          </question>
+        </event>
+        <event id="idle" if="hintergrund"></event>
+      </eventgroup>
     </events>
   </definition>
   <triggers>
