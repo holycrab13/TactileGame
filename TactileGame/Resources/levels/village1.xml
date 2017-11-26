@@ -460,7 +460,7 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="door_paul" obj="door_paul" x="13" y="-11" r="0" >
+    <npc id="house_paul" obj="door_paul" x="13" y="-11" r="0" >
       <dialogue set="kenntPaul">
         <question text="Du klopfst an der Tür und hörst: Wer ist da?">
           <answer text="Hier ist Bernd. Wir haben ein paar Fragen an dich Paul.">
