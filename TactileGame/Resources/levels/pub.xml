@@ -13,7 +13,7 @@
     <events>
       <!-- Reden mit Ernie -->
       <event id="ernie_redet">
-        <turn target="ernie">Right</turn>
+        <turn target="erniebert">Right</turn>
         <turn>Left</turn>
         <question set="kennt_hotel">
           <text>Hey Bernd was machst du denn so früh in der Kneipe?</text>

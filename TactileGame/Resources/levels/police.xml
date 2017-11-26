@@ -14,7 +14,7 @@
       <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
     <events>
-      <eventgroup id="hintergrund">
+      <eventgroup id="hintergrund" if="in_gedanken">
         <event id="dialog" if="in_gedanken" set="hintergrund">
           <phrase>Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
           <turn target="avatar">Right</turn>
@@ -89,7 +89,7 @@
   </containers>
   <npcs>
     <npc id="miriam" obj="person" x="3" y="1" r="0" >
-      <phrase if="vorher">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
+      <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
     </npc>
   </npcs>
 </level>
