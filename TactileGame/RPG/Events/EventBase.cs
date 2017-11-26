@@ -13,6 +13,10 @@ namespace TactileGame.RPG.Models
     /// </summary>
     abstract class EventBase
     {
+        public string[] conditions;
+
+        public string[] inverseConditions;
+
         public string id;
 
         public abstract void Update(LevelController levelController);
@@ -20,5 +24,26 @@ namespace TactileGame.RPG.Models
         public abstract bool IsComplete();
 
         public abstract void Reset();
+
+        public bool IsAvailable()
+        {
+            foreach (string condition in conditions)
+            {
+                if (!Game.HasKnowledge(condition))
+                {
+                    return false;
+                }
+            }
+
+            foreach (string condition in inverseConditions)
+            {
+                if (Game.HasKnowledge(condition))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

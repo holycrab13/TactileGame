@@ -93,6 +93,8 @@ namespace TactileGame.RPG.Files
                     {
                         EventGroup group = new EventGroup();
                         group.id = XmlUtil.Get(node, "id", string.Empty);
+                        group.conditions = XmlUtil.GetArray(node, "if", ' ');
+                        group.inverseConditions = XmlUtil.GetArray(node, "not", ' ');
 
                         foreach (XmlNode childNode in node.ChildNodes)
                         {
