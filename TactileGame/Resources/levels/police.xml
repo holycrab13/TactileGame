@@ -14,46 +14,35 @@
       <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
     <events>
-        <event id="hintergrund" not="hintergrund">
-          <phrase set="hintergrund">Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
-          <turn target="avatar">Right</turn>
-          <goto target="avatar" x="2" y="1" />
-          <turn target="miriam">Left</turn>
-          <question>
-            <text>"Hey Bernd! Hast du schon die Gerüchte gehört?"</text>
-            <answer>Nein, was gibts denn neues?</answer>
-                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-                <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
-            <answer>Mich interessieren keine Gerüchte.</answer>
-              <phrase>Diesmal sollten sie es aber: es könnte ein Fall werden.</phrase>
-              <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-              <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
-            
-              <answer text="Wem ist diesmal der Fingernagel abgebrochen?">
-                <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-                <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
-              </answer>
-          </question>
-          <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
-        </event>
-        <event id="idle" if="hintergrund"></event>
-              <answer text="Nein, was gibts denn neues?">
-                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
-              </answer>
-              <answer text="Mich interessieren keine Gerüchte.">
-                <phrase>Diesmal sollten sie es aber: es könnte ein Fall werden.</phrase>
-                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
-              </answer>
-              <answer text="Wem ist diesmal der Fingernagel abgebrochen?">
-                <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
-                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
-              </answer>
-          </question>
-        </event>
-        <event id="idle" if="hintergrund"></event>
-      </eventgroup>
+      <event id="hintergrund" not="hintergrund">
+        <phrase set="hintergrund">Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
+        <turn target="avatar">Right</turn>
+        <goto target="avatar" x="2" y="1" />
+        <turn target="miriam">Left</turn>
+        <question>
+          <text>"Hey Bernd! Hast du schon die Gerüchte gehört?"</text>
+          <answer trigger="was_gibts">Nein, was gibts denn neues?</answer>
+          <answer trigger="keine_interesse">Mich interessieren keine Gerüchte.</answer>
+          <answer trigger="fingernagel">Wem ist diesmal der Fingernagel abgebrochen?</answer>
+        </question>
+      </event>
+      <event id="was_gibts">
+        <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+        <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
+        <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+      </event>
+      <event id="keine_interesse">
+        <phrase>Diesmal sollten sie es aber: es könnte ein Fall werden.</phrase>
+        <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+        <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
+        <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+      </event>
+      <event id="fingernagel">
+        <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+        <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
+        <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+      </event>
+      <event id="idle" if="hintergrund"></event>
     </events>
   </definition>
   <triggers>
