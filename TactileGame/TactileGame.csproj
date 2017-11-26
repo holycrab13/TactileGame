@@ -227,6 +227,9 @@
     <Content Include="Resources\bmps\cell_corner_180.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\bmps\chalkboard.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\cobble.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -368,6 +371,9 @@
     <Content Include="Resources\bmps\tiger_hide_big.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\bmps\tree_16.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\water.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -439,6 +445,7 @@
     </Content>
     <Content Include="Resources\levels\office_thomson.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\paul_house.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -452,12 +459,13 @@
     <Content Include="Resources\levels\pub.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\levels\school.xml">
+    <Content Include="Resources\levels\classroom.xml">
+      <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\levels\test_level3.xml">
+    <Content Include="Resources\levels\school.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\levels\test_lvl_police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -466,7 +474,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\levels\XMLFile1.xml" />
     <Content Include="Resources\game_state_new.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -482,10 +489,6 @@
     <Content Include="Resources\levels\test_level1.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\levels\test_level2.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\bmps\key.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -1,6 +1,7 @@
-﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+﻿<level width="9" height="8">
   <definition>
     <objects>
+      <object id="person" name="Miriam" desc="Meine Kollegin Miriam. Sie weiß immer weiter, wenn ich keine Idee mehr habe." img="bmps/avatar_2.bmp" block="true" />
       <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
       <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window.bmp" block="true" />
       <object id="fenster_offen" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window_open.bmp" block="true" />
@@ -12,7 +13,37 @@
       <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="bmps/chair_office.bmp" block="false" />
       <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
+    <events>
+      <eventgroup id="hintergrund">
+        <event id="dialog" not="hintergrund" set="hintergrund">
+          <phrase>Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
+          <turn target="avatar">Right</turn>
+          <goto target="avatar" x="2" y="1" />
+          <turn target="miriam">Left</turn>
+          <question>
+            <text>"Hey Bernd! Hast du schon die Gerüchte gehört?"</text>
+              <answer text="Nein, was gibts denn neues?">
+                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+              <answer text="Mich interessieren keine Gerüchte.">
+                <phrase>Diesmal sollten sie es aber: es könnte ein Fall werden.</phrase>
+                <phrase>Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+              <answer text="Wem ist diesmal der Fingernagel abgebrochen?">
+                <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
+                <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+              </answer>
+          </question>
+        </event>
+        <event id="idle" if="hintergrund"></event>
+      </eventgroup>
+    </events>
   </definition>
+  <triggers>
+    <trigger x="-1" y="1" width="5" height="1" event="hintergrund"/>
+  </triggers>
   <doors>
     <door obj="door" x="1" y="5" target="village1" targetX="0" targetY="0" />
   </doors>
@@ -21,8 +52,8 @@
     <range x="-1" y="-1" width="2" height="1">
       <deco obj="wand" r="1" />
     </range>
-    <deco obj="fenster_offen" x="1" y="-1" r="1" />
-    <deco obj="fenster" x="2" y="-1" r="1" />
+    <deco obj="fenster_offen" x="1" y="-1" r="0" />
+    <deco obj="fenster" x="2" y="-1" r="0" />
     <range x="3" y="-1" width="5" height="1">
       <deco obj="wand" r="1" />
     </range>
@@ -38,8 +69,8 @@
     <range x="4" y="0" width="1" height="3">
       <deco obj="wand" r="1" />
     </range>
-    <deco obj="gitter" x="5" y="2" r="1" />
-    <deco obj="gitter" x="6" y="2" r="1" />
+    <deco obj="gitter" x="5" y="2" r="0" />
+    <deco obj="gitter" x="6" y="2" r="0" />
     <!-- suedliche Wand mit Tür -->
     <range x="2" y="5" width="6" height="1">
       <deco obj="wand" r="1" />
@@ -47,9 +78,8 @@
     <deco obj="wand" x="-1" y="5" r="1" />
     <deco obj="wand" x="0" y="5" r="1" />
     <!-- Objekte um die Umgebung zu gestalten-->
-    <deco obj="desk_office" x="3" y="2" r="1" />
-    <deco obj="desk" x="2" y="2" r="1" />
-    <deco obj="chair" x="3" y="1" r="1" />
+    <deco obj="desk_office" x="3" y="2" r="0" />
+    <deco obj="desk" x="2" y="2" r="0" />
   </decos>
   <items>
     <item obj="schluessel" x="3" y="0" r="1" id="schluessel" />
@@ -57,5 +87,8 @@
   <containers>
   </containers>
   <npcs>
+    <npc id="miriam" obj="person" x="3" y="1" r="0" >
+      <phrase if="vorher">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
+    </npc>
   </npcs>
 </level>

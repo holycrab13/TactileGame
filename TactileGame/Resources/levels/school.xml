@@ -2,15 +2,55 @@
 <level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
-      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+      <object id="wand" name="Wand" desc="Diese Wand hat schon viele Jahre auf dem Buckel. Überall sind Scharten und Kratzer von übermütigem Rumtollen." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Die alte Schultür. Durch die bin ich damals auch an meinem ersten Schultag spaziert." img="bmps/door_south.bmp" block="true" />
+      <object id="door_A" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse A." img="bmps/door_north.bmp" block="true" />
+      <object id="sign_A" name="Tür" desc="Hier steht: Klasse A" img="bmps/door_sign.bmp" block="true" />
+      <object id="door_B" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse B." img="bmps/door_north.bmp" block="true" />
+      <object id="sign_B" name="Tür" desc="Hier steht: Klasse B" img="bmps/door_sign.bmp" block="true" />
+      <object id="door_C" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse C." img="bmps/door_north.bmp" block="true" />
+      <object id="sign_C" name="Tür" desc="Hier steht: Klasse C" img="bmps/door_sign.bmp" block="true" />
     </objects>
   </definition>
   <doors>
-    <door obj="door" x="1" y="5" target="village1" targetX="-7" targetY="-5" />
+    <door obj="door" x="4" y="1" target="village1" targetX="-7" targetY="-5" />
+    <door obj="door_A" x="6" y="8" target="classroom" targetX="6" targetY="2" />
   </doors>
   <decos>
-    
+    <range x="1" y="1" width="3" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="5" y="1" width="5" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="wand" x="9" y="2" r="1" />
+    <deco obj="wand" x="9" y="3" r="1" />
+    <range x="9" y="4" width="15" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="24" y="5" width="1" height="3">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="1" y="2" width="1" height="6">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="1" y="8" width="4" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="7" y="8" width="5" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="14" y="8" width="5" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <range x="21" y="8" width="4" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="sign_A" x="5" y="8" r="2" />
+    <deco obj="door_B" x="13" y="8" r="0" />
+    <deco obj="sign_B" x="12" y="8" r="2" />
+    <deco obj="door_C" x="20" y="8" r="0" />
+    <deco obj="sign_C" x="19" y="8" r="2" />
   </decos>
   <items>
     

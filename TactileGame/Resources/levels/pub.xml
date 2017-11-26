@@ -16,37 +16,37 @@
   <decos>
     <!-- noerdliche Wand -->
     <range x="-4" y="-1" width="4" height="1">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
     <range x="1" y="-1" width="5" height="1">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
     <!-- westliche Wand -->
     <range x="-4" y="-1" width="1" height="7">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
     <!-- östliche Wand -->
     <range x="5" y="-1" width="1" height="7">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
     <!-- suedliche Wand mit Tür -->
     <range x="-4" y="5" width="5" height="1">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
     <range x="2" y="5" width="4" height="1">
-      <deco obj="wand" r="1" />
+      <deco obj="wand" r="0" />
     </range>
-    <deco obj="door_back" x="1" y="5" r="1" />
+    <deco obj="door_back" x="1" y="5" r="0" />
     <!-- Bar mit Stühlen -->
-    <deco obj="stool" x="-1" y="2" r="1" />
-    <deco obj="stool" x="1" y="2" r="1" />
-    <deco obj="stool" x="3" y="3" r="1" />
-    <deco obj="bar_west" x="-2" y="3" r="1" />
-    <deco obj="bar_middle" x="-1" y="3" r="1" />
-    <deco obj="bar_middle" x="0" y="3" r="1" />
-    <deco obj="bar_middle" x="1" y="3" r="1" />
-    <deco obj="bar_blank" x="2" y="3" r="1" />
-    <deco obj="bar_blank" x="2" y="4" r="1" />
+    <deco obj="stool" x="-1" y="2" r="0" />
+    <deco obj="stool" x="1" y="2" r="0" />
+    <deco obj="stool" x="3" y="3" r="0" />
+    <deco obj="bar_west" x="-2" y="3" r="0" />
+    <deco obj="bar_middle" x="-1" y="3" r="0" />
+    <deco obj="bar_middle" x="0" y="3" r="0" />
+    <deco obj="bar_middle" x="1" y="3" r="0" />
+    <deco obj="bar_blank" x="2" y="3" r="0" />
+    <deco obj="bar_blank" x="2" y="4" r="0" />
   </decos>
   <items>
   </items>
