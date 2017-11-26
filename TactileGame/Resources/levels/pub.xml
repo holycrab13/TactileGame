@@ -1,6 +1,7 @@
 ﻿<level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
+      <object id="ernie" name="Ernie" desc="Ernie der Dorfälteste. Hat immer einen guten Schluck dabei und sonst gibt es in seiner Kneipe noch mehr." img="bmps/avatar_2.bmp" block="true" />
       <object id="wand" name="Wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="true" />
       <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
       <object id="door_back" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
@@ -8,8 +9,48 @@
       <object id="bar_blank" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="true" />
       <object id="bar_middle" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="true" />
       <object id="bar_west" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="true" />
-      </objects>
+    </objects>
+    <events>
+      <!-- Reden mit Ernie -->
+      <event id="ernie_redet">
+        <turn target="ernie">Right</turn>
+        <turn target="avatar">Left</turn>
+        <question set="kennt_hotel">
+          <text>Hey Bernd was machst du denn so früh in der Kneipe?</text>
+            <answer text="Ich hab mich verlaufen.">
+              <phrase>Du und verlaufen? Du hast dich selbst nach 30 schnellen Drehungen noch orientieren können.</phrase>
+              <phrase>Das weiß ich noch als wäre es gestern gewesen: auf der Hochzeit der Müllers. Du hast sie alle nass gemacht.</phrase>
+              <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+            </answer>
+            <answer text="Ich brauch nen Schluck.">
+              <phrase>Na hier dann nimm doch einen Kräftigen! Du kannst es ja vertragen.</phrase>
+              <phrase>Das hab ich damals bei der Hochzeit der Müllers ja gesehen: du warst der letzte der stand. Als wäre nichts passiert.</phrase>
+              <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+            </answer>
+            <answer text="Ich wollte mit dir reden.">
+              <question>
+                <text>Mit mir altem Opi? Was kann ich dir denn helfen?</text>
+                <answer text="Es heißt die Anne ist verschwunden: hast du was darüber gehört?">
+                  <phrase>Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
+                  <phrase>Weißt du noch die Hochzeit? Die war einfach super, als wir alle in den heißen Quellen entspannen konnten.</phrase>
+                  <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+                </answer>
+                <answer text="Meine Partnerin schickt mich wieder sinnlos durch die Gegend.">
+                  <phrase>Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
+                  <phrase>Sie meint es wäre was passiert, weil Anne die letzten Tage nicht in der Schule war und keiner was gehört hat.</phrase>
+                  <phrase>die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe. Jetzt wo endlich alle um das alte Hotel geklärt ist.</phrase>
+                </answer>
+              </question>
+            </answer>
+          </question>
+        <move>Up</move>
+      </event>
+    </events>
   </definition>
+  <triggers>
+    <!-- Redetrigger -->
+    <trigger x="-1" y="2" width="2" height="1" event="ernie_redet"/>
+  </triggers>
   <doors>
     <door obj="door" x="0" y="-1" target="village1" targetX="-4" targetY="5" />
   </doors>
@@ -38,7 +79,6 @@
     </range>
     <deco obj="door_back" x="1" y="5" r="0" />
     <!-- Bar mit Stühlen -->
-    <deco obj="stool" x="-1" y="2" r="0" />
     <deco obj="stool" x="1" y="2" r="0" />
     <deco obj="stool" x="3" y="3" r="0" />
     <deco obj="bar_west" x="-2" y="3" r="0" />
@@ -53,5 +93,7 @@
   <containers>
   </containers>
   <npcs>
+    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" >
+    </npc>
   </npcs>
 </level>  

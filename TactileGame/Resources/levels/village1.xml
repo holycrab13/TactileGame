@@ -1,6 +1,7 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
+      <object id="julia" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
       <object id="wood_tree" name="Wald" desc="Hier geht es zum Wald der ringsum das Dorf steht. Nachts würde ich dort nicht hineingehen." img="bmps/tree_16.bmp" block="true" />
       <object id="door_pub" name="Tür Kneipe" desc="Die Kneipe ist leider gerade geschlossen. Es ist einfach noch zu früh zum Trinken." img="bmps/door_north.bmp" block="true" />
       <object id="wand_pub" name="Wand Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/wall.bmp" block="true" />
@@ -200,6 +201,7 @@
     <range x="15" y="-6" width="1" height="5">
       <deco obj="zaun_major" r="1" />
     </range>
+    <deco obj="julia" x="5" y="-6" r="2" />
     <!-- Haus Bürgermeister -->
     <deco obj="wand_major" x="9" y="-3" r="0" />
     <deco obj="sign_major" x="11" y="-3" r="0" />
