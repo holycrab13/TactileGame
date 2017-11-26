@@ -139,14 +139,18 @@ namespace TactileGame.RPG.Files
                     {
                         int x = XmlUtil.Get(node, "x", 0);
                         int y = XmlUtil.Get(node, "y", 0);
-                        int width = XmlUtil.Get(node, "width", 0);
-                        int height = XmlUtil.Get(node, "height", 0);
+                        int width = XmlUtil.Get(node, "width", 1);
+                        int height = XmlUtil.Get(node, "height", 1);
 
-                        for (int i = x; i < x + width; i++)
+                        WorldObject blueprint = worldObjects[XmlUtil.Get(node.ChildNodes[0], "obj", "default")];
+                        int dimX = blueprint.Width / Constants.TILE_SIZE;
+                        int dimY = blueprint.Height / Constants.TILE_SIZE;
+
+                        for (int i = 0; i < width; i++)
                         {
-                            for (int j = y; j < y + height; j++)
+                            for (int j = 0; j < height; j++)
                             {
-                                result.Objects.Add(createDeco(node.ChildNodes[0], i, j));
+                                result.Objects.Add(createDeco(node.ChildNodes[0], x + i * dimX, y + j * dimY));
                             }
                         }
                     }
