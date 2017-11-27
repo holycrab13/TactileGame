@@ -455,6 +455,7 @@
     </Content>
     <Content Include="Resources\levels\police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\pub_test.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
