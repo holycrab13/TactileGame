@@ -16,8 +16,8 @@
     <events>
       <event id="hintergrund" not="hintergrund">
         <phrase set="hintergrund">Ich habe heute morgen noch garnicht mit Miriam gesprochen.</phrase>
-        <turn target="avatar">Right</turn>
-        <goto target="avatar" x="2" y="1" />
+        <turn>Right</turn>
+        <goto x="2" y="1" />
         <turn target="miriam">Left</turn>
         <question>
           <text>"Hey Bernd! Hast du schon die Gerüchte gehört?"</text>

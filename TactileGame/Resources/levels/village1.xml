@@ -1,7 +1,8 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
-      <object id="julia" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
+      <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
+      <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
       <object id="major" name="Bürgermeister" desc="Der gute Bürgermeister. Er kümmert sich immer hezlich um alle Angelegenheiten der Anwohner." img="bmps/avatar_2.bmp" block="true" />
       <object id="wood_tree" name="Wald" desc="Hier geht es zum Wald der ringsum das Dorf steht. Nachts würde ich dort nicht hineingehen." img="bmps/tree_16.bmp" block="true" />
       <object id="door_pub" name="Tür Kneipe" desc="Die Kneipe ist leider gerade geschlossen. Es ist einfach noch zu früh zum Trinken." img="bmps/door_north.bmp" block="true" />
@@ -120,6 +121,10 @@
         <move>Down</move>
       </event>
       <!-- Dialogues -->
+      <event id ="thomson_p">
+        <phrase set="thomson_plakat">Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen.</phrase>
+        <phrase>Es ist das erste mal seit 30 Jahren, dass ein junger Kandidat zur Wahl steht.</phrase>
+      </event>
       <event id ="pauls_tür" if="Anne_ist_verschwunden">
         <question set="paul_will_nicht">
           <text>"Du klopfst an der Tür und hörst: Wer ist da?"</text>
@@ -154,10 +159,27 @@
             <answer>Das glaub ich nicht. vielleicht ist Anne einfach nur traurig, dass sie gehen und schließt sich deswegen ein.</answer>
           </question>
         </event>
-        <event if="kaufangebot">
-          TODO
+        <event if="thomson_plakat">
+          <phrase>Aber hast du gesehen, dass Thomson als Bürgermeister kandidieren will?</phrase>
+          <phrase>Dieser Schnösel kümmert sich gar nicht um die die Einwohner. Der will nur in die Politik und dann schnell weg von hier.</phrase>
+          <phrase>Der hat irgendwoher einen Haufen Wahlspenden und Pflastert jetzt alles mit seinen Plakaten und unsinnigen versprechen zu. Wer braucht denn hier Gigabitinternet?!? Der führt irgendwas im Schilde. ICH WEISS ES!</phrase>
         </event>
       </eventgroup>
+      <event id ="Julia_befragen" not="julia_befragt">
+        <phrase>Klar. Sie ist hinten im Garten. Irgendwie ist sie da in letzter Zeit immer. Keine Ahnung warum.</phrase>
+        <goto x="5" y="-2" />
+        <goto x="5" y="-5" />
+        <turn target="julia">Down</turn>
+        <turn target="julia">Up</turn>
+        <turn target="julia">Down</turn>
+        <question set="julia_befragt">
+          <text>Hallo Bernd. Was machst du denn hier? Du bemerkst wie Julia immer wieder nervös zu Pauls Haus schaut.</text>
+          <answer>Dein Papa hat mir erzählt, dass Anne garnicht mehr hier vorbei fährt. Du gehst doch in die gleiche Klasse: hat sie dir was erzählt?</answer>
+          <answer>Ein paar Leute machen sich Sorgen. Die Müllers packen und Anne ist nirgendwo zu finden. Weißt du wo sie ist?</answer>
+          <answer>Anne ist verschwunden und ich muss mal schauen was passiert ist. Paul scheint der erste Verdächtige zu sein.</answer>
+          <answer>Warum schaust du denn so nervös zu Pauls Haus? Hast du Angst? Keine Sorge ich pass schon auf, dass nichts passiert.</answer>
+        </question>
+      </event>
     </events>
   </definition>
   <triggers>
@@ -241,7 +263,6 @@
     <range x="15" y="-6" width="1" height="5">
       <deco obj="zaun_major" r="1" />
     </range>
-    <deco obj="julia" x="5" y="-6" r="2" />
     <!-- Haus Bürgermeister -->
     <deco obj="wand_major" x="9" y="-3" r="0" />
     <deco obj="sign_major" x="11" y="-3" r="0" />
@@ -504,5 +525,7 @@
   <npcs>
     <npc id="house_paul" obj="door_paul" trigger="pauls_tür" x="13" y="-11" r="0" />
     <npc id="buergermeister" obj="major" trigger="ausziehen" x="10" y="-2" r="0" />
+    <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
+    <deco id="julia" obj="julia_tex" x="5" y="-6" r="2" />
   </npcs>
 </level>
