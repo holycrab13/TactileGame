@@ -133,9 +133,9 @@
         </question>
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
       </event>
-      <eventgroup id="ausziehen">
-        <event>
-          <question>
+      <eventgroup id="major_dialogue">
+        <event not="major_befragt">
+          <question set="major_befragt">
             <text>Hey Bernd, na wie gehts?</text>
             <answer>Geht so.</answer>
             <answer>Miriam hat wieder nen Floh im Ohr.</answer>
@@ -143,7 +143,7 @@
             <answer>Ich will nicht drüber reden.</answer>
           </question>
         </event>
-        <event not="Anne_ist_verschwunden">
+        <event not="Anne_ist_verschwunden, major_befragt">
           <question set="Anne_ist_verschwunden">
             <text>Ach komm so schlimm kann es nicht sein. Aber gut, dass du da bist. Mir ist nämlich aufgefallen, dass Anne in letzter Zeit garnicht mehr hier vorbei kommt, wenn sie zur Schule radelt.</text>
             <answer trigger="Miriam_sagt_auch">Ach jetzt fängst du auch schon so an. Miriam hat mir deswegen schon ein Ohr abgekaut.</answer>
@@ -174,11 +174,31 @@
         <turn target="julia">Down</turn>
         <question set="julia_befragt">
           <text>Hallo Bernd. Was machst du denn hier? Du bemerkst wie Julia immer wieder nervös zu Pauls Haus schaut.</text>
-          <answer>Dein Papa hat mir erzählt, dass Anne garnicht mehr hier vorbei fährt. Du gehst doch in die gleiche Klasse: hat sie dir was erzählt?</answer>
-          <answer>Ein paar Leute machen sich Sorgen. Die Müllers packen und Anne ist nirgendwo zu finden. Weißt du wo sie ist?</answer>
-          <answer>Anne ist verschwunden und ich muss mal schauen was passiert ist. Paul scheint der erste Verdächtige zu sein.</answer>
-          <answer>Warum schaust du denn so nervös zu Pauls Haus? Hast du Angst? Keine Sorge ich pass schon auf, dass nichts passiert.</answer>
+          <answer set="julia_über_anne" trigger="julia_verteidigt_paul">Dein Papa hat mir erzählt, dass Anne garnicht mehr hier vorbei fährt. Du gehst doch in die gleiche Klasse: hat sie dir was erzählt?</answer>
+          <answer set="julia_über_anne" trigger="julia_verteidigt_paul">Ein paar Leute machen sich Sorgen. Die Müllers packen und Anne ist nirgendwo zu finden. Weißt du wo sie ist?</answer>
+          <answer set="julia" trigger="julia_verteidigt_paul">Anne ist verschwunden und ich muss mal schauen was passiert ist. Paul scheint der erste Verdächtige zu sein.</answer>
+          <answer set="julia" trigger="julia_verteidigt_paul">Warum schaust du denn so nervös zu Pauls Haus? Hast du Angst? Keine Sorge ich pass schon auf, dass nichts passiert.</answer>
         </question>
+      </event>
+      <eventgroup id="julia_verteidigt_paul">
+        <event id ="julia_weiss_nichts" if="julia_über_anne" set="julia">
+          <phrase set="Anne_mag_stadt">Ich war mit Anne nicht so gut befreundet. Ich weiß nur, dass sie allen immer auf die Nerven ging, dass sie in die Stadt ziehen will.</phrase>
+          <phrase set="Internetdate">Sie hat dort wohl jemanden übers Internet kennen gelernt und wollte zu dem ziehen. Ich glaub der hieß Matthias.</phrase>
+        </event>
+        <event id ="julia_verteidigung" if="julia">
+          <question>
+            <text>Aber Paul hat doch nichts getan und er ist auch kein gefährlicher Krimineller!</text>
+            <answer>Woher willst du das denn wissen?</answer>
+            <answer>Du scheinst dir ja sehr sicher zu sein.</answer>
+            <answer>Warum verteidigt du denn Paul? Das wundert mich doch sehr.</answer>
+          </question>
+          <phrase>Ich weiß es EINFACH! Man muss sich doch nur mal 5 Minuten mit Paul unterhalten um das zu merken, aber niemand gibt ihm auch nur eine Chance.</phrase>
+          <turn target="julia">Up</turn>
+          <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+        </event>
+      </eventgroup>
+      <event id="julia_event">
+        <turn target="julia">Up</turn>
       </event>
     </events>
   </definition>
@@ -524,8 +544,8 @@
   </containers>
   <npcs>
     <npc id="house_paul" obj="door_paul" trigger="pauls_tür" x="13" y="-11" r="0" />
-    <npc id="buergermeister" obj="major" trigger="ausziehen" x="10" y="-2" r="0" />
+    <npc id="buergermeister" obj="major" trigger="major_dialogue" x="10" y="-2" r="0" />
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
-    <deco id="julia" obj="julia_tex" x="5" y="-6" r="2" />
+    <deco id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
   </npcs>
 </level>
