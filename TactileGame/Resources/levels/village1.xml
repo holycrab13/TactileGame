@@ -1,6 +1,7 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
+      <object id="vertrag" name="einen nicht unterschriebenen Vertrag über den Verkauf des alten Hotels" desc="Ein Vertrag zum Verkauf des alten Hotels. Hier steht aber nicht wer es kaufen will." img="bmps/paper_written.bmp" block="false" />
       <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
       <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
       <object id="major" name="Bürgermeister" desc="Der gute Bürgermeister. Er kümmert sich immer hezlich um alle Angelegenheiten der Anwohner." img="bmps/avatar_2.bmp" block="true" />
@@ -542,6 +543,7 @@
     </range>
   </decos>
   <items>
+    <item obj="vertrag" x="-3" y="-10" r="1" id="vertrag" />
   </items>
   <containers>
   </containers>
