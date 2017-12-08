@@ -134,37 +134,40 @@
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
       </event>
       <eventgroup id="major_dialogue">
+        <event if="major_idle">
+          <phrase>Schön das du mal wieder vorbei schaust.</phrase>
+        </event>
         <event not="major_befragt">
           <question set="major_befragt">
             <text>Hey Bernd, na wie gehts?</text>
-            <answer>Geht so.</answer>
-            <answer>Miriam hat wieder nen Floh im Ohr.</answer>
-            <answer>Ach du weißt schon: Arbeit, Arbeit.</answer>
-            <answer>Ich will nicht drüber reden.</answer>
+            <answer trigger="major_anne">Geht so.</answer>
+            <answer trigger="major_anne">Miriam hat wieder nen Floh im Ohr.</answer>
+            <answer trigger="major_anne">Ach du weißt schon: Arbeit, Arbeit.</answer>
+            <answer trigger="major_anne">Ich will nicht drüber reden.</answer>
           </question>
         </event>
-        <event not="Anne_ist_verschwunden, major_befragt">
-          <question set="Anne_ist_verschwunden">
-            <text>Ach komm so schlimm kann es nicht sein. Aber gut, dass du da bist. Mir ist nämlich aufgefallen, dass Anne in letzter Zeit garnicht mehr hier vorbei kommt, wenn sie zur Schule radelt.</text>
-            <answer trigger="Miriam_sagt_auch">Ach jetzt fängst du auch schon so an. Miriam hat mir deswegen schon ein Ohr abgekaut.</answer>
-            <answer trigger="was_bemerkt">Du hast auch was bemerkt? Wann hast du sie das letzt mal gesehen? Hast du eine Idee?</answer>
-            <answer>Vielleicht nimmt sie einfach mal einen anderen Weg? Manchmal hat man den Alltagstrott einfach satt.</answer>
-            <answer trigger="Julia_befragen">Am Ende hatte Miriam doch recht und ihr Gefühl hat wieder richtig gelegen. Darf ich mal Julia befragen? Sie ist doch in der gleichen Klasse.</answer>
-          </question>
-        </event>
-        <event if="muellers_packen, Anne_ist_verschwunden">
-          <question>
-            <text>Da ist auf jeden Fall was im Busch. Müllers packen und Anne ist weit und breit nicht zu finden.</text>
-            <answer>Vielleicht dürfen sie ja nicht mit der Polizei reden? Dann sind sie vielleicht unter Druck.</answer>
-            <answer>Das glaub ich nicht. vielleicht ist Anne einfach nur traurig, dass sie gehen und schließt sich deswegen ein.</answer>
-          </question>
-        </event>
-        <event if="thomson_plakat">
-          <phrase>Aber hast du gesehen, dass Thomson als Bürgermeister kandidieren will?</phrase>
+        <event id="major_plakat" if="thomson_plakat">
+          <phrase set="major_idle">Hey Bernd schön dich zu sehen. Hast du schon gesehen: Thomson will als Bürgermeister kandidieren!</phrase>
           <phrase>Dieser Schnösel kümmert sich gar nicht um die die Einwohner. Der will nur in die Politik und dann schnell weg von hier.</phrase>
           <phrase>Der hat irgendwoher einen Haufen Wahlspenden und Pflastert jetzt alles mit seinen Plakaten und unsinnigen versprechen zu. Wer braucht denn hier Gigabitinternet?!? Der führt irgendwas im Schilde. ICH WEISS ES!</phrase>
         </event>
       </eventgroup>
+      <event id="major_anne" not="Anne_ist_verschwunden">
+        <question set="Anne_ist_verschwunden">
+          <text>Ach komm so schlimm kann es nicht sein. Aber gut, dass du da bist. Mir ist nämlich aufgefallen, dass Anne in letzter Zeit garnicht mehr hier vorbei kommt, wenn sie zur Schule radelt.</text>
+          <answer trigger="Miriam_sagt_auch">Ach jetzt fängst du auch schon so an. Miriam hat mir deswegen schon ein Ohr abgekaut.</answer>
+          <answer trigger="was_bemerkt">Du hast auch was bemerkt? Wann hast du sie das letzt mal gesehen? Hast du eine Idee?</answer>
+          <answer trigger="major_im_busch">Vielleicht nimmt sie einfach mal einen anderen Weg? Manchmal hat man den Alltagstrott einfach satt.</answer>
+          <answer trigger="Julia_befragen">Am Ende hatte Miriam doch recht und ihr Gefühl hat wieder richtig gelegen. Darf ich mal Julia befragen? Sie ist doch in der gleichen Klasse.</answer>
+        </question>
+      </event>
+      <event id="major_im_busch" if="Anne_ist_verschwunden">
+        <question set="muellers_packen">
+          <text>Nein, da ist auf jeden Fall was im Busch. Müllers packen und Anne ist weit und breit nicht zu finden.</text>
+          <answer>Vielleicht dürfen sie ja nicht mit der Polizei reden? Dann sind sie vielleicht unter Druck.</answer>
+          <answer>Das glaub ich nicht. vielleicht ist Anne einfach nur traurig, dass sie gehen und schließt sich deswegen ein.</answer>
+        </question>
+      </event>
       <event id ="Julia_befragen" not="julia_befragt">
         <phrase>Klar. Sie ist hinten im Garten. Irgendwie ist sie da in letzter Zeit immer. Keine Ahnung warum.</phrase>
         <goto x="5" y="-2" />
