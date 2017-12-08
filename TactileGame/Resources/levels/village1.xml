@@ -134,6 +134,13 @@
           <answer>Hier ist die Polizei. Machen Sie auf!</answer>
         </question>
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
+        <question if="major_befragt" if="paul_gesellschaft">
+          <text>Ich weiß, dass du nicht allein zu Hause warst. Niemand isst freiwillig so viel Pizza allein.</text>
+          <answer trigger="paul_war_es_nicht">Wenn du nicht mit mir redest könntest du in den Knast wandern. Ich will dein Alibi hören.</answer>
+          <answer trigger="paul_war_es_nicht">Julia scheint dich zu verteidigen. War sie zwischendurch bei dir?</answer>
+          <answer trigger="paul_war_es_nicht">Ich will nur mit dir reden. Hier geht was komisches vor und wenn du ein Alibi hast, hast du nichts zu befürchten.</answer>
+          <answer trigger="paul_war_es_nicht">Sag mir doch einfach was passiert ist. Ich will dich nicht einsperren.</answer>
+        </question>
       </event>
       <eventgroup id="major_dialogue">
         <event if="major_idle">
@@ -208,6 +215,11 @@
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
       </event>
+      <eventgroup  id="paul_war_es_nicht">
+        <event>
+          <phrase>Okay ich komme raus.</phrase>
+        </event>
+      </eventgroup>
     </events>
   </definition>
   <triggers>
