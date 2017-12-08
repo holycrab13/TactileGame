@@ -1,6 +1,7 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
+      <object id="paul_muelltonne" name="Muelltonne" desc="Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen." img="bmps/plakat.bmp" block="true" />
       <object id="vertrag" name="einen nicht unterschriebenen Vertrag über den Verkauf des alten Hotels" desc="Ein Vertrag zum Verkauf des alten Hotels. Hier steht aber nicht wer es kaufen will." img="bmps/paper_written.bmp" block="false" />
       <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
       <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
@@ -190,7 +191,7 @@
           <phrase set="Internetdate">Sie hat dort wohl jemanden übers Internet kennen gelernt und wollte zu dem ziehen. Ich glaub der hieß Matthias.</phrase>
         </event>
         <event id ="julia_verteidigung" if="julia">
-          <question>
+          <question name="paul ist nett">
             <text>Aber Paul hat doch nichts getan und er ist auch kein gefährlicher Krimineller!</text>
             <answer>Woher willst du das denn wissen?</answer>
             <answer>Du scheinst dir ja sehr sicher zu sein.</answer>
@@ -203,6 +204,9 @@
       </eventgroup>
       <event id="julia_event">
         <turn target="julia">Up</turn>
+      </event>
+      <event id="paul_muell">
+        <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
       </event>
     </events>
   </definition>
@@ -551,6 +555,7 @@
     <npc id="house_paul" obj="door_paul" trigger="pauls_tür" x="13" y="-11" r="0" />
     <npc id="buergermeister" obj="major" trigger="major_dialogue" x="10" y="-2" r="0" />
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
-    <deco id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
+    <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
+    <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />
   </npcs>
 </level>
