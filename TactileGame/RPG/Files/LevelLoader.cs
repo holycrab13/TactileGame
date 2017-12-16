@@ -431,6 +431,8 @@ namespace TactileGame.RPG.Files
                 return move;
             }
 
+
+
             if (actionType == "setpos")
             {
                 SetPos move = new SetPos();
@@ -445,6 +447,17 @@ namespace TactileGame.RPG.Files
                 }
 
                 return move;
+            }
+
+
+            if (actionType == "gotolevel")
+            {
+                GotoLevel gotoLevel = new GotoLevel();
+                gotoLevel.targetLevel = XmlUtil.Get(actionNode, "target", string.Empty);
+                gotoLevel.targetX = XmlUtil.Get(actionNode, "x", 0);
+                gotoLevel.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                return gotoLevel;
             }
 
             if (actionType == "turn")
