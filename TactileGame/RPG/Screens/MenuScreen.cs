@@ -40,6 +40,10 @@ namespace TactileGame.RPG.Menu
         {
             ranges = null;
 
+            {
+                RemoveViewRange(range.Name);
+            }
+
             this.menu = menu;
 
             createOrUpdate(width, itemHeight);
