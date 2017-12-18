@@ -36,7 +36,7 @@ namespace TactileGame
 
         private void startNewGame()
         {
-            gameScreen.LoadGame("game_state_new");
+            gameScreen.StartNewGame();
             GoToScreen(gameScreen);
         }
 

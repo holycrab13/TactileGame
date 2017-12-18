@@ -1,6 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <save>
+  <level name="pub" x="4" y="0" />
   <investigation>
-    <fact id="brecheisen_gefunden">false</fact>
+    <fact id="in_gedanken">True</fact>
   </investigation>
-  <level name="pub_test" x="0" y="0"/>
 </save>

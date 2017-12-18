@@ -54,7 +54,7 @@ namespace TactileGame.RPG.Controller
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
-                    WorldObject target = model.level.GetTarget(model.level.avatar);
+                    WorldObject target = model.level.GetTarget(model.level.Avatar);
 
                     if (target != null)
                     {
@@ -152,7 +152,7 @@ namespace TactileGame.RPG.Controller
         {
             model.events.Add(item.Event);
             model.level.Objects.Remove(item);
-            model.level.avatar.Inventory.Add(item);
+            model.level.Avatar.Inventory.Add(item);
             
         }
 
@@ -178,7 +178,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateNPC(NPC target)
         {
-            switch (model.level.avatar.Rotation)
+            switch (model.level.Avatar.Rotation)
             {
                 case Direction.UP:
                     target.Rotation = Direction.DOWN;
@@ -266,7 +266,7 @@ namespace TactileGame.RPG.Controller
         {
             if (target.Equals("avatar") || target.Equals(string.Empty))
             {
-                return GetLevel().avatar;
+                return GetLevel().Avatar;
             }
             else
             {

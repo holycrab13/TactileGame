@@ -21,7 +21,7 @@ namespace TactileGame.RPG.Models
 
         public Character Avatar
         {
-            get { return level.avatar; }
+            get { return level.Avatar; }
         }
 
         internal void TriggerEvent(string p)

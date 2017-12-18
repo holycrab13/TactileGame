@@ -36,23 +36,16 @@
         <question>
           <text>Mit mir altem Opi? Was kann ich dir denn helfen?</text>
           <answer trigger="was_gehört">Es heißt die Anne ist verschwunden: hast du was darüber gehört?</answer>
-          <phrase>Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
-          <phrase>Weißt du noch die Hochzeit? Die war einfach super, als wir alle in den heißen Quellen entspannen konnten.</phrase>
-          <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
           <answer trigger="schicken">Meine Partnerin schickt mich wieder sinnlos durch die Gegend.</answer>
-          <phrase>Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
-          <phrase>Sie meint es wäre was passiert, weil Anne die letzten Tage nicht in der Schule war und keiner was gehört hat.</phrase>
-          <phrase>die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe. Jetzt wo endlich alle um das alte Hotel geklärt ist.</phrase>
         </question>
       </event>
       <event id="was_gehört">
-        <phrase>Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
+        <phrase set="hotel anne_vermisst">Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
         <phrase>Weißt du noch die Hochzeit? Die war einfach super, als wir alle in den heißen Quellen entspannen konnten.</phrase>
         <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
-        <answer trigger="schicken">Meine Partnerin schickt mich wieder sinnlos durch die Gegend.</answer>
       </event>
       <event id="schicken">
-        <phrase>Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
+        <phrase set="hotel">Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
         <phrase>Sie meint es wäre was passiert, weil Anne die letzten Tage nicht in der Schule war und keiner was gehört hat.</phrase>
         <phrase>die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe. Jetzt wo endlich alle um das alte Hotel geklärt ist.</phrase>
       </event>
@@ -104,7 +97,7 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" >
+    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" trigger="ernie_redet" >
     </npc>
   </npcs>
 </level>

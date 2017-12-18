@@ -71,6 +71,7 @@ namespace TactileGame.RPG.Files
             
             Level result = new Level();
             result.OnLoadTrigger = XmlUtil.Get(levelNode, "onload", string.Empty);
+            result.Name = levelName;
 
             Character character = new Character()
             {
@@ -81,7 +82,7 @@ namespace TactileGame.RPG.Files
                 Texture = BooleanTexture.FromFile("Resources/bmps/avatar_2.bmp"),
             };
 
-            result.avatar = character;
+            result.Avatar = character;
 
 
             XmlNode eventNode = doc.DocumentElement.SelectSingleNode("definition/events");
@@ -634,8 +635,15 @@ namespace TactileGame.RPG.Files
         internal static SaveGame LoadSaveGame(string saveGame, LL ll)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("Resources/" + saveGame + ".xml");
+            doc.Load("../../Resources/" + saveGame + ".xml");
 
+            SaveGame save = saveGameFromDocument(ll, doc);
+
+            return save;
+        }
+
+        private static SaveGame saveGameFromDocument(LL ll, XmlDocument doc)
+        {
             SaveGame save = new SaveGame();
 
             save.Knowledge = LoadKnowledge(doc.DocumentElement.SelectSingleNode("investigation"), ll);
@@ -644,8 +652,57 @@ namespace TactileGame.RPG.Files
             save.LevelName = XmlUtil.Get(levelNode, "name", string.Empty);
             save.X = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "x", 0);
             save.Y = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "y", 0);
+            return save;
+        }
+
+        internal static SaveGame CreateNewGame(LL ll)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Resources/game_state_new.xml");
+
+            SaveGame save = saveGameFromDocument(ll, doc);
 
             return save;
+        }
+
+        internal static void SaveGame(string p, LevelModel levelModel)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            XmlElement root = doc.DocumentElement;
+            doc.InsertBefore(xmlDeclaration, root);
+
+            XmlElement saveNode = doc.CreateElement(string.Empty, "save", string.Empty);
+            doc.AppendChild(saveNode);
+
+            XmlElement levelNode = doc.CreateElement(string.Empty, "level", string.Empty);
+            levelNode.Attributes.Append(createAttribute(doc, "name", levelModel.level.Name));
+            levelNode.Attributes.Append(createAttribute(doc, "x", (levelModel.Avatar.X / Constants.TILE_SIZE).ToString()));
+            levelNode.Attributes.Append(createAttribute(doc, "y", (levelModel.Avatar.Y / Constants.TILE_SIZE).ToString()));
+            saveNode.AppendChild(levelNode);
+
+            XmlElement investigationNode = doc.CreateElement(string.Empty, "investigation", string.Empty);
+            saveNode.AppendChild(investigationNode);
+
+            foreach (KeyValuePair<string, bool> info in Game.knowledge)
+            {
+                XmlElement factNode = doc.CreateElement(string.Empty, "fact", string.Empty);
+                factNode.Attributes.Append(createAttribute(doc, "id", info.Key));
+                factNode.InnerText = info.Value.ToString();
+
+                investigationNode.AppendChild(factNode);
+            }
+
+            doc.Save("../../Resources/" + p + ".xml");
+        }
+
+
+        private static XmlAttribute createAttribute(XmlDocument doc, string p1, string p2)
+        {
+            XmlAttribute attribute = doc.CreateAttribute(string.Empty, p1, string.Empty);
+            attribute.Value = p2;
+            return attribute;
         }
     }
 }
