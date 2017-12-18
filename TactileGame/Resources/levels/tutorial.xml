@@ -1,12 +1,198 @@
-<level width="20" height="20" outerImg="no_playarea.bmp">
+<?xml version="1.0" encoding="UTF-8"?>
+<level width="50" height="30" onload="tutorial_load">
   <definition>
     <objects>
-      <object id="zaun_schule_ecke" name="Zaunecke der Schule" desc="Ein moderner Metallzaun. Er wurde erst vor kurzem aufgestellt nachdem Vandalen den Schulhof nachts verwüstet haben." img="bmps/cell_corner.bmp" block="true" />
-      <object id="zaun_ecke" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner.bmp" block="true" />
+      <object id="wand" name="wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="True" />
+      <object id="pavement" name="pavement" desc="Der Boden ist hier sehr rau." img="bmps/pavement_WE.bmp" block="False" />
+      <object id="door" name="door" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="True" />
+      <object id="stool" name="stool" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="True" />
+      <object id="franzl" name="Franzl" desc="Eine Person im Tutorial" img="bmps/avatar_2.bmp" block="true" />
+      <object id="busch" name="busch" desc="Eine Topfpflanze. Wahrscheinlich aus Plastik." img="bmps/bush.bmp" block="True" />
     </objects>
+    <events>
+      <event id="tutorial_load">
+        <phrase>Herzlich willkommen zur Spielanleitung von Wahlversprechen. Drücke Bestätigen um fortzufahren</phrase>
+        <phrase>Du bist hier, um dich mit der Steuerung vertraut zu machen. Also los geht's!</phrase>
+        <phrase>Als erstes kommen wir zu deiner Spielfigur. </phrase>
+        <phrase>Du findest sie immer in der Mitte des Bildschirms.</phrase>
+        <phrase>Du kannst deine Spielfigur bewegen, sie bleibt jedoch immer in der Mitte.</phrase>
+        <phrase>Dafür verändert sich natürlich deine Umgebung.</phrase>
+        <phrase>Die Spielwelt ist ein sehr ruhiger Ort. Du kannst dir also Zeit lassen.</phrase>
+        <phrase>Deine Spielfigur bewegst du mit den Pfeiltasten.</phrase>
+        <phrase>Du befindest dich zum Beispiel gerade in einem Korridor.</phrase>
+        <phrase>Versuche, ans Ende des Korridors nach unten zu laufen.</phrase>
+      </event>
+      <event id="walk_complete" not="walk_once">
+        <phrase set="walk_once">Sehr gut! Du hast den Korridor durchquert!</phrase>
+        <phrase>Du kannst deine Umgebung jederzeit untersuchen.</phrase>
+        <phrase>Stelle dich vor ein Objekt und drücke Bestätigen um Informationen zu erhalten.</phrase>
+        <phrase>Versuche nun, dir den Hocker in der Ecke genauer anzusehen.</phrase>
+      </event>
+
+      <eventgroup id="interaction_complete">
+        <event if="barhocker">
+          <phrase>Das ist nur ein alter Barhocker. Folge jetzt dem Korridor!</phrase>
+        </event>
+        <event not="barhocker">
+          <phrase set="barhocker">Gut gemacht! Das hier ist also ein Barhocker!</phrase>
+          <phrase>Gehe weiter den Korridor entlang!</phrase>
+        </event>
+      </eventgroup>
+
+      <event id="walk2_complete" not="rough_terrain">
+        <phrase set="rough_terrain">Warte! Über dir ist eine Unebenheit im Boden!</phrase>
+        <phrase>Gestrichelte Objekte zeigen dir, dass du über sie hinweg laufen kannst.</phrase>
+        <phrase>Feste Linien und Blöcke stellen Hindernisse dar.</phrase>
+        <phrase>Im nächsten Raum ist jemand! Finde Franzl und rede mit ihm.</phrase>
+        <phrase>Du kannst mit anderen Spielfiguren reden, indem du Bestätigen drückst.</phrase>
+      </event>
+
+      <eventgroup id="talk_complete">
+        <event if="talked_to_franzl">
+          <phrase>Der Franzl ist fröhlich und winkt.</phrase>
+        </event>
+        <event not="talked_to_franzl">
+          <phrase set="talked_to_franzl">Sehr gut! Du hast den Franzl gefunden!</phrase>
+          <trigger trigger="questions" />
+        </event>
+      </eventgroup>
+
+      <event id="questions">
+        <phrase>Manchmal stellen dir Spielfiguren Fragen.</phrase>
+        <phrase>Du kannst dann aus mehreren Antworten auswählen.</phrase>
+        <phrase>Mit der Taste hoch und der Taste runter kannst du zwischen den Antworten wechseln.</phrase>
+        <phrase>Mit Bestätigen bestätigst du deine Antwort.</phrase>
+        <question>
+          <text>Franzl: Hallo, hast du alles soweit verstanden?</text>
+          <answer trigger="questions">Nein, bitte erkläre es nochmal!</answer>
+          <answer trigger="questions_complete">Natürlich, das war kinderleicht!</answer>
+        </question>
+      </event>
+
+      <event id="todo1" not="barhocker">
+        <phrase>Finde zuerst den Barhocker und untersuche ihn!</phrase>
+        <move>Left</move>
+      </event>
+
+      <event id="todo2" not="talked_to_franzl">
+        <phrase>Finde zuerst den Franzl und rede mit ihm!</phrase>
+        <move>Left</move>
+      </event>
+
+      <event id="questions_complete">
+        <phrase>Wunderbar! Dann hast du die Spielsteuerung verstanden!</phrase>
+        <phrase>Finde nun die Tür rechts von dir und dann ab ins Abenteuer!</phrase>
+      </event>
+
+      <event id="tutorial_complete">
+        <phrase>Hier ist die Tür! Jetzt aber raus hier!</phrase>
+        <gameover></gameover>
+      </event>
+    </events>
   </definition>
+  
+  <triggers>
+    <trigger x="-1" y="7" width="3" height="1" event="walk_complete"/>
+    <trigger x="2" y="7" width="1" height="2" event="todo1"/>
+    <trigger x="14" y="-2" width="1" height="1" event="todo2"/>
+    <trigger x="6" y="5" width="3" height="1" event="walk2_complete"/>
+  </triggers>
 
   <decos>
-    <deco obj="zaun_schule_ecke" x="0" y="1" r="3" />
+    <deco obj="busch" x="11" y="3" r="0" />
+    <deco obj="busch" x="6" y="9" r="0" />
+    <deco obj="busch" x="2" y="9" r="0" />
+    <deco obj="busch" x="1" y="2" r="0" />
+    <deco obj="busch" x="1" y="5" r="0" />
+    <deco obj="busch" x="-1" y="5" r="0" />
+    <deco obj="busch" x="-1" y="2" r="0" />
+    <deco obj="wand" x="2" y="4" r="0" />
+    <deco obj="wand" x="2" y="3" r="0" />
+    <deco obj="wand" x="2" y="2" r="0" />
+    <deco obj="wand" x="2" y="1" r="0" />
+    <deco obj="pavement" x="6" y="4" r="0" />
+    <deco obj="pavement" x="8" y="4" r="0" />
+    <deco obj="pavement" x="7" y="4" r="0" />
+    <deco obj="wand" x="17" y="-3" r="0" />
+    <deco obj="wand" x="16" y="-3" r="0" />
+    <deco obj="wand" x="15" y="-3" r="0" />
+    <deco obj="wand" x="17" y="-1" r="0" />
+    <deco obj="wand" x="16" y="-1" r="0" />
+    <deco obj="wand" x="15" y="-1" r="0" />
+    <deco obj="wand" x="13" y="-3" r="0" />
+    <deco obj="wand" x="12" y="-3" r="0" />
+    <deco obj="wand" x="11" y="-3" r="0" />
+    <deco obj="door" x="17" y="-2" r="1" trigger="tutorial_complete"/>
+    <deco obj="wand" x="14" y="-3" r="0" />
+    <deco obj="wand" x="14" y="-1" r="0" />
+    <deco obj="wand" x="14" y="0" r="0" />
+    <deco obj="wand" x="14" y="2" r="0" />
+    <deco obj="wand" x="14" y="1" r="0" />
+    <deco obj="wand" x="14" y="3" r="0" />
+    <deco obj="wand" x="14" y="4" r="0" />
+    <deco obj="wand" x="13" y="4" r="0" />
+    <deco obj="wand" x="12" y="4" r="0" />
+    <deco obj="wand" x="11" y="4" r="0" />
+    <deco obj="wand" x="10" y="4" r="0" />
+    <deco obj="wand" x="8" y="-3" r="0" />
+    <deco obj="wand" x="7" y="-3" r="0" />
+    <deco obj="wand" x="6" y="-3" r="0" />
+    <deco obj="wand" x="9" y="6" r="0" />
+    <deco obj="wand" x="9" y="5" r="0" />
+    <deco obj="wand" x="9" y="4" r="0" />
+    <deco obj="wand" x="9" y="7" r="0" />
+    <deco obj="wand" x="9" y="8" r="0" />
+    <deco obj="wand" x="9" y="9" r="0" />
+    <deco obj="wand" x="9" y="10" r="0" />
+    <deco obj="wand" x="8" y="10" r="0" />
+    <deco obj="wand" x="7" y="10" r="0" />
+    <deco obj="wand" x="6" y="10" r="0" />
+    <deco obj="wand" x="5" y="10" r="0" />
+    <deco obj="wand" x="4" y="6" r="0" />
+    <deco obj="wand" x="5" y="6" r="0" />
+    <deco obj="wand" x="4" y="10" r="0" />
+    <deco obj="wand" x="3" y="10" r="0" />
+    <deco obj="wand" x="1" y="10" r="0" />
+    <deco obj="wand" x="2" y="10" r="0" />
+    <deco obj="wand" x="0" y="10" r="0" />
+    <deco obj="wand" x="-1" y="10" r="0" />
+    <deco obj="wand" x="-2" y="10" r="0" />
+    <deco obj="wand" x="-2" y="9" r="0" />
+    <deco obj="wand" x="-2" y="8" r="0" />
+    <deco obj="wand" x="0" y="-2" r="0" />
+    <deco obj="wand" x="5" y="2" r="0" />
+    <deco obj="wand" x="9" y="-3" r="0" />
+    <deco obj="wand" x="5" y="3" r="0" />
+    <deco obj="wand" x="-2" y="3" r="0" />
+    <deco obj="wand" x="-2" y="4" r="0" />
+    <deco obj="wand" x="2" y="-2" r="0" />
+    <deco obj="wand" x="2" y="-1" r="0" />
+    <deco obj="wand" x="5" y="5" r="0" />
+    <deco obj="wand" x="-2" y="-2" r="0" />
+    <deco obj="wand" x="-2" y="-1" r="0" />
+    <deco obj="wand" x="-2" y="0" r="0" />
+    <deco obj="wand" x="5" y="4" r="0" />
+    <deco obj="wand" x="-2" y="5" r="0" />
+    <deco obj="wand" x="2" y="5" r="0" />
+    <deco obj="wand" x="5" y="-2" r="0" />
+    <deco obj="wand" x="-1" y="-2" r="0" />
+    <deco obj="wand" x="5" y="-1" r="0" />
+    <deco obj="wand" x="-2" y="2" r="0" />
+    <deco obj="wand" x="-2" y="7" r="0" />
+    <deco obj="wand" x="10" y="-3" r="0" />
+    <deco obj="stool" x="-1" y="9" r="0" trigger="interaction_complete" />
+    <deco obj="wand" x="5" y="0" r="0" />
+    <deco obj="wand" x="2" y="0" r="0" />
+    <deco obj="wand" x="-2" y="6" r="0" />
+    <deco obj="wand" x="2" y="6" r="0" />
+    <deco obj="wand" x="5" y="-3" r="0" />
+    <deco obj="wand" x="5" y="1" r="0" />
+    <deco obj="wand" x="1" y="-2" r="0" />
+    <deco obj="wand" x="3" y="6" r="0" />
+    <deco obj="wand" x="-2" y="1" r="0" />
   </decos>
+  <doors />
+  <npcs>
+    <npc id="erniebert" obj="franzl" x="7" y="-1" r="0" trigger="talk_complete"/>
+  </npcs>
 </level>

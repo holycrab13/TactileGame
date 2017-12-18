@@ -68,6 +68,8 @@
     <Compile Include="RPG\Actions\Answer.cs" />
     <Compile Include="RPG\Actions\DialogueAction.cs" />
     <Compile Include="RPG\Actions\Goto.cs" />
+    <Compile Include="RPG\Actions\GotoLevel.cs" />
+    <Compile Include="RPG\Actions\Trigger.cs" />
     <Compile Include="RPG\Actions\Interact.cs" />
     <Compile Include="RPG\Actions\Move.cs" />
     <Compile Include="RPG\Actions\Phrase.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="RPG\Actions\SetPos.cs" />
     <Compile Include="RPG\Actions\RelSetPos.cs" />
     <Compile Include="RPG\Actions\RelGoto.cs" />
+    <Compile Include="RPG\Actions\GameOver.cs" />
     <Compile Include="RPG\Actions\Turn.cs" />
     <Compile Include="RPG\Controller\DialogueController.cs" />
     <Compile Include="RPG\Controller\CharacterController.cs" />
@@ -468,6 +471,7 @@
     </Content>
     <Content Include="Resources\levels\pub_test.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\pub.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

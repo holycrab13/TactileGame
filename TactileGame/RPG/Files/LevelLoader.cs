@@ -67,7 +67,10 @@ namespace TactileGame.RPG.Files
                 worldObjects.Add(XmlUtil.Get(node, "id", "error"), obj);
             }
 
+            XmlNode levelNode = doc.DocumentElement;
+            
             Level result = new Level();
+            result.OnLoadTrigger = XmlUtil.Get(levelNode, "onload", string.Empty);
 
             Character character = new Character()
             {
@@ -141,7 +144,7 @@ namespace TactileGame.RPG.Files
                         int y = XmlUtil.Get(node, "y", 0);
                         int width = XmlUtil.Get(node, "width", 1);
                         int height = XmlUtil.Get(node, "height", 1);
-
+                       
                         WorldObject blueprint = worldObjects[XmlUtil.Get(node.ChildNodes[0], "obj", "default")];
                         int dimX = blueprint.Width / Constants.TILE_SIZE;
                         int dimY = blueprint.Height / Constants.TILE_SIZE;
@@ -303,6 +306,7 @@ namespace TactileGame.RPG.Files
             {
                 X = Constants.TILE_SIZE * x,
                 Y = Constants.TILE_SIZE * y,
+                Trigger = XmlUtil.Get(node, "trigger", string.Empty),
                 Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                 Id = XmlUtil.Get(node, "id", "object"),
                 BlocksPath = blueprint.BlocksPath,
@@ -351,7 +355,7 @@ namespace TactileGame.RPG.Files
                 {
                     if (node.Name == "text")
                     {
-                        question.text = node.InnerText;
+                        question.question = node.InnerText;
                     }
 
                     if (node.Name == "answer")
@@ -413,6 +417,12 @@ namespace TactileGame.RPG.Files
                 }
 
                 return move;
+            }
+
+            if (actionType == "gameover")
+            {
+                GameOver gameover = new GameOver();
+                return gameover;
             }
 
             if (actionType == "relsetpos")
@@ -483,6 +493,14 @@ namespace TactileGame.RPG.Files
                 return interact;
             }
 
+            if (actionType == "trigger")
+            {
+                Trigger triggerEvent = new Trigger();
+                triggerEvent.trigger = XmlUtil.Get(actionNode, "trigger", string.Empty);
+
+                return triggerEvent;
+            }
+
             return null;
         }
 
@@ -551,7 +569,7 @@ namespace TactileGame.RPG.Files
         private static Question loadQuestion(XmlNode text)
         {
             Question result = new Question();
-            result.text = XmlUtil.Get(text, "text", string.Empty);
+            result.question = XmlUtil.Get(text, "text", string.Empty);
 
             foreach (XmlNode node in text.ChildNodes)
             {

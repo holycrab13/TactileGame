@@ -111,7 +111,7 @@ namespace TactileGame.RPG.Menu
             timer.Tick += Tick;
 
             mainRegion = new BrailleIOViewRange(0, 0, width, height);
-            detailRegion = new BrailleIOViewRange(0, height - 16, width, 16);
+            detailRegion = new BrailleIOViewRange(0, height - 18, width, 18);
             detailRegion.SetBorder(1);
             detailRegion.SetPadding(1);
 

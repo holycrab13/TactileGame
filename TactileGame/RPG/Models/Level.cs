@@ -17,6 +17,8 @@ namespace TactileGame.RPG.Models
 
         public Character avatar;
 
+        public string OnLoadTrigger { get; set; }
+
         public Level()
         {
             Objects = new List<WorldObject>();

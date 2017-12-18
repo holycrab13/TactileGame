@@ -6,13 +6,15 @@ using TactileGame.RPG.Models;
 
 namespace TactileGame.RPG
 {
-	class Interact : ActionBase 
+    /// <summary>
+    /// Triggert direkt ein Event! Vorsicht!!! Nicht auf sich selbst feuern oder ALLES IST AUUUUUSSS
+    /// </summary>
+	class Trigger : ActionBase 
 	{
-        public string target;
-
+        public string trigger;
         private bool complete;
 
-        public Interact()
+        public Trigger()
         {
             this.complete = false;
         }
@@ -24,12 +26,7 @@ namespace TactileGame.RPG
 
         public override void Update(LevelController controller)
 		{
-            WorldObject targetObject = controller.GetTarget(target);
-
-            if (targetObject != null)
-            {
-                controller.TriggerEvent(targetObject.Trigger);
-            }
+            controller.TriggerEvent(trigger);
 
             complete = true;
 		}

@@ -162,7 +162,14 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            model.events.Add(target.Event);
+            if (target.Trigger != null && !target.Trigger.Equals(string.Empty))
+            {
+                model.TriggerEvent(target.Trigger);
+            }
+            else
+            {
+                model.events.Add(target.Event);
+            }
         }
 
         /// <summary>
@@ -192,7 +199,18 @@ namespace TactileGame.RPG.Controller
 
         internal void TriggerEvent(string trigger)
         {
-            model.TriggerEvent(trigger);
+            if (trigger != null && !trigger.Equals(string.Empty))
+            {
+                model.TriggerEvent(trigger);
+            }
+        }
+
+        internal void ResetEvent(string trigger)
+        {
+            if (trigger != null && !trigger.Equals(string.Empty))
+            {
+                model.ResetEvent(trigger);
+            }
         }
 
         /// <summary>
@@ -202,6 +220,8 @@ namespace TactileGame.RPG.Controller
         internal void SetModel(LevelModel model)
         {
             this.model = model;
+
+            TriggerEvent(model.OnLoadTrigger);
         }
 
         /// <summary>
@@ -237,6 +257,11 @@ namespace TactileGame.RPG.Controller
             return model.level;
         }
 
+        internal LevelModel GetModel()
+        {
+            return model;
+        }
+
         internal WorldObject GetTarget(string target)
         {
             if (target.Equals("avatar") || target.Equals(string.Empty))
@@ -248,5 +273,7 @@ namespace TactileGame.RPG.Controller
                 return GetLevel().FindObject<WorldObject>(target);
             }
         }
+
+       
     }
 }

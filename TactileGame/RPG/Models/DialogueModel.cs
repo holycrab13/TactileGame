@@ -113,24 +113,14 @@ namespace TactileGame.RPG.Models
             return target;
         }
 
-        internal bool Boop(LevelModel level)
+        internal bool Confirm(LevelModel level)
         {
-            return dialogue.Boop(level);
+            return dialogue.OnConfirm(level);
         }
 
         internal bool HasAction()
         {
             return dialogue != null && !dialogue.IsComplete();
-        }
-
-        internal bool HasQuestion()
-        {
-            return dialogue is Question;
-        }
-
-        internal Question GetQuestion()
-        {
-            return dialogue as Question;
         }
     }
 }

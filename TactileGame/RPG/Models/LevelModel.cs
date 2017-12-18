@@ -43,5 +43,20 @@ namespace TactileGame.RPG.Models
                 TriggerEvent(eventTrigger.levelEvent);
             }
         }
+
+        public string OnLoadTrigger
+        {
+            get { return level.OnLoadTrigger; }
+        }
+
+        internal void ResetEvent(string trigger)
+        {
+            EventBase e = level.FindEvent(trigger);
+
+            if (e != null && e.IsAvailable())
+            {
+                e.Reset();
+            }
+        }
     }
 }

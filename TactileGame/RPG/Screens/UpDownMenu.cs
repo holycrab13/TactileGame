@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TactileGame.RPG.Models;
 using tud.mci.tangram.audio;
 
 namespace TactileGame.RPG.Menu
@@ -81,6 +82,20 @@ namespace TactileGame.RPG.Menu
             {
                 abort();
             }
+        }
+
+        internal static UpDownMenu FromQuestion(Question question, Action<Question, int> answerSelected)
+        {
+            UpDownMenuItem[] items = new UpDownMenuItem[question.answers.Count];
+
+            int k = 0;
+            foreach(Answer answer in question.answers)
+            {
+                int i = k++;
+                items[i] = new UpDownMenuItem(() => answerSelected(question, i), answer.text);
+            }
+
+            return new UpDownMenu(null, items);
         }
     }
 }
