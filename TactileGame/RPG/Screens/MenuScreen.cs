@@ -40,6 +40,7 @@ namespace TactileGame.RPG.Menu
         {
             ranges = null;
 
+            foreach (BrailleIOViewRange range in GetViewRanges().Values)
             {
                 RemoveViewRange(range.Name);
             }
