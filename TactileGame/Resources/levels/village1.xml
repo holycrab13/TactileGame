@@ -130,11 +130,11 @@
       <event id ="pauls_tür" if="Anne_ist_verschwunden">
         <question set="paul_will_nicht">
           <text>"Du klopfst an der Tür und hörst: Wer ist da?"</text>
-          <answer>Hier ist Bernd. Wir haben ein paar Fragen an dich Paul.</answer>
+          <answer>Hier ist Bernd. Paul ich habe ein paar Fragen an dich.</answer>
           <answer>Hier ist die Polizei. Machen Sie auf!</answer>
         </question>
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
-        <question if="major_befragt" if="paul_gesellschaft">
+        <question if="major_befragt+paul_gesellschaft">
           <text>Ich weiß, dass du nicht allein zu Hause warst. Niemand isst freiwillig so viel Pizza allein.</text>
           <answer trigger="paul_war_es_nicht">Wenn du nicht mit mir redest könntest du in den Knast wandern. Ich will dein Alibi hören.</answer>
           <answer trigger="paul_war_es_nicht">Julia scheint dich zu verteidigen. War sie zwischendurch bei dir?</answer>
@@ -154,6 +154,9 @@
             <answer trigger="major_anne">Ach du weißt schon: Arbeit, Arbeit.</answer>
             <answer trigger="major_anne">Ich will nicht drüber reden.</answer>
           </question>
+        </event>
+        <event if="paul_gesellschaft">
+          <relgoto set="major_befragt+paul_gesellschaft" x="0" y="0" />
         </event>
         <event id="major_plakat" if="thomson_plakat">
           <phrase set="major_idle">Hey Bernd schön dich zu sehen. Hast du schon gesehen: Thomson will als Bürgermeister kandidieren!</phrase>
@@ -214,6 +217,7 @@
       </event>
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
+        <relgoto if="major_befragt" set="major_befragt+paul_gesellschaft" x="0" y="0" />
       </event>
       <eventgroup  id="paul_war_es_nicht">
         <event>
