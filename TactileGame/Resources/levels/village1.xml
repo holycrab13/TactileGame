@@ -1,7 +1,7 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
-      <object id="paul_muelltonne" name="Muelltonne" desc="Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen." img="bmps/plakat.bmp" block="true" />
+      <object id="paul_muelltonne" name="Muelltonne" desc="Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen." img="bmps/muelltonne.bmp" block="true" />
       <object id="vertrag" name="einen nicht unterschriebenen Vertrag über den Verkauf des alten Hotels" desc="Ein Vertrag zum Verkauf des alten Hotels. Hier steht aber nicht wer es kaufen will." img="bmps/paper_written.bmp" block="false" />
       <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
       <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
@@ -127,7 +127,7 @@
         <phrase set="thomson_plakat">Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen.</phrase>
         <phrase>Es ist das erste mal seit 30 Jahren, dass ein junger Kandidat zur Wahl steht.</phrase>
       </event>
-      <event id ="pauls_tür" if="Anne_ist_verschwunden">
+      <event id ="pauls_tuer">
         <question set="paul_will_nicht">
           <text>"Du klopfst an der Tür und hörst: Wer ist da?"</text>
           <answer>Hier ist Bernd. Paul ich habe ein paar Fragen an dich.</answer>
@@ -173,11 +173,24 @@
           <answer trigger="Julia_befragen">Am Ende hatte Miriam doch recht und ihr Gefühl hat wieder richtig gelegen. Darf ich mal Julia befragen? Sie ist doch in der gleichen Klasse.</answer>
         </question>
       </event>
+      <event id="Miriam_sagt_auch">
+        <phrase>Na wenn Miriam schon ein flaues Gefühl hat, dann ist an der Sache auf jeden Fall was dran.</phrase>
+        <question>
+          <text>Weißt du noch damals mit Ernies Hund? Da wusste Ernie noch nicht mal, dass er ihn vermissen müsste.</text>
+          <answer trigger="Julia_befragen">Jetzt fang nicht wieder mit den alten Kamellen an. Wo ist denn Julia, die könnte mehr wissen.</answer>
+          <answer trigger="Julia_befragen">Bevor du mir noch das andere Ohr abkaust geh ich lieber Julia dazu was fragen. Geht das?</answer>
+        </question>
+      </event>
+      <event id="was_bemerkt">
+        <phrase>Zuletzt kam sie hier vor ein paar Tagen vorbei. Vielleicht vor 3 oder 4. Danach plötzlich nicht mehr, obwohl sie jahrelang hier langgeradelt ist.</phrase>
+        <phrase trigger="Julia_befragen">Das ist ja komisch. Julia ist doch in Annes Klasse. Kann ich sie mal sprechen?</phrase>
+      </event>
       <event id="major_im_busch" if="Anne_ist_verschwunden">
         <question set="muellers_packen">
           <text>Nein, da ist auf jeden Fall was im Busch. Müllers packen und Anne ist weit und breit nicht zu finden.</text>
           <answer>Vielleicht dürfen sie ja nicht mit der Polizei reden? Dann sind sie vielleicht unter Druck.</answer>
           <answer>Das glaub ich nicht. vielleicht ist Anne einfach nur traurig, dass sie gehen und schließt sich deswegen ein.</answer>
+          <answer trigger="Julia_befragen">Vielleicht weiß Julia etwas, kann ich sie mal fragen?</answer>
         </question>
       </event>
       <event id ="Julia_befragen" not="julia_befragt">
@@ -214,6 +227,7 @@
       </eventgroup>
       <event id="julia_event">
         <turn target="julia">Up</turn>
+        <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
       </event>
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
@@ -222,8 +236,13 @@
       <eventgroup  id="paul_war_es_nicht">
         <event>
           <phrase>Okay ich komme raus.</phrase>
+          <relgoto target="paul" x="1" y="0" />
+          <relgoto target="paul" x="0" y="-1" />
         </event>
       </eventgroup>
+      <event id="paul_dankt">
+        <phrase>Ich danke dir Bernd. Du bist ein guter Polizist und lässt dich nicht von Vorurteilen verunsichern.</phrase>
+      </event>
     </events>
   </definition>
   <triggers>
@@ -568,8 +587,9 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="house_paul" obj="door_paul" trigger="pauls_tür" x="13" y="-11" r="0" />
+    <npc id="house_paul" obj="door_paul" trigger="pauls_tuer" x="13" y="-11" r="0" />
     <npc id="buergermeister" obj="major" trigger="major_dialogue" x="10" y="-2" r="0" />
+    <npc id="paul" obj="major" trigger="paul_dankt" x="11" y="-11" r="0" />
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
     <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
     <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />

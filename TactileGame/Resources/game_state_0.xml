@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <save>
-  <level name="pub" x="4" y="0" />
+  <level name="village1" x="15" y="-10" />
   <investigation>
     <fact id="in_gedanken">True</fact>
   </investigation>
