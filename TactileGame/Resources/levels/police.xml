@@ -91,7 +91,7 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="miriam" obj="person" x="3" y="1" r="0" >
+    <npc id="miriam" obj="miri" x="3" y="1" r="0" >
       <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
     </npc>
   </npcs>

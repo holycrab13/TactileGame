@@ -103,6 +103,8 @@
       <object id="roof_paul" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north.bmp" block="true" />
       <object id="roof_paul_north_east" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_east.bmp" block="true" />
       <object id="roof_paul_north_west" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="schleife" name="Julias Lieblingsschleife" desc="Das ist Julias Lieblingsschleife. Die hat sie fast immer im Haar." img="bmps/schleife.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
     <events>
       <!-- Verlassen der Playarea -->
@@ -218,17 +220,30 @@
             <text>Aber Paul hat doch nichts getan und er ist auch kein gefährlicher Krimineller!</text>
             <answer>Woher willst du das denn wissen?</answer>
             <answer>Du scheinst dir ja sehr sicher zu sein.</answer>
-            <answer>Warum verteidigt du denn Paul? Das wundert mich doch sehr.</answer>
+            <answer>Warum verteidigst du denn Paul? Das wundert mich doch sehr.</answer>
           </question>
           <phrase>Ich weiß es EINFACH! Man muss sich doch nur mal 5 Minuten mit Paul unterhalten um das zu merken, aber niemand gibt ihm auch nur eine Chance.</phrase>
           <turn target="julia">Up</turn>
           <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
         </event>
       </eventgroup>
-      <event id="julia_event">
-        <turn target="julia">Up</turn>
-        <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
-      </event>
+      <eventgroup>
+        <!-- TODO: skipping Event does not work-->
+        <event id="julia_schleife" if="schleife">
+          <question set="julia_befragt">
+            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
+            <answer>Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
+            <answer>Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
+            <answer>Ich glaube ich muss mal mit deinem Vater reden...</answer>
+            <answer>Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
+            <!-- Gespräch mit Julia über Schleife-->
+          </question>
+        </event>
+        <event id="julia_event">
+          <turn target="julia">Up</turn>
+          <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+        </event>
+      </eventgroup>
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
         <relgoto if="major_befragt" set="major_befragt+paul_gesellschaft" x="0" y="0" />
@@ -238,7 +253,16 @@
           <phrase>Okay ich komme raus.</phrase>
           <relgoto target="paul" x="1" y="0" />
           <relgoto target="paul" x="0" y="-1" />
-          <!-- TODO: Miriam hat telefon gefunden -> Schule -->
+          <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
+          <question>
+            <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
+            <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
+            <answer>Wieviele Pizzen hast du denn in 1 Woche gegessen? Das kannst du doch nicht allein gegessen haben.</answer>
+            <answer>Der Bürdermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
+            <!-- TODO: Gespräch mit Paul -->
+          </question>
+          <relgoto target="miriam" x="12" y="-9"/>
+          <phrase>Miriam kommt auf dich zugelaufen. Sie scheint sehr aufgeregt zu sein.</phrase>
         </event>
       </eventgroup>
       <event id="paul_dankt">
@@ -584,6 +608,7 @@
   </decos>
   <items>
     <item obj="vertrag" x="-3" y="-10" r="1" id="vertrag" />
+    <item obj="schleife" x="10" y="-11" r="0" id="schleife" />
   </items>
   <containers>
   </containers>
@@ -594,5 +619,8 @@
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
     <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
     <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />
+    <npc id="miriam" obj="miri" x="-2" y="-1" r="0" >
+      <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
+    </npc>
   </npcs>
 </level>
