@@ -75,5 +75,20 @@ namespace TactileGame.RPG.Models
         {
             return Triggers.Find(t => x >= t.x && x < t.x + t.width && y >= t.y && y < t.y + t.height);
         }
+
+        internal void OnKnowledgeChanged()
+        {
+            foreach(WorldObject worldObject in Objects)
+            {
+                if (Game.HasKnowledge(worldObject.Conditions, worldObject.InverseConditions))
+                {
+                    worldObject.isHidden = false;
+                }
+                else
+                {
+                    worldObject.isHidden = true;
+                }
+            }
+        }
     }
 }

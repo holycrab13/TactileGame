@@ -40,39 +40,6 @@ namespace TactileGame.RPG.Models
             return isComplete;
         }
 
-        protected void ApplySetsAndClears()
-        {
-            if (sets != null)
-            {
-                foreach (string set in sets)
-                {
-                    if (Game.knowledge.ContainsKey(set))
-                    {
-                        Game.knowledge[set] = true;
-                    }
-                    else
-                    {
-                        Game.knowledge.Add(set, true);
-                    }
-                }
-            }
-
-            if (clears != null)
-            {
-                foreach (string clear in clears)
-                {
-                    if (Game.knowledge.ContainsKey(clear))
-                    {
-                        Game.knowledge[clear] = false;
-                    }
-                    else
-                    {
-                        Game.knowledge.Add(clear, false);
-                    }
-                }
-            }
-        }
-
         public override void Reset()
         {
             pushed = false;

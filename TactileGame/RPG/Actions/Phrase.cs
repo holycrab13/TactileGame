@@ -37,7 +37,7 @@ namespace TactileGame.RPG.Models
 
         public override bool Complete(LevelModel level)
         {
-            ApplySetsAndClears();
+            Game.UpdateKnowledge(sets, clears); 
             return true;
         }
     }

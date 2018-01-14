@@ -182,6 +182,8 @@ namespace TactileGame.RPG.Files
                     {
                         X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
                         Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Conditions = XmlUtil.GetArray(node, "if", ' '),
+                        InverseConditions = XmlUtil.GetArray(node, "not", ' '),
                         Id = XmlUtil.Get(node, "id", "object"),
                         Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                         BlocksPath = blueprint.BlocksPath,
@@ -256,6 +258,8 @@ namespace TactileGame.RPG.Files
                     {
                         X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
                         Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Conditions = XmlUtil.GetArray(node, "if", ' '),
+                        InverseConditions = XmlUtil.GetArray(node, "not", ' '),
                         Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                         Target = XmlUtil.Get(node, "target", ""),
                         TargetX = Constants.TILE_SIZE * XmlUtil.Get(node, "targetX", 0),
@@ -284,6 +288,8 @@ namespace TactileGame.RPG.Files
                         Id = XmlUtil.Get(node, "id", "object"),
                         X = Constants.TILE_SIZE * XmlUtil.Get(node, "x", 0),
                         Y = Constants.TILE_SIZE * XmlUtil.Get(node, "y", 0),
+                        Conditions = XmlUtil.GetArray(node, "if", ' '),
+                        InverseConditions = XmlUtil.GetArray(node, "not", ' '),
                         Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                         BlocksPath = blueprint.BlocksPath,
                         Texture = blueprint.Texture,
@@ -295,6 +301,8 @@ namespace TactileGame.RPG.Files
                     result.Objects.Add(npc);
                 }
             }
+
+            result.OnKnowledgeChanged();
 
             return result;
         }
@@ -309,6 +317,8 @@ namespace TactileGame.RPG.Files
                 Y = Constants.TILE_SIZE * y,
                 Trigger = XmlUtil.Get(node, "trigger", string.Empty),
                 Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                Conditions = XmlUtil.GetArray(node, "if", ' '),
+                InverseConditions = XmlUtil.GetArray(node, "not", ' '),
                 Id = XmlUtil.Get(node, "id", "object"),
                 BlocksPath = blueprint.BlocksPath,
                 Texture = blueprint.Texture,

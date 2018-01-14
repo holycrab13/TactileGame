@@ -164,7 +164,10 @@ namespace TactileGame.RPG.Menu
 
             foreach (WorldObject obj in levelModel.level.Objects)
             {
-                buffers[bufferIndex].Draw(obj);
+                if (!obj.isHidden)
+                {
+                    buffers[bufferIndex].Draw(obj);
+                }
             }
 
             buffers[bufferIndex].Draw(levelModel.Avatar);
@@ -304,6 +307,11 @@ namespace TactileGame.RPG.Menu
         {
             SaveGame save = LevelLoader.CreateNewGame(ll);
             applySaveGame(save);
+        }
+
+        internal void OnKnowledgeChanged()
+        {
+            levelModel.OnKnowledgeChanged();
         }
     }
 }

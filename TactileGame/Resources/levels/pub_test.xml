@@ -1,61 +1,103 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<level width="50" height="30">
+﻿<level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="wand" name="wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="True" />
-      <object id="bar_middle" name="bar_middle" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="True" />
-      <object id="bar_blank" name="bar_blank" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="True" />
-      <object id="bar_west" name="bar_west" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="True" />
-      <object id="stool" name="stool" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="False" />
-      <object id="door_back" name="door_back" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="True" />
-      <object id="door" name="door" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="True" />
+      <object id="ernie" name="Ernie" desc="Ernie der Dorfälteste. Hat immer einen guten Schluck dabei und sonst gibt es in seiner Kneipe noch mehr." img="bmps/avatar_2.bmp" block="true" />
+      <object id="wand" name="Wand" desc="Eine Wand mit Holzvertäfelung. Die Lasur des Holzes hat schon ein paar Risse und müsste erneuert werden." img="bmps/wall.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_south.bmp" block="true" />
+      <object id="door_back" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+      <object id="stool" name="Barhocker" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="false" />
+      <object id="bar_blank" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/wall.bmp" block="true" />
+      <object id="bar_middle" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_middle.bmp" block="true" />
+      <object id="bar_west" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="true" />
     </objects>
+    <events>
+      <!-- Reden mit Ernie -->
+      <event id="ernie_redet">
+        <turn target="erniebert">Right</turn>
+        <turn>Left</turn>
+        <question set="kennt_hotel">
+          <text>Hey Bernd was machst du denn so früh in der Kneipe?</text>
+          <answer trigger="verlaufen">Ich hab mich verlaufen.</answer>
+          <answer trigger="ein_schluck">Ich brauch nen Schluck.</answer>
+          <answer trigger="reden">Ich wollte mit dir reden.</answer>
+        </question>
+      </event>
+      <event id="verlaufen">
+        <phrase>Du und verlaufen? Du hast dich selbst nach 30 schnellen Drehungen noch orientieren können.</phrase>
+        <phrase>Das weiß ich noch als wäre es gestern gewesen: auf der Hochzeit der Müllers. Du hast sie alle nass gemacht.</phrase>
+        <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+      </event>
+      <event id="ein_schluck">
+        <phrase>Na hier dann nimm doch einen Kräftigen! Du kannst es ja vertragen.</phrase>
+        <phrase>Das hab ich damals bei der Hochzeit der Müllers ja gesehen: du warst der letzte der stand. Als wäre nichts passiert.</phrase>
+        <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+      </event>
+      <event id="reden">
+        <question>
+          <text>Mit mir altem Opi? Was kann ich dir denn helfen?</text>
+          <answer trigger="was_gehört">Es heißt die Anne ist verschwunden: hast du was darüber gehört?</answer>
+          <answer trigger="schicken">Meine Partnerin schickt mich wieder sinnlos durch die Gegend.</answer>
+        </question>
+      </event>
+      <event id="was_gehört">
+        <phrase set="hotel anne_vermisst">Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
+        <phrase>Weißt du noch die Hochzeit? Die war einfach super, als wir alle in den heißen Quellen entspannen konnten.</phrase>
+        <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+      </event>
+      <event id="schicken">
+        <phrase set="hotel">Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
+        <phrase>Sie meint es wäre was passiert, weil Anne die letzten Tage nicht in der Schule war und keiner was gehört hat.</phrase>
+        <phrase>die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe. Jetzt wo endlich alle um das alte Hotel geklärt ist.</phrase>
+      </event>
+    </events>
   </definition>
-  <decos>
-    <deco obj="wand" x="5" y="2" dir="0" />
-    <deco obj="wand" x="5" y="3" dir="0" />
-    <deco obj="wand" x="-4" y="5" dir="0" />
-    <deco obj="bar_middle" x="0" y="3" dir="0" />
-    <deco obj="wand" x="-4" y="-1" dir="0" />
-    <deco obj="wand" x="-4" y="-1" dir="0" />
-    <deco obj="wand" x="-4" y="3" dir="0" />
-    <deco obj="wand" x="2" y="-1" dir="0" />
-    <deco obj="wand" x="5" y="5" dir="0" />
-    <deco obj="wand" x="-2" y="-1" dir="0" />
-    <deco obj="bar_middle" x="-1" y="3" dir="0" />
-    <deco obj="wand" x="-3" y="-1" dir="0" />
-    <deco obj="wand" x="5" y="5" dir="0" />
-    <deco obj="wand" x="-4" y="0" dir="0" />
-    <deco obj="wand" x="5" y="4" dir="0" />
-    <deco obj="wand" x="-2" y="5" dir="0" />
-    <deco obj="wand" x="2" y="5" dir="0" />
-    <deco obj="wand" x="4" y="-1" dir="0" />
-    <deco obj="wand" x="-1" y="-1" dir="0" />
-    <deco obj="bar_blank" x="2" y="3" dir="0" />
-    <deco obj="wand" x="5" y="-1" dir="0" />
-    <deco obj="wand" x="-4" y="2" dir="0" />
-    <deco obj="wand" x="-4" y="4" dir="0" />
-    <deco obj="bar_west" x="-2" y="3" dir="0" />
-    <deco obj="wand" x="5" y="-1" dir="0" />
-    <deco obj="wand" x="0" y="5" dir="0" />
-    <deco obj="stool" x="1" y="2" dir="0" />
-    <deco obj="wand" x="-1" y="5" dir="0" />
-    <deco obj="stool" x="3" y="3" dir="0" />
-    <deco obj="wand" x="5" y="0" dir="0" />
-    <deco obj="door_back" x="1" y="5" dir="0" />
-    <deco obj="wand" x="3" y="-1" dir="0" />
-    <deco obj="wand" x="-3" y="5" dir="0" />
-    <deco obj="bar_middle" x="1" y="3" dir="0" />
-    <deco obj="wand" x="3" y="5" dir="0" />
-    <deco obj="bar_blank" x="2" y="4" dir="0" />
-    <deco obj="wand" x="5" y="1" dir="0" />
-    <deco obj="wand" x="1" y="-1" dir="0" />
-    <deco obj="stool" x="-1" y="2" dir="0" />
-    <deco obj="wand" x="4" y="5" dir="0" />
-    <deco obj="wand" x="-4" y="5" dir="0" />
-    <deco obj="wand" x="-4" y="1" dir="0" />
-  </decos>
+  <triggers>
+    <!-- Redetrigger -->
+    <trigger x="-1" y="2" width="2" height="1" event="ernie_redet"/>
+  </triggers>
   <doors>
-    <deco obj="door" x="0" y="-1" dir="0" target="village1" targetX="-4" targetY="5" />
+    <door obj="door" x="0" y="-1" target="village1" targetX="-4" targetY="5" />
   </doors>
+  <decos>
+    <!-- noerdliche Wand -->
+    <range x="-4" y="-1" width="4" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <range x="1" y="-1" width="5" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <!-- westliche Wand -->
+    <range x="-4" y="-1" width="1" height="7">
+      <deco obj="wand" r="0" />
+    </range>
+    <!-- östliche Wand -->
+    <range x="5" y="-1" width="1" height="7">
+      <deco obj="wand" r="0" />
+    </range>
+    <!-- suedliche Wand mit Tür -->
+    <range x="-4" y="5" width="5" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <range x="2" y="5" width="4" height="1">
+      <deco obj="wand" r="0" />
+    </range>
+    <deco obj="door_back" x="1" y="5" r="0" />
+    <!-- Bar mit Stühlen -->
+    <deco obj="stool" x="1" y="2" r="0" />
+    <deco obj="stool" x="3" y="3" r="0" />
+    <deco obj="bar_west" x="-2" y="3" r="0" />
+    <deco obj="bar_middle" x="-1" y="3" r="0" />
+    <deco obj="bar_middle" x="0" y="3" r="0" />
+    <deco obj="bar_middle" x="1" y="3" r="0" />
+    <deco obj="bar_blank" x="2" y="3" r="0" />
+    <deco obj="bar_blank" x="2" y="4" r="0" />
+  </decos>
+  <items>
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" trigger="ernie_redet" if="ernie_was_born" >
+    </npc>
+  </npcs>
 </level>

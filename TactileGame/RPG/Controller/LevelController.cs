@@ -274,6 +274,9 @@ namespace TactileGame.RPG.Controller
             }
         }
 
-       
+        internal static void OnKnowledgeChanged()
+        {
+            
+        }
     }
 }

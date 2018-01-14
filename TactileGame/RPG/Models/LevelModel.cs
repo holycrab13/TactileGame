@@ -58,5 +58,13 @@ namespace TactileGame.RPG.Models
                 e.Reset();
             }
         }
+
+        public void OnKnowledgeChanged()
+        {
+            if(level != null)
+            {
+                level.OnKnowledgeChanged();
+            }
+        }
     }
 }
