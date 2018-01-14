@@ -19,7 +19,7 @@ namespace TactileGame.RPG.Models
 
         public abstract bool Complete(LevelModel level);
 
-        public bool Boop(LevelModel level)
+        public bool OnConfirm(LevelModel level)
         {
             isComplete = Complete(level);
             return isComplete;

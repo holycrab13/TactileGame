@@ -67,7 +67,11 @@ namespace TactileGame.RPG.Files
                 worldObjects.Add(XmlUtil.Get(node, "id", "error"), obj);
             }
 
+            XmlNode levelNode = doc.DocumentElement;
+            
             Level result = new Level();
+            result.OnLoadTrigger = XmlUtil.Get(levelNode, "onload", string.Empty);
+            result.Name = levelName;
 
             Character character = new Character()
             {
@@ -78,7 +82,7 @@ namespace TactileGame.RPG.Files
                 Texture = BooleanTexture.FromFile("Resources/bmps/avatar_2.bmp"),
             };
 
-            result.avatar = character;
+            result.Avatar = character;
 
 
             XmlNode eventNode = doc.DocumentElement.SelectSingleNode("definition/events");
@@ -93,6 +97,8 @@ namespace TactileGame.RPG.Files
                     {
                         EventGroup group = new EventGroup();
                         group.id = XmlUtil.Get(node, "id", string.Empty);
+                        group.conditions = XmlUtil.GetArray(node, "if", ' ');
+                        group.inverseConditions = XmlUtil.GetArray(node, "not", ' ');
 
                         foreach (XmlNode childNode in node.ChildNodes)
                         {
@@ -137,14 +143,18 @@ namespace TactileGame.RPG.Files
                     {
                         int x = XmlUtil.Get(node, "x", 0);
                         int y = XmlUtil.Get(node, "y", 0);
-                        int width = XmlUtil.Get(node, "width", 0);
-                        int height = XmlUtil.Get(node, "height", 0);
+                        int width = XmlUtil.Get(node, "width", 1);
+                        int height = XmlUtil.Get(node, "height", 1);
+                       
+                        WorldObject blueprint = worldObjects[XmlUtil.Get(node.ChildNodes[0], "obj", "default")];
+                        int dimX = blueprint.Width / Constants.TILE_SIZE;
+                        int dimY = blueprint.Height / Constants.TILE_SIZE;
 
-                        for (int i = x; i < x + width; i++)
+                        for (int i = 0; i < width; i++)
                         {
-                            for (int j = y; j < y + height; j++)
+                            for (int j = 0; j < height; j++)
                             {
-                                result.Objects.Add(createDeco(node.ChildNodes[0], i, j));
+                                result.Objects.Add(createDeco(node.ChildNodes[0], x + i * dimX, y + j * dimY));
                             }
                         }
                     }
@@ -297,6 +307,7 @@ namespace TactileGame.RPG.Files
             {
                 X = Constants.TILE_SIZE * x,
                 Y = Constants.TILE_SIZE * y,
+                Trigger = XmlUtil.Get(node, "trigger", string.Empty),
                 Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
                 Id = XmlUtil.Get(node, "id", "object"),
                 BlocksPath = blueprint.BlocksPath,
@@ -345,7 +356,7 @@ namespace TactileGame.RPG.Files
                 {
                     if (node.Name == "text")
                     {
-                        question.text = node.InnerText;
+                        question.question = node.InnerText;
                     }
 
                     if (node.Name == "answer")
@@ -409,6 +420,12 @@ namespace TactileGame.RPG.Files
                 return move;
             }
 
+            if (actionType == "gameover")
+            {
+                GameOver gameover = new GameOver();
+                return gameover;
+            }
+
             if (actionType == "relsetpos")
             {
                 RelSetPos move = new RelSetPos();
@@ -425,6 +442,8 @@ namespace TactileGame.RPG.Files
                 return move;
             }
 
+
+
             if (actionType == "setpos")
             {
                 SetPos move = new SetPos();
@@ -439,6 +458,17 @@ namespace TactileGame.RPG.Files
                 }
 
                 return move;
+            }
+
+
+            if (actionType == "gotolevel")
+            {
+                GotoLevel gotoLevel = new GotoLevel();
+                gotoLevel.targetLevel = XmlUtil.Get(actionNode, "target", string.Empty);
+                gotoLevel.targetX = XmlUtil.Get(actionNode, "x", 0);
+                gotoLevel.targetY = XmlUtil.Get(actionNode, "y", 0);
+
+                return gotoLevel;
             }
 
             if (actionType == "turn")
@@ -462,6 +492,14 @@ namespace TactileGame.RPG.Files
                 interact.target = XmlUtil.Get(actionNode, "target", string.Empty);
 
                 return interact;
+            }
+
+            if (actionType == "trigger")
+            {
+                Trigger triggerEvent = new Trigger();
+                triggerEvent.trigger = XmlUtil.Get(actionNode, "trigger", string.Empty);
+
+                return triggerEvent;
             }
 
             return null;
@@ -532,7 +570,7 @@ namespace TactileGame.RPG.Files
         private static Question loadQuestion(XmlNode text)
         {
             Question result = new Question();
-            result.text = XmlUtil.Get(text, "text", string.Empty);
+            result.question = XmlUtil.Get(text, "text", string.Empty);
 
             foreach (XmlNode node in text.ChildNodes)
             {
@@ -597,8 +635,15 @@ namespace TactileGame.RPG.Files
         internal static SaveGame LoadSaveGame(string saveGame, LL ll)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("Resources/" + saveGame + ".xml");
+            doc.Load("../../Resources/" + saveGame + ".xml");
 
+            SaveGame save = saveGameFromDocument(ll, doc);
+
+            return save;
+        }
+
+        private static SaveGame saveGameFromDocument(LL ll, XmlDocument doc)
+        {
             SaveGame save = new SaveGame();
 
             save.Knowledge = LoadKnowledge(doc.DocumentElement.SelectSingleNode("investigation"), ll);
@@ -607,8 +652,57 @@ namespace TactileGame.RPG.Files
             save.LevelName = XmlUtil.Get(levelNode, "name", string.Empty);
             save.X = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "x", 0);
             save.Y = Constants.TILE_SIZE * XmlUtil.Get(levelNode, "y", 0);
+            return save;
+        }
+
+        internal static SaveGame CreateNewGame(LL ll)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Resources/game_state_new.xml");
+
+            SaveGame save = saveGameFromDocument(ll, doc);
 
             return save;
+        }
+
+        internal static void SaveGame(string p, LevelModel levelModel)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            XmlElement root = doc.DocumentElement;
+            doc.InsertBefore(xmlDeclaration, root);
+
+            XmlElement saveNode = doc.CreateElement(string.Empty, "save", string.Empty);
+            doc.AppendChild(saveNode);
+
+            XmlElement levelNode = doc.CreateElement(string.Empty, "level", string.Empty);
+            levelNode.Attributes.Append(createAttribute(doc, "name", levelModel.level.Name));
+            levelNode.Attributes.Append(createAttribute(doc, "x", (levelModel.Avatar.X / Constants.TILE_SIZE).ToString()));
+            levelNode.Attributes.Append(createAttribute(doc, "y", (levelModel.Avatar.Y / Constants.TILE_SIZE).ToString()));
+            saveNode.AppendChild(levelNode);
+
+            XmlElement investigationNode = doc.CreateElement(string.Empty, "investigation", string.Empty);
+            saveNode.AppendChild(investigationNode);
+
+            foreach (KeyValuePair<string, bool> info in Game.knowledge)
+            {
+                XmlElement factNode = doc.CreateElement(string.Empty, "fact", string.Empty);
+                factNode.Attributes.Append(createAttribute(doc, "id", info.Key));
+                factNode.InnerText = info.Value.ToString();
+
+                investigationNode.AppendChild(factNode);
+            }
+
+            doc.Save("../../Resources/" + p + ".xml");
+        }
+
+
+        private static XmlAttribute createAttribute(XmlDocument doc, string p1, string p2)
+        {
+            XmlAttribute attribute = doc.CreateAttribute(string.Empty, p1, string.Empty);
+            attribute.Value = p2;
+            return attribute;
         }
     }
 }

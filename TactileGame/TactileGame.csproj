@@ -68,6 +68,8 @@
     <Compile Include="RPG\Actions\Answer.cs" />
     <Compile Include="RPG\Actions\DialogueAction.cs" />
     <Compile Include="RPG\Actions\Goto.cs" />
+    <Compile Include="RPG\Actions\GotoLevel.cs" />
+    <Compile Include="RPG\Actions\Trigger.cs" />
     <Compile Include="RPG\Actions\Interact.cs" />
     <Compile Include="RPG\Actions\Move.cs" />
     <Compile Include="RPG\Actions\Phrase.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="RPG\Actions\SetPos.cs" />
     <Compile Include="RPG\Actions\RelSetPos.cs" />
     <Compile Include="RPG\Actions\RelGoto.cs" />
+    <Compile Include="RPG\Actions\GameOver.cs" />
     <Compile Include="RPG\Actions\Turn.cs" />
     <Compile Include="RPG\Controller\DialogueController.cs" />
     <Compile Include="RPG\Controller\CharacterController.cs" />
@@ -212,6 +215,9 @@
     <Content Include="Resources\bmps\car.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\bmps\car_south.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\cell.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -344,6 +350,15 @@
     <Content Include="Resources\bmps\garden_door.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\bmps\muelltonne.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\bmps\paper_written.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\bmps\plakat.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\platz_rand_n.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -360,6 +375,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\bmps\rough_way_WE.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\bmps\schleife.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\bmps\stool.bmp">
@@ -401,15 +419,8 @@
     <Content Include="Resources\bmps\window_simple.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\game_state_4.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\game_state_5.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\game_state_6.xml">
+    <Content Include="Resources\game_state_0.xml" />
+    <Content Include="Resources\game_state_2.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -417,7 +428,11 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\game_state_2.xml">
+    <Content Include="Resources\game_state_4.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\game_state_5.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -452,12 +467,15 @@
     </Content>
     <Content Include="Resources\levels\police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\pub_test.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\pub.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\classroom.xml">
       <SubType>Designer</SubType>
@@ -469,16 +487,13 @@
     </Content>
     <Content Include="Resources\levels\test_lvl_police.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\levels\village1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\game_state_new.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\savegames\save_game_01.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

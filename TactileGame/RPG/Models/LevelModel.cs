@@ -21,14 +21,14 @@ namespace TactileGame.RPG.Models
 
         public Character Avatar
         {
-            get { return level.avatar; }
+            get { return level.Avatar; }
         }
 
         internal void TriggerEvent(string p)
         {
             EventBase e = level.FindEvent(p);
 
-            if(e != null)
+            if(e != null && e.IsAvailable())
             {
                 events.Add(e);
             }
@@ -41,6 +41,21 @@ namespace TactileGame.RPG.Models
             if(eventTrigger != null)
             {
                 TriggerEvent(eventTrigger.levelEvent);
+            }
+        }
+
+        public string OnLoadTrigger
+        {
+            get { return level.OnLoadTrigger; }
+        }
+
+        internal void ResetEvent(string trigger)
+        {
+            EventBase e = level.FindEvent(trigger);
+
+            if (e != null && e.IsAvailable())
+            {
+                e.Reset();
             }
         }
     }

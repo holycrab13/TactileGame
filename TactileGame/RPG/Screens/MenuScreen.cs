@@ -36,9 +36,23 @@ namespace TactileGame.RPG.Menu
             createOrUpdate(width, itemHeight);
         }
 
+        public void SetMenu(UpDownMenu menu)
+        {
+            ranges = null;
+
+            foreach (BrailleIOViewRange range in GetViewRanges().Values)
+            {
+                RemoveViewRange(range.Name);
+            }
+
+            this.menu = menu;
+
+            createOrUpdate(width, itemHeight);
+        }
+
         private void createOrUpdate(int width, int itemHeight)
         {
-            if (ranges == null)
+            if (ranges == null && menu != null)
             {
                 ranges = new BrailleIOViewRange[menu.Length];
 
@@ -53,21 +67,24 @@ namespace TactileGame.RPG.Menu
                 }
             }
 
-            for (int i = 0; i < ranges.Length; i++)
+            if (ranges != null)
             {
-                ranges[i].SetTop(top + i * itemHeight);
-                ranges[i].SetWidth(width - left);
-                ranges[i].SetHeight(itemHeight);
+                for (int i = 0; i < ranges.Length; i++)
+                {
+                    ranges[i].SetTop(top + i * itemHeight);
+                    ranges[i].SetWidth(width - left);
+                    ranges[i].SetHeight(itemHeight);
 
-                if (menu.index == i)
-                {
-                    ranges[i].SetBorder(1);
-                    ranges[i].SetPadding(1);
-                }
-                else
-                {
-                    ranges[i].SetBorder(0);
-                    ranges[i].SetPadding(2);
+                    if (menu.index == i)
+                    {
+                        ranges[i].SetBorder(1);
+                        ranges[i].SetPadding(1);
+                    }
+                    else
+                    {
+                        ranges[i].SetBorder(0);
+                        ranges[i].SetPadding(2);
+                    }
                 }
             }
         }

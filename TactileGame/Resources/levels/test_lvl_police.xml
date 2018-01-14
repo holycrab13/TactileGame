@@ -31,7 +31,7 @@
           <setpos target="miriam" x="11" y="3" />
           <move>Up</move>
         </event>
-        
+
       </eventgroup>
       
       <!-- Betreten des hinteren Büros -->

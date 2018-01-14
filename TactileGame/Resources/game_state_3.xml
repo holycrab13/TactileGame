@@ -1,6 +1,6 @@
 <save>
   <investigation>
-    <fact id="brecheisen_gefunden">false</fact>
+    <fact id="in_gedanken">true</fact>
   </investigation>
-  <level name="pub_test" x="0" y="0"/>
+  <level name="pub" x="0" y="0"/>
 </save>

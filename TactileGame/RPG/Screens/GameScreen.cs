@@ -111,7 +111,7 @@ namespace TactileGame.RPG.Menu
             timer.Tick += Tick;
 
             mainRegion = new BrailleIOViewRange(0, 0, width, height);
-            detailRegion = new BrailleIOViewRange(0, height - 16, width, 16);
+            detailRegion = new BrailleIOViewRange(0, height - 18, width, 18);
             detailRegion.SetBorder(1);
             detailRegion.SetPadding(1);
 
@@ -225,12 +225,18 @@ namespace TactileGame.RPG.Menu
         /// <param name="saveGame"></param>
         public void LoadGame(string saveGame)
         {
+            SaveGame save = LevelLoader.LoadSaveGame(saveGame, ll);
+
+            applySaveGame(save);
+        }
+
+        private void applySaveGame(SaveGame save)
+        {
+            Game.knowledge = save.Knowledge;
+
             // Models
             gameInput = new GameInput();
             gameDialogue = new DialogueModel();
-
-            SaveGame save = LevelLoader.LoadSaveGame(saveGame, ll);
-            Game.knowledge = save.Knowledge;
 
             levelModel = new LevelModel(LevelLoader.Load(save.LevelName, ll));
             characterModel = new CharacterModel(levelModel.Avatar);
@@ -276,12 +282,12 @@ namespace TactileGame.RPG.Menu
             Direction rotation = levelModel.Avatar.Rotation;
 
             Level level = LevelLoader.Load(p1, ll);
-            level.avatar.X = p2;
-            level.avatar.Y = p3;
+            level.Avatar.X = p2;
+            level.Avatar.Y = p3;
 
             levelModel.level = level;
 
-            characterModel.character = level.avatar;
+            characterModel.character = level.Avatar;
             characterModel.character.Rotation = rotation;
         }
 
@@ -291,7 +297,13 @@ namespace TactileGame.RPG.Menu
         /// <param name="p"></param>
         internal void SaveGame(string p)
         {
-            
+            LevelLoader.SaveGame(p, levelModel);
+        }
+
+        internal void StartNewGame()
+        {
+            SaveGame save = LevelLoader.CreateNewGame(ll);
+            applySaveGame(save);
         }
     }
 }

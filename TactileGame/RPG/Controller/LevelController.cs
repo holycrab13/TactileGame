@@ -54,7 +54,7 @@ namespace TactileGame.RPG.Controller
                 if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                 {
                     // Find the target of the A action
-                    WorldObject target = model.level.GetTarget(model.level.avatar);
+                    WorldObject target = model.level.GetTarget(model.level.Avatar);
 
                     if (target != null)
                     {
@@ -152,7 +152,7 @@ namespace TactileGame.RPG.Controller
         {
             model.events.Add(item.Event);
             model.level.Objects.Remove(item);
-            model.level.avatar.Inventory.Add(item);
+            model.level.Avatar.Inventory.Add(item);
             
         }
 
@@ -162,7 +162,14 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateWorldObject(WorldObject target)
         {
-            model.events.Add(target.Event);
+            if (target.Trigger != null && !target.Trigger.Equals(string.Empty))
+            {
+                model.TriggerEvent(target.Trigger);
+            }
+            else
+            {
+                model.events.Add(target.Event);
+            }
         }
 
         /// <summary>
@@ -171,7 +178,7 @@ namespace TactileGame.RPG.Controller
         /// <param name="target"></param>
         private void UpdateNPC(NPC target)
         {
-            switch (model.level.avatar.Rotation)
+            switch (model.level.Avatar.Rotation)
             {
                 case Direction.UP:
                     target.Rotation = Direction.DOWN;
@@ -192,7 +199,18 @@ namespace TactileGame.RPG.Controller
 
         internal void TriggerEvent(string trigger)
         {
-            model.TriggerEvent(trigger);
+            if (trigger != null && !trigger.Equals(string.Empty))
+            {
+                model.TriggerEvent(trigger);
+            }
+        }
+
+        internal void ResetEvent(string trigger)
+        {
+            if (trigger != null && !trigger.Equals(string.Empty))
+            {
+                model.ResetEvent(trigger);
+            }
         }
 
         /// <summary>
@@ -202,6 +220,8 @@ namespace TactileGame.RPG.Controller
         internal void SetModel(LevelModel model)
         {
             this.model = model;
+
+            TriggerEvent(model.OnLoadTrigger);
         }
 
         /// <summary>
@@ -237,16 +257,23 @@ namespace TactileGame.RPG.Controller
             return model.level;
         }
 
+        internal LevelModel GetModel()
+        {
+            return model;
+        }
+
         internal WorldObject GetTarget(string target)
         {
             if (target.Equals("avatar") || target.Equals(string.Empty))
             {
-                return GetLevel().avatar;
+                return GetLevel().Avatar;
             }
             else
             {
                 return GetLevel().FindObject<WorldObject>(target);
             }
         }
+
+       
     }
 }

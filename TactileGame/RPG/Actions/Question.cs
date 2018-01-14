@@ -3,58 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TactileGame.RPG.Events;
+using TactileGame.RPG.Menu;
 
 namespace TactileGame.RPG.Models
 {
-    class Question : DialogueAction
+    class Question : ActionBase
     {
-        public string text;
+        public string question;
 
         public List<Answer> answers = new List<Answer>();
+        
+        private bool pushed;
+        private Phrase questionAction;
+        private int selectedAnswer = -1;
+        private bool isComplete;
 
-        public Answer currentAnswer;
-
-        internal bool SetAnswer(int p)
+        public override void Update(Controller.LevelController levelController)
         {
-            if (p >= 0 && p < answers.Count)
+            if(!pushed)
             {
-                currentAnswer = answers[p];
-                return true;
+                pushed = true;
+                questionAction = new Phrase() { text = question };
+                levelController.GetDialogue().SetDialogue(questionAction);
             }
 
-            return false;
-        }
-
-        internal string GetAnswerText()
-        {
-           if(currentAnswer != null)
-           {
-               return currentAnswer.GetText();
-           }
-
-            return "Bitte wähle eine Antwort mit den Pfeiltasten aus";
-        }
-
-        public override string GetText()
-        {
-            return text;
-        }
-
-        public override bool Complete(LevelModel level)
-        {
-            if(currentAnswer != null)
+            if(selectedAnswer > -1)
             {
-                currentAnswer.Complete(level);
-                return true;
+                answers[selectedAnswer].Complete(levelController.GetModel());
+                isComplete = true;
+                return;
             }
 
-            return false;
+            if(questionAction.IsComplete())
+            {
+                UpDownMenu menu = UpDownMenu.FromQuestion(this, answerSelected);
+
+                Game.questionScreen.SetMenu(menu);
+                Game.GoToScreen(Game.questionScreen);
+            }
+        }
+
+        private void answerSelected(Question question, int index)
+        {
+            Game.GoToScreen(Game.gameScreen);
+            selectedAnswer = index;
+        }
+
+        public override bool IsComplete()
+        {
+            return isComplete;
         }
 
         public override void Reset()
         {
-            currentAnswer = null;
+            selectedAnswer = -1;
+            pushed = false;
+            isComplete = false;
+
             base.Reset();
         }
+
+
+
+      
     }
 }

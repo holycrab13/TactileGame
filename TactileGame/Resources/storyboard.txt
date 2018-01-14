@@ -47,45 +47,55 @@ bei Müllers im Müll findet man Kaufangebot von Thomsen
 
 
 
-LEVEL 0: Tutorial
+EVENTS:
+Gespräch mit Bürgermeister
+warum sie wohl ausziehen? → renoviert zum Verkaufen?
+Aber wo ist Anne? Mädchen in dem Alter sind schon komisch → Julia redet immer weniger mit Papa/Bürgermeister
+wenn man ein Plakat zu Thomas Thomson gefunden hat:
+„Dieser Schnösel kümmert sich gar nicht um die die Einwohner. Der will nur in die Politik und dann schnell weg von hier. Der hat irgendwoher einen Haufen Wahlspenden und Pflastert jetzt alles mit seinen Plakaten und unsinnigen versprechen zu. Wer braucht denn hier Gigabitinternet?!? Der führt irgendwas im Schilde. ICH WEISS ES! Außerdem fährt er seit 2 Wochen einen neuen Porsche.“
 
-LEVEL 1: POLIZEI
-
--Schlüssel suchen
--Beispielinteraktion mit NPC (evtl auch Frage/Antwort)
--Türtrigger und Gespräch mit Miriam -> Vorstellung des Falls
--Verlassen durch Tür
-
-
-LEVEL 2: Autofahrt
-
--Gespräch: Details zum Fall (Name der Familie, Beschreibung der Tochter, Haus, Vorbestrafter)
-=> Bürgermeister hat angefragt
-=> Vorbestrafter im Ort
-=> Familie
+Event:
+irgendwas ist im Busch
+Gespräch mit Frau Müller als man sie zusammen packen sieht: sie scheint aufgebracht und wird völlig faserig als sie Bernd sieht. Sie ist eindeutig aufgewühlt und gibt nur einsilbige Antworten. Völlig untypisch für eine sonst so einladende und freundliche Person.
+Im Müll kann man das Kaufangebot von Thomson finden
+→ Muellers packen
 
 
-LEVEL 3: DORF (Zentraler Hub)
-Häuser:
-=> Bürgermeister
-=> Paul (Vorbestrafter)
-=> Haus der Müllers (Opfer)
-=> Haus von Thomas Thomsen
-=> Schule
+Event:
+Pizzaschachteln stapeln sich in Pauls Müll → ist erst wenige Tage da, so viele Pizzen kann man nicht allein essen
+Paul drauf ansprechen → wer war da? Wenn er ein Alibi hat, dann soll er es verraten, sonst könnte er in den Knast wandern
+Alle denken er wäre es gewesen → knickt ein und sagt er sei mit Julia zusammen gewesen, da er sich nicht raus traut weil alle so böse sind
+Julia kommt angelaufen, weil sie alles beobachtet hat und gesehen hat, dass Paul mit Polizei redet: „Er hat nichts getan jetzt lasst ihn doch mal alle in Ruhe!“ → „Ich weiß Paul hat mir gerade alles erzählt. Du bestätigst also seine Geschichte? Nur zu Sicherheit: erzähl du mir mal deine Version und Paul du solltest jetzt kurz still sein.“ → Die Geschichte bestätigt sich und damit scheint Paul aus dem Schneider zu sein. Doch wo ist Julia dann?
 
-LEVEL 4: RATHAUS
+Event:
+Wenn Paul entlastet
+Miriam kommt an und erzählt, dass sie Annes Handy geortet hat: es wäre in der Schule
 
-
-LEVEL 5: PAUL
-
-
-LEVEL 6: MÜLLERS
-
-
-LEVEL 7: THOMSEN
+Dialoge Schule:
+nach dem auffinden des Telefons
+alle wissen, dass Anne das Dorf voll kacke findet → will in Stadt leben bei Matthias (hat sie über das Internet kennen gelernt)
+letzte Nummer auf dem Handy anrufen → Paul geht ran? Was ist los?
 
 
-LEVEL 8: SCHULE/SCHULHOF
+Erneutes Gespräch mit Paul:
+nach dem Rückruf
+Paul behauptet es per Post bekommen zu haben
+Haus durchsuchen → finden von Päckchen
+Poststempel aus dem Nachbardorf
+Paul gesteht, dass Thomson dahinter stecken kann (Drohung)
 
+Gespräch mit Thomson:
+Begegnung mit Baumann (Hotelmagnat)
+Anruf lenkt Thomson ab → umschauen und „Projekt Goldenes Ross“ finden
+Bernd kennt Baumann vom Polizeiball und will ihn mal dazu befragen
 
-LEVEL 9: BÜROS
+Abend mit Baumann:
+beide schon gut angetrunken
+Baumann hat seine Aktentasche vom Nachmittag dabei
+Baumann geht pinkeln → kurzer Blick in Aktentasche zeigt Pläne um billig das Grundstück der Müllers zu bekommen
+Bernd ruft Miriam an: „überprüfe mal Baumanns Stadthotel ob da Anne ist“
+
+nächster Tag:
+Thomson und Baumann wollen abhauen
+werden gerade so erwischt
+

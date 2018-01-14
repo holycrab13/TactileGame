@@ -83,9 +83,12 @@ namespace TactileGame
 
         public static MenuScreen loadMenuScreen;
 
+        public static MenuScreen questionScreen;
+
         public static GameScreen gameScreen;
 
         internal BrailleIOViewRange mainRegion = null;
+
         internal BrailleIOViewRange startRegion = null;
 
         
@@ -140,6 +143,7 @@ namespace TactileGame
                 pauseMenuScreen = new MenuScreen("PauseMenu", pauseMenuModel, 2, 2, width - 4, 8);
                 saveMenuScreen = new MenuScreen("SaveMenu", saveMenuModel, 2, 2, width - 4, 8);
                 loadMenuScreen = new MenuScreen("LoadMenu", loadMenuModel, 2, 2, width - 4, 8);
+                questionScreen = new MenuScreen("QuestionMenu", null, 0, 0, width, 13);
 
                 gameScreen.Register();
                 startScreen.Register();
@@ -147,6 +151,7 @@ namespace TactileGame
                 saveMenuScreen.Register();
                 loadMenuScreen.Register();
                 pauseMenuScreen.Register();
+                questionScreen.Register();
             
             }
         }

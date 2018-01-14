@@ -15,7 +15,11 @@ namespace TactileGame.RPG.Models
 
         public List<EventTrigger> Triggers { get; private set; }
 
-        public Character avatar;
+        public Character Avatar { get; set; }
+
+        public string Name { get; set; }
+
+        public string OnLoadTrigger { get; set; }
 
         public Level()
         {

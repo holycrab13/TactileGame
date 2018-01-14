@@ -27,7 +27,7 @@ namespace TactileGame
                 {
                     if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
                     {
-                        if (!model.Boop(level))
+                        if (!model.Confirm(level))
                         {
                             AudioRenderer.Instance.AbortCurrentSound();
                             AudioRenderer.Instance.PlaySound("Bitte wähle eine Antwort mit den Pfeiltasten aus.");
@@ -35,48 +35,49 @@ namespace TactileGame
                     }
 
 
-                    if (model.HasQuestion())
-                    {
+                    //if (model.HasQuestion())
+                    //{
 
-                        if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
-                        {
-                            if (model.GetQuestion().SetAnswer(0))
-                            {
-                                readAnswer(model.GetQuestion().GetAnswerText());
-                            }
-                        }
+                       
 
-                        if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
-                        {
-                            if (model.GetQuestion().SetAnswer(1))
-                            {
-                                readAnswer(model.GetQuestion().GetAnswerText());
-                            }
-                        }
+                        //if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
+                        //{
+                        //    if (model.GetQuestion().SetAnswer(0))
+                        //    {
+                        //        readAnswer(model.GetQuestion().GetAnswerText());
+                        //    }
+                        //}
 
-                        if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
-                        {
-                            if (model.GetQuestion().SetAnswer(2))
-                            {
-                                readAnswer(model.GetQuestion().GetAnswerText());
-                            }
-                        }
+                        //if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
+                        //{
+                        //    if (model.GetQuestion().SetAnswer(1))
+                        //    {
+                        //        readAnswer(model.GetQuestion().GetAnswerText());
+                        //    }
+                        //}
 
-                        if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
-                        {
-                            if (model.GetQuestion().SetAnswer(3))
-                            {
-                                readAnswer(model.GetQuestion().GetAnswerText());
-                            }
-                        }
-                    }
+                        //if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
+                        //{
+                        //    if (model.GetQuestion().SetAnswer(2))
+                        //    {
+                        //        readAnswer(model.GetQuestion().GetAnswerText());
+                        //    }
+                        //}
+
+                        //if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
+                        //{
+                        //    if (model.GetQuestion().SetAnswer(3))
+                        //    {
+                        //        readAnswer(model.GetQuestion().GetAnswerText());
+                        //    }
+                        //}
+                    //}
                 }
 
                 lastState = inputState;
             }
-          
-           
         }
+
 
         private void readAnswer(string answer)
         {

@@ -1,6 +1,11 @@
 ﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
   <definition>
     <objects>
+      <object id="paul_muelltonne" name="Muelltonne" desc="Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen." img="bmps/muelltonne.bmp" block="true" />
+      <object id="vertrag" name="einen nicht unterschriebenen Vertrag über den Verkauf des alten Hotels" desc="Ein Vertrag zum Verkauf des alten Hotels. Hier steht aber nicht wer es kaufen will." img="bmps/paper_written.bmp" block="false" />
+      <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
+      <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
+      <object id="major" name="Bürgermeister" desc="Der gute Bürgermeister. Er kümmert sich immer hezlich um alle Angelegenheiten der Anwohner." img="bmps/avatar_2.bmp" block="true" />
       <object id="wood_tree" name="Wald" desc="Hier geht es zum Wald der ringsum das Dorf steht. Nachts würde ich dort nicht hineingehen." img="bmps/tree_16.bmp" block="true" />
       <object id="door_pub" name="Tür Kneipe" desc="Die Kneipe ist leider gerade geschlossen. Es ist einfach noch zu früh zum Trinken." img="bmps/door_north.bmp" block="true" />
       <object id="wand_pub" name="Wand Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/wall.bmp" block="true" />
@@ -40,6 +45,7 @@
       <object id="water_north" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_north.bmp" block="true" />
       <object id="water_south" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_south.bmp" block="true" />
       <object id="water_corner" name="Teichecke" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_northeast.bmp" block="true" />
+      <object id="mueller_auto" name="Auto" desc="Das Auto der Müllers ist ein Kombi. Im Kofferraum sind Umzugskisten und er ist offen. Komisch!" img="bmps/car_south.bmp" block="true" />
       <object id="roof_mueller" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof.bmp" block="true" />
       <object id="roof_mueller_west" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_west.bmp" block="true" />
       <object id="roof_mueller_east" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_east.bmp" block="true" />
@@ -97,6 +103,8 @@
       <object id="roof_paul" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north.bmp" block="true" />
       <object id="roof_paul_north_east" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_east.bmp" block="true" />
       <object id="roof_paul_north_west" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="schleife" name="Julias Lieblingsschleife" desc="Das ist Julias Lieblingsschleife. Die hat sie fast immer im Haar." img="bmps/schleife.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
     </objects>
     <events>
       <!-- Verlassen der Playarea -->
@@ -116,6 +124,150 @@
         <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
         <move>Down</move>
       </event>
+      <!-- Dialogues -->
+      <event id ="thomson_p">
+        <phrase set="thomson_plakat">Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen.</phrase>
+        <phrase>Es ist das erste mal seit 30 Jahren, dass ein junger Kandidat zur Wahl steht.</phrase>
+      </event>
+      <event id ="pauls_tuer">
+        <question set="paul_will_nicht">
+          <text>"Du klopfst an der Tür und hörst: Wer ist da?"</text>
+          <answer>Hier ist Bernd. Paul ich habe ein paar Fragen an dich.</answer>
+          <answer>Hier ist die Polizei. Machen Sie auf!</answer>
+        </question>
+        <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
+        <question if="major_befragt+paul_gesellschaft">
+          <text>Ich weiß, dass du nicht allein zu Hause warst. Niemand isst freiwillig so viel Pizza allein.</text>
+          <answer trigger="paul_war_es_nicht">Wenn du nicht mit mir redest könntest du in den Knast wandern. Ich will dein Alibi hören.</answer>
+          <answer trigger="paul_war_es_nicht">Julia scheint dich zu verteidigen. War sie zwischendurch bei dir?</answer>
+          <answer trigger="paul_war_es_nicht">Ich will nur mit dir reden. Hier geht was komisches vor und wenn du ein Alibi hast, hast du nichts zu befürchten.</answer>
+          <answer trigger="paul_war_es_nicht">Sag mir doch einfach was passiert ist. Ich will dich nicht einsperren.</answer>
+        </question>
+      </event>
+      <eventgroup id="major_dialogue">
+        <event if="major_idle">
+          <phrase>Schön das du mal wieder vorbei schaust.</phrase>
+        </event>
+        <event not="major_befragt">
+          <question set="major_befragt">
+            <text>Hey Bernd, na wie gehts?</text>
+            <answer trigger="major_anne">Geht so.</answer>
+            <answer trigger="major_anne">Miriam hat wieder nen Floh im Ohr.</answer>
+            <answer trigger="major_anne">Ach du weißt schon: Arbeit, Arbeit.</answer>
+            <answer trigger="major_anne">Ich will nicht drüber reden.</answer>
+          </question>
+        </event>
+        <event if="paul_gesellschaft">
+          <relgoto set="major_befragt+paul_gesellschaft" x="0" y="0" />
+        </event>
+        <event id="major_plakat" if="thomson_plakat">
+          <phrase set="major_idle">Hey Bernd schön dich zu sehen. Hast du schon gesehen: Thomson will als Bürgermeister kandidieren!</phrase>
+          <phrase>Dieser Schnösel kümmert sich gar nicht um die die Einwohner. Der will nur in die Politik und dann schnell weg von hier.</phrase>
+          <phrase>Der hat irgendwoher einen Haufen Wahlspenden und Pflastert jetzt alles mit seinen Plakaten und unsinnigen versprechen zu. Wer braucht denn hier Gigabitinternet?!? Der führt irgendwas im Schilde. ICH WEISS ES!</phrase>
+        </event>
+      </eventgroup>
+      <event id="major_anne" not="Anne_ist_verschwunden">
+        <question set="Anne_ist_verschwunden">
+          <text>Ach komm so schlimm kann es nicht sein. Aber gut, dass du da bist. Mir ist nämlich aufgefallen, dass Anne in letzter Zeit garnicht mehr hier vorbei kommt, wenn sie zur Schule radelt.</text>
+          <answer trigger="Miriam_sagt_auch">Ach jetzt fängst du auch schon so an. Miriam hat mir deswegen schon ein Ohr abgekaut.</answer>
+          <answer trigger="was_bemerkt">Du hast auch was bemerkt? Wann hast du sie das letzt mal gesehen? Hast du eine Idee?</answer>
+          <answer trigger="major_im_busch">Vielleicht nimmt sie einfach mal einen anderen Weg? Manchmal hat man den Alltagstrott einfach satt.</answer>
+          <answer trigger="Julia_befragen">Am Ende hatte Miriam doch recht und ihr Gefühl hat wieder richtig gelegen. Darf ich mal Julia befragen? Sie ist doch in der gleichen Klasse.</answer>
+        </question>
+      </event>
+      <event id="Miriam_sagt_auch">
+        <phrase>Na wenn Miriam schon ein flaues Gefühl hat, dann ist an der Sache auf jeden Fall was dran.</phrase>
+        <question>
+          <text>Weißt du noch damals mit Ernies Hund? Da wusste Ernie noch nicht mal, dass er ihn vermissen müsste.</text>
+          <answer trigger="Julia_befragen">Jetzt fang nicht wieder mit den alten Kamellen an. Wo ist denn Julia, die könnte mehr wissen.</answer>
+          <answer trigger="Julia_befragen">Bevor du mir noch das andere Ohr abkaust geh ich lieber Julia dazu was fragen. Geht das?</answer>
+        </question>
+      </event>
+      <event id="was_bemerkt">
+        <phrase>Zuletzt kam sie hier vor ein paar Tagen vorbei. Vielleicht vor 3 oder 4. Danach plötzlich nicht mehr, obwohl sie jahrelang hier langgeradelt ist.</phrase>
+        <phrase trigger="Julia_befragen">Das ist ja komisch. Julia ist doch in Annes Klasse. Kann ich sie mal sprechen?</phrase>
+      </event>
+      <event id="major_im_busch" if="Anne_ist_verschwunden">
+        <question set="muellers_packen">
+          <text>Nein, da ist auf jeden Fall was im Busch. Müllers packen und Anne ist weit und breit nicht zu finden.</text>
+          <answer>Vielleicht dürfen sie ja nicht mit der Polizei reden? Dann sind sie vielleicht unter Druck.</answer>
+          <answer>Das glaub ich nicht. vielleicht ist Anne einfach nur traurig, dass sie gehen und schließt sich deswegen ein.</answer>
+          <answer trigger="Julia_befragen">Vielleicht weiß Julia etwas, kann ich sie mal fragen?</answer>
+        </question>
+      </event>
+      <event id ="Julia_befragen" not="julia_befragt">
+        <phrase>Klar. Sie ist hinten im Garten. Irgendwie ist sie da in letzter Zeit immer. Keine Ahnung warum.</phrase>
+        <goto x="5" y="-2" />
+        <goto x="5" y="-5" />
+        <turn target="julia">Down</turn>
+        <turn target="julia">Up</turn>
+        <turn target="julia">Down</turn>
+        <question set="julia_befragt">
+          <text>Hallo Bernd. Was machst du denn hier? Du bemerkst wie Julia immer wieder nervös zu Pauls Haus schaut.</text>
+          <answer set="julia_über_anne" trigger="julia_verteidigt_paul">Dein Papa hat mir erzählt, dass Anne garnicht mehr hier vorbei fährt. Du gehst doch in die gleiche Klasse: hat sie dir was erzählt?</answer>
+          <answer set="julia_über_anne" trigger="julia_verteidigt_paul">Ein paar Leute machen sich Sorgen. Die Müllers packen und Anne ist nirgendwo zu finden. Weißt du wo sie ist?</answer>
+          <answer set="julia" trigger="julia_verteidigt_paul">Anne ist verschwunden und ich muss mal schauen was passiert ist. Paul scheint der erste Verdächtige zu sein.</answer>
+          <answer set="julia" trigger="julia_verteidigt_paul">Warum schaust du denn so nervös zu Pauls Haus? Hast du Angst? Keine Sorge ich pass schon auf, dass nichts passiert.</answer>
+        </question>
+      </event>
+      <eventgroup id="julia_verteidigt_paul">
+        <event id ="julia_weiss_nichts" if="julia_über_anne" set="julia">
+          <phrase set="Anne_mag_stadt">Ich war mit Anne nicht so gut befreundet. Ich weiß nur, dass sie allen immer auf die Nerven ging, dass sie in die Stadt ziehen will.</phrase>
+          <phrase set="Internetdate">Sie hat dort wohl jemanden übers Internet kennen gelernt und wollte zu dem ziehen. Ich glaub der hieß Matthias.</phrase>
+        </event>
+        <event id ="julia_verteidigung" if="julia">
+          <question name="paul ist nett">
+            <text>Aber Paul hat doch nichts getan und er ist auch kein gefährlicher Krimineller!</text>
+            <answer>Woher willst du das denn wissen?</answer>
+            <answer>Du scheinst dir ja sehr sicher zu sein.</answer>
+            <answer>Warum verteidigst du denn Paul? Das wundert mich doch sehr.</answer>
+          </question>
+          <phrase>Ich weiß es EINFACH! Man muss sich doch nur mal 5 Minuten mit Paul unterhalten um das zu merken, aber niemand gibt ihm auch nur eine Chance.</phrase>
+          <turn target="julia">Up</turn>
+          <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+        </event>
+      </eventgroup>
+      <eventgroup>
+        <!-- TODO: skipping Event does not work-->
+        <event id="julia_schleife" if="schleife">
+          <question set="julia_befragt">
+            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
+            <answer>Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
+            <answer>Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
+            <answer>Ich glaube ich muss mal mit deinem Vater reden...</answer>
+            <answer>Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
+            <!-- Gespräch mit Julia über Schleife-->
+          </question>
+        </event>
+        <event id="julia_event">
+          <turn target="julia">Up</turn>
+          <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+        </event>
+      </eventgroup>
+      <event id="paul_muell">
+        <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
+        <relgoto if="major_befragt" set="major_befragt+paul_gesellschaft" x="0" y="0" />
+      </event>
+      <eventgroup  id="paul_war_es_nicht">
+        <event>
+          <phrase>Okay ich komme raus.</phrase>
+          <relgoto target="paul" x="1" y="0" />
+          <relgoto target="paul" x="0" y="-1" />
+          <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
+          <question>
+            <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
+            <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
+            <answer>Wieviele Pizzen hast du denn in 1 Woche gegessen? Das kannst du doch nicht allein gegessen haben.</answer>
+            <answer>Der Bürdermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
+            <!-- TODO: Gespräch mit Paul -->
+          </question>
+          <relgoto target="miriam" x="12" y="-9"/>
+          <phrase>Miriam kommt auf dich zugelaufen. Sie scheint sehr aufgeregt zu sein.</phrase>
+        </event>
+      </eventgroup>
+      <event id="paul_dankt">
+        <phrase>Ich danke dir Bernd. Du bist ein guter Polizist und lässt dich nicht von Vorurteilen verunsichern.</phrase>
+      </event>
     </events>
   </definition>
   <triggers>
@@ -134,7 +286,6 @@
     <door obj="door_mueller" x="-7" y="-6" target="mueller_house" r="0" targetX="0" targetY="0" />
     <door obj="door_school" x="5" y="7" target="school" r="0" targetX="4" targetY="2" />
     <door obj="door_major" x="10" y="-3" target="major_house" r="0" targetX="0" targetY="0" />
-    <door obj="door_paul" x="13" y="-11" target="paul_house" r="0" targetX="0" targetY="0" />
   </doors>
   <decos>
     <!-- Wald um das Dorf -->
@@ -357,6 +508,7 @@
     <range x="-7" y="-5" width="1" height="6">
       <deco obj="cobble_pave_mueller" r="0" />
     </range>
+    <deco obj="mueller_auto" x="-7" y="-2" r="0" />
     <!-- Müllers Grundstück 13x10 -->
     <!-- Umzäunung -->
     <!-- Süden Umzäunung-->
@@ -455,9 +607,20 @@
     </range>
   </decos>
   <items>
+    <item obj="vertrag" x="-3" y="-10" r="1" id="vertrag" />
+    <item obj="schleife" x="10" y="-11" r="0" id="schleife" />
   </items>
   <containers>
   </containers>
   <npcs>
+    <npc id="house_paul" obj="door_paul" trigger="pauls_tuer" x="13" y="-11" r="0" />
+    <npc id="buergermeister" obj="major" trigger="major_dialogue" x="10" y="-2" r="0" />
+    <npc id="paul" obj="major" trigger="paul_dankt" x="11" y="-11" r="0" />
+    <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
+    <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
+    <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />
+    <npc id="miriam" obj="miri" x="-2" y="-1" r="0" >
+      <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
+    </npc>
   </npcs>
 </level>

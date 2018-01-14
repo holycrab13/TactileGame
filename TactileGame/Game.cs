@@ -45,7 +45,7 @@ namespace TactileGame
         /// A small localization framework for providing translated text templates. 
         /// <see cref="https://github.com/TUD-INF-IAI-MCI/DotNet_LanguageLocalization"/>
         /// </summary>
-        internal LL ll;
+        public static LL ll;
 
         private UpDownMenu mainMenuModel;
 

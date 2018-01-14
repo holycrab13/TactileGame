@@ -15,10 +15,6 @@ namespace TactileGame.RPG.Models
     {
         public List<ActionBase> actions;
 
-        public string[] conditions;
-
-        public string[] inverseConditions;
-
         private int index;
 
         public Event()
@@ -61,25 +57,6 @@ namespace TactileGame.RPG.Models
             index = 0;
         }
 
-        public bool IsAvailable()
-        {
-            foreach (string condition in conditions)
-            {
-                if (!Game.HasKnowledge(condition))
-                {
-                    return false;
-                }
-            }
-
-            foreach (string condition in inverseConditions)
-            {
-                if (Game.HasKnowledge(condition))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+      
     }
 }
