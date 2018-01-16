@@ -67,7 +67,7 @@ Paul drauf ansprechen → wer war da? Wenn er ein Alibi hat, dann soll er es ver
 Alle denken er wäre es gewesen → knickt ein und sagt er sei mit Julia zusammen gewesen, da er sich nicht raus traut weil alle so böse sind
 Julia kommt angelaufen, weil sie alles beobachtet hat und gesehen hat, dass Paul mit Polizei redet: „Er hat nichts getan jetzt lasst ihn doch mal alle in Ruhe!“ → „Ich weiß Paul hat mir gerade alles erzählt. Du bestätigst also seine Geschichte? Nur zu Sicherheit: erzähl du mir mal deine Version und Paul du solltest jetzt kurz still sein.“ → Die Geschichte bestätigt sich und damit scheint Paul aus dem Schneider zu sein. Doch wo ist Julia dann?
 
-Event: → DONE
+Event: → DOING
 Wenn Paul entlastet
 Miriam kommt an und erzählt, dass sie Annes Handy geortet hat: es wäre in der Schule
 
