@@ -239,9 +239,9 @@
         <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
         <question>
           <text>Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
-          <anwer trigger="julia_zu_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</anwer>
-          <anwer trigger="julia_zu_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</anwer>
-          <anwer trigger="julia_zu_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</anwer>
+          <anwer trigger="julia_zu_paul" set="julia+paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</anwer>
+          <anwer trigger="julia_zu_paul" set="julia+paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</anwer>
+          <anwer trigger="julia_zu_paul" set="julia+paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</anwer>
         </question>
       </event>
       <event id="julia_zu_paul">
@@ -287,13 +287,29 @@
           <phrase>Okay ich komme raus.</phrase>
           <relgoto target="paul" x="0" y="2" />
           <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
+        </event>
+        <event if="julia+paul">
+          <phrase>Du sagst zu Paul: Julia hat mir ein paar entlastende Einzelheiten erzählt und ich wollte diese gerne von dir auch hören.</phrase>
+          <question>
+            <text>Ich treffe sie ab und an abends. Sie war immer freundlich zu mir. Andere nicht so sehr.</text>
+            <answer>Ist das alles? Ihr trefft euch ab und zu abends? Es geht hier eventuell um Entführung.</answer>
+            <answer>Das stimmt, aber wie sagt man so schön: Wer einmal lügt, dem glaubt man nicht.</answer>
+            <answer>Das hat zum Fall noch nichts beigetragen: was hast du denn die letzten Abende gemacht?</answer>
+          </question>
+          <phrase>Okay wir waren die letzten Abende immer zusammen bei mir. Wir sind seit kurzem ein Paar.</phrase>
+        </event>
+        <event not="julia+paul">
           <question>
             <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
             <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
             <answer>Wieviele Pizzen hast du denn in 1 Woche gegessen? Das kannst du doch nicht allein gegessen haben.</answer>
-            <answer>Der Bürdermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
-            <!-- TODO: Gespräch mit Paul -->
+            <answer>Der Bürgermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
           </question>
+          <phrase>Nein ich war nicht allein und ich habe auch nichts mit dem Verschwinden von Anne zu tun. Ich will nur meine Ruhe.</phrase>
+          <phrase>Wer wäre denn so blöd 2 Wochen nach der Entlassung aus dem Gefängnis das beliebteste Kind des Dorfes zu entführen?</phrase>
+        </event>
+        <!-- TODO: Übergang zu gefundenem Handy -->
+        <event>
           <goto target="miriam" x="12" y="-9"/>
           <phrase>Miriam kommt auf dich zugelaufen. Sie scheint sehr aufgeregt zu sein.</phrase>
         </event>
