@@ -136,5 +136,91 @@ namespace TactileGame
             return false;
         }
 
+        /// <summary>
+        /// Checks whether the current knowledge base matches the passed conditions
+        /// </summary>
+        /// <param name="conditions"></param>
+        /// <param name="inverseConditions"></param>
+        /// <returns></returns>
+        public static bool HasKnowledge(string[] conditions, string[] inverseConditions)
+        {
+            if (conditions != null)
+            {
+                foreach (string condition in conditions)
+                {
+                    if (!Game.HasKnowledge(condition))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            if (inverseConditions != null)
+            {
+                foreach (string condition in inverseConditions)
+                {
+                    if (Game.HasKnowledge(condition))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Sets and clears in the current knowledge base
+        /// </summary>
+        /// <param name="sets"></param>
+        /// <param name="clears"></param>
+        internal static void UpdateKnowledge(string[] sets, string[] clears)
+        {
+            bool knowledgeChanged = false;
+
+            if (sets != null)
+            {
+                foreach (string set in sets)
+                {
+                    if (Game.knowledge.ContainsKey(set))
+                    {
+                        if (!Game.knowledge[set])
+                        {
+                            Game.knowledge[set] = true;
+                            knowledgeChanged = true;
+                        }
+                    }
+                    else
+                    {
+                        Game.knowledge.Add(set, true);
+                        knowledgeChanged = true;
+                    }
+                }
+            }
+
+            if (clears != null)
+            {
+                foreach (string clear in clears)
+                {
+                    if (Game.knowledge.ContainsKey(clear))
+                    {
+                        if(Game.knowledge[clear])
+                        {
+                            Game.knowledge[clear] = false; 
+                            knowledgeChanged = true;
+                        }
+                    }
+                    else
+                    {
+                        Game.knowledge.Add(clear, false);
+                    }
+                }
+            }
+
+            if (knowledgeChanged)
+            {
+                gameScreen.OnKnowledgeChanged();
+            }
+        }
     }
 }

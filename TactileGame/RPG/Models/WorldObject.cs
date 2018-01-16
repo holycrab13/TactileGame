@@ -64,9 +64,24 @@ namespace TactileGame.RPG.Models
         public string Trigger { get; set; }
 
         /// <summary>
+        /// Conditions for this object to show
+        /// </summary>
+        public string[] Conditions { get; set; }
+
+        /// <summary>
+        /// Inverse conditions for this object to show
+        /// </summary>
+        public string[] InverseConditions { get; set; }
+
+        /// <summary>
         /// The dialogue to display on interaction
         /// </summary>
         public EventBase Event { get; set; }
+
+        /// <summary>
+        /// Indicates whether the object is hidden
+        /// </summary>
+        public bool isHidden { get; set; }
 
         /// <summary>
         /// The getter and setter for the current rotation
@@ -173,6 +188,9 @@ namespace TactileGame.RPG.Models
         /// <returns></returns>
 		public bool Collides(int x, int y, int width, int height)
 		{
+            if (isHidden)
+                return false;
+
 			return BlocksPath && (x <= X + Width - 1 && X <= x + width - 1) && (y <= Y + Height - 1 && Y <= y + height - 1);
 		}
 
@@ -183,6 +201,9 @@ namespace TactileGame.RPG.Models
         /// <returns></returns>
         public bool Collides(WorldObject worldObject)
         {
+            if (isHidden)
+                return false;
+
             return Collides(worldObject.X, worldObject.X, worldObject.Width, worldObject.Height);
         }
 
@@ -196,6 +217,9 @@ namespace TactileGame.RPG.Models
         /// <returns></returns>
         public bool Overlaps(int x, int y, int width, int height)
         {
+            if (isHidden)
+                return false;
+
             return (x <= X + Width - 1 && X <= x + width - 1) && (y <= Y + Height - 1 && Y <= y + height - 1);
         }
 
