@@ -136,7 +136,7 @@
           <answer>Hier ist die Polizei. Machen Sie auf!</answer>
         </question>
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
-        <question if="major_befragt+paul_gesellschaft">
+        <question if="major_befragt_und_paul_gesellschaft">
           <text>Ich weiß, dass du nicht allein zu Hause warst. Niemand isst freiwillig so viel Pizza allein.</text>
           <answer trigger="paul_war_es_nicht">Wenn du nicht mit mir redest könntest du in den Knast wandern. Ich will dein Alibi hören.</answer>
           <answer trigger="paul_war_es_nicht">Julia scheint dich zu verteidigen. War sie zwischendurch bei dir?</answer>
@@ -158,7 +158,7 @@
           </question>
         </event>
         <event if="paul_gesellschaft">
-          <relgoto set="major_befragt+paul_gesellschaft" x="0" y="0" />
+          <relgoto set="major_befragt_und_paul_gesellschaft" x="0" y="0" />
         </event>
         <event id="major_plakat" if="thomson_plakat">
           <phrase set="major_idle">Hey Bernd schön dich zu sehen. Hast du schon gesehen: Thomson will als Bürgermeister kandidieren!</phrase>
@@ -239,9 +239,9 @@
         <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
         <question>
           <text>Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
-          <anwer trigger="julia_zu_paul" set="julia+paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</anwer>
-          <anwer trigger="julia_zu_paul" set="julia+paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</anwer>
-          <anwer trigger="julia_zu_paul" set="julia+paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</anwer>
+          <anwer trigger="julia_zu_paul" set="jula_und_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</anwer>
+          <anwer trigger="julia_zu_paul" set="jula_und_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</anwer>
+          <anwer trigger="julia_zu_paul" set="jula_und_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</anwer>
         </question>
       </event>
       <event id="julia_zu_paul">
@@ -280,7 +280,7 @@
       </eventgroup>
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
-        <relgoto if="major_befragt" set="major_befragt+paul_gesellschaft" x="0" y="0" />
+        <relgoto if="major_befragt" set="major_befragt_und_paul_gesellschaft" x="0" y="0" />
       </event>
       <eventgroup  id="paul_war_es_nicht">
         <event>
@@ -288,7 +288,7 @@
           <relgoto target="paul" x="0" y="2" />
           <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
         </event>
-        <event if="julia+paul">
+        <event if="jula_und_paul">
           <phrase>Du sagst zu Paul: Julia hat mir ein paar entlastende Einzelheiten erzählt und ich wollte diese gerne von dir auch hören.</phrase>
           <question>
             <text>Ich treffe sie ab und an abends. Sie war immer freundlich zu mir. Andere nicht so sehr.</text>
@@ -298,7 +298,7 @@
           </question>
           <phrase>Okay wir waren die letzten Abende immer zusammen bei mir. Wir sind seit kurzem ein Paar.</phrase>
         </event>
-        <event not="julia+paul">
+        <event not="jula_und_paul">
           <question>
             <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
             <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
