@@ -235,7 +235,7 @@
         </question>
       </event>
       <event id="julia_schleife_nachgeben">
-        <phrase set="paul_entlastet">Ich mag Paul halt. Er ist eigentlich ein sehr liebevoller Mensch und wird von allen fies behandelt.</phrase> 
+        <phrase set="paul_entlastet">Ich mag Paul halt. Er ist eigentlich ein sehr liebevoller Mensch und wird von allen fies behandelt.</phrase>
         <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
         <question>
           <text>Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
@@ -260,7 +260,7 @@
         </question>
       </event>
       <eventgroup id="julia_event">
-        <event if="schleife">
+        <event if="schleife_gefunden">
           <question set="julia_befragt">
             <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
             <answer trigger="julia_schleife_nichtpapa">Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
@@ -308,10 +308,17 @@
           <phrase>Nein ich war nicht allein und ich habe auch nichts mit dem Verschwinden von Anne zu tun. Ich will nur meine Ruhe.</phrase>
           <phrase>Wer wäre denn so blöd 2 Wochen nach der Entlassung aus dem Gefängnis das beliebteste Kind des Dorfes zu entführen?</phrase>
         </event>
-        <!-- TODO: Übergang zu gefundenem Handy -->
         <event>
-          <goto target="miriam" x="12" y="-9"/>
           <phrase>Miriam kommt auf dich zugelaufen. Sie scheint sehr aufgeregt zu sein.</phrase>
+          <goto target="miriam" x="12" y="-9"/>
+          <question>
+            <text>Wir haben das Handy von Anne gefunden. Es ist in der Schule.</text>
+            <answer>Na dann nichts wie hin.</answer>
+            <answer>Und was machen wir dann noch hier?</answer>
+            <answer>Wieso kommst du dann zu mir und gehst nicht in die Schule?</answer>
+            <answer>Was macht es denn da? Das muss ich mir mal anschauen...</answer>
+          </question>
+          <GotoLevel target="levels/school.xml" />
         </event>
       </eventgroup>
       <event id="paul_dankt">
