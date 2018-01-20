@@ -238,10 +238,10 @@
         <phrase set="paul_entlastet">Ich mag Paul halt. Er ist eigentlich ein sehr liebevoller Mensch und wird von allen fies behandelt.</phrase>
         <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
         <question>
-          <text>Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
-          <anwer trigger="julia_zu_paul" set="jula_und_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</anwer>
-          <anwer trigger="julia_zu_paul" set="jula_und_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</anwer>
-          <anwer trigger="julia_zu_paul" set="jula_und_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</anwer>
+          <text set="jula_und_paul">Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
+          <answer trigger="julia_zu_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</answer>
+          <answer trigger="julia_zu_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</answer>
+          <answer trigger="julia_zu_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</answer>
         </question>
       </event>
       <event id="julia_zu_paul">
@@ -252,6 +252,7 @@
         <goto  x="7" y="-9" />
         <goto target="julia" x="12" y="-10" />
         <goto x="13" y="-9" />
+        <turn>Up</turn>
         <question>
           <text>Hey Paul. Ich bins Julia. Bernd ist auch hier und will mit dir Reden, ist doch so oder?</text>
           <answer trigger="paul_war_es_nicht">Das stimmt und ich will nur etwas überprüfen.</answer>
@@ -260,15 +261,6 @@
         </question>
       </event>
       <eventgroup id="julia_event">
-        <event if="schleife_gefunden">
-          <question set="julia_befragt">
-            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
-            <answer trigger="julia_schleife_nichtpapa">Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
-            <answer trigger="julia_schleife_nachgeben">Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
-            <answer trigger="julia_schleife_nichtpapa">Ich glaube ich muss mal mit deinem Vater reden...</answer>
-            <answer trigger="julia_schleife_nachgeben">Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
-          </question>
-        </event>
         <event if="julia_sauer">
           <turn target="julia">Up</turn>
           <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
@@ -276,6 +268,16 @@
         <event not="julia_sauer">
           <phrase>Hallo Bernd. Ich bin gerade ein bisschen beschäftigt. Komm doch später mal vorbei</phrase>
           <turn target="julia">Up</turn>
+        </event>
+        <event if="schleife_gefunden">
+          <turn target="julia">Down</turn>
+          <question set="julia_befragt">
+            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
+            <answer trigger="julia_schleife_nichtpapa">Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
+            <answer trigger="julia_schleife_nachgeben">Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
+            <answer trigger="julia_schleife_nichtpapa">Ich glaube ich muss mal mit deinem Vater reden...</answer>
+            <answer trigger="julia_schleife_nachgeben">Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
+          </question>
         </event>
       </eventgroup>
       <event id="paul_muell">
@@ -285,7 +287,7 @@
       <eventgroup  id="paul_war_es_nicht">
         <event>
           <phrase>Okay ich komme raus.</phrase>
-          <relgoto target="paul" x="0" y="2" />
+          <goto target="paul" x="13" y="-10" />
           <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
         </event>
         <event if="jula_und_paul">
@@ -675,7 +677,7 @@
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
     <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
     <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />
-    <npc id="miriam" obj="miri" x="8" y="-9" r="0" if="paul_entlastet" >
+    <npc id="miriam" obj="miri" x="3" y="-9" r="0" if="paul_entlastet" >
       <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
     </npc>
   </npcs>
