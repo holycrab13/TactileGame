@@ -2,7 +2,9 @@
 <level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
-      <object id="schüler" name="Schüler" desc="Hallo Bernd! Was machst du denn hier? Willst du uns wieder aufklären?" img="bmps/avatar_2.bmp" block="true" />
+      <object id="chair" name="Stuhl" desc="Ein üblicher, harter Holzstuhl, wie man ihn in Schulen häufig findet." img="bmps/chair_usual.bmp" block="true" />
+      <object id="schueler" name="Schüler" desc="Ein Schüler der sich mit seinen Freunden die Pause vertreibt." img="bmps/avatar_3.bmp" block="true" />
+      <object id="janitor" name="Hausmeister" desc="Der dicke alte Hausmeister. Dem hab ich damals sogar schon Streiche gespielt." img="bmps/avatar.bmp" block="true" />
       <object id="wand" name="Wand" desc="Diese Wand hat schon viele Jahre auf dem Buckel. Überall sind Scharten und Kratzer von übermütigem Rumtollen." img="bmps/wall.bmp" block="true" />
       <object id="door" name="Tür" desc="Die alte Schultür. Durch die bin ich damals auch an meinem ersten Schultag spaziert." img="bmps/door_south.bmp" block="true" />
       <object id="door_A" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse A." img="bmps/door_north.bmp" block="true" />
@@ -11,10 +13,54 @@
       <object id="sign_B" name="Tür" desc="Hier steht: Klasse B" img="bmps/door_sign.bmp" block="true" />
       <object id="door_C" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse C." img="bmps/door_north.bmp" block="true" />
       <object id="sign_C" name="Tür" desc="Hier steht: Klasse C" img="bmps/door_sign.bmp" block="true" />
+      <object id="plant" name="Tür" desc="Eine kleine spärlich gepflegte Pflanze eingetopft in Kieselsteinen." img="bmps/bush.bmp" block="true" />
     </objects>
     <events>
-      <event id="hintergrund" not="schul_umgebung">
-        <phrase set="schul_umgebung">Es scheint gerade Pause zu sein. überall stehen Jugendliche und unterhalten sich.</phrase>
+      <event id="janitor_dialogue">
+        <phrase>Hey Bernd! Kennst du mich noch? ich bins: Siegfried.</phrase>
+        <phrase>Schön, dass du deine alte Schule mal wieder besuchst.</phrase>
+        <question>
+          <text>Was machst du denn hier? Musst du dich weiterbilden?</text>
+          <answer trigger="janitor_smalltalk">Ha Ha sehr witzig. Ist das deine Art mir meine Streiche heim zu zahlen?</answer>
+          <answer trigger="Annes_Klasse">Nein. Ich muss mich um einen Fall kümmern. In welche Klasse ist die Tochter der Müllers gegangen?</answer>
+          <answer trigger="janitor_abgewiesen">Das kann ich dir leider nicht sagen. Ich darf über laufende Ermittlungen nicht sprechen!</answer>
+          <answer trigger="janitor_wegkommen">Nein, aber vielleicht solltest du das machen. Dann kommst du vielleicht mal hier weg.</answer>
+        </question>
+      </event>
+      <event id="janitor_smalltalk">
+        <phrase>Nein Nein. Das habe ich lange aufgegeben. Du warst einfach ein unterforderter Jugendlicher.</phrase>
+        <phrase trigger="alter_freund">Wenn ich heute zurück schaue, dann lache ich über die ganzen Sachen, die dir und deinem Freund eingefallen sind. </phrase>
+      </event>
+      <event id="Annes_Klasse">
+        <question>
+          <text>Lass mich kurz überlgen... ich denke sie war in der A. Ist was passiert?</text>
+          <answer trigger="janitor_abgewiesen">Darüber darf ich leide rnicht mit dir sprechen. Laufende Ermittlung.</answer>
+          <answer trigger="janitor_handy">Ich such das Handy von Anne. Das haben wir hier geortet.</answer>
+        </question>
+      </event>
+      <event id="janitor_abgewiesen">
+        <phrase set="janitor_abgewiegelt">Achso. na dann muss Herr Kriminalkomissar eben alles allein klären.</phrase>
+      </event>
+      <event id="janitor_wegkommen">
+        <phrase>Ach in meinem Alter wäre das doch vergebene Liebesmüh und wer soll denn sonst den Halbstarken Paroli bieten?</phrase>
+        <phrase>Neee da bleib ich lieber hier und Sorge für Ordnung.</phrase>
+      </event>
+      <event id="janitor_handy">
+        <phrase set="janitor_knows">Achso. Hab mich schon gefragt wo Anne die letzten Tage war. Sie ist also nicht krank gemeldet. Viel Erfolg!</phrase>
+      </event>
+      <event id="alter_freund">
+        <question>
+          <text>Wie hieß er nochmal?</text>
+          <answer>Jan, das war vielleicht ein Chaot. Der hatte jeden Tag neue Ideen wie man dich verarschen kann.</answer>
+          <answer>Benjamin, der beste Freund, den ich je hatte: der hat alles mitgemacht.</answer>
+          <answer>Mirko, das war ein Taugenichts. Immer nur Mädchen und Alkohol im Kopf.</answer>
+          <answer>Alfred, im Unterricht der größte Streber, aber kaum hatte die Glocke geläutet...</answer>
+        </question>
+        <phrase>Hach ja das waren Zeiten. Von dem habe ich leider lange nichts mehr gehört.</phrase>
+        <phrase>Schade wie sich viele aus den alten Freundeskreisen verabschiedet haben. Vielleicht kommt er ja zum Klassentreffen.</phrase>
+      </event>
+      <event id="hintergrund" not="schulumgebung">
+        <phrase set="schulumgebung">Es scheint gerade Pause zu sein. überall stehen Jugendliche und unterhalten sich.</phrase>
         <phrase>Bei näherer Betrachtung fällt dir auf, dass viele garnicht miteinander reden sondern entweder am Handy sind,</phrase>
         <phrase>oder sich gegenseitig Videos darauf zeigen.</phrase>
       </event>
@@ -36,7 +82,7 @@
     </range>
     <deco obj="wand" x="9" y="2" r="1" />
     <deco obj="wand" x="9" y="3" r="1" />
-    <range x="9" y="4" width="15" height="1">
+    <range x="9" y="4" width="16" height="1">
       <deco obj="wand" r="1" />
     </range>
     <range x="24" y="5" width="1" height="3">
@@ -62,9 +108,24 @@
     <deco obj="sign_B" x="12" y="8" r="2" />
     <deco obj="door_C" x="20" y="8" r="0" />
     <deco obj="sign_C" x="19" y="8" r="2" />
+    <!-- Pflanzen & Stühle im Flur -->
+    <deco obj="plant" x="2" y="2" r="1" />
+    <deco obj="chair" x="3" y="2" r="0" />
+    <range x="2" y="3" width="1" height="3">
+      <deco obj="chair" r="3" />
+    </range>
+    <deco obj="chair" x="3" y="2" r="0" />
+    <!-- passive Schüler -->
+    <deco obj="schueler" x="7" y="2" r="3" />
+    <deco obj="schueler" x="8" y="3" r="2" />
+    <deco obj="schueler" x="2" y="6" r="0" />
+    <deco obj="schueler" x="3" y="6" r="0" />
+    <deco obj="schueler" x="2" y="7" r="2" />
+    <deco obj="schueler" x="3" y="7" r="2" />
   </decos>
   <items>
   </items>
   <npcs>
+    <npc id="Hausmeister" obj="hanitor" trigger="janitor_dialogue" x="9" y="5" r="0" />
   </npcs>
 </level>
