@@ -2,6 +2,7 @@
 <level width="9" height="8" outerImg="no_playarea.bmp">
   <definition>
     <objects>
+      <object id="schüler" name="Schüler" desc="Hallo Bernd! Was machst du denn hier? Willst du uns wieder aufklären?" img="bmps/avatar_2.bmp" block="true" />
       <object id="wand" name="Wand" desc="Diese Wand hat schon viele Jahre auf dem Buckel. Überall sind Scharten und Kratzer von übermütigem Rumtollen." img="bmps/wall.bmp" block="true" />
       <object id="door" name="Tür" desc="Die alte Schultür. Durch die bin ich damals auch an meinem ersten Schultag spaziert." img="bmps/door_south.bmp" block="true" />
       <object id="door_A" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse A." img="bmps/door_north.bmp" block="true" />
@@ -11,7 +12,17 @@
       <object id="door_C" name="Tür" desc="Die Tür zum Klassenzimmer der Klasse C." img="bmps/door_north.bmp" block="true" />
       <object id="sign_C" name="Tür" desc="Hier steht: Klasse C" img="bmps/door_sign.bmp" block="true" />
     </objects>
+    <events>
+      <event id="hintergrund" not="schul_umgebung">
+        <phrase set="schul_umgebung">Es scheint gerade Pause zu sein. überall stehen Jugendliche und unterhalten sich.</phrase>
+        <phrase>Bei näherer Betrachtung fällt dir auf, dass viele garnicht miteinander reden sondern entweder am Handy sind,</phrase>
+        <phrase>oder sich gegenseitig Videos darauf zeigen.</phrase>
+      </event>
+    </events>
   </definition>
+  <triggers>
+    <trigger x="2" y="3" width="8" height="1" event="hintergrund"/>
+  </triggers>
   <doors>
     <door obj="door" x="4" y="1" target="village1" targetX="-7" targetY="-5" />
     <door obj="door_A" x="6" y="8" target="classroom" targetX="6" targetY="2" />
@@ -53,12 +64,7 @@
     <deco obj="sign_C" x="19" y="8" r="2" />
   </decos>
   <items>
-    
   </items>
-  <containers>
-    
-  </containers>
   <npcs>
-    
   </npcs>
 </level>
