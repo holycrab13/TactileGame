@@ -126,6 +126,6 @@
   <items>
   </items>
   <npcs>
-    <npc id="Hausmeister" obj="hanitor" trigger="janitor_dialogue" x="9" y="5" r="0" />
+    <npc id="Hausmeister" obj="janitor" trigger="janitor_dialogue" x="9" y="5" r="0" />
   </npcs>
 </level>
