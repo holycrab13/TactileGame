@@ -238,7 +238,7 @@
         <phrase set="paul_entlastet">Ich mag Paul halt. Er ist eigentlich ein sehr liebevoller Mensch und wird von allen fies behandelt.</phrase>
         <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
         <question>
-          <text set="jula_und_paul">Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
+          <text set="julia_und_paul">Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
           <answer trigger="julia_zu_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</answer>
           <answer trigger="julia_zu_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</answer>
           <answer trigger="julia_zu_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</answer>
@@ -256,7 +256,7 @@
         <question>
           <text>Hey Paul. Ich bins Julia. Bernd ist auch hier und will mit dir Reden, ist doch so oder?</text>
           <answer trigger="paul_war_es_nicht">Das stimmt und ich will nur etwas überprüfen.</answer>
-          <answer trigger="paul_war_es_nicht">Das ist richtig und ich möchte etwas überprüfen.</answer>
+          <answer trigger="paul_war_es_nicht">Ich brauche deine Aussage und hoffen wir, dass sie sich mit Julias deckt.</answer>
           <answer trigger="paul_war_es_nicht">Julia hat mir alles erzählt, jetzt brauche ich deine Aussage noch.</answer>
         </question>
       </event>
@@ -290,7 +290,7 @@
           <goto target="paul" x="13" y="-10" />
           <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
         </event>
-        <event if="jula_und_paul">
+        <event if="julia_und_paul">
           <phrase>Du sagst zu Paul: Julia hat mir ein paar entlastende Einzelheiten erzählt und ich wollte diese gerne von dir auch hören.</phrase>
           <question>
             <text>Ich treffe sie ab und an abends. Sie war immer freundlich zu mir. Andere nicht so sehr.</text>
@@ -300,7 +300,7 @@
           </question>
           <phrase>Okay wir waren die letzten Abende immer zusammen bei mir. Wir sind seit kurzem ein Paar.</phrase>
         </event>
-        <event not="jula_und_paul">
+        <event not="julia_und_paul">
           <question>
             <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
             <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
@@ -320,7 +320,7 @@
             <answer>Wieso kommst du dann zu mir und gehst nicht in die Schule?</answer>
             <answer>Was macht es denn da? Das muss ich mir mal anschauen...</answer>
           </question>
-          <GotoLevel target="levels/school.xml" />
+          <GotoLevel target="school" x="0" y="0" />
         </event>
       </eventgroup>
       <event id="paul_dankt">
