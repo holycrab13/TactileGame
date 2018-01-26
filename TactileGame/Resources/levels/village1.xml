@@ -136,7 +136,7 @@
           <answer>Hier ist die Polizei. Machen Sie auf!</answer>
         </question>
         <phrase>HAU AB! Ich red nicht mit Schnüfflern. Ich hab nichts getan.</phrase>
-        <question if="major_befragt+paul_gesellschaft">
+        <question if="major_befragt_und_paul_gesellschaft">
           <text>Ich weiß, dass du nicht allein zu Hause warst. Niemand isst freiwillig so viel Pizza allein.</text>
           <answer trigger="paul_war_es_nicht">Wenn du nicht mit mir redest könntest du in den Knast wandern. Ich will dein Alibi hören.</answer>
           <answer trigger="paul_war_es_nicht">Julia scheint dich zu verteidigen. War sie zwischendurch bei dir?</answer>
@@ -158,7 +158,7 @@
           </question>
         </event>
         <event if="paul_gesellschaft">
-          <relgoto set="major_befragt+paul_gesellschaft" x="0" y="0" />
+          <relgoto set="major_befragt_und_paul_gesellschaft" x="0" y="0" />
         </event>
         <event id="major_plakat" if="thomson_plakat">
           <phrase set="major_idle">Hey Bernd schön dich zu sehen. Hast du schon gesehen: Thomson will als Bürgermeister kandidieren!</phrase>
@@ -224,45 +224,103 @@
           </question>
           <phrase>Ich weiß es EINFACH! Man muss sich doch nur mal 5 Minuten mit Paul unterhalten um das zu merken, aber niemand gibt ihm auch nur eine Chance.</phrase>
           <turn target="julia">Up</turn>
-          <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+          <phrase set="julia_sauer">Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
         </event>
       </eventgroup>
-      <eventgroup>
-        <!-- TODO: skipping Event does not work-->
-        <event id="julia_schleife" if="schleife">
-          <question set="julia_befragt">
-            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
-            <answer>Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
-            <answer>Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
-            <answer>Ich glaube ich muss mal mit deinem Vater reden...</answer>
-            <answer>Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
-            <!-- Gespräch mit Julia über Schleife-->
-          </question>
-        </event>
-        <event id="julia_event">
+      <event id="julia_schleife_nichtpapa">
+        <question>
+          <text>Nein bitte sag nichts meinem Vater. Ja das ist meine Schleife, aber bitte sag nichts meinem Vater.</text>
+          <answer trigger="julia_schleife_nachgeben">Das kann ich leider nicht versprechen. Es geht um Entführung. Warum war deine Schleife jetzt bei seinem Haus?</answer>
+          <answer trigger="julia_schleife_nachgeben">Erstmal muss ich wissen was los ist, sonst kann ich nichts versprechen.</answer>
+        </question>
+      </event>
+      <event id="julia_schleife_nachgeben">
+        <phrase set="paul_entlastet">Ich mag Paul halt. Er ist eigentlich ein sehr liebevoller Mensch und wird von allen fies behandelt.</phrase>
+        <phrase set="paul_gesellschaft">Erst hab ich mich am Gartenzaun ein wenig mit Ihm unterhalten und mit der Zeit in ihn verliebt.</phrase>
+        <question>
+          <text set="julia_und_paul">Er hat nichts mit Annes Verschwinden zu tun, weil ich Abends immer bei ihm war!</text>
+          <answer trigger="julia_zu_paul">Dann lass uns erstmal zu Paul gehen. Ich brauche seine Aussage auch.</answer>
+          <answer trigger="julia_zu_paul">Das ist ja alles schön und gut, aber das muss ich auch von Paul hören.</answer>
+          <answer trigger="julia_zu_paul">und warum habt ihr mir das nicht viel eher erzählt? Komm wir reden mal mit Paul.</answer>
+        </question>
+      </event>
+      <event id="julia_zu_paul">
+        <goto target="julia" x="7" y="-6" />
+        <goto  x="6" y="-6" />
+        <goto target="julia" x="7" y="-10" />
+        <goto  x="7" y="-6" />
+        <goto  x="7" y="-9" />
+        <goto target="julia" x="12" y="-10" />
+        <goto x="13" y="-9" />
+        <turn>Up</turn>
+        <question>
+          <text>Hey Paul. Ich bins Julia. Bernd ist auch hier und will mit dir Reden, ist doch so oder?</text>
+          <answer trigger="paul_war_es_nicht">Das stimmt und ich will nur etwas überprüfen.</answer>
+          <answer trigger="paul_war_es_nicht">Ich brauche deine Aussage und hoffen wir, dass sie sich mit Julias deckt.</answer>
+          <answer trigger="paul_war_es_nicht">Julia hat mir alles erzählt, jetzt brauche ich deine Aussage noch.</answer>
+        </question>
+      </event>
+      <eventgroup id="julia_event">
+        <event if="julia_sauer">
           <turn target="julia">Up</turn>
           <phrase>Julia dreht sich von der weg. Sie scheint wirklich wütend zu sein und will sich anscheinend nicht mehr unterhalten.</phrase>
+        </event>
+        <event not="julia_sauer">
+          <phrase>Hallo Bernd. Ich bin gerade ein bisschen beschäftigt. Komm doch später mal vorbei</phrase>
+          <turn target="julia">Up</turn>
+        </event>
+        <event if="schleife_gefunden">
+          <turn target="julia">Down</turn>
+          <question set="julia_befragt">
+            <text>Julia macht große Augen als sie die Schleife in deiner Hand sieht. Sagt aber nichts.</text>
+            <answer trigger="julia_schleife_nichtpapa">Ich hab das hier neben Pauls Haus gefunden. Das ist doch deine Lieblingsschleife oder?</answer>
+            <answer trigger="julia_schleife_nachgeben">Kannst du mir mal erklären, wie deine Schleife zu Pauls Haus kommt?</answer>
+            <answer trigger="julia_schleife_nichtpapa">Ich glaube ich muss mal mit deinem Vater reden...</answer>
+            <answer trigger="julia_schleife_nachgeben">Magst du mir jetzt vielleicht eklären warum du Paul so verteidigst?</answer>
+          </question>
         </event>
       </eventgroup>
       <event id="paul_muell">
         <phrase set="paul_gesellschaft">Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen.</phrase>
-        <relgoto if="major_befragt" set="major_befragt+paul_gesellschaft" x="0" y="0" />
+        <relgoto if="major_befragt" set="major_befragt_und_paul_gesellschaft" x="0" y="0" />
       </event>
       <eventgroup  id="paul_war_es_nicht">
         <event>
           <phrase>Okay ich komme raus.</phrase>
-          <relgoto target="paul" x="1" y="0" />
-          <relgoto target="paul" x="0" y="-1" />
+          <goto target="paul" x="13" y="-10" />
           <phrase>Was gibt es denn nun so dringendes zu besprechen?</phrase>
+        </event>
+        <event if="julia_und_paul">
+          <phrase>Du sagst zu Paul: Julia hat mir ein paar entlastende Einzelheiten erzählt und ich wollte diese gerne von dir auch hören.</phrase>
+          <question>
+            <text>Ich treffe sie ab und an abends. Sie war immer freundlich zu mir. Andere nicht so sehr.</text>
+            <answer>Ist das alles? Ihr trefft euch ab und zu abends? Es geht hier eventuell um Entführung.</answer>
+            <answer>Das stimmt, aber wie sagt man so schön: Wer einmal lügt, dem glaubt man nicht.</answer>
+            <answer>Das hat zum Fall noch nichts beigetragen: was hast du denn die letzten Abende gemacht?</answer>
+          </question>
+          <phrase>Okay wir waren die letzten Abende immer zusammen bei mir. Wir sind seit kurzem ein Paar.</phrase>
+        </event>
+        <event not="julia_und_paul">
           <question>
             <text>Ich hab aktuell nicht so viel Lust auf Polizei, auch wenn du es bist, Bernd.</text>
             <answer>Anne ist verschwunden. Die tochter der Müllers. Weißt du was?</answer>
             <answer>Wieviele Pizzen hast du denn in 1 Woche gegessen? Das kannst du doch nicht allein gegessen haben.</answer>
-            <answer>Der Bürdermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
-            <!-- TODO: Gespräch mit Paul -->
+            <answer>Der Bürgermeister denkt du könntest etwas mit der verschwundenen Müllerstochter zu tun haben.</answer>
           </question>
-          <relgoto target="miriam" x="12" y="-9"/>
+          <phrase>Nein ich war nicht allein und ich habe auch nichts mit dem Verschwinden von Anne zu tun. Ich will nur meine Ruhe.</phrase>
+          <phrase>Wer wäre denn so blöd 2 Wochen nach der Entlassung aus dem Gefängnis das beliebteste Kind des Dorfes zu entführen?</phrase>
+        </event>
+        <event>
           <phrase>Miriam kommt auf dich zugelaufen. Sie scheint sehr aufgeregt zu sein.</phrase>
+          <goto target="miriam" x="12" y="-9"/>
+          <question>
+            <text>Wir haben das Handy von Anne gefunden. Es ist in der Schule.</text>
+            <answer>Na dann nichts wie hin.</answer>
+            <answer>Und was machen wir dann noch hier?</answer>
+            <answer>Wieso kommst du dann zu mir und gehst nicht in die Schule?</answer>
+            <answer>Was macht es denn da? Das muss ich mir mal anschauen...</answer>
+          </question>
+          <GotoLevel target="school" x="0" y="0" />
         </event>
       </eventgroup>
       <event id="paul_dankt">
@@ -615,11 +673,11 @@
   <npcs>
     <npc id="house_paul" obj="door_paul" trigger="pauls_tuer" x="13" y="-11" r="0" />
     <npc id="buergermeister" obj="major" trigger="major_dialogue" x="10" y="-2" r="0" />
-    <npc id="paul" obj="major" trigger="paul_dankt" x="11" y="-11" r="0" />
+    <npc id="paul" obj="major" trigger="paul_dankt" x="13" y="-12" r="0" if="paul_entlastet" />
     <npc id="thomson_p" obj="plakat" trigger="thomson_p" x="-3" y="-1" r="0" />
     <npc id="julia" obj="julia_tex" trigger="julia_event" x="5" y="-6" r="2" />
     <npc id="muelltonne" obj="paul_muelltonne" trigger="paul_muell" x="15" y="-11" r="0" />
-    <npc id="miriam" obj="miri" x="-2" y="-1" r="0" >
+    <npc id="miriam" obj="miri" x="3" y="-9" r="0" if="paul_entlastet" >
       <phrase if="hintergrund">Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
     </npc>
   </npcs>
