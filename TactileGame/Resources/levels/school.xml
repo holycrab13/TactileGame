@@ -16,6 +16,37 @@
       <object id="plant" name="Tür" desc="Eine kleine spärlich gepflegte Pflanze eingetopft in Kieselsteinen." img="bmps/bush.bmp" block="true" />
     </objects>
     <events>
+      <event id="Felix_Anne_Klasse">
+        <question>
+          <text>Ja klar worum gehts denn?</text>
+          <answer trigger="Felix_Anne_dating">Anne ist die letzten Tage nicht mehr in der Schule gewesen, weißt du dazu was?</answer>
+          <answer trigger="Felix_Anne_dating">Ein paar Leute machen sich Sorgen, weil Sie nirgendwo zu sein scheint und Müllers packen.</answer>
+          <answer trigger="Felix_Anne_Handy">Anne sehe ich nirgendwo, aber ihr Handy soll hier sein. Weißt du wo es sein könnte?</answer>
+        </question>
+      </event>
+      <event id="Felix_Anne_dating">
+        <phrase>Vielleicht hat Anne ihre Eltern endlich überzeugen können in die Stadt zu ziehen. Sie hasst das Dorfleben.</phrase>
+        <phrase>Außerdem hat sie die letzten Wochen wohl mit so einem Typen aus der Stadt geschrieben, den sie über eine Datingwebsite kennengelernt hat.</phrase>
+        <prase set="Anne_onlinedating">Ich glaube sie haben letzte Woche zum ersten mal telefoniert. Die Mädels haben darüber geredet.</prase>
+      </event>
+      <event id="Felix_Anne_Handy">
+        <phrase>Da kann ich dir nicht sonderlich weiterhelfen. Vielleicht solltest du die Leute im Klassenzimmer mal befragen?</phrase>
+        <phrase set="Handy_KlasseC">Moment! Vielleicht hat es einer aus Klasse C! Die spielen uns immer dumme Streiche.</phrase>
+      </event>
+      <eventgroup id="schuelergespräch">
+        <event not="schuelergespräch">
+          <question set="schuelergespräch">
+            <text>Hey Bernd was machst du denn hier? Musst du uns wieder über Drogen aufklären?</text>
+            <answer trigger="Felix_Anne_Klasse">Hey Felix, diesmal bin ich wegen etwas anderem hier: du gehst doch mit Anne in eine Klasse oder?</answer>
+            <answer>Als ob das bei euch etwas helfen würde. Nur weil ich dich nicht erwische heißt es nicht, dass ich nicht weiß was ihr macht.</answer>
+            <answer trigger="Felix_Anne_Handy">Hallo Felix. Nein ich suche heute Annes Handy, weißt du wer es haben könnte? Wir haben es hier geortet.</answer>
+            <answer trigger="Felix_Anne_Handy">Du willst mir doch nur wieder meinen Dummyjoint aus der Tasche klauen. Heute bin ich wegen Annes Handy hier. Kannst du mir da weiterhelfen?</answer>
+          </question>
+        </event>
+        <event>
+          <phrase>Na dann wünsch ich dir mal viel Erfolg.</phrase>
+        </event>
+      </eventgroup>
       <event id="janitor_dialogue">
         <phrase>Hey Bernd! Kennst du mich noch? ich bins: Siegfried.</phrase>
         <phrase>Schön, dass du deine alte Schule mal wieder besuchst.</phrase>
@@ -63,6 +94,101 @@
         <phrase set="schulumgebung">Es scheint gerade Pause zu sein. überall stehen Jugendliche und unterhalten sich.</phrase>
         <phrase>Bei näherer Betrachtung fällt dir auf, dass viele garnicht miteinander reden sondern entweder am Handy sind,</phrase>
         <phrase>oder sich gegenseitig Videos darauf zeigen.</phrase>
+      </event>
+      <eventgroup id="Klasse_c_gespräch">
+        <event if="Handy_KlasseC">
+          <phrase>Du siehst wie einer der Schüler schnell etwas wegpackt als du näher kommst.</phrase>
+          <question>
+            <text>Hey Bernd. Bitte nicht böse sein, aber wir sind gerade sehr beschäftigt.</text>
+            <answer>Hat diese Bechäftigung eventuell etwas mit einem Handy zu tun, das s nicht euch gehört?</answer>
+            <answer>Was hast du da gerade versteckt? Zeig mal her!</answer>
+            <answer>Felix hat mir erzählt, wenn es um verschwundene Handys der Klasse A geht solle man euch fragen.</answer>
+            <answer>Habt ihr zufällig Annes Handy gefunden? Wir suchen es dringend.</answer>
+          </question>
+          <question>
+            <phrase>Otto gib Bernd das Handy.</phrase>
+            <text set="Anne_Handy">Einer der Jungs kramt das eilig versteckte Telefon aus seinem Ranzen.</text>
+            <answer set="Klasse_C_dank">Danke Jungs. Das hilft uns.</answer>
+            <answer set="Klasse_C_diebstahl">Wenn ich euch nochmal mit einem geklauten Telefon erwische gibt es mehr Ärger!</answer>
+            <answer set="Klasse_C_diebstahl">Diebstahl ist kein Kavaliersdelikt!</answer>
+          </question>
+        </event>
+        <event not="Handy_KlasseC">
+          <phrase>Ach Bernd. Bitte nicht böse sein, aber wir sind gerade sehr beschäftigt.</phrase>
+          <turn target="schueler_C1">Right</turn>
+          <turn target="schueler_C3">Right</turn>
+        </event>
+        <event if="Klasse_C_dank">
+          <phrase>Mit der Polizei wollen wir uns lieber nicht anlegen. Am Ende erfahren unsere Eltern noch davon.</phrase>
+          <phrase>Er grinst dich spöttisch an.</phrase>
+        </event>
+        <event if="Klasse_C_diebstahl">
+          <phrase>Hey wir haben nicht gestohlen. Das haben wir gefunden. Wir würden doch niemals einem anderen Schüler etwas stehlen.</phrase>
+        </event>
+        <event if="Anne_Handy">
+          <phrase>Na mal sehen was wir hier auf dem Handy finden</phrase>
+          <question>
+            <text>Was willst du nachschauen?</text>
+            <answer trigger="Handy_dating">Schauen wir doch mal in die Dating App.</answer>
+            <answer trigger="Handy_nummern">Welche Nummern wurden denn zu letzt gewählt.</answer>
+            <answer trigger="Handy_SMS">Mit wem wurde denn zuletzt per SMS geschrieben.</answer>
+          </question>
+        </event>
+      </eventgroup>
+      <event id="Handy_dating">
+        <phrase>In der Datingapp hat sie zig ungelesene Nachrichten. Die letzte gelesene ist von einem gewissen "Matthias".</phrase>
+        <question>
+          <text>Was willst du nachschauen?</text>
+          <answer trigger="Handy_nummern">Welche Nummern wurden denn zu letzt gewählt.</answer>
+          <answer trigger="Handy_SMS">Mit wem wurde denn zuletzt per SMS geschrieben.</answer>
+        </question>
+      </event>
+      <event id="Handy_nummern">
+        <phrase>Die Letzt Nummer ist von Matthias. Mal anrufen.</phrase>
+        <phrase>Es ruft..</phrase>
+        <phrase>Es ruft lange...</phrase>
+        <question>
+          <text>Klick - Es wurde abgehoben. Was willst du sagen?</text>
+          <answer trigger="telefon_melden">Hallo wer ist da?</answer>
+          <answer trigger="telefon_melden">Ich kann hören, dass Sie dran sind.</answer>
+          <answer trigger="telefon_warten">Abwarten.</answer>
+        </question>
+      </event>
+      <event id="telefon_warten">
+        <phrase>Hallo? Wer ist da?</phrase>
+        <question>
+          <text>Du erkennst Pauls Stimme.</text>
+          <answer trigger="paul_wieder_beschuldigt">Paul bist du das? Wieso zum Teufel hast du dieses Handy?</answer>
+          <answer trigger="paul_wieder_beschuldigt">Paul? Hast du uns also doch belogen!</answer>
+          <answer trigger="paul_wieder_beschuldigt">Ich dachte du bist unschuldig? Wieso hat Anne dich dann als Matthias im Handy?</answer>
+          <answer trigger="paul_festnehmen">Nichts sagen, Auflegen und sofort zu Paul fahren um ihn fest zu nehmen.</answer>
+        </question>
+      </event>
+      <event id="telefon_melden">
+        <phrase>Bernd bist du das?</phrase>
+        <question>
+          <text>Du erkennst das die Stimme Paul gehört. Wie reagierst du?</text>
+          <answer trigger="paul_wieder_beschuldigt">Paul bist du das? Wieso zum Teufel hast du dieses Handy?</answer>
+          <answer trigger="paul_wieder_beschuldigt">Paul? Hast du uns also doch belogen!</answer>
+          <answer trigger="paul_wieder_beschuldigt">Ich dachte du bist unschuldig? Wieso hat Anne dich dann als Matthias im Handy?</answer>
+          <answer trigger="paul_festnehmen">Nichts sagen, Auflegen und sofort zu Paul fahren um ihn fest zu nehmen.</answer>
+        </question>
+      </event>
+      <event id="paul_wieder_beschuldigt">
+        <phrase>Moment! Ich habe das Handy eben aus einem Päckchen geholt, dass ich heute morgen erhalten habe!</phrase>
+        <phrase trigger="paul_festnehmen">Ich kann das beweisen. Komm her. Deswegen hat es auch so ewig gedauert an das Gespräch anzunehmen.</phrase>
+      </event>
+      <event id="paul_festnehmen">
+        <!-- TODO: village2 -->
+        <GotoLevel target="village1" x="13" y="-9" />
+      </event>
+      <event id="Handy_SMS">
+        <phrase>Die letzte SMS ist von einem "Matthias" und anscheinend wollte Anne und er sich treffen.</phrase>
+        <question>
+          <text>Was willst du nachschauen?</text>
+          <answer trigger="Handy_dating">Schauen wir doch mal in die Dating App.</answer>
+          <answer trigger="Handy_nummern">Welche Nummern wurden denn zu letzt gewählt.</answer>
+        </question>
       </event>
     </events>
   </definition>
@@ -115,17 +241,30 @@
       <deco obj="chair" r="3" />
     </range>
     <deco obj="chair" x="3" y="2" r="0" />
-    <!-- passive Schüler -->
-    <deco obj="schueler" x="7" y="2" r="3" />
-    <deco obj="schueler" x="8" y="3" r="2" />
-    <deco obj="schueler" x="2" y="6" r="0" />
-    <deco obj="schueler" x="3" y="6" r="0" />
-    <deco obj="schueler" x="2" y="7" r="2" />
-    <deco obj="schueler" x="3" y="7" r="2" />
+    <range x="10" y="5" width="4" height="1">
+      <deco obj="chair" r="0" />
+    </range>
+    <range x="16" y="5" width="4" height="1">
+      <deco obj="chair" r="0" />
+    </range>
+    <deco obj="chair" x="22" y="5" r="0" />
+    <deco obj="chair" x="23" y="6" r="1" />
+    <deco obj="plant" x="23" y="5" r="1" />
   </decos>
   <items>
   </items>
   <npcs>
     <npc id="Hausmeister" obj="janitor" trigger="janitor_dialogue" x="9" y="5" r="0" />
+    <npc id="schueler1" obj="schueler" trigger="schuelergespräch" x="7" y="2" r="3" />
+    <npc id="schueler2" obj="schueler" trigger="schuelergespräch" x="8" y="3" r="2" />
+    <npc id="schueler3" obj="schueler" trigger="schuelergespräch" x="2" y="6" r="0" />
+    <npc id="schueler4" obj="schueler" trigger="schuelergespräch" x="3" y="6" r="0" />
+    <npc id="schueler5" obj="schueler" trigger="schuelergespräch" x="2" y="7" r="2" />
+    <npc id="schueler6" obj="schueler" trigger="schuelergespräch" x="3" y="7" r="2" />
+    <!-- Klasse C Schüler -->
+    <npc id="schueler_C1" obj="schueler" trigger="Klasse_c_gespräch" x="21" y="6" r="3" />
+    <npc id="schueler_C2" obj="schueler" trigger="Klasse_c_gespräch" x="22" y="6" r="1" />
+    <npc id="schueler_C3" obj="schueler" trigger="Klasse_c_gespräch" x="21" y="7" r="3" />
+    <npc id="schueler_C4" obj="schueler" trigger="Klasse_c_gespräch" x="22" y="7" r="1" />
   </npcs>
 </level>
