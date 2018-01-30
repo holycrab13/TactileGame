@@ -1,4 +1,4 @@
-Die STORY von dem SPIEL
+﻿Die STORY von dem SPIEL
 
 
 - Kommisssar Bernd Schmidt kommt zu einem Entführungsfall in den ehem. Kurort Bad Wimpfen.
@@ -67,11 +67,11 @@ Paul drauf ansprechen → wer war da? Wenn er ein Alibi hat, dann soll er es ver
 Alle denken er wäre es gewesen → knickt ein und sagt er sei mit Julia zusammen gewesen, da er sich nicht raus traut weil alle so böse sind
 Julia kommt angelaufen, weil sie alles beobachtet hat und gesehen hat, dass Paul mit Polizei redet: „Er hat nichts getan jetzt lasst ihn doch mal alle in Ruhe!“ → „Ich weiß Paul hat mir gerade alles erzählt. Du bestätigst also seine Geschichte? Nur zu Sicherheit: erzähl du mir mal deine Version und Paul du solltest jetzt kurz still sein.“ → Die Geschichte bestätigt sich und damit scheint Paul aus dem Schneider zu sein. Doch wo ist Julia dann?
 
-Event: → DOING
+Event: → DONE
 Wenn Paul entlastet
 Miriam kommt an und erzählt, dass sie Annes Handy geortet hat: es wäre in der Schule
 
-Dialoge Schule:
+Dialoge Schule: → DONE
 nach dem auffinden des Telefons
 alle wissen, dass Anne das Dorf voll kacke findet → will in Stadt leben bei Matthias (hat sie über das Internet kennen gelernt)
 letzte Nummer auf dem Handy anrufen → Paul geht ran? Was ist los?

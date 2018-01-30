@@ -127,11 +127,38 @@
   <data name="avatar_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\avatar_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bar_east" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\bar_east.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bar_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\bar_middle.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bar_south" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\bar_south.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bar_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\bar_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baskettball_ring_E" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\baskettball_ring_E.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baskettball_ring_W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\baskettball_ring_W.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="big_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\big_window.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="big_window_corner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\big_window_corner.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bush" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\bush.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="car" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\car.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="car_south" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\car_south.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\cell.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,6 +175,9 @@
   <data name="chair_usual" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\chair_usual.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chalkboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\chalkboard.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cobble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\cobble.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,8 +187,17 @@
   <data name="desk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\desk.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="desk_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\desk_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desk_2_corner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\desk_2_corner.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="desk_keyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\desk_keyboard.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desk_keyboard_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\desk_keyboard_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="door_east" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\door_east.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,17 +226,44 @@
   <data name="door_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\door_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="garage_east" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\garage_east.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garage_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\garage_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garden_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\garden_door.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\key.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="muelltonne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\muelltonne.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="no_playarea" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\no_playarea.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paper_written" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\paper_written.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pavement_WE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\pavement_WE.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pavment_NS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\pavment_NS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plakat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\plakat.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="platz_rand_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\platz_rand_n.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="platz_rand_ne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\platz_rand_ne.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="platz_rand_nw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\platz_rand_nw.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="roof" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\roof.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,6 +292,21 @@
   <data name="roof_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\roof_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rough_way_corner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\rough_way_corner.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rough_way_NS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\rough_way_NS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rough_way_WE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\rough_way_WE.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schleife" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\schleife.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\stool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="street_E" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\street_E.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -250,6 +331,21 @@
   <data name="street_W" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\street_W.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tiger_hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\tiger_hide.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tiger_hide_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\tiger_hide_big.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tiger_hide_big_dotted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\tiger_hide_big_dotted.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tiger_hide_dotted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\tiger_hide_dotted.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tree_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\tree_16.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -259,8 +355,17 @@
   <data name="water_east" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\water_east.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="water_north" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\water_north.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="water_northeast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\water_northeast.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="water_south" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\water_south.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="water_west" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bmps\water_west.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="window" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmps\window.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
