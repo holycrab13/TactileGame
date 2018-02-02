@@ -180,7 +180,7 @@
       </event>
       <event id="paul_festnehmen">
         <!-- TODO: village2 -->
-        <GotoLevel target="village1" x="13" y="-9" />
+        <GotoLevel target="village2" x="13" y="-9" />
       </event>
       <event id="Handy_SMS">
         <phrase>Die letzte SMS ist von einem "Matthias" und anscheinend wollte Anne und er sich treffen.</phrase>
