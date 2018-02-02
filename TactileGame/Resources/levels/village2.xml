@@ -125,6 +125,76 @@
         <move>Down</move>
       </event>
       <!-- Dialogues -->
+      <event id="paul_paket" not="thomson_drohung">
+        <phrase set="thomson_drohung">Miriam wartet schon auf dich und hält Paul fest. Er scheint sehr ängstlich zu sein.</phrase>
+        <goto x="13" y="-8" />
+        <phrase>Als du näher kommst, schaut Paul dich an und beginnt zu sprechen:</phrase>
+        <question>
+          <text>Ich habe wirklich nichts damit zu tun. Das Telefon war in einem Päckchen, dass heute morgen bei mir ankam.</text>
+          <answer trigger="paul_holt">Na das scheint ja sehr passend zu sein: erst ein Alibi und nun auch noch das?</answer>
+          <answer trigger="paul_holt">Wenn es das Päckchen gibt, dann hol' es doch mal her.</answer>
+          <answer trigger="paul_drohung">Und wer sollte dir das anhängen wollen? Es hat doch keiner etwas davon.</answer>
+        </question>
+      </event>
+      <event id="paul_holt">
+        <phrase>Ich gehe kurz ins Haus, das Päckchen liegt noch im Flur.</phrase>
+        <relgoto target="paul" x="0" y="-1" />
+        <relgoto target="paul" x="0" y="1" />
+        <phrase>Als Paul wieder in der Tür erscheint reicht er dir wortlos ein aufgerissenes Päckchen.</phrase>
+        <phrase>Der Poststempel ist von Gestern, wodurch es gestern oder heute erst zugestellt wurde.</phrase>
+        <phrase>Der letzte Anruf auf Annes Telefo war aber vor 3 Tagen. Paul scheint also die Wahrheit zu sagen.</phrase>
+        <question>
+          <text>Sieht du Bernd. Ich bin nicht mehr so wie früher. 6 Monate Gefängnis sind viel Zeit zum überlegen.</text>
+          <answer trigger="paul_einsehen">Das habe ich garnicht bezweifelt, aber dir ist bewusst wie sehr alles auf dich gezeigt hat?</answer>
+          <answer trigger="paul_drohung">Okay du hast also nicht mit Anne telefoniert. Aber wer würde dir denn so einen Beweis schicken?</answer>
+          <answer trigger="paul_drohung">Na toll jetzt haben wir zwar Beweise gefunden, aber sind wieder ganz am Anfang.</answer>
+        </question>
+      </event>
+      <event id="paul einsehen">
+        <phrase>Natürlich sehe ich das auch und ich bin dir deswegen auch nicht böse. Zumindest hast du mich angehört.</phrase>
+        <question>
+          <text>Vielleicht kann ich ja doch noch hilfreich sein. Ich habe da nämlich einen Verdächtigen.</text>
+          <answer trigger="paul_drohung">Na dann raus damit!</answer>
+          <answer trigger="paul_drohung">Jetzt bin ich aber gespannt.</answer>
+          <answer trigger="paul_drohung">Mir fällt niemand ein, also höre ich gern zu.</answer>
+          <answer trigger="paul_drohung">Wieso kann keiner direkt alles erzählen...</answer>
+        </question>
+      </event>
+      <event id="paul_drohung">
+        <phrase>Kurz bevor ich aus dem Gefängnis kam, hab ich Besuch bekommen. Es war ein zwielichtiger Mann. Eben der Mann fürs Grobe.</phrase>
+        <phrase>Aber als sie gingen, hab ich aus meiner Zelle sehen können wie er sich draußen mit einem Bürohengst unterhalten hat.</phrase>
+        <phrase>Als ich dann hier wieder eingezogen bin hab ich den feinen Herrn wieder gesehen.</phrase>
+        <question>
+          <text>Nun raten Sie mal wer es war! Kleiner Tipp: Er ist relativ jung.</text>
+          <answer trigger="falscher_verdacht">Der Bürgermeister</answer>
+          <answer trigger="richtiger_verdacht">Thomsen der Bürgermeisterkandidat</answer>
+          <answer trigger="falscher_verdacht">Ernie der Kneipenbesitzer</answer>
+          <answer trigger="falscher_verdacht">Herr Wiechmann, der neue Lehrer an der Schule!</answer>
+        </question>
+      </event>
+      <event id="falscher_verdacht">
+        <phrase>Was soll der denn davon haben? Nein falsch geraten!</phrase>
+        <question>
+          <text>Nun strengen sie sich mal an!</text>
+          <answer trigger="falscher_verdacht">Der Bürgermeister</answer>
+          <answer trigger="richtiger_verdacht">Thomsen der Bürgermeisterkandidat</answer>
+          <answer trigger="falscher_verdacht">Ernie der Kneipenbesitzer</answer>
+          <answer trigger="falscher_verdacht">Herr Wiechmann, der neue Lehrer an der Schule!</answer>
+        </question>
+      </event>
+      <event id="richtiger_verdacht">
+        <phrase>Genau der. Ich kannte den Thomsen damals ja garnicht, aber der hat es faustdick hinter den Ohren!</phrase>
+        <phrase>Ich habe auch ein paar Leute angerufen, die ich im Gefängnis kennen gelernt habe und die meinten nur:</phrase>
+        <question>
+          <text>Mit dem sollte ich mich besser nicht anlegen, sonst würde ich einbetoniert als Fundament enden.</text>
+          <answer>Na dann sollten wir den doch mal befragen.</answer>
+          <answer>Deine Freunde übertreiben gern, was?</answer>
+          <answer>Okay also müssen wir in die Stadt fahren.</answer>
+        </question>
+      </event>
+      <event id="stadt_fahren">
+        <gotolevel target="office_thomson" x="0" y="0" />
+      </event>
     </events>
   </definition>
   <triggers>
@@ -137,6 +207,8 @@
     <trigger x="-17" y="-14" width="2" height="27" event="weitweg_W"/>
     <!-- Nordbegrenzung -->
     <trigger x="-17" y="-14" width="43" height="2" event="weitweg_N"/>
+    <!-- Gespräch mit Paul -->
+    <trigger x="12" y="-9"  width="3" height="3" event="paul_paket"/>
   </triggers>
   <doors>
     <door obj="door_police" x="0" y="-1" target="police" r="0" targetX="1" targetY="4" />
@@ -334,7 +406,6 @@
       <deco obj="roof_police" r="0" />
     </range>
     <deco obj="roof_police_north_west" x="-2" y="-4" r="0" />
-    <deco obj="polizei_auto" x="1" y="1" r="0" />
     <!-- Fußweg an Hauptstraße -->
     <range x="-6" y="0" width="13" height="1">
       <deco obj="pavement_WE" r="0" />
@@ -472,10 +543,11 @@
   <npcs>
     <npc id="house_paul" obj="door_paul"  x="13" y="-11" r="0" />
     <npc id="buergermeister" obj="major"  x="10" y="-2" r="0" />
-    <npc id="paul" obj="major" x="13" y="-12" r="0" if="paul_entlastet" />
+    <npc id="paul" obj="major" x="13" y="-10" r="0"/>
     <npc id="thomson_p" obj="plakat" x="-3" y="-1" r="0" />
-    <npc id="julia" obj="julia_tex" x="5" y="-6" r="2" />
+    <npc id="julia" obj="julia_tex" x="14" y="-10" r="1" />
     <npc id="muelltonne" obj="paul_muelltonne" x="15" y="-11" r="0" />
     <npc id="miriam" obj="miri" x="12" y="-10" r="3" />
+    <npc id="auto" obj="polizei_auto" x="1" y="1" r="0" trigger="stadt_fahren" />
   </npcs>
 </level>
