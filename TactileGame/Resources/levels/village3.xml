@@ -1,0 +1,484 @@
+﻿<level width="20" height="20" outerImg="bmps/tree_16.bmp">
+  <definition>
+    <objects>
+      <object id="paul_muelltonne" name="Muelltonne" desc="Ein kurzer Blick in Pauls Muelltonne verrät, dass er entweder zu jeder Mahlzeit Pizza gegessen haben muss oder unbemerkt Besuch hatte in den vergangenen Tagen." img="bmps/muelltonne.bmp" block="true" />
+      <object id="vertrag" name="einen nicht unterschriebenen Vertrag über den Verkauf des alten Hotels" desc="Ein Vertrag zum Verkauf des alten Hotels. Hier steht aber nicht wer es kaufen will." img="bmps/paper_written.bmp" block="false" />
+      <object id="plakat" name="Thomsonplakat" desc="Ein Wahlplakat zur baldigen Bürgermeisterwahl. Der junge Thomson ist darauf zu sehen." img="bmps/plakat.bmp" block="true" />
+      <object id="julia_tex" name="Julia" desc="Das ist Julia die Tochter des Bürgermeisters. Was macht sie denn hier hinten?" img="bmps/avatar_2.bmp" block="true" />
+      <object id="major" name="Bürgermeister" desc="Der gute Bürgermeister. Er kümmert sich immer hezlich um alle Angelegenheiten der Anwohner." img="bmps/avatar_2.bmp" block="true" />
+      <object id="wood_tree" name="Wald" desc="Hier geht es zum Wald der ringsum das Dorf steht. Nachts würde ich dort nicht hineingehen." img="bmps/tree_16.bmp" block="true" />
+      <object id="door_pub" name="Tür Kneipe" desc="Die Kneipe ist leider gerade geschlossen. Es ist einfach noch zu früh zum Trinken." img="bmps/door_north.bmp" block="true" />
+      <object id="wand_pub" name="Wand Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/wall.bmp" block="true" />
+      <object id="roof_pub" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof.bmp" block="true" />
+      <object id="roof_pub_west" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_pub_east" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_pub_north" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_pub_north_east" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_pub_north_west" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="roof_pub_south_east" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_south_east.bmp" block="true" />
+      <object id="roof_pub_south_west" name="Dach" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert." img="bmps/roof_south_west.bmp" block="true" />
+      <object id="cobble_pave_pub" name="Kopfsteinpflaster" desc="Der Weg zur Kneipe, gebaut aus grob behauenem Kopfsteinpflaster. Nicht gerade das beste für angetrunkene Gäste." img="bmps/cobble.bmp" block="false" />
+      <object id="pubschild" name="Schild" desc="Hier steht: zum torkelnden Bären." img="bmps/door_sign.bmp" block="true" />
+      <object id="window_pub" name="Fenster Kneipe" desc="Das ist die Dorfkneipe. Hier treffen sich eigentlich alle immer nach Feierabend. Die besten Feste werden hier gefeiert. Durch das Fenster kann man aber kaum noch schauen. Es ist ganz speckig und gelb." img="bmps/window_simple.bmp" block="true" />
+      <object id="wand_polizei" name="Wand Polizeistation" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/wall.bmp" block="true" />
+      <object id="door_police" name="Dach" desc="Eine Tür aus Holz. Sie führt in die Polizeistation." img="bmps/door_south.bmp" block="true" />
+      <object id="roof_police" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof.bmp" block="true" />
+      <object id="roof_police_west" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_police_east" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_police_north" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_police_north_east" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_police_north_west" name="Dach" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="street_N" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_N.bmp" block="false" />
+      <object id="street_S" name="Straße" desc="Die Dorfstraße auf der nur selten Autos fahren." img="bmps/street_S.bmp" block="false" />
+      <object id="pavement_WE" name="Fussweg" desc="Der schöne breite Fussweg neben der Dorfstraße." img="bmps/pavement_WE.bmp" block="false" />
+      <object id="polizeischild" name="Schild" desc="Hier steht: Polizei." img="bmps/door_sign.bmp" block="true" />
+      <object id="polizei_auto" name="Auto" desc="Das ist unser Streifenwagen. Er hat schon ein paar Jahre auf dem Buckel, aber er fährt immernoch schon ruhig." img="bmps/car.bmp" block="true" />
+      <object id="zaun" name="Zaun" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell.bmp" block="true" />
+      <object id="zaun_ecke" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner.bmp" block="true" />
+      <object id="zaun_ecke_180" name="Zaunecke" desc="Ein gut gepflegter Holzzaun. Müllers haben ihn letzte Woche erst neu gstrichen. Er riecht noch nach frischer Farbe, wenn man nah rangeht." img="bmps/cell_corner_180.bmp" block="true" />
+      <object id="muellerschild" name="Schild" desc="Hier steht: Müller." img="bmps/door_sign.bmp" block="true" />
+      <object id="window_polizei" name="Fenster Polizei" desc="Mein zweites Heim: die Polizeistation. Nicht besonders prächtig und könnte mal wieder einen Anstrich vertragen. Durch das Fenster kann man immer hinneinschauen. Wir haben nichts zu verstecken." img="bmps/window_simple.bmp" block="true" />
+      <object id="window_mueller" name="Fenster Mueller" desc="Ein altes Holzfenster, aber in gutem Zustand. Es wird regelmäßig neu gestrichen." img="bmps/window_old.bmp" block="true" />
+      <object id="water" name="Teichmitte" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water.bmp" block="true" />
+      <object id="water_east" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_east.bmp" block="true" />
+      <object id="water_west" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_west.bmp" block="true" />
+      <object id="water_north" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_north.bmp" block="true" />
+      <object id="water_south" name="Teichrand" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_south.bmp" block="true" />
+      <object id="water_corner" name="Teichecke" desc="Das ist die heiße Quelle des Dorfes. Früher kamen Touristen nur wegen der Quelle hier her." img="bmps/water_northeast.bmp" block="true" />
+      <object id="mueller_auto" name="Auto" desc="Das Auto der Müllers ist ein Kombi. Im Kofferraum sind Umzugskisten und er ist offen. Komisch!" img="bmps/car_south.bmp" block="true" />
+      <object id="roof_mueller" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof.bmp" block="true" />
+      <object id="roof_mueller_west" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_mueller_east" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_mueller_north" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_mueller_north_east" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_mueller_north_west" name="Dach" desc="Das alte Fachwerkaus der Müllers. Im Wind knarzt es ein wenig. Ich denke es war sogar das erste Haus des Dorfes." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="wand_mueller" name="Wand mueller" desc="Das ehemalige Hotel der Müllers. Sie wohnen hier nun schon seit 3 Generationen." img="bmps/wall.bmp" block="true" />
+      <object id="door_mueller" name="Tür Müller" desc="Eine alte Bauernhaustür. Der Türgriff ist abgegriffen und durch viele tausend Hände spiegelglatt." img="bmps/door_south.bmp" block="true" />
+      <object id="cobble_pave_mueller" name="Auffahrt der Müllers" desc="Die Auffahrt zu den Müllers. Sie besteht aus sehr grobem Kopfsteinpflaster." img="bmps/cobble.bmp" block="false" />
+      <object id="cobble_pave_school" name="Einfahrt zur schule" desc="Das ist die EInfahrt zur Schule. Sie besteht wie alle Einfahrten aus Kopfsteinpflaster. So hat man früher einfach gebaut." img="bmps/cobble.bmp" block="false" />
+      <object id="zaun_schule" name="Zaun der Schule" desc="Ein moderner Metallzaun. Er wurde erst vor kurzem aufgestellt nachdem Vandalen den Schulhof nachts verwüstet haben." img="bmps/cell.bmp" block="true" />
+      <object id="zaun_schule_ecke" name="Zaunecke der Schule" desc="Ein moderner Metallzaun. Er wurde erst vor kurzem aufgestellt nachdem Vandalen den Schulhof nachts verwüstet haben." img="bmps/cell_corner.bmp" block="true" />
+      <object id="zaun_schule_ecke_180" name="Zaunecke der Schule" desc="Ein moderner Metallzaun. Er wurde erst vor kurzem aufgestellt nachdem Vandalen den Schulhof nachts verwüstet haben." img="bmps/cell_corner_180.bmp" block="true" />
+      <object id="basketball_court_border" name="Basketball" desc="Der Sportplatz der Schule mit Baskettballkörben. Es wird eigentlich nur zum Baskettballspielen genutzt, da man in den Bergen um das Dorf besser laufen kann." img="bmps/platz_rand_n.bmp" block="false" />
+      <object id="basketball_court_edge_NW" name="Basketball" desc="Der Baskettballkorb des Schulsportplatzes. Komplett einbetoniert und aus Metall. Sogar das Netz besteht aus Metallketten und klirrt wenn es bewegt wird." img="bmps/platz_rand_nw.bmp" block="false" />
+      <object id="basketball_court_edge_NE" name="Basketball" desc="Der Baskettballkorb des Schulsportplatzes. Komplett einbetoniert und aus Metall. Sogar das Netz besteht aus Metallketten und klirrt wenn es bewegt wird." img="bmps/platz_rand_ne.bmp" block="false" />
+      <object id="basketball_ring" name="Basketball Ring" desc="Der Baskettballkorb des Schulsportplatzes. Komplett einbetoniert und aus Metall. Sogar das Netz besteht aus Metallketten und klirrt wenn es bewegt wird." img="bmps/baskettball_ring_W.bmp" block="true" />
+      <object id="basketball_ring_180" name="Basketball Ring" desc="Der Baskettballkorb des Schulsportplatzes. Komplett einbetoniert und aus Metall. Sogar das Netz besteht aus Metallketten und klirrt wenn es bewegt wird." img="bmps/baskettball_ring_E.bmp" block="true" />
+      <object id="roof_school" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof.bmp" block="true" />
+      <object id="roof_school_west" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_school_east" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_school_north" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_school_north_east" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_school_north_west" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="roof_school_south_east" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_south_east.bmp" block="true" />
+      <object id="roof_school_south_west" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/roof_south_west.bmp" block="true" />
+      <object id="schoolschild" name="Schild" desc="Da steht: 233. Grund- und 154. Gesamtschule" img="bmps/door_sign.bmp" block="true" />
+      <object id="door_school" name="Tür Schule" desc="Eine moderne leichte EIngangtür. Sie führt in die ebenfalls sehr modern und kantig gehaltene Schule des Dorfes." img="bmps/door_north.bmp" block="true" />
+      <object id="window_school" name="Fenster Schule" desc="Das Fenster zur Schule. Leider fehlt Geld und Zeit um sie mal wieder in Schuss zu bringen: die Farbe ist an vielen stellen abgeplatz." img="bmps/window_old.bmp" block="true" />
+      <object id="wand_school" name="Wand Schule" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht. Sie ist auch schon ein wenig ehrwürdig: die Wand besteht aus rauem Sandstein und die Reliefe an den Türen sind schon leicht zerbröckelt. Der Anstrich der Holzfenster ist bereits an vielen stellen aufgesprngen." img="bmps/wall.bmp" block="true" />
+      <object id="wand_major" name="Wand Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/wall.bmp" block="true" />
+      <object id="window_major" name="Wand Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/window_2sided.bmp" block="true" />
+      <object id="garage_major_e" name="Garage Bürgermeister" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/garage_east.bmp" block="true" />
+      <object id="garage_major_w" name="Garage Bürgermeister" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/garage_west.bmp" block="true" />
+      <object id="roof_majorgarage_nw" name="Garagen Dach" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="roof_majorgarage_n" name="Garagen Dach" desc="Das ist eine moderne Garage die der Bürgermeister an sein Haus angebaut hat. Er hat sogar eine Fernbedienung zum öffnen." img="bmps/roof_north.bmp" block="true" />
+      <object id="door_major" name="Tür Bürgermeister" desc="Eine schwere alte Tür mit einem meisterhaften geschmiedetem Türklopfer." img="bmps/door_south.bmp" block="true" />
+      <object id="roof_major" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof.bmp" block="true" />
+      <object id="roof_major_west" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_west.bmp" block="true" />
+      <object id="roof_major_east" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_east.bmp" block="true" />
+      <object id="roof_major_north" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_major_north_east" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_major_north_west" name="Dach Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="zaun_major" name="Zaun des Bürgermeisters" desc="Ein alter, gepflegter Holzzaun. Ebenso stilsicher wie klassisch." img="bmps/cell.bmp" block="true" />
+      <object id="zaun_major_ecke" name="Zaunecke des Bürgermeisters" desc="Ein alter, gepflegter Holzzaun. Ebenso stilsicher wie klassisch." img="bmps/cell_corner.bmp" block="true" />
+      <object id="zaun_major_door" name="Gartentor des Bürgermeisters" desc="Eine frisch geölte Gartentür. Ob der Bürgermeister sie regelmäßig benutzt?" img="bmps/garden_door.bmp" block="true" />
+      <object id="sign_major" name="Klingelschild Bürgermeister" desc="Hier steht: Haus des Bürgermeisters" img="bmps/door_sign.bmp" block="true" />
+      <object id="cobble_pave_major" name="Auffahrt des Bürgermeisters" desc="Die Auffahrt zum Haus des Bürgermeisters. Ordentlich gepflastert und gut gepflegt, es riecht nach frisch gemähtem Gras." img="bmps/cobble.bmp" block="false" />
+      <object id="door_paul" name="Tür Paul" desc="Eine alte Tür von der die Farbe an vielen Stellen schon abgeschrammt wurde. An vielen Stellen ist das blanke Holz zu sehen." img="bmps/door_south.bmp" block="true" />
+      <object id="sign_paul" name="Klingelschild Paul" desc="Hier steht: Haus von Paul" img="bmps/door_sign.bmp" block="true" />
+      <object id="way_paul_NS" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_NS.bmp" block="false" />
+      <object id="way_paul_corner" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_corner.bmp" block="false" />
+      <object id="way_paul_WE" name="der Weg zu Pauls Haus" desc="Hier geht es zu Pauls Haus. Der Weg ist ungepflegt und nicht mal befestigt. Man kann den Weg nur erkennen, weil er regelmäßig befahren wird." img="bmps/rough_way_WE.bmp" block="false" />
+      <object id="wand_paul" name="Wand Paul" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/wall.bmp" block="true" />
+      <object id="roof_paul" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north.bmp" block="true" />
+      <object id="roof_paul_north_east" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_east.bmp" block="true" />
+      <object id="roof_paul_north_west" name="Dach" desc="Das ist Pauls Haus. Er wurde vor kurzem erst aus der Haft entlassen. Deswegen meiden ihn die Leute im Dorf." img="bmps/roof_north_west.bmp" block="true" />
+      <object id="schleife" name="Julias Lieblingsschleife" desc="Das ist Julias Lieblingsschleife. Die hat sie fast immer im Haar." img="bmps/schleife.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
+    </objects>
+    <events>
+      <!-- Verlassen der Playarea -->
+      <event id ="weitweg_E">
+        <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
+        <move>Left</move>
+      </event>
+      <event id ="weitweg_S">
+        <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
+        <move>Up</move>
+      </event>
+      <event id ="weitweg_W">
+        <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
+        <move>Right</move>
+      </event>
+      <event id ="weitweg_N">
+        <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
+        <move>Down</move>
+      </event>
+      <!-- Dialogues -->
+      
+    </events>
+  </definition>
+  <triggers>
+    <!-- Begrenzungstrigger -->
+    <!-- Ostbegrenzung -->
+    <trigger x="26" y="-14" width="2" height="27" event="weitweg_E"/>
+    <!-- Südbegrenzung -->
+    <trigger x="-16" y="13" width="43" height="2" event="weitweg_S"/>
+    <!-- Westbegrenzung -->
+    <trigger x="-17" y="-14" width="2" height="27" event="weitweg_W"/>
+    <!-- Nordbegrenzung -->
+    <trigger x="-17" y="-14" width="43" height="2" event="weitweg_N"/>
+    <!-- Gespräch mit Paul -->
+    <trigger x="12" y="-9"  width="3" height="3" event="paul_paket"/>
+  </triggers>
+  <doors>
+    <door obj="door_police" x="0" y="-1" target="police" r="0" targetX="1" targetY="4" />
+    <door obj="door_mueller" x="-7" y="-6" target="mueller_house" r="0" targetX="0" targetY="0" />
+    <door obj="door_school" x="5" y="7" target="school" r="0" targetX="4" targetY="2" />
+    <door obj="door_major" x="10" y="-3" target="major_house" r="0" targetX="0" targetY="0" />
+  </doors>
+  <decos>
+    <!-- Wald um das Dorf -->
+    <!-- Nord -->
+    <range x="-18" y="-15" width="45" height="1">
+      <deco obj="wood_tree" r="0" />
+    </range>
+    <!-- Osten -->
+    <range x="27" y="-15" width="2" height="14">
+      <deco obj="wood_tree" r="1" />
+    </range>
+    <range x="27" y="4" width="2" height="14">
+      <deco obj="wood_tree" r="1" />
+    </range>
+    <!-- Westen -->
+    <range x="-19" y="-15" width="2" height="14">
+      <deco obj="wood_tree" r="2" />
+    </range>
+    <range x="-19" y="4" width="2" height="14">
+      <deco obj="wood_tree" r="2" />
+    </range>
+    <!-- Süden -->
+    <range x="-19" y="14" width="45" height="2">
+      <deco obj="wood_tree" r="2" />
+    </range>
+    <!-- Haus Paul -->
+    <deco obj="roof_paul_north_west" x="11" y="-12" r="0" />
+    <deco obj="roof_paul" x="12" y="-12" r="0" />
+    <deco obj="roof_paul" x="13" y="-12" r="0" />
+    <deco obj="roof_paul_north_east" x="14" y="-12" r="0" />
+    <deco obj="wand_paul" x="14" y="-11" r="0" />
+    <deco obj="wand_paul" x="11" y="-11" r="0" />
+    <deco obj="sign_paul" x="12" y="-11" r="0" />
+    <!-- Weg Paul -->
+    <deco obj="way_paul_corner" x="21" y="-10" r="0" />
+    <range x="21" y="-9" width="1" height="9">
+      <deco obj="way_paul_NS" r="0" />
+    </range>
+    <range x="13" y="-10" width="8" height="1">
+      <deco obj="way_paul_WE" r="0" />
+    </range>
+    <deco obj="zaun_major_ecke" x="15" y="-1" r="0" />
+    <!-- Zaun Bürgermeister -->
+    <deco obj="zaun_major_ecke" x="15" y="-1" r="0" />
+    <deco obj="zaun_major_ecke" x="4" y="-7" r="2" />
+    <deco obj="zaun_major_ecke" x="4" y="-1" r="1" />
+    <deco obj="zaun_major_ecke" x="15" y="-7" r="3" />
+    <deco obj="zaun_major_door" x="7" y="-7" r="0" />
+    <deco obj="zaun_major" x="5" y="-1" r="0" />
+    <deco obj="zaun_major" x="6" y="-1" r="0" />
+    <range x="5" y="-7" width="2" height="1">
+      <deco obj="zaun_major" r="0" />
+    </range>
+    <range x="8" y="-7" width="7" height="1">
+      <deco obj="zaun_major" r="0" />
+    </range>
+    <range x="9" y="-1" width="6" height="1">
+      <deco obj="zaun_major" r="0" />
+    </range>
+    <range x="4" y="-6" width="1" height="5">
+      <deco obj="zaun_major" r="1" />
+    </range>
+    <range x="15" y="-6" width="1" height="5">
+      <deco obj="zaun_major" r="1" />
+    </range>
+    <!-- Haus Bürgermeister -->
+    <deco obj="wand_major" x="9" y="-3" r="0" />
+    <deco obj="sign_major" x="11" y="-3" r="0" />
+    <deco obj="window_major" x="12" y="-3" r="0" />
+    <deco obj="wand_major" x="13" y="-3" r="0" />
+    <deco obj="window_major" x="9" y="-4" r="0" />
+    <deco obj="wand_major" x="10" y="-4" r="0" />
+    <deco obj="window_major" x="11" y="-4" r="0" />
+    <deco obj="wand_major" x="12" y="-4" r="0" />
+    <deco obj="window_major" x="13" y="-4" r="0" />
+    <deco obj="roof_major_north_west" x="9" y="-6" r="0" />
+    <deco obj="roof_major_west" x="9" y="-5" r="0" />
+    <deco obj="roof_major_north_east" x="13" y="-6" r="0" />
+    <deco obj="roof_major_east" x="13" y="-5" r="0" />
+    <range x="10" y="-6" width="3" height="1">
+      <deco obj="roof_major_north" r="0" />
+    </range>
+    <range x="10" y="-5" width="3" height="1">
+      <deco obj="roof_major" r="0" />
+    </range>
+    <!-- Garage Bürgermeister -->
+    <deco obj="wand_major" x="6" y="-3" r="0" />
+    <deco obj="garage_major_e" x="8" y="-3" r="0" />
+    <deco obj="garage_major_w" x="7" y="-3" r="0" />
+    <deco obj="roof_majorgarage_nw" x="6" y="-4" r="0" />
+    <deco obj="roof_majorgarage_n" x="7" y="-4" r="0" />
+    <deco obj="roof_majorgarage_n" x="8" y="-4" r="0" />
+    <!-- Auffahrt Bürgermeister -->
+    <range x="7" y="-2" width="2" height="3">
+      <deco obj="cobble_pave_major" r="0" />
+    </range>
+    <!-- Sportplatz Schule -->
+    <deco obj="basketball_ring" x="15" y="8" r="0" />
+    <deco obj="basketball_ring_180" x="24" y="8" r="0" />
+    <deco obj="basketball_court_edge_NW" x="15" y="6" r="0" />
+    <deco obj="basketball_court_edge_NE" x="24" y="6" r="0" />
+    <deco obj="basketball_court_edge_NW" x="15" y="10" r="3" />
+    <deco obj="basketball_court_edge_NE" x="24" y="10" r="1" />
+    <range x="15" y="7" width="1" height="3">
+      <deco obj="basketball_court_border" r="3" />
+    </range>
+    <range x="24" y="7" width="1" height="3">
+      <deco obj="basketball_court_border" r="1" />
+    </range>
+    <range x="16" y="6" width="8" height="1">
+      <deco obj="basketball_court_border" r="0" />
+    </range>
+    <range x="16" y="10" width="8" height="1">
+      <deco obj="basketball_court_border" r="2" />
+    </range>
+    <!-- Zaun Schule -->
+    <deco obj="zaun_schule_ecke" x="0" y="4" r="2" />
+    <deco obj="zaun_schule_ecke" x="8" y="4" r="3" />
+    <deco obj="zaun_schule_ecke" x="8" y="5" r="1" />
+    <deco obj="zaun_schule_ecke" x="25" y="5" r="3" />
+    <deco obj="zaun_schule_ecke" x="25" y="12" r="0" />
+    <deco obj="zaun_schule_ecke" x="0" y="12" r="1" />
+    <range x="3" y="4" width="5" height="1">
+      <deco obj="zaun_schule" r="0" />
+    </range>
+    <range x="9" y="5" width="16" height="1">
+      <deco obj="zaun_schule" r="0" />
+    </range>
+    <range x="1" y="12" width="24" height="1">
+      <deco obj="zaun_schule" r="0" />
+    </range>
+    <range x="0" y="5" width="1" height="7">
+      <deco obj="zaun_schule" r="1" />
+    </range>
+    <range x="25" y="6" width="1" height="6">
+      <deco obj="zaun_schule" r="1" />
+    </range>
+    <!-- Auffahrt Schule -->
+    <range x="1" y="3" width="2" height="3">
+      <deco obj="cobble_pave_school" r="0" />
+    </range>
+    <!-- Schulgebäude 11x4 -->
+    <range x="2" y="8" width="10" height="1">
+      <deco obj="wand_school" r="2" />
+    </range>
+    <range x="2" y="7" width="3" height="1">
+      <deco obj="wand_school" r="2" />
+    </range>
+    <range x="6" y="7" width="6" height="1">
+      <deco obj="wand_school" r="2" />
+    </range>
+    <deco obj="window_school" x="3" y="8" r="2" />
+    <deco obj="window_school" x="6" y="8" r="2" />
+    <deco obj="window_school" x="9" y="8" r="2" />
+    <deco obj="window_school" x="3" y="7" r="2" />
+    <deco obj="window_school" x="6" y="7" r="2" />
+    <deco obj="window_school" x="9" y="7" r="2" />
+    <!-- Dach Schulgebäude -->
+    <deco obj="roof_school_north_west" x="1" y="9" r="0" />
+    <deco obj="roof_school_north_east" x="12" y="9" r="0" />
+    <deco obj="roof_school_south_east" x="12" y="10" r="0" />
+    <deco obj="roof_school_south_west" x="1" y="10" r="0" />
+    <range x="2" y="9" width="10" height="1">
+      <deco obj="roof_school_north" r="0" />
+    </range>
+    <range x="2" y="10" width="10" height="1">
+      <deco obj="roof_school_north" r="2" />
+    </range>
+    <!-- Polizeigebäude 4x4 -->
+    <!-- noerdliche Wand -->
+    <deco obj="roof_police_north_west" x="-2" y="-4" r="0" />
+    <deco obj="roof_police_north" x="0" y="-4" r="0" />
+    <deco obj="roof_police_north" x="-1" y="-4" r="0" />
+    <deco obj="roof_police_north_east" x="1" y="-4" r="0" />
+    <!-- westliche Wand -->
+    <range x="-2" y="-3" width="1" height="2">
+      <deco obj="roof_police_west" r="0" />
+    </range>
+    <!-- östliche Wand -->
+    <range x="1" y="-3" width="1" height="2">
+      <deco obj="roof_police_east" r="0" />
+    </range>
+    <!-- suedliche Wand mit Tür -->
+    <deco obj="polizeischild" x="1" y="-1" r="0" />
+    <deco obj="window_polizei" x="-1" y="-1" r="0" />
+    <deco obj="wand_polizei" x="-2" y="-1" r="0" />
+    <!-- Restliches Polizeidach -->
+    <range x="-1" y="-3" width="2" height="2">
+      <deco obj="roof_police" r="0" />
+    </range>
+    <deco obj="roof_police_north_west" x="-2" y="-4" r="0" />
+    <!-- Fußweg an Hauptstraße -->
+    <range x="-6" y="0" width="13" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <range x="9" y="0" width="22" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <range x="-21" y="0" width="14" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <range x="-21" y="3" width="17" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <range x="-3" y="3" width="4" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <range x="3" y="3" width="28" height="1">
+      <deco obj="pavement_WE" r="0" />
+    </range>
+    <!-- Hauptstraße -->
+    <deco obj="polizei_auto" x="1" y="1" r="0"/>
+    <range x="-21" y="1" width="52" height="1">
+      <deco obj="street_N" r="0" />
+    </range>
+    <range x="-21" y="2" width="52" height="1">
+      <deco obj="street_S" r="0" />
+    </range>
+    <!-- Auffahrt Müllers -->
+    <range x="-7" y="-5" width="1" height="6">
+      <deco obj="cobble_pave_mueller" r="0" />
+    </range>
+    <deco obj="mueller_auto" x="-7" y="-2" r="0" />
+    <!-- Müllers Grundstück 13x10 -->
+    <!-- Umzäunung -->
+    <!-- Süden Umzäunung-->
+    <range x="-15" y="-4" width="8" height="1">
+      <deco obj="zaun" r="0" />
+    </range>
+    <range x="-6" y="-4" width="2" height="1">
+      <deco obj="zaun" r="0" />
+    </range>
+    <!-- Ecken Umzäunung -->
+    <deco obj="zaun_ecke" x="-4" y="-4" r="0" />
+    <deco obj="zaun_ecke" x="-16" y="-4" r="1" />
+    <deco obj="zaun_ecke_180" x="-16" y="-13" r="0" />
+    <deco obj="zaun_ecke" x="-4" y="-13" r="3" />
+    <!-- Westen Umzäunung -->
+    <range x="-16" y="-12" width="1" height="8">
+      <deco obj="zaun" r="1" />
+    </range>
+    <!-- Osten Umzäunung -->
+    <range x="-4" y="-12" width="1" height="8">
+      <deco obj="zaun" r="1" />
+    </range>
+    <!-- Norden Umzäunung -->
+    <range x="-15" y="-13" width="11" height="1">
+      <deco obj="zaun" r="0" />
+    </range>
+    <!-- noerdliche Wand -->
+    <deco obj="roof_mueller_north_west" x="-9" y="-9" r="0" />
+    <range x="-8" y="-9" width="2" height="1">
+      <deco obj="roof_mueller_north" r="0" />
+    </range>
+    <deco obj="roof_mueller_north_east" x="-6" y="-9" r="0" />
+    <!-- Haus Muellers 4x4 -->
+    <!-- westliche Wand -->
+    <range x="-9" y="-8" width="1" height="2">
+      <deco obj="roof_mueller_west" r="0" />
+    </range>
+    <!-- östliche Wand -->
+    <range x="-6" y="-8" width="1" height="2">
+      <deco obj="roof_mueller_east" r="0" />
+    </range>
+    <!-- suedliche Wand mit Tür -->
+    <deco obj="muellerschild" x="-6" y="-6" r="0" />
+    <deco obj="wand_mueller" x="-8" y="-6" r="0" />
+    <deco obj="wand_mueller" x="-9" y="-6" r="0" />
+    <deco obj="window_mueller" x="-8" y="-6" r="0" />
+    <!-- Restliches Dach -->
+    <range x="-8" y="-8" width="2" height="2">
+      <deco obj="roof_mueller" r="0" />
+    </range>
+    <!-- heiße Quelle -->
+    <range x="-14" y="-11" width="2" height ="6">
+      <deco obj="water" r="0" />
+    </range>
+    <!-- heiße Quelle - Westen -->
+    <range x="-15" y="-11" width="1" height ="6">
+      <deco obj="water_west" r="0" />
+    </range>
+    <!-- heiße Quelle - Osten -->
+    <range x="-12" y="-10" width="1" height ="5">
+      <deco obj="water_east" r="0" />
+    </range>
+    <range x="-14" y="-12" width="3" height ="1">
+      <deco obj="water_north" r="0" />
+    </range>
+    <range x="-14" y="-5" width="2" height ="1">
+      <deco obj="water_south" r="0" />
+    </range>
+    <deco obj="water" x="-12" y="-11" r="0" />
+    <deco obj="water_corner" x="-15" y="-12" r="1" />
+    <deco obj="water_corner" x="-11" y="-12" r="0" />
+    <deco obj="water_corner" x="-11" y="-11" r="1" />
+    <deco obj="water_corner" x="-12" y="-5" r="1" />
+    <deco obj="water_corner" x="-15" y="-5" r="2" />
+    <!-- Kneipe -->
+    <!-- Dach Norden -->
+    <deco obj="roof_pub_north_west" x="-5" y="7" r="0" />
+    <deco obj="roof_pub_north" x="-4" y="7" r="0" />
+    <deco obj="roof_pub_north_east" x="-3" y="7" r="0" />
+    <!-- Dach Süden -->
+    <deco obj="roof_pub_south_west" x="-5" y="8" r="0" />
+    <deco obj="roof_pub_north" x="-4" y="8" r="2" />
+    <deco obj="roof_pub_south_east" x="-3" y="8" r="0" />
+    <!-- nördliche Wand mit Tür -->
+    <deco obj="pubschild" x="-5" y="6" r="2" />
+    <deco obj="window_pub" x="-3" y="6" r="2" />
+    <deco obj="door_pub" x="-4" y="6" r="0" />
+    <!-- Restliches Kneipendch -->
+    <range x="-4" y="7" width="1" height="1">
+      <deco obj="roof_pub" r="0" />
+    </range>
+    <deco obj="roof_pub_north_west" x="-2" y="-4" r="0" />
+    <!-- Auffahrt Kneipe-->
+    <range x="-4" y="3" width="1" height="3">
+      <deco obj="cobble_pave_pub" r="0" />
+    </range>
+  </decos>
+  <items>
+    <item not="vertrag_gefunden" obj="vertrag" x="-3" y="-10" r="1" id="vertrag" />
+    <item not="schleife_gefunden" obj="schleife" x="10" y="-11" r="0" id="schleife" />
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+    <npc id="house_paul" obj="door_paul"  x="13" y="-11" r="0" />
+    <npc id="buergermeister" obj="major"  x="10" y="-2" r="0" />
+    <npc id="paul" obj="major" x="13" y="-10" r="0"/>
+    <npc id="thomson_p" obj="plakat" x="-3" y="-1" r="0" />
+    <npc id="julia" obj="julia_tex" x="14" y="-10" r="1" />
+    <npc id="muelltonne" obj="paul_muelltonne" x="15" y="-11" r="0" />
+    <npc id="miriam" obj="miri" x="12" y="-10" r="3" />
+  </npcs>
+</level>
