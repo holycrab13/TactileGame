@@ -179,8 +179,7 @@
         <phrase trigger="paul_festnehmen">Ich kann das beweisen. Komm her. Deswegen hat es auch so ewig gedauert an das Gespräch anzunehmen.</phrase>
       </event>
       <event id="paul_festnehmen">
-        <!-- TODO: village2 -->
-        <GotoLevel target="village1" x="13" y="-9" />
+        <gotolevel target="village2" x="13" y="-8" />
       </event>
       <event id="Handy_SMS">
         <phrase>Die letzte SMS ist von einem "Matthias" und anscheinend wollte Anne und er sich treffen.</phrase>

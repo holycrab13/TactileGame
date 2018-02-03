@@ -320,7 +320,7 @@
             <answer>Wieso kommst du dann zu mir und gehst nicht in die Schule?</answer>
             <answer>Was macht es denn da? Das muss ich mir mal anschauen...</answer>
           </question>
-          <GotoLevel target="school" x="0" y="0" />
+          <gotolevel target="school" x="0" y="0" />
         </event>
       </eventgroup>
       <event id="paul_dankt">
