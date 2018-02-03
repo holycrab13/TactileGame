@@ -124,8 +124,6 @@
         <phrase>Hier komme ich nur in den Wald. Dort habe ich aktuell nichts zu suchen.</phrase>
         <move>Down</move>
       </event>
-      <!-- Dialogues -->
-      
     </events>
   </definition>
   <triggers>

@@ -1,4 +1,4 @@
-﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+﻿<level width="9" height="8" onload="baumann_flur" outerImg="no_playarea.bmp">
   <definition>
     <objects>
       <object id="vertrag" name="plan_ross" desc="Ein großer Bebauungs und Nutzungsplan für die heißen Quellen. Da steht Baufirma Baumann soll alles errichten." img="bmps/paper_written.bmp" block="false" />
@@ -14,7 +14,7 @@
       <object id="plant" name="Tür" desc="Ein kleiner Bonsaibaum. Er scheint kürzlich umgetopft worden zu sein." img="bmps/bush.bmp" block="true" />
     </objects>
     <events>
-      <event id="baumann_flur" not="baumann_getroffen">
+      <event id="baumann_flur">
         <phrase set="baumann_getroffen">Auf dem Flur zum Büro ist dir der dicke Herr Baumann aufgefallen. Ihm gehört das größte Bauunternehmen der Stadt.</phrase>
         <phrase>Was der wohl hier wollte? Ob das etwas mit dem großen Wahlkampfbudget zu tun hat?</phrase>
       </event>
@@ -85,7 +85,7 @@
         <phrase>War hier nicht eben noch ein Blatt Papier auf dem Boden? Das war mir vorhin herunter gefallen.</phrase>
         <phrase>Da hab ich mich wohl vertan</phrase>
         <phrase>Es tut mir leid Herr Komissar, aber ich muss Sie bitten zu gehen. Ich habe leider dringende Angelegenheiten zu klären.</phrase>
-        <gotolevel target="village3" x="2" y="0" />
+        <gotolevel target="pub" x="2" y="0" />
       </event>
       <event id="thomson_kommt">
         <goto target="thomson" x="0" y="0" />
@@ -95,13 +95,10 @@
         <phrase clear="vertrag_sichtbar">Ach da ist ja der Plan den mein Kollege braucht.</phrase>
         <phrase>Thomson hebt den Vertrag auf und schiebt ihn in die oberste Schublade seines Schreibtisches.</phrase>
         <phrase>Es tut mir leid Herr Komissar, aber ich muss Sie bitten zu gehen. Ich habe leider dringende Angelegenheiten zu klären.</phrase>
-        <gotolevel target="village3" x="2" y="0" />
+        <gotolevel target="pub" x="2" y="0" />
       </event>
     </events>
   </definition>
-  <triggers>
-    <trigger x="0" y="-1"  width="2" height="3" event="baumann_flur"/>
-  </triggers>
   <doors>
     <door obj="door" x="-1" y="0" target="village2" r="3" targetX="1" targetY="0" />
   </doors>
