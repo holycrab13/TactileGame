@@ -1,0 +1,86 @@
+﻿<level width="9" onload="alles_geklärt" height="8">
+  <definition>
+    <objects>
+      <object id="person" name="Miriam" desc="Meine Kollegin Miriam. Sie weiß immer weiter, wenn ich keine Idee mehr habe." img="bmps/avatar_2.bmp" block="true" />
+      <object id="wand" name="Wand" desc="Das ist nur die Wand der Polizeistation. Ziemlich rau." img="bmps/wall.bmp" block="true" />
+      <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window.bmp" block="true" />
+      <object id="fenster_offen" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window_open.bmp" block="true" />
+      <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
+      <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="bmps/cell.bmp" block="true" />
+      <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk_keyboard.bmp" block="true" />
+      <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk.bmp" block="true" />
+      <object id="chair" name="Bürostuhl" desc="Mein alter Bürostuhl. Auf dem saß schon mein Vorgänger. Das Ding erzeugt nur noch Rückenschmerzen." img="bmps/chair_office.bmp" block="false" />
+      <object id="miri" name="Miriam" desc="Das ist Miriam meine Partnerin seit einem Jahr. Sie ist noch ein wenig ungestühm, aber kann Menschen sehr gut einschätzen." img="bmps/avatar_2.bmp" block="true" />
+    </objects>
+    <events>
+      <eventgroup id="alles_geklärt">
+        <event>
+          <phrase>Du hast es Abend gerade noch geschafft Miriam alles zu erzählen.</phrase>
+          <phrase>Miriam hat daraufhin Baumanns Stadthotel durchsuchen lassen und dort Anne aufgefunden.</phrase>
+          <phrase>Durch die kombinierten Aussagen aller, ist klar genug wer was verbrochen hat.</phrase>
+        </event>
+        <event if="plan_genommen">
+          <phrase>Baumann war völlig ahnungslos und konnte geschnappt werden.</phrase>
+          <phrase>Doch durch das Einstecken des Bebauungsplanes war Thomson mistrauisch und hat sich lieber abgesetzt.</phrase>
+          <phrase>Er wird aktuell bundesweit gesucht.</phrase>
+        </event>
+        <event not="plan_genommen">
+          <phrase>Baumann war völlig ahnungslos und konnte geschnappt werden.</phrase>
+          <phrase>Auch Thomson konnte überrascht und festgenommen werden.</phrase>
+          <phrase>Beide erwartet eine empfindliche Strafe. Die Aussagen aller Beteiligten sollten ausreichen.</phrase>
+        </event>
+        <event>
+          <phrase>Danke das du unser kleines Projekt gespielt hast. Wir hoffen es hat dir gefallen.</phrase>
+        </event>
+      </eventgroup>
+    </events>
+  </definition>
+  <triggers>
+  </triggers>
+  <doors>
+    <door obj="door" x="1" y="5" target="village3" targetX="0" targetY="0" />
+  </doors>
+  <decos>
+    <!-- noerdliche Wand mit Fenster -->
+    <range x="-1" y="-1" width="2" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="fenster_offen" x="1" y="-1" r="0" />
+    <deco obj="fenster" x="2" y="-1" r="0" />
+    <range x="3" y="-1" width="5" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <!-- westliche Wand -->
+    <range x="-1" y="0" width="1" height="5">
+      <deco obj="wand" r="1" />
+    </range>
+    <!-- östliche Wand -->
+    <range x="7" y="0" width="1" height="5">
+      <deco obj="wand" r="1" />
+    </range>
+    <!-- Zelle -->
+    <range x="4" y="0" width="1" height="3">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="gitter" x="5" y="2" r="0" />
+    <deco obj="gitter" x="6" y="2" r="0" />
+    <!-- suedliche Wand mit Tür -->
+    <range x="2" y="5" width="6" height="1">
+      <deco obj="wand" r="1" />
+    </range>
+    <deco obj="wand" x="-1" y="5" r="1" />
+    <deco obj="wand" x="0" y="5" r="1" />
+    <!-- Objekte um die Umgebung zu gestalten-->
+    <deco obj="desk_office" x="3" y="2" r="0" />
+    <deco obj="desk" x="2" y="2" r="0" />
+  </decos>
+  <items>
+  </items>
+  <containers>
+  </containers>
+  <npcs>
+    <npc id="miriam" obj="miri" x="3" y="1" r="0" >
+      <phrase>Toll, wie du dich um die Sache mit Anne gekümmert hast!</phrase>
+    </npc>
+  </npcs>
+</level>
