@@ -2,5 +2,5 @@
   <investigation>
     <fact id="in_gedanken">true</fact>
   </investigation>
-  <level name="school" x="4" y="2"/>
+  <level name="police" x="0" y="0"/>
 </save>

@@ -1,4 +1,4 @@
-﻿<level width="9" height="8" outerImg="no_playarea.bmp">
+﻿<level width="9" height="8" onload="miriam_telefonat" outerImg="no_playarea.bmp">
   <definition>
     <objects>
       <object id="ernie" name="Ernie" desc="Ernie der Dorfälteste. Hat immer einen guten Schluck dabei und sonst gibt es in seiner Kneipe noch mehr." img="bmps/avatar_2.bmp" block="true" />
@@ -11,6 +11,81 @@
       <object id="bar_west" name="Bar" desc="Eine ehrwürdige Bar. Das Holz schaut an manchen Stellen schon durch die Versiegelung. Besonders an den Ecken ist sie abgestoßen." img="bmps/bar_west.bmp" block="true" />
     </objects>
     <events>
+      <!-- Dialogues -->
+      <event id="miriam_telefonat">
+        <phrase>Auf dem Rückweg hast du Miriam angerufen und ihr alles erzählt.</phrase>
+        <phrase>Sie meinte du solltest dich jetzt mal mit Baumann unterhalten und ihn vorsichtig aushorchen.</phrase>
+        <phrase>Baumann hast du schon oft auf Polizeibällen und anderen Veranstaltungen getroffen.</phrase>
+        <phrase>Deswegen ist es nicht so ungewöhnlich, dass du ihn auf einen Trunk nach der Arbeit eingeladen hast.</phrase>
+      </event>
+      <eventgroup id="verlassen">
+        <event if="baumann_pläne">
+          <phrase>Ich muss heim. Es war ein langer Tag. Morgen wird ausgewertet.</phrase>
+          <gotolevel target="police2" x="0" y="0" />
+        </event>
+        <event not="baumann_pläne">
+          <phrase>Ich denke ich kann von Baumann noch mehr erfahren.</phrase>
+        </event>
+      </eventgroup>
+      <event id="baumann_gespräch">
+        <phrase>Hey Bernd. Na lange nicht gesehen.</phrase>
+        <question>
+          <text>Wieso warst du denn nicht beim letzten Polizeiball dabei?</text>
+          <answer trigger="arbeit">Wann war der denn? Wahrscheinlich hatte ich zu viel zu tun.</answer>
+          <answer trigger="arbeit">Ich konnte nicht, ich war auf Streife</answer>
+          <answer trigger="beleidigung">Ich hatte keine Lust. Die ganzen alten Geldsäcke können sich auch allein amüsieren.</answer>
+          <answer trigger="amüsement">Bei den ganzen hübschen Frauen hast du wohl mich kaum vermisst, oder?</answer>
+        </question>
+      </event>
+      <event id="arbeit">
+        <phrase>Du willst mir erzählen, dass du an einem Sonntagabend als Dorfpolizist arbeiten musstest?</phrase>
+        <phrase>Wenn es so schlecht um die Polizei steht, muss ich doch mal ein Wörtchen mit dem Landrat reden.</phrase>
+        <question>
+          <text>Aber kannst du mich kurz entschuldigen? Das Bier drückt.</text>
+          <answer trigger="tasche_allein">Klaro. Bis gleich</answer>
+          <answer trigger="tasche_allein">Kann ich machen. Ich pass auch auf deine Sachen auf.</answer>
+          <answer trigger="tasche_allein">Aber verpiss dich nicht! Kleiner Scherz.</answer>
+          <answer trigger="tasche_allein">Ziel aber gut. Sonst wird Ernie wieder sauer.</answer>
+        </question>
+      </event>
+      <event id="beleidigung">
+        <phrase>Hahahahahaha! Jetzt weiß ich wieder was mir gefehlt hat.</phrase>
+        <phrase>Du bist einfach immer so erfrischend ehrlich. Hahahahaha!</phrase>
+        <question>
+          <text>Oh bei dem Lachen merke ich, dass ich mal schnell für große Tigerchen muss. Wartest du kurz?</text>
+          <answer trigger="tasche_allein">Klaro. Bis gleich</answer>
+          <answer trigger="tasche_allein">Kann ich machen. Ich pass auch auf deine Sachen auf.</answer>
+          <answer trigger="tasche_allein">Aber verpiss dich nicht! Kleiner Scherz.</answer>
+          <answer trigger="tasche_allein">Ziel aber gut. Sonst wird Ernie wieder sauer.</answer>
+        </question>
+      </event>
+      <event id="amüsement">
+        <phrase>Vermisst ist so ein starkes Wort. Aber mir fiel dein Fehlen auf.</phrase>
+        <question>
+        <text>Übrigens der alte Knusperkopf von der deutschen Bank hat schon wieder eine Neue.</text>
+          <answer trigger="beleidigung">Was? Bei seinem Verschleiß muss er bald in der Familie weiter machen.</answer>
+          <answer trigger="beleidigung">Und wie jung ist sie diesmal? wieder 18 oder doch schon über 20?</answer>
+          <answer trigger="alter_sack">Der ist immernoch nicht tot? Der ist doch schon 93.</answer>
+          <answer trigger="alter_sack">Was die jungen Dinger alle von so einem wollen?</answer>
+        </question>
+      </event>
+      <event id="alter_sack">
+        <phrase>Ja aber er will einfach nicht Platz machen und Geld ist nun mal sexy.</phrase>
+        <question>
+          <text>Hast du schon davon gehört: der Typ soll sein Vermögen im letzten Jahr verdoppelt haben. Cryptowährung!</text>
+          <answer trigger="beleidigung">Und wenn er bald Geld kackt. Mir doch egal. Lange macht er trotzdem nicht mehr</answer>
+          <answer trigger="beleidigung">Ach lass mich mit dem neumodischen Scheiß in Ruhe. Was ich nicht anfassen kann, kauf ich nicht!</answer>
+          <answer trigger="arbeit">Soll er mal die Hälfte abgeben, dann können wir mal die Wache renovieren und neue Leute einstellen. Dann komme ich auch wieder zu den Bällen.</answer>
+        </question>
+      </event>
+      <event id="tasche_allein">
+        <phrase>Wenn du schon mit der Tasche allein bist, nutzt die Gelegenheit und wirfst einen Blick hinein.</phrase>
+        <phrase>Alte Rechnungen, die Handynummer der Sekretärin, ein Bild von Baumanns Frau, eine Kopie seines ersten Bauvertrages...</phrase>
+        <phrase>... und ein nichtbeschriftetes Büchlein. Was da wohl drin ist.</phrase>
+        <phrase>Du blätterst durch das Buch als dir am Ende ein paar Stichpunkte sehr merkwürdig vorkommen:</phrase>
+        <phrase set="baumann_dabei">Anne verschwinden - Müllers vertreiben - Billig heiße Quellen kriegen - Profit!</phrase>
+        <phrase set="baumann_pläne">Schnell packst du wieder alles in die Tasche wie es vorher war und stellst sie zurück auf den Boden.</phrase>
+      </event>
       <!-- Reden mit Ernie -->
       <event id="ernie_redet">
         <turn target="erniebert">Right</turn>
@@ -23,29 +98,29 @@
         </question>
       </event>
       <event id="verlaufen">
-          <phrase>Du und verlaufen? Du hast dich selbst nach 30 schnellen Drehungen noch orientieren können.</phrase>
-          <phrase>Das weiß ich noch als wäre es gestern gewesen: auf der Hochzeit der Müllers. Du hast sie alle nass gemacht.</phrase>
-          <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+        <phrase>Du und verlaufen? Du hast dich selbst nach 30 schnellen Drehungen noch orientieren können.</phrase>
+        <phrase>Das weiß ich noch als wäre es gestern gewesen: auf der Hochzeit der Müllers. Du hast sie alle nass gemacht.</phrase>
+        <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
       </event>
       <event id="ein_schluck">
-          <phrase>Na hier dann nimm doch einen Kräftigen! Du kannst es ja vertragen.</phrase>
-          <phrase>Das hab ich damals bei der Hochzeit der Müllers ja gesehen: du warst der letzte der stand. Als wäre nichts passiert.</phrase>
-          <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
+        <phrase>Na hier dann nimm doch einen Kräftigen! Du kannst es ja vertragen.</phrase>
+        <phrase>Das hab ich damals bei der Hochzeit der Müllers ja gesehen: du warst der letzte der stand. Als wäre nichts passiert.</phrase>
+        <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
       </event>
       <event id="reden">
         <question>
           <text>Mit mir altem Opi? Was kann ich dir denn helfen?</text>
           <answer trigger="was_gehört">Es heißt die Anne ist verschwunden: hast du was darüber gehört?</answer>
-          <answer trigger="schicken">Meine Partnerin schickt mich wieder sinnlos durch die Gegend.</answer>
+          <answer trigger="schicken">Miriam schickt mich wieder von Hinz zu Kunz.</answer>
         </question>
       </event>
       <event id="was_gehört">
-        <phrase set="hotel anne_vermisst">Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
+        <phrase set="hotel_anne_vermisst">Nein ich hab nichts gehört. Aber die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe.</phrase>
         <phrase>Weißt du noch die Hochzeit? Die war einfach super, als wir alle in den heißen Quellen entspannen konnten.</phrase>
         <phrase>Ach ja, das war ein Fest. Das die beiden das alte Hotel renoviert haben, hat sie sicher viel Arbeit gekostet.</phrase>
       </event>
       <event id="schicken">
-        <phrase set="hotel">Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als sie denken. Worum gehts denn?</phrase>
+        <phrase set="hotel">Lass dir mal nen Rat von einem Alten geben: die Frauen wissen mehr als wir denken. Worum gehts denn?</phrase>
         <phrase>Sie meint es wäre was passiert, weil Anne die letzten Tage nicht in der Schule war und keiner was gehört hat.</phrase>
         <phrase>die Tochter der Müllers? und ich dachte sie kommen mal zu Ruhe. Jetzt wo endlich alle um das alte Hotel geklärt ist.</phrase>
       </event>
@@ -56,7 +131,6 @@
     <trigger x="-1" y="2" width="2" height="1" event="ernie_redet"/>
   </triggers>
   <doors>
-    <door obj="door" x="0" y="-1" target="village1" targetX="-4" targetY="5" />
   </doors>
   <decos>
     <!-- noerdliche Wand -->
@@ -97,7 +171,8 @@
   <containers>
   </containers>
   <npcs>
-    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" trigger="ernie_redet" >
-    </npc>
+    <npc id="erniebert" obj="ernie" x="-1" y="2" r="0" trigger="ernie_redet" />
+    <npc id="baumann" obj="ernie" x="4" y="3" r="1" trigger="baumann_gespräch"
+    <npc id="tür" obj="door" x="0" y="-1" trigger="verlassen"/>
   </npcs>
 </level>
