@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using TactileGame.RPG.Controller;
 using TactileGame.RPG.Files;
 using TactileGame.RPG.Models;
@@ -42,7 +42,7 @@ namespace TactileGame.RPG.Menu
         /// <summary>
         /// The timer running the game loop
         /// </summary>
-        private Timer timer;
+        private readonly Timer timer;
 
         /// <summary>
         /// The shared game input model
@@ -106,10 +106,8 @@ namespace TactileGame.RPG.Menu
             this.SetWidth(width);
             this.SetHeight(height);
             // Setup timer
-            timer = new Timer();
-            timer.Interval = 50;
-            timer.Tick += Tick;
-
+            timer = new Timer(new TimerCallback(Tick), null, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+         
             mainRegion = new BrailleIOViewRange(0, 0, width, height);
             detailRegion = new BrailleIOViewRange(0, height - 18, width, 18);
             detailRegion.SetBorder(1);
@@ -143,8 +141,9 @@ namespace TactileGame.RPG.Menu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tick(object sender, EventArgs e)
+        private void Tick(object sdfgsdfg)
         {
+
             // Push the last update to the screen
             Render();
 
@@ -155,7 +154,7 @@ namespace TactileGame.RPG.Menu
 
 
             // Do the rendering/sound stuff. TODO: Clean this up with views
-            detailRegion.SetVisibility(false);
+            
 
             buffers[bufferIndex].Clear();
 
@@ -176,8 +175,7 @@ namespace TactileGame.RPG.Menu
             bufferIndex = (bufferIndex + 1) % 2;
 
             if (gameState == GameState.Event && gameDialogue.HasAction())
-            {
-                detailRegion.SetVisibility(true);
+            {              
 
                 if (detailRegion.GetText() != gameDialogue.GetCurrent())
                 {
@@ -185,11 +183,17 @@ namespace TactileGame.RPG.Menu
                     Audio.AbortCurrentSound();
                     Audio.PlaySound(gameDialogue.GetCurrent());
                 }
+
+                if (!detailRegion.IsVisible()) 
+                    detailRegion.SetVisibility(true);
             }
             else
             {
                 Audio.AbortCurrentSound();
                 detailRegion.SetText(string.Empty);
+
+                if(detailRegion.IsVisible()) 
+                    detailRegion.SetVisibility(false);
             }
         }
 
@@ -211,7 +215,9 @@ namespace TactileGame.RPG.Menu
         protected override void OnShow()
         {
             detailRegion.SetVisibility(false);
-            timer.Start();
+            timer.Change(0, 50);
+            System.Diagnostics.Debug.WriteLine("---------- Timer started: " + timer);
+
         }
 
         /// <summary>
@@ -219,7 +225,8 @@ namespace TactileGame.RPG.Menu
         /// </summary>
         protected override void OnHide()
         {
-            timer.Stop();
+            timer.Change(System.Threading.Timeout.Infinite,System.Threading.Timeout.Infinite);
+            System.Diagnostics.Debug.WriteLine("---------- Timer stoped: " + timer);
         }
 
         /// <summary>

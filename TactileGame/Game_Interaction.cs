@@ -24,7 +24,9 @@ namespace TactileGame
         {
             if(currentScreen != null)
             {
-                currentScreen.HandleInteraction(e.keyCode);
+                Task t = new Task(new Action(() => { currentScreen.HandleInteraction(e.keyCode); }));
+                t.Start();
+               
             }
         }
     

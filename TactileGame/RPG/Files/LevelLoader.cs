@@ -64,7 +64,10 @@ namespace TactileGame.RPG.Files
                     Texture = BooleanTexture.FromFile("Resources/" + XmlUtil.Get(node, "img", ll.GetTrans("resource.default.texture"))),
                 };
 
-                worldObjects.Add(XmlUtil.Get(node, "id", "error"), obj);
+                string id = XmlUtil.Get(node, "id", "error");
+
+                if (!worldObjects.ContainsKey(id))
+                    worldObjects.Add(id, obj);
             }
 
             XmlNode levelNode = doc.DocumentElement;
