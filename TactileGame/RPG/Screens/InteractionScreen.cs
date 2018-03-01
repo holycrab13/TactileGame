@@ -51,7 +51,7 @@ namespace TactileGame.RPG.Menu
 
         public void Render()
         {
-            IO.RenderDisplay();
+            IO.RefreshDisplay(true);
         }
 
         public void Register()

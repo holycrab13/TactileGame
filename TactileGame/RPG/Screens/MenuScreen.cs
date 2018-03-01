@@ -52,38 +52,41 @@ namespace TactileGame.RPG.Menu
 
         private void createOrUpdate(int width, int itemHeight)
         {
-            if (ranges == null && menu != null)
+            if (menu != null)
             {
-                ranges = new BrailleIOViewRange[menu.Length];
-
-                for (int i = 0; i < ranges.Length; i++)
+                if (ranges == null || ranges.Any(r => r == null))
                 {
-                    BrailleIOViewRange range = new BrailleIOViewRange(left, top + i * itemHeight, width - left, itemHeight);
-                    range.SetText(menu.GetLabel(i));
+                    ranges = new BrailleIOViewRange[menu.Length];
 
-                    ranges[i] = range;
-
-                    AddViewRange(range);
-                }
-            }
-
-            if (ranges != null)
-            {
-                for (int i = 0; i < ranges.Length; i++)
-                {
-                    ranges[i].SetTop(top + i * itemHeight);
-                    ranges[i].SetWidth(width - left);
-                    ranges[i].SetHeight(itemHeight);
-
-                    if (menu.index == i)
+                    for (int i = 0; i < ranges.Length; i++)
                     {
-                        ranges[i].SetBorder(1);
-                        ranges[i].SetPadding(1);
+                        BrailleIOViewRange range = new BrailleIOViewRange(left, top + i * itemHeight, width - left, itemHeight);
+                        range.SetText(menu.GetLabel(i));
+
+                        ranges[i] = range;
+
+                        AddViewRange(range);
                     }
-                    else
+                }
+
+                if (ranges != null)
+                {
+                    for (int i = 0; i < ranges.Length; i++)
                     {
-                        ranges[i].SetBorder(0);
-                        ranges[i].SetPadding(2);
+                        ranges[i].SetTop(top + i * itemHeight);
+                        ranges[i].SetWidth(width - left);
+                        ranges[i].SetHeight(itemHeight);
+
+                        if (menu.index == i)
+                        {
+                            ranges[i].SetBorder(1);
+                            ranges[i].SetPadding(1);
+                        }
+                        else
+                        {
+                            ranges[i].SetBorder(0);
+                            ranges[i].SetPadding(2);
+                        }
                     }
                 }
             }
