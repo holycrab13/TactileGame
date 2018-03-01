@@ -8,6 +8,7 @@
       <object id="stool" name="stool" desc="Ein etwas alter Barhocker. Das Sitzpolster hat schon ein paar Risse." img="bmps/stool.bmp" block="True" />
       <object id="franzl" name="Franzl" desc="Eine Person im Tutorial" img="bmps/avatar_2.bmp" block="true" />
       <object id="busch" name="busch" desc="Eine Topfpflanze. Wahrscheinlich aus Plastik." img="bmps/bush.bmp" block="True" />
+      <object id="busch_last" name="busch_last" desc="Na gut. Das hier ist eine Birke. Ein riesige Birke. Ach nee. Doch eine Topfpflanze aus Plastik." img="bmps/bush.bmp" block="True" />
     </objects>
     <events>
       <event id="tutorial_load">
@@ -99,7 +100,7 @@
   </triggers>
 
   <decos>
-    <deco obj="busch" x="11" y="3" r="0" />
+    <deco obj="busch_last" x="11" y="3" r="0" />
     <deco obj="busch" x="6" y="9" r="0" />
     <deco obj="busch" x="2" y="9" r="0" />
     <deco obj="busch" x="1" y="2" r="0" />

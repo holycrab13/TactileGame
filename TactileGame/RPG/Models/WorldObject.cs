@@ -54,6 +54,11 @@ namespace TactileGame.RPG.Models
         public int Height { get { return Pattern.GetLength(1); } }
 
         /// <summary>
+        /// Interaction priority
+        /// </summary>
+        public int Priority { get; set; }
+
+        /// <summary>
         /// Indicates whether characters can walk through the object or not
         /// </summary>
         public bool BlocksPath { get; set; }

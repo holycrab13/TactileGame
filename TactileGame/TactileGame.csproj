@@ -69,6 +69,7 @@
     <Compile Include="RPG\Actions\DialogueAction.cs" />
     <Compile Include="RPG\Actions\Goto.cs" />
     <Compile Include="RPG\Actions\GotoLevel.cs" />
+    <Compile Include="RPG\Actions\PickItem.cs" />
     <Compile Include="RPG\Actions\Trigger.cs" />
     <Compile Include="RPG\Actions\Interact.cs" />
     <Compile Include="RPG\Actions\Move.cs" />
@@ -173,6 +174,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\bmps\avatar_self.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\bmps\avatar.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

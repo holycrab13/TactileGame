@@ -17,11 +17,6 @@ namespace TactileGame.RPG.Models
         private DialogueAction dialogue;
 
         /// <summary>
-        /// the current phrase index
-        /// </summary>
-        private int index;
-
-        /// <summary>
         /// The current answer (null if there is none)
         /// </summary>
         private Answer currentAnswer;
@@ -31,14 +26,6 @@ namespace TactileGame.RPG.Models
         /// </summary>
         private WorldObject target;
 
-
-        /// <summary>
-        /// Increases the phrase index
-        /// </summary>
-        internal void SetNext()
-        {
-            index++;
-        }
 
         /// <summary>
         /// Gets the phrase at the current index position
@@ -56,7 +43,6 @@ namespace TactileGame.RPG.Models
         internal void SetDialogue(DialogueAction dialogue)
         {
             this.dialogue = dialogue;
-            this.index = 0;
             this.currentAnswer = null;
 
 
@@ -90,27 +76,7 @@ namespace TactileGame.RPG.Models
         internal void Clear()
         {
             this.dialogue = null;
-            this.index = 0;
             this.currentAnswer = null;
-        }
-
-
-        /// <summary>
-        /// Sets the target of the current dialogue
-        /// </summary>
-        /// <param name="target"></param>
-        internal void SetTarget(WorldObject target)
-        {
-            this.target = target;
-        }
-
-        /// <summary>
-        /// Gets the target of the current dialogue
-        /// </summary>
-        /// <returns></returns>
-        internal WorldObject GetTarget()
-        {
-            return target;
         }
 
         internal bool Confirm(LevelModel level)

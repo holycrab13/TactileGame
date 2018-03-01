@@ -2,10 +2,12 @@
 using BrailleIO.Interface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using TactileGame.RPG.Controller;
 using TactileGame.RPG.Files;
 using TactileGame.RPG.Models;
@@ -38,11 +40,6 @@ namespace TactileGame.RPG.Menu
         /// The level controller
         /// </summary>
         private LevelController levelController;
-
-        /// <summary>
-        /// The timer running the game loop
-        /// </summary>
-        private readonly Timer timer;
 
         /// <summary>
         /// The shared game input model
@@ -93,6 +90,9 @@ namespace TactileGame.RPG.Menu
         /// The language settings
         /// </summary>
         private LL ll;
+        private Task gameThread;
+        private bool gameRunning;
+        private bool textRegionDirty;
 
         /// <summary>
         /// Creates a new gamescreen
@@ -105,8 +105,6 @@ namespace TactileGame.RPG.Menu
             this.ll = ll;
             this.SetWidth(width);
             this.SetHeight(height);
-            // Setup timer
-            timer = new Timer(new TimerCallback(Tick), null, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
          
             mainRegion = new BrailleIOViewRange(0, 0, width, height);
             detailRegion = new BrailleIOViewRange(0, height - 18, width, 18);
@@ -141,11 +139,15 @@ namespace TactileGame.RPG.Menu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tick(object sdfgsdfg)
+        private void Tick()
         {
-
             // Push the last update to the screen
-            Render();
+
+            if(!buffers[0].Equals(buffers[1]) || textRegionDirty)
+            {
+                textRegionDirty = false;
+                Render();
+            }
 
             // Update the controllers
             characterController.Update();
@@ -154,8 +156,6 @@ namespace TactileGame.RPG.Menu
 
 
             // Do the rendering/sound stuff. TODO: Clean this up with views
-            
-
             buffers[bufferIndex].Clear();
 
             buffers[bufferIndex].X = (levelModel.Avatar.X + levelModel.Avatar.Width / 2) - buffers[bufferIndex].Width / 2;
@@ -180,12 +180,16 @@ namespace TactileGame.RPG.Menu
                 if (detailRegion.GetText() != gameDialogue.GetCurrent())
                 {
                     detailRegion.SetText(gameDialogue.GetCurrent());
+                    textRegionDirty = true;
                     Audio.AbortCurrentSound();
                     Audio.PlaySound(gameDialogue.GetCurrent());
                 }
 
                 if (!detailRegion.IsVisible()) 
+                {
                     detailRegion.SetVisibility(true);
+                    textRegionDirty = true;
+                }
             }
             else
             {
@@ -193,7 +197,10 @@ namespace TactileGame.RPG.Menu
                 detailRegion.SetText(string.Empty);
 
                 if(detailRegion.IsVisible()) 
+                {
+                    textRegionDirty = true;
                     detailRegion.SetVisibility(false);
+                }
             }
         }
 
@@ -215,8 +222,21 @@ namespace TactileGame.RPG.Menu
         protected override void OnShow()
         {
             detailRegion.SetVisibility(false);
-            timer.Change(0, 50);
-            System.Diagnostics.Debug.WriteLine("---------- Timer started: " + timer);
+
+            gameThread = new Task(new Action(() => gameLoop()));
+            gameThread.Start();
+        }
+
+        private void gameLoop()
+        {
+            gameRunning = true;
+
+            while (gameRunning)
+            {
+                Tick();
+
+                Thread.Sleep(50);
+            }
 
         }
 
@@ -225,8 +245,7 @@ namespace TactileGame.RPG.Menu
         /// </summary>
         protected override void OnHide()
         {
-            timer.Change(System.Threading.Timeout.Infinite,System.Threading.Timeout.Infinite);
-            System.Diagnostics.Debug.WriteLine("---------- Timer stoped: " + timer);
+            gameRunning = false;
         }
 
         /// <summary>

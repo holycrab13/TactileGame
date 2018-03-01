@@ -6,7 +6,7 @@
       <object id="fenster" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window.bmp" block="true" />
       <object id="fenster_offen" name="Fenster" desc="Das Fenster ist leicht geöffnet und lässt den Gesang von Vögeln hinein. Außerdem riecht es nach den ersten Blühten." img="bmps/window_open.bmp" block="true" />
       <object id="door" name="Tür" desc="Eine Tür aus Holz." img="bmps/door_north.bmp" block="true" />
-      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="bmps/key.bmp" block="true" />
+      <object id="schluessel" name="Zellenschlüssel" desc="Da hängt der Schlüssel für unsere Zelle an der Wand. Wir benutzen den nie." img="bmps/key.bmp" block="false" />
       <object id="gitter" name="Gitter" desc="Ein altes rostiges Zellengitter. Die Zelle wird hier nicht benutzt." img="bmps/cell.bmp" block="true" />
       <object id="desk_office" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk_keyboard.bmp" block="true" />
       <object id="desk" name="Schreibtisch" desc="Das ist mein Schreibtisch mit einem alten Computer darauf." img="bmps/desk.bmp" block="true" />

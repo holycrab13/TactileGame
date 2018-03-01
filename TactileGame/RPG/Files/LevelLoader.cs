@@ -82,7 +82,7 @@ namespace TactileGame.RPG.Files
                 Id = "avatar",
                 Name = "Avatar",
                 Description = "This is me!",
-                Texture = BooleanTexture.FromFile("Resources/bmps/avatar_2.bmp"),
+                Texture = BooleanTexture.FromFile("Resources/bmps/avatar_self.bmp"),
             };
 
             result.Avatar = character;
@@ -131,6 +131,11 @@ namespace TactileGame.RPG.Files
                     trigger.width = Constants.TILE_SIZE * XmlUtil.Get(node, "width", 1);
                     trigger.height = Constants.TILE_SIZE * XmlUtil.Get(node, "height", 1);
                     trigger.levelEvent = XmlUtil.Get(node, "event", string.Empty);
+
+                    if (result.Events.FirstOrDefault(e => e.id.Equals(trigger.levelEvent)) == null)
+                    {
+                        Console.WriteLine("WARNING: Trigger " + trigger.levelEvent + " pointing to unkown event!");
+                    }
 
                     result.Triggers.Add(trigger);
                 }
@@ -195,11 +200,29 @@ namespace TactileGame.RPG.Files
                         Description = blueprint.Description,
                     };
 
+                    string eventId = "pick_up_" + item.Id;
+
+                    Event pickUpEvent = new Event();
+                    pickUpEvent.id = eventId;
+                    pickUpEvent.conditions = new string[0];
+                    pickUpEvent.inverseConditions = new string[] { item.Id + "_gefunden" };
+                    pickUpEvent.actions.Add(new PickItem(item));
+
+                    EventTrigger trigger = new EventTrigger();
+                    trigger.x = item.X;
+                    trigger.y = item.Y;
+                    trigger.levelEvent = eventId;
+                    trigger.height = 1;
+                    trigger.width = 1;
+
+                    result.Triggers.Add(trigger);
+                    result.Events.Add(pickUpEvent);
+
                     if (!Game.HasKnowledge(item.Id + "_gefunden"))
                     {
                         Phrase talk = new Phrase()
-                            {  
-                                text = "Du hast " + blueprint.Name + " gefunden.",
+                        {  
+                            text = "Du hast " + blueprint.Name + " gefunden.",
                             sets = new string[] { "hat_" + item.Id, item.Id + "_gefunden" }
                         };
 
@@ -320,6 +343,7 @@ namespace TactileGame.RPG.Files
                 Y = Constants.TILE_SIZE * y,
                 Trigger = XmlUtil.Get(node, "trigger", string.Empty),
                 Rotation = XmlUtil.Get(node, "r", Direction.DOWN),
+                Priority = XmlUtil.Get(node, "prio", 0),
                 Conditions = XmlUtil.GetArray(node, "if", ' '),
                 InverseConditions = XmlUtil.GetArray(node, "not", ' '),
                 Id = XmlUtil.Get(node, "id", "object"),
@@ -341,7 +365,6 @@ namespace TactileGame.RPG.Files
             foreach (XmlNode actionNode in node.ChildNodes)
             {
                 evnt.actions.Add(loadAction(actionNode));
-              
             }
 
             return evnt;
@@ -515,7 +538,7 @@ namespace TactileGame.RPG.Files
                 return triggerEvent;
             }
 
-            return null;
+            throw new InvalidOperationException("Error in level file at node " + actionNode.Name);
         }
 
         private static Direction directionFromString(string p)

@@ -566,7 +566,7 @@
     <range x="-7" y="-5" width="1" height="6">
       <deco obj="cobble_pave_mueller" r="0" />
     </range>
-    <deco obj="mueller_auto" x="-7" y="-2" r="0" />
+    <deco obj="mueller_auto" x="-7" y="-2" r="0" prio="1"/>
     <!-- Müllers Grundstück 13x10 -->
     <!-- Umzäunung -->
     <!-- Süden Umzäunung-->

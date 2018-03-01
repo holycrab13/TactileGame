@@ -31,16 +31,19 @@ namespace TactileGame.RPG.Models
 		internal WorldObject GetTarget(Character character)
 		{
             Rectangle lookAt = character.GetLookAt();
+            List<WorldObject> targets = new List<WorldObject>();
 
             foreach (WorldObject worldObject in Objects)
             {
                 if (worldObject.Overlaps(lookAt.X, lookAt.Y, lookAt.Width, lookAt.Height))
                 {
-                    return worldObject;
+                    targets.Add(worldObject);
                 }
             }
 
-            return null;
+            targets = targets.OrderByDescending(t => t.Priority).ToList();
+
+            return targets.FirstOrDefault();
 		}
 
 		internal bool IsValidPosition(Character character, int x, int y)

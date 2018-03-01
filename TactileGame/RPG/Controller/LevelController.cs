@@ -148,12 +148,11 @@ namespace TactileGame.RPG.Controller
             //}
         }
 
-        private void UpdateItem(Item item)
+        public void UpdateItem(Item item)
         {
             model.events.Add(item.Event);
             model.level.Objects.Remove(item);
             model.level.Avatar.Inventory.Add(item);
-            
         }
 
         /// <summary>

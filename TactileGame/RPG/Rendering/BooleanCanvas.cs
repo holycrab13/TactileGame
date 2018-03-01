@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TactileGame.RPG.Models;
 namespace TactileGame.RPG
 {
-    class BooleanCanvas
+    class BooleanCanvas 
     {
         public int Width { get; private set; }
 
@@ -105,5 +105,36 @@ namespace TactileGame.RPG
         {
             return Overlaps(worldObject.X, worldObject.Y, worldObject.Width, worldObject.Height);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is BooleanCanvas)
+            {
+                BooleanCanvas other = obj as BooleanCanvas;
+
+                if (other.Width == Width && other.Height == Height)
+                {
+                    for (int i = 0; i < Width; i++)
+                    {
+                        for (int j = 0; j < Height; j++)
+                        {
+                            if (_values[j, i] != other._values[j, i])
+                            {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

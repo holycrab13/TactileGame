@@ -27,7 +27,7 @@
       <event id="Felix_Anne_dating">
         <phrase>Vielleicht hat Anne ihre Eltern endlich überzeugen können in die Stadt zu ziehen. Sie hasst das Dorfleben.</phrase>
         <phrase>Außerdem hat sie die letzten Wochen wohl mit so einem Typen aus der Stadt geschrieben, den sie über eine Datingwebsite kennengelernt hat.</phrase>
-        <prase set="Anne_onlinedating">Ich glaube sie haben letzte Woche zum ersten mal telefoniert. Die Mädels haben darüber geredet.</prase>
+        <phrase set="Anne_onlinedating">Ich glaube sie haben letzte Woche zum ersten mal telefoniert. Die Mädels haben darüber geredet.</phrase>
       </event>
       <event id="Felix_Anne_Handy">
         <phrase>Da kann ich dir nicht sonderlich weiterhelfen. Vielleicht solltest du die Leute im Klassenzimmer mal befragen?</phrase>
