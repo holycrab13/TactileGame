@@ -21,7 +21,7 @@ namespace TactileGame.RPG.Menu
             this.ll = ll;
 
             title = new BrailleIOViewRange(2, 2, width - 4, height - 4);
-            title.SetText(ll.GetTrans("game.title"));
+            title.SetText(ll.GetTrans("game.title") + "\n" + ll.GetTrans("game.keybindings"));
 
             AddViewRange(title);
         }
@@ -41,13 +41,13 @@ namespace TactileGame.RPG.Menu
             title.SetTop(2);
             title.SetWidth(width - 4);
             title.SetHeight(width - 4);
-            title.SetText(ll.GetTrans("game.title"));
+            title.SetText(ll.GetTrans("game.title") + "\n" + ll.GetTrans("game.keybindings"));
         }
 
         protected override void OnShow()
         {
             Audio.AbortCurrentSound();
-            Audio.PlaySound(ll.GetTrans("game.title"));
+            Audio.PlaySound(ll.GetTrans("game.title") + " " + ll.GetTrans("game.keybindings"));
         }
 
         protected override void OnHide()
