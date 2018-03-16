@@ -73,7 +73,7 @@
       <object id="roof_school_south_east" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht." img="bmps/roof_south_east.bmp" block="true" />
       <object id="roof_school_south_west" name="Dach" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht." img="bmps/roof_south_west.bmp" block="true" />
       <object id="schoolschild" name="Schild" desc="Da steht: 233. Grund- und 154. Gesamtschule" img="bmps/door_sign.bmp" block="true" />
-      <object id="door_school" name="Tür Schule" desc="Eine moderne leichte EIngangtür. Sie führt in die ebenfalls sehr modern und kantig gehaltene Schule des Dorfes." img="bmps/door_north.bmp" block="true" />
+      <object id="door_school" name="Tür Schule" desc="In der Schule würde ich jetzt nur den Unterricht stören." img="bmps/door_south.bmp" block="true" />
       <object id="window_school" name="Fenster Schule" desc="Das Fenster zur Schule. Leider fehlt Geld und Zeit um sie mal wieder in Schuss zu bringen: die Farbe ist an vielen stellen abgeplatz." img="bmps/window_old.bmp" block="true" />
       <object id="wand_school" name="Wand Schule" desc="Die einzige Schule weit und breit. Aus allen umliegenden Dörfern kommen die Kinder zum Unterricht." img="bmps/wall.bmp" block="true" />
       <object id="wand_major" name="Wand Bürgermeister" desc="Das Haus des Bürgermeisters: ebenfalls ein altes Haus, aber es wird ständig in Schuss gehalten. Der Putz ist rau und gleichmäßig." img="bmps/wall.bmp" block="true" />
@@ -341,7 +341,6 @@
   </triggers>
   <doors>
     <door obj="door_police" x="0" y="-1" target="police" r="0" targetX="1" targetY="4" />
-    <door obj="door_school" x="5" y="7" target="school" r="0" targetX="4" targetY="2" />
     <door obj="door_major" x="10" y="-3" target="major_house" r="0" targetX="0" targetY="0" />
   </doors>
   <decos>
@@ -485,6 +484,7 @@
       <deco obj="cobble_pave_school" r="0" />
     </range>
     <!-- Schulgebäude 11x4 -->
+    <deco obj="door_school" x="5" y="7" r="2" />
     <range x="2" y="8" width="10" height="1">
       <deco obj="wand_school" r="2" />
     </range>
