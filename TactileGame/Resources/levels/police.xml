@@ -41,6 +41,7 @@
         <phrase>Niemandem ist der Fingernagel abgebrochen. Das ist mir nur einmal passiert und da war der halbe Nagel kaputt. Hör bitte auf das ständig zu erwähnen. Anne, die Tochter der Müllers, ist die letzten Tage nicht in der Schule gewesen und keiner weiß warum.</phrase>
         <phrase>Vielleicht hat Paul etwas damit zu tun. Du weißt schon: er ist gerade erst aus dem Gefängnis entlassen worden und schon passiert wieder was.</phrase>
         <phrase>Ich hoffe du kümmerst dich um die Sache. Ich muss hier noch ein wenig Papierkram erledigen.</phrase>
+        <turn taget="miriam">DOWN</turn>
       </event>
       <event id="idle" if="hintergrund"></event>
     </events>
@@ -93,6 +94,7 @@
   <npcs>
     <npc id="miriam" obj="miri" x="3" y="1" r="0" >
       <phrase>Ich hoffe du kümmerst dich um die Sache mit Anne.</phrase>
+      <turn target="miriam">DOWN</turn>
     </npc>
   </npcs>
 </level>
