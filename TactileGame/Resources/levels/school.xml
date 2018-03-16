@@ -189,13 +189,16 @@
           <answer trigger="Handy_nummern">Welche Nummern wurden denn zu letzt gewählt.</answer>
         </question>
       </event>
+      <event id="verlassen">
+        <phrase>Ich habe Annes Handy noch nicht gefunden. Es muss hier sein und es ist angeschaltet!</phrase>
+        <turn>DOWN</turn>
+      </event>
     </events>
   </definition>
   <triggers>
     <trigger x="2" y="3" width="8" height="1" event="hintergrund"/>
   </triggers>
   <doors>
-    <door obj="door" x="4" y="1" target="village1" targetX="-7" targetY="-5" />
     <door obj="door_A" x="6" y="8" target="classroom" targetX="6" targetY="2" />
   </doors>
   <decos>
@@ -265,5 +268,6 @@
     <npc id="schueler_C2" obj="schueler" trigger="Klasse_c_gespräch" x="22" y="6" r="1" />
     <npc id="schueler_C3" obj="schueler" trigger="Klasse_c_gespräch" x="21" y="7" r="3" />
     <npc id="schueler_C4" obj="schueler" trigger="Klasse_c_gespräch" x="22" y="7" r="1" />
+    <door id="school_door" obj="door" trigger="verlassen" x="4" y="1" r="0" />
   </npcs>
 </level>
