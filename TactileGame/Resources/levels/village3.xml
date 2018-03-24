@@ -141,7 +141,6 @@
   </triggers>
   <doors>
     <door obj="door_police" x="0" y="-1" target="police" r="0" targetX="1" targetY="4" />
-    <door obj="door_mueller" x="-7" y="-6" target="mueller_house" r="0" targetX="0" targetY="0" />
     <door obj="door_school" x="5" y="7" target="school" r="0" targetX="4" targetY="2" />
     <door obj="door_major" x="10" y="-3" target="major_house" r="0" targetX="0" targetY="0" />
   </doors>
@@ -400,6 +399,7 @@
     </range>
     <deco obj="roof_mueller_north_east" x="-6" y="-9" r="0" />
     <!-- Haus Muellers 4x4 -->
+    <deco obj="door_mueller" x="-7" y="-6" r="0" />
     <!-- westliche Wand -->
     <range x="-9" y="-8" width="1" height="2">
       <deco obj="roof_mueller_west" r="0" />
