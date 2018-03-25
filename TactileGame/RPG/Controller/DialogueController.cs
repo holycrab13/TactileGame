@@ -15,67 +15,61 @@ namespace TactileGame
         private GameInput input;
         private DialogueModel model;
         private LevelModel level;
+        
+        private Dictionary<InputButton, bool> pressedMap;
+
+        public DialogueController()
+        {
+            pressedMap = new Dictionary<InputButton, bool>();
+            pressedMap[InputButton.A] = false;
+            pressedMap[InputButton.LEFT] = false;
+            pressedMap[InputButton.RIGHT] = false;
+            pressedMap[InputButton.DOWN] = false;
+            pressedMap[InputButton.UP] = false;
+        }
 
         internal void Update()
         {
 
+            InputState inputState = input.GetState();
+
             if (GameScreen.gameState == RPG.GameState.Event)
             {
-                InputState inputState = input.GetState();
 
                 if (model.HasAction())
                 {
-                    if (!inputState.IsKeyDown(InputButton.A) && lastState.IsKeyDown(InputButton.A))
-                    {
-                        if (!model.Confirm(level))
-                        {
-                            AudioRenderer.Instance.AbortCurrentSound();
-                            AudioRenderer.Instance.PlaySound("Bitte wähle eine Antwort mit den Pfeiltasten aus.");
-                        }
-                    }
-
-                   
-
-                    //if (model.HasQuestion())
-                    //{
-
-                       
-
-                        //if (!inputState.IsKeyDown(InputButton.UP) && lastState.IsKeyDown(InputButton.UP))
-                        //{
-                        //    if (model.GetQuestion().SetAnswer(0))
-                        //    {
-                        //        readAnswer(model.GetQuestion().GetAnswerText());
-                        //    }
-                        //}
-
-                        //if (!inputState.IsKeyDown(InputButton.RIGHT) && lastState.IsKeyDown(InputButton.RIGHT))
-                        //{
-                        //    if (model.GetQuestion().SetAnswer(1))
-                        //    {
-                        //        readAnswer(model.GetQuestion().GetAnswerText());
-                        //    }
-                        //}
-
-                        //if (!inputState.IsKeyDown(InputButton.DOWN) && lastState.IsKeyDown(InputButton.DOWN))
-                        //{
-                        //    if (model.GetQuestion().SetAnswer(2))
-                        //    {
-                        //        readAnswer(model.GetQuestion().GetAnswerText());
-                        //    }
-                        //}
-
-                        //if (!inputState.IsKeyDown(InputButton.LEFT) && lastState.IsKeyDown(InputButton.LEFT))
-                        //{
-                        //    if (model.GetQuestion().SetAnswer(3))
-                        //    {
-                        //        readAnswer(model.GetQuestion().GetAnswerText());
-                        //    }
-                        //}
-                    //}
+                    updateDialogue(inputState, InputButton.A);
+                    updateDialogue(inputState, InputButton.LEFT);
+                    updateDialogue(inputState, InputButton.RIGHT);
+                    updateDialogue(inputState, InputButton.DOWN);
+                    updateDialogue(inputState, InputButton.UP);
                 }
+                else
+                {
+                    pressedMap[InputButton.A] = false;
+                    pressedMap[InputButton.LEFT] = false;
+                    pressedMap[InputButton.RIGHT] = false;
+                    pressedMap[InputButton.DOWN] = false;
+                    pressedMap[InputButton.UP] = false;
+                }
+            }
 
-                lastState = inputState;
+            lastState = inputState;
+        
+        }
+
+        private void updateDialogue(InputState inputState, InputButton button)
+        {
+
+            if (inputState.IsKeyDown(button) && !lastState.IsKeyDown(button))
+            {
+                pressedMap[button] = true;
+            }
+
+            if (!inputState.IsKeyDown(button) && lastState.IsKeyDown(button) && pressedMap[button])
+            {
+                model.Confirm(level);
+                pressedMap[button] = false;
             }
         }
 

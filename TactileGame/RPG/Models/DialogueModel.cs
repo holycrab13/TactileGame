@@ -17,11 +17,6 @@ namespace TactileGame.RPG.Models
         private DialogueAction dialogue;
 
         /// <summary>
-        /// The current answer (null if there is none)
-        /// </summary>
-        private Answer currentAnswer;
-
-        /// <summary>
         /// The target of the dialogue
         /// </summary>
         private WorldObject target;
@@ -43,7 +38,6 @@ namespace TactileGame.RPG.Models
         internal void SetDialogue(DialogueAction dialogue)
         {
             this.dialogue = dialogue;
-            this.currentAnswer = null;
 
 
 
@@ -52,31 +46,13 @@ namespace TactileGame.RPG.Models
         
 
       
-        /// <summary>
-        /// Set the answer of the question
-        /// </summary>
-        /// <param name="answer"></param>
-        internal void SetAnswer(Answer answer)
-        {
-            currentAnswer = answer;
-        }
-
-        /// <summary>
-        /// Gets the last set answer of the current question
-        /// </summary>
-        /// <returns></returns>
-        internal Answer GetAnswer()
-        {
-            return currentAnswer;
-        }
-
+  
         /// <summary>
         /// Clears the dialgue model
         /// </summary>
         internal void Clear()
         {
             this.dialogue = null;
-            this.currentAnswer = null;
         }
 
         internal bool Confirm(LevelModel level)

@@ -28,7 +28,7 @@ namespace TactileGame.RPG.Menu
 
         public override void HandleInteraction(BrailleIO_DeviceButtonStates keyEvent)
         {
-            if (keyEvent != BrailleIO_DeviceButtonStates.None)
+            if (keyEvent == BrailleIO_DeviceButtonStates.EnterUp)
             {
                 Audio.PlayWave(StandardSounds.Start);
                 Game.GoToScreen(Game.mainMenuScreen);
