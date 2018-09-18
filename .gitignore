@@ -1,4 +1,5 @@
-﻿/TactileGame/bin/Debug/
+/TactileGame/bin/
+/TactileGame/obj/
 *Debug*
 *.suo*
 */Thumbs.db
@@ -6,5 +7,5 @@
 *.log
 *metadata*
 *.dll*
-Tactile WYSIWYG/
-*~lock*
+/Libs
+.vs/
