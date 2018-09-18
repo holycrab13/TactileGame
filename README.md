@@ -2,8 +2,6 @@
 
 An XML-based engine for low-resolution explorative role-playing games.
 
-[TOC]
-
 ## Introduction
 
 The Tactile RPG Engine has been developed for a university project at the TU Dresden in order to create a role-playing game for tactile displays. These displays offer a mechanical low-resolution displays where pixels are device-driven. Using a tactile display, vision-impaired users can read text (Braille), discover images and even play games.
@@ -24,7 +22,7 @@ The following section will give a short overview of the basic structure of the T
 
 The Tactile RPG Engine allows users to create simple low-resolution explorative RPGs. The main inspiration comes from the Pokémon-Series made for Nintendo's GameBoy. The players control a character, which always remains in the center of the screen, while the world changes while the character moves around.
 
-![Screen1](E:\Documents\Tactile Game Documentation\Images\Screen1.png)
+![Screen1](Images/Screen1.png)
 
 The user can press a button to interact with the game world and trigger events, which drive the story forward. Changes to the game world and player knowledge will then activate different events. 
 
@@ -704,17 +702,17 @@ Each object definition points to a bitmap file which describes the looks of an o
 
 To encode all three cases, a simple black and white bitmap did not suffice. Therefore we are using colored bitmaps, where `rgb(1, 0, 0)` describes the first, `rgb(1, 1, 0)` the second and `rgb(1, 1, 1)` the third case.
 
-![Bush](Images\Bush.png)
+![Bush](Images/Bush.png)
 
 The example graphics shows what is supposed to be a bush (16x16 pixel). The white pixels will not change the canvas, the red pixels will set the respective canvas pixels to `true`, the yellow pixels will set the respective canvas pixels to `false`.
 
-![Car](Images\Car.png)
+![Car](Images/Car.png)
 
 The Bitmaps must be multiples of the grid size. The dimension of the bitmap implicitly defines the grid width and height of  an object. The bitmap of this 16x32 pixel car graphic will result in a car object covering 1x2 tiles (using the default grid size of 16)
 
 
 
-![Screen2](Images\Screen2.png)
+![Screen2](Images/Screen2.png)
 
 The screenshot shows a simple scene rendered with the BrailleIO emulator.
 
